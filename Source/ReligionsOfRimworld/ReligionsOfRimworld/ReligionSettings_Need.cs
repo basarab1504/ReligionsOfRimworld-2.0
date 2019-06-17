@@ -16,5 +16,10 @@ namespace ReligionsOfRimworld
             if(needDef != null)
                 yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), needDef.seekerFallPerHour.ToString());
         }
+
+        public override void ExposeData()
+        {
+            Scribe_Defs.Look<NeedDef>(ref this.needDef, "needDef");
+        }
     }
 }
