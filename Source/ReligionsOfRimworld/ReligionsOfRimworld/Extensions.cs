@@ -12,5 +12,10 @@ namespace ReligionsOfRimworld
         {
             return (ReligionManager)Find.World.components.FirstOrDefault(x => x is ReligionManager);
         }
+
+        public static CompFaith GetFaithComponent(this Pawn pawn)
+        {
+            return pawn.TryGetComp<CompFaith>();
+        }
     }
 }

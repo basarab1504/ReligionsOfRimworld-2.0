@@ -17,6 +17,9 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<ReligionInfo> GetInfo()
         {
+            ReligionInfo category = new ReligionInfo("ReligionInfo_Overall".Translate());
+            category.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description));
+            yield return category;
             foreach (ReligionSettingsDef def in settingsDefs)
                 yield return def.GetInfoCategory();
         }

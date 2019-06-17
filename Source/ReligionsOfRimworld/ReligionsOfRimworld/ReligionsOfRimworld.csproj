@@ -38,6 +38,10 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="HugsLib">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\818773962\Assemblies\HugsLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,11 +54,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompFaith.cs" />
+    <Compile Include="CompProperties_FaithComp.cs" />
     <Compile Include="Dialog_ReligionInfo.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="FaithCardUtility.cs" />
     <Compile Include="GraphicCache.cs" />
+    <Compile Include="ITab_Pawn_Faith.cs" />
     <Compile Include="MainTabWindow_Religions.cs" />
     <Compile Include="Need_Piety.cs" />
+    <Compile Include="PawnReligionGenerator.cs" />
+    <Compile Include="Pawn_PietyTracker.cs" />
     <Compile Include="Religion.cs" />
     <Compile Include="ReligionDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +74,7 @@
     <Compile Include="ReligionSettings.cs" />
     <Compile Include="ReligionSettingsDef.cs" />
     <Compile Include="ReligionSettings_Need.cs" />
+    <Compile Include="ReligionsOfRimworldModBase.cs" />
     <Compile Include="ReligionsTabUtility.cs" />
     <Compile Include="SettingsTagDef.cs" />
     <Compile Include="SettingsTagDefOf.cs" />
