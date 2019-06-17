@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MainButtonDef>
+    <defName>Religions</defName>
+    <label>religions</label>
+    <description>Review the other factions on this world and their relationships.</description>
+    <tabWindowClass>ReligionsOfRimworld.MainTabWindow_Religions</tabWindowClass>
+    <order>90</order>
+    <defaultHotKey>F12</defaultHotKey>
+    <validWithoutMap>true</validWithoutMap>
+  </MainButtonDef>
+
+</Defs>
