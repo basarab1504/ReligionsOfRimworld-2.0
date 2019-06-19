@@ -9,33 +9,41 @@ namespace ReligionsOfRimworld
 {
     public class ReligionManager : WorldComponent
     {
-        public List<Religion> allReligions;
+        private List<Religion> allReligions;
 
         public ReligionManager(World world) : base(world)
         {
             allReligions = new List<Religion>();
         }
 
-        private void CreateReligions()
+        public List<Religion> AllReligions
         {
-            if(allReligions.NullOrEmpty())
-            foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                allReligions.Add(new Religion(def));
+            get => allReligions;
         }
 
         public override void FinalizeInit()
         {
-            CreateReligions();
+            if (allReligions.NullOrEmpty())
+                CreateReligions();
+            else
+                RecacheReligions();
+        }
+
+        private void CreateReligions()
+        {
+            foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
+                allReligions.Add(new Religion(def));
+        }
+
+        private void RecacheReligions()
+        {
+
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Collections.Look<Religion>(ref allReligions, "allReligions", LookMode.Deep);
-            //if (Scribe.mode != LoadSaveMode.LoadingVars)
-            //    return;
-            //for (int index = 0; index < this.activeConditions.Count; ++index)
-            //    this.activeConditions[index].gameConditionManager = this;
         }
     }
 }

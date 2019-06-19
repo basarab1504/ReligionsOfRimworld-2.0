@@ -9,7 +9,12 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettings_Need : ReligionSettings
     {
-        public NeedDef needDef;
+        private NeedDef needDef;
+
+        public NeedDef NeedDef
+        {
+            get => needDef;
+        }
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {

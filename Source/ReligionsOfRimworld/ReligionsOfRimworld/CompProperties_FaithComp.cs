@@ -6,11 +6,11 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    class CompProperties_FaithComp : CompProperties
+    class CompProperties_ReligionComp : CompProperties
     {
-        public CompProperties_FaithComp()
+        public CompProperties_ReligionComp()
         {
-            this.compClass = typeof(CompFaith);
+            this.compClass = typeof(CompReligion);
         }
     }
 }

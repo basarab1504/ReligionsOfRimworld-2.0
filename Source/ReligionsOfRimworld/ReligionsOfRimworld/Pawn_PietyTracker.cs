@@ -11,9 +11,18 @@ namespace ReligionsOfRimworld
         private Pawn pawn;
         private Need_Piety piety;
 
-        public Pawn_PietyTracker(Pawn pawn)
+        public Pawn_PietyTracker(Pawn pawn) //Do not use! Used on game loading
         {
             this.pawn = pawn;
+        }
+
+        public Pawn_PietyTracker(Pawn pawn, Religion religion)
+        {
+            this.pawn = pawn;
+            this.piety = new Need_Piety(pawn)
+            {
+                def = religion.NeedSettings.NeedDef
+            };
         }
 
         public Need_Piety Piety
@@ -32,7 +41,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            Scribe_Deep.Look<Need_Piety>(ref this.piety, "piety", (object)(this.pawn));
+            Scribe_Deep.Look<Need_Piety>(ref this.piety, "piety", pawn);
         }
     }
 }

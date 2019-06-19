@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ReligionsOfRimworld
 {
-    public static class FaithCardUtility
+    public static class ReligionCardUtility
     {
         //private static List<PietyMultiplier> multipliers = new List<PietyMultiplier>();
         private static readonly Color MoodColor = new Color(0.1f, 1f, 0.1f);
@@ -17,27 +17,27 @@ namespace ReligionsOfRimworld
 
         private static Pawn selPawn;
 
-        static CompFaith Faith
+        static CompReligion compReligion
         {
-            get => selPawn.GetFaithComponent();
+            get => selPawn.GetReligionComponent();
         }
 
         static Need_Piety Piety
         {
-            get => Faith.PietyTracker.Piety;
+            get => compReligion.ReligionTracker.PietyTracker.Piety;
         }
 
         static Religion Religion
         {
-            get => Faith.Religion;
+            get => compReligion.Religion;
         }
 
         static ReligionDef ReligionDef
         {
-            get => Religion.def;
+            get => Religion.ReligionDef;
         }
 
-        public static void DrawFaithCard(Rect rect, Pawn pawn)
+        public static void DrawReligionCard(Rect rect, Pawn pawn)
         {
             selPawn = pawn;
             //GUI.BeginGroup(rect);

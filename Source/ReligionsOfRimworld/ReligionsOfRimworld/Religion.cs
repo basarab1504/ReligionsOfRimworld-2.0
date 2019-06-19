@@ -9,11 +9,11 @@ namespace ReligionsOfRimworld
     public class Religion : IExposable, ILoadReferenceable
     {
         private int loadID;
-        public ReligionDef def;
-        public ReligionSettings_Need needSettings;
+        private ReligionDef def;
+        private ReligionSettings_Need needSettings;
 
-        public Religion()
-        {
+        public Religion() //Do not use! Used on game loading
+        {        
         }
 
         public Religion(ReligionDef def)
@@ -21,6 +21,17 @@ namespace ReligionsOfRimworld
             loadID = Find.UniqueIDsManager.GetNextThingID();
             this.def = def;
             InitializeReligion();
+        }
+
+        public ReligionSettings_Need NeedSettings
+        {
+            get => needSettings;
+            set => needSettings = value;
+        }
+
+        public ReligionDef ReligionDef
+        {
+            get => def;
         }
 
         private void InitializeReligion()

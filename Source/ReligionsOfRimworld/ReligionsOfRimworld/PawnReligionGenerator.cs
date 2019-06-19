@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,14 @@ namespace ReligionsOfRimworld
     {
         public static void GenerateReligionToPawn(Pawn pawn)
         {
-            CompFaith faith = pawn.GetFaithComponent();
-            Religion religion = FindExtensions.GetReligionManager().allReligions.RandomElement();
-            faith.Religion = religion;
-            //faith.compability.CalculateCompabilitites();
-            //ReligionDef religion = faith.compability.MostSuitable();
-            //faith.religionDef = religion;
-            //if (religion.needPiety != null)
-            //    faith.Piety = TryGetNeed<Need_Piety>(religion.needPiety, p);
+            CompReligion compReligion = pawn.GetReligionComponent();
+            Religion religion = FindExtensions.GetReligionManager().AllReligions.RandomElement();
+            SetReligionToPawn(compReligion, religion);
+        }
+
+        public static void SetReligionToPawn(CompReligion compReligion, Religion religion)
+        {
+            compReligion.ChangeReligion(religion);
         }
     }
 }

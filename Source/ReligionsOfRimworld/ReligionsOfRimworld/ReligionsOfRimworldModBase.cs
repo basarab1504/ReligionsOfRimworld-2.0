@@ -13,7 +13,7 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                return "Religion";
+                return "ReligionsOfRimworld";
             }
         }
 
@@ -32,10 +32,10 @@ namespace ReligionsOfRimworld
             {
                 if (thingDef.inspectorTabsResolved == null)
                     thingDef.inspectorTabsResolved = new List<InspectTabBase>(1);
-                thingDef.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(typeof(ITab_Pawn_Faith)));
+                thingDef.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(typeof(ITab_Pawn_Religion)));
                 if (thingDef.comps == null)
                     thingDef.comps = new List<CompProperties>(1);
-                thingDef.comps.Add((CompProperties)new CompProperties_FaithComp());
+                thingDef.comps.Add((CompProperties)new CompProperties_ReligionComp());
             }
         }
     }

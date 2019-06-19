@@ -4,18 +4,18 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    class ITab_Pawn_Faith : ITab
+    class ITab_Pawn_Religion : ITab
     {
-        public ITab_Pawn_Faith()
+        public ITab_Pawn_Religion()
         {
             this.size = new Vector2(500f, 400f);
-            this.labelKey = "FaithTab";
-            this.tutorTag = "Faith";
+            this.labelKey = "ReligionTab";
+            this.tutorTag = "Religion";
         }
 
         protected override void FillTab()
         {
-            FaithCardUtility.DrawFaithCard(new Rect(0.0f, 0.0f, this.size.x, this.size.y), PawnToShowInfoAbout);
+            ReligionCardUtility.DrawReligionCard(new Rect(0.0f, 0.0f, this.size.x, this.size.y), PawnToShowInfoAbout);
         }
 
         public override bool IsVisible
@@ -42,7 +42,7 @@ namespace ReligionsOfRimworld
                 }
                 if (pawn != null)
                     return pawn;
-                Log.Error("Faith tab found no selected pawn to display.", false);
+                Log.Error("Religion tab found no selected pawn to display.", false);
                 return (Pawn)null;
             }
         }
