@@ -12,15 +12,18 @@ namespace ReligionsOfRimworld
         private ReligionDef def;
         private ReligionSettings_Need needSettings;
 
-        public Religion() //Do not use! Used on game loading
+        private Religion() //Do not use! Used on game loading
         {        
         }
 
-        public Religion(ReligionDef def)
+        public Religion(ReligionDef def) : this()
         {
-            loadID = Find.UniqueIDsManager.GetNextThingID();
-            this.def = def;
-            InitializeReligion();
+            if (Scribe.mode == LoadSaveMode.Inactive)
+            {
+                loadID = Find.UniqueIDsManager.GetNextThingID();
+                this.def = def;
+                InitializeReligion();
+            }
         }
 
         public ReligionSettings_Need NeedSettings

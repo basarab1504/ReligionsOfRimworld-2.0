@@ -10,7 +10,7 @@ namespace ReligionsOfRimworld
 {
     public class Need_Piety : Need_Seeker
     {
-        //public PietyMultiplierHandler multiplier;
+        public PietyHandler pietyEffectHandler;
 
         //public float MultiplierValue
         //{
@@ -31,7 +31,8 @@ namespace ReligionsOfRimworld
         public Need_Piety(Pawn pawn)
         : base(pawn)
         {
-            //multiplier = new PietyMultiplierHandler(pawn);
+            if (Scribe.mode == LoadSaveMode.Inactive)
+                pietyEffectHandler = new PietyHandler(pawn);
             this.threshPercents = new List<float>
             {
                 0.15f,
@@ -82,10 +83,10 @@ namespace ReligionsOfRimworld
             this.CurLevel -= this.def.seekerFallPerHour * 0.06f/* * MultiplierValue*/;
         }
 
-        //public override void ExposeData()
-        //{
-        //    base.ExposeData();
-        //    Scribe_Deep.Look<PietyMultiplierHandler>(ref this.multiplier, "multiplier", pawn);
-        //}
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Deep.Look<PietyHandler>(ref this.pietyEffectHandler, "pietyEffectHandler", pawn);
+        }
     }
 }

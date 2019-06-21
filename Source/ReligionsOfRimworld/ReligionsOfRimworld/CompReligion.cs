@@ -30,7 +30,7 @@ namespace ReligionsOfRimworld
         public override void CompTick()
         {
             base.CompTick();
-            if(religion == null && parent is Pawn)
+            if (religion == null && parent is Pawn)
                 PawnReligionGenerator.GenerateReligionToPawn((Pawn)parent);
             religionTracker.TrackerTick();
         }
@@ -39,7 +39,7 @@ namespace ReligionsOfRimworld
         {
             base.PostExposeData();
             Scribe_References.Look<Religion>(ref this.religion, "religionOfPawn");
-            Scribe_Deep.Look<Pawn_ReligionTracker>(ref this.religionTracker, "religionTracker", (Pawn)parent);
+            Scribe_Deep.Look<Pawn_ReligionTracker>(ref this.religionTracker, "religionTracker", (Pawn)parent, religion);
         }
     }
 }

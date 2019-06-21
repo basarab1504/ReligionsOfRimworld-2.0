@@ -9,27 +9,23 @@ namespace ReligionsOfRimworld
     public static class ReligionCardUtility
     {
         //private static List<PietyMultiplier> multipliers = new List<PietyMultiplier>();
-        private static readonly Color MoodColor = new Color(0.1f, 1f, 0.1f);
-        private static readonly Color MoodColorNegative = new Color(0.8f, 0.4f, 0.4f);
         private static Vector2 scrollPosition = Vector2.zero;
-        private static float rowHeight = 24f;
-        private static float gap = 30f;
 
         private static Pawn selPawn;
 
-        static CompReligion compReligion
+        static CompReligion CompReligion
         {
             get => selPawn.GetReligionComponent();
         }
 
         static Need_Piety Piety
         {
-            get => compReligion.ReligionTracker.PietyTracker.Piety;
+            get => CompReligion.ReligionTracker.PietyTracker.Piety;
         }
 
         static Religion Religion
         {
-            get => compReligion.Religion;
+            get => CompReligion.Religion;
         }
 
         static ReligionDef ReligionDef

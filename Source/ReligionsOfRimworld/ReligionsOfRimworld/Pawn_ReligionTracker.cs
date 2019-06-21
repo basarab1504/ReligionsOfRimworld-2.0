@@ -11,14 +11,11 @@ namespace ReligionsOfRimworld
         private Pawn pawn;
         private Pawn_PietyTracker pietyTracker;
 
-        public Pawn_ReligionTracker(Pawn pawn) //Do not use! Used on game loading
-        {
-            this.pawn = pawn;
-        }
-
         public Pawn_ReligionTracker(Pawn pawn, Religion religion)
         {
-            pietyTracker = new Pawn_PietyTracker(pawn, religion);
+            this.pawn = pawn;
+            if (Scribe.mode == LoadSaveMode.Inactive)
+                pietyTracker = new Pawn_PietyTracker(pawn, religion);
         }
 
         public Pawn_PietyTracker PietyTracker
@@ -33,7 +30,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            Scribe_Deep.Look<Pawn_PietyTracker>(ref this.pietyTracker, "pietyTracker", pawn);
+            Scribe_Deep.Look<Pawn_PietyTracker>(ref this.pietyTracker, "pietyTracker", pawn, (Religion)null);
         }
     }
 }

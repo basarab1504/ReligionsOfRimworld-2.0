@@ -8,8 +8,18 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettingsDef : Def
     {
-        public ReligionSettings settings;
-        public SettingsTagDef tag;
+        private ReligionSettings settings;
+        private SettingsTagDef tag;
+
+        public ReligionSettings Settings
+        {
+            get => settings;
+        }
+
+        public SettingsTagDef Tag
+        {
+            get => tag;
+        }
 
         public ReligionInfo GetInfoCategory()
         {

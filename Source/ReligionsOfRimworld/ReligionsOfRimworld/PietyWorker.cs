@@ -6,13 +6,10 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class SettingsTagDef : Def
+    public abstract class PietyWorker
     {
-        private string tag;
+        public PietyDef def;
 
-        public string Tag
-        {
-            get => tag;
-        }
+        public abstract PietyState CurrentState(Pawn p);
     }
 }

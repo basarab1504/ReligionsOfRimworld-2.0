@@ -8,7 +8,7 @@ namespace ReligionsOfRimworld
 {
     public class ReligionDef : Def
     {
-        public List<ReligionSettingsDef> settingsDefs;
+        private List<ReligionSettingsDef> settingsDefs;
 
         public ReligionDef()
         {
@@ -26,12 +26,12 @@ namespace ReligionsOfRimworld
 
         public ReligionSettings FindByTag(SettingsTagDef tag)
         {
-            return settingsDefs.FirstOrDefault(x => x.tag == tag).settings;
+            return settingsDefs.FirstOrDefault(x => x.Tag == tag).Settings;
         }
 
         public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings
         {
-            return (T)settingsDefs.FirstOrDefault(x => x.tag == tag).settings;
+            return (T)settingsDefs.FirstOrDefault(x => x.Tag == tag).Settings;
         }
     }
 }

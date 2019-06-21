@@ -43,7 +43,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.Look<Religion>(ref allReligions, "allReligions", LookMode.Deep);
+            Scribe_Collections.Look<Religion>(ref allReligions, "allReligions", LookMode.Deep, (ReligionDef)null);
         }
     }
 }
