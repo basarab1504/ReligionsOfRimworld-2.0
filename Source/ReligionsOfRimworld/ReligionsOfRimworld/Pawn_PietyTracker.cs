@@ -21,10 +21,7 @@ namespace ReligionsOfRimworld
             };
         }
 
-        public Need_Piety Piety
-        {
-            get => piety;
-        }
+        public Need_Piety Piety => piety;
 
         public void TrackerTick()
         {

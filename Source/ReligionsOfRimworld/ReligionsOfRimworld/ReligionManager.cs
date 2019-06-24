@@ -7,43 +7,56 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionManager : WorldComponent
+    public class ReligionManager : IExposable
     {
+        private static ReligionManager instance;
         private List<Religion> allReligions;
 
-        public ReligionManager(World world) : base(world)
+        public ReligionManager()
         {
-            allReligions = new List<Religion>();
+            if (Scribe.mode == LoadSaveMode.Inactive)
+            {
+                Log.Message("oh siu");
+                allReligions = new List<Religion>();
+            }
         }
 
-        public List<Religion> AllReligions
+        public static ReligionManager GetReligionManager()
         {
-            get => allReligions;
+            if (instance == null)
+                instance = new ReligionManager();
+            return instance;
         }
 
-        public override void FinalizeInit()
+        public IEnumerable<Religion> AllReligions => allReligions;
+
+        public void Add(Religion religion)
         {
-            if (allReligions.NullOrEmpty())
-                CreateReligions();
-            else
-                RecacheReligions();
+            allReligions.Add(religion);
+            RecacheReligions();
         }
 
-        private void CreateReligions()
+        public void Remove(Religion religion)
+        {
+            if (allReligions.Contains(religion))
+                allReligions.Remove(religion);
+            RecacheReligions();
+        }
+
+        public void CreateReligions()
         {
             foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                allReligions.Add(new Religion(def));
+                allReligions.Add(MakeReligionFromDefUtility.MakeReligionFromDef(def));
         }
 
-        private void RecacheReligions()
+        public void RecacheReligions()
         {
 
         }
 
-        public override void ExposeData()
+        public void ExposeData()
         {
-            base.ExposeData();
-            Scribe_Collections.Look<Religion>(ref allReligions, "allReligions", LookMode.Deep, (ReligionDef)null);
+            Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep, (ReligionConfiguration)null);
         }
     }
 }

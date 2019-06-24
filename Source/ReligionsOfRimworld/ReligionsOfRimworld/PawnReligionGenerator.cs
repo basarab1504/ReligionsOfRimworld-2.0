@@ -7,12 +7,12 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public static class PawnReligionGenerator
+    public static class PawnReligionHandler
     {
         public static void GenerateReligionToPawn(Pawn pawn)
         {
             CompReligion compReligion = pawn.GetReligionComponent();
-            Religion religion = FindExtensions.GetReligionManager().AllReligions.RandomElement();
+            Religion religion = ReligionManager.GetReligionManager().AllReligions.RandomElement();
             SetReligionToPawn(compReligion, religion);
         }
 

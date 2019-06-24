@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorldGenStepDef>
+    <defName>Religions</defName>
+    <order>91</order>
+    <worldGenStep Class="ReligionsOfRimworld.WorldGenStep_Religions"/>
+  </WorldGenStepDef>
+
+</Defs>

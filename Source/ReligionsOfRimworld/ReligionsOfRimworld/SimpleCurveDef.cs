@@ -6,10 +6,10 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class SettingsTagDef : Def
+    public class SimpleCurveDef : Def
     {
-        private string tag;
+        private SimpleCurve curve;
 
-        public string Tag => tag;
+        public SimpleCurve Curve => curve;
     }
 }

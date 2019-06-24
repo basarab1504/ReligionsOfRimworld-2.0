@@ -10,7 +10,7 @@ namespace ReligionsOfRimworld
 {
     public class Dialog_ReligionInfo : Window
     {
-        private ReligionDef def;
+        private Religion religion;
         private static Vector2 scrollPosition;
         private static Vector2 secondScrollPosition;
         private static float listHeight;
@@ -32,9 +32,9 @@ namespace ReligionsOfRimworld
             }
         }
 
-        public Dialog_ReligionInfo(ReligionDef def)
+        public Dialog_ReligionInfo(Religion religion)
         {
-            this.def = def;
+            this.religion = religion;
             this.forcePause = true;
             //this.doCloseButton = true;
             this.doCloseX = true;
@@ -53,7 +53,7 @@ namespace ReligionsOfRimworld
             Rect rect1 = new Rect(inRect).ContractedBy(18f);
             rect1.height = 34f;
             Text.Font = GameFont.Medium;
-            Widgets.Label(rect1, def.label);
+            Widgets.Label(rect1, religion.Label);
             Text.Font = GameFont.Small;
             float y = 0.0f;
             Rect viewRect = new Rect(inRect.x, inRect.y + 34f, inRect.width - 16f, listHeight).ContractedBy(18f).LeftHalf();
@@ -74,7 +74,7 @@ namespace ReligionsOfRimworld
         private void DrawCategories(Rect rect, ref float y)
         {
             GUI.BeginGroup(rect);
-            foreach(ReligionInfo info in def.GetInfo())
+            foreach(ReligionInfo info in religion.Configuration.GetInfo())
             {
                 Widgets.ListSeparator(ref y, rect.width, info.Label);
                 DrawEntries(rect, ref y, info.GetInfoEntries());

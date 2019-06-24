@@ -6,29 +6,25 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public abstract class ReligionSettings : IExposable, ILoadReferenceable
-    {
-        private int loadID;    
+    public abstract class ReligionSettings : IExposable
+    { 
+        protected SettingsTagDef tag;
 
-        public ReligionSettings()
-        {           
-        }
-
-        public ReligionSettings(int loadID)
-        {
-            loadID = Find.UniqueIDsManager.GetNextThingID();
-        }
+        public SettingsTagDef Tag => tag;
 
         public abstract IEnumerable<ReligionInfoEntry> GetInfoEntries();
 
-        public string GetUniqueLoadID()
+        public ReligionInfo GetInfoCategory()
         {
-            return "ReligionSettings_" + (object)this.loadID;
+            ReligionInfo infoCategory = new ReligionInfo(tag.LabelCap);
+            infoCategory.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", tag.description));
+            infoCategory.AddRange(GetInfoEntries());
+            return infoCategory;
         }
 
         public virtual void ExposeData()
         {
-            Scribe_Values.Look<int>(ref this.loadID, "loadID");
+            Scribe_Defs.Look<SettingsTagDef>(ref this.tag, "tag");
         }
     }
 }

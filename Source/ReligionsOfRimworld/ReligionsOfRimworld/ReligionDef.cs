@@ -15,23 +15,25 @@ namespace ReligionsOfRimworld
             settingsDefs = new List<ReligionSettingsDef>();
         }
 
-        public IEnumerable<ReligionInfo> GetInfo()
-        {
-            ReligionInfo category = new ReligionInfo("ReligionInfo_Overall".Translate());
-            category.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description));
-            yield return category;
-            foreach (ReligionSettingsDef def in settingsDefs)
-                yield return def.GetInfoCategory();
-        }
+        public IEnumerable<ReligionSettingsDef> SettingsDefs => settingsDefs;
 
-        public ReligionSettings FindByTag(SettingsTagDef tag)
-        {
-            return settingsDefs.FirstOrDefault(x => x.Tag == tag).Settings;
-        }
+        //public IEnumerable<ReligionInfo> GetInfo()
+        //{
+        //    ReligionInfo category = new ReligionInfo("ReligionInfo_Overall".Translate());
+        //    category.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description));
+        //    yield return category;
+        //    foreach (ReligionSettingsDef def in settingsDefs)
+        //        yield return def.GetInfoCategory();
+        //}
 
-        public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings
-        {
-            return (T)settingsDefs.FirstOrDefault(x => x.Tag == tag).Settings;
-        }
+        //public ReligionSettings FindByTag(SettingsTagDef tag)
+        //{
+        //    return settingsDefs.FirstOrDefault(x => x.Tag == tag).Settings;
+        //}
+
+        //public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings
+        //{
+        //    return (T)settingsDefs.FirstOrDefault(x => x.Tag == tag).Settings;
+        //}
     }
 }

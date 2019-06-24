@@ -9,37 +9,44 @@ namespace ReligionsOfRimworld
     public class CompReligion : ThingComp
     {
         private Religion religion;
-        private Pawn_ReligionTracker religionTracker;
+        private Pawn_ReligionCompability religionCompability;
+        private Pawn_PietyTracker pietyTracker;
 
-        public Religion Religion
-        {
-            get => religion;
-        }
-
-        public Pawn_ReligionTracker ReligionTracker
-        {
-            get => religionTracker;
-        }
+        public Religion Religion => religion;
+        public Pawn_ReligionCompability ReligionCompability => religionCompability;
+        public Pawn_PietyTracker PietyTracker => pietyTracker;
 
         public void ChangeReligion(Religion religion)
         {
             this.religion = religion;
-            religionTracker = new Pawn_ReligionTracker((Pawn)parent, religion);
+            pietyTracker = new Pawn_PietyTracker((Pawn)parent, religion);
+            religionCompability.RecalculateCompabilities();
+        }
+
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+            religionCompability = new Pawn_ReligionCompability((Pawn)parent);
+        }
+
+        public void Refresh()
+        {
+
         }
 
         public override void CompTick()
         {
             base.CompTick();
             if (religion == null && parent is Pawn)
-                PawnReligionGenerator.GenerateReligionToPawn((Pawn)parent);
-            religionTracker.TrackerTick();
+                PawnReligionHandler.GenerateReligionToPawn((Pawn)parent);
+            pietyTracker.TrackerTick();
         }
 
         public override void PostExposeData()
         {
             base.PostExposeData();
             Scribe_References.Look<Religion>(ref this.religion, "religionOfPawn");
-            Scribe_Deep.Look<Pawn_ReligionTracker>(ref this.religionTracker, "religionTracker", (Pawn)parent, religion);
+            Scribe_Deep.Look<Pawn_PietyTracker>(ref this.pietyTracker, "pietyTracker", (Pawn)parent, religion);
         }
     }
 }

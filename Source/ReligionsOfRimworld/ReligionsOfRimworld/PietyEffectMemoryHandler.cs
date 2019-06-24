@@ -12,8 +12,11 @@ namespace ReligionsOfRimworld
 
         public PietyMemoryHandler()
         {
-            pietyEffects = new List<Piety_Memory>();
+            if (Scribe.mode == LoadSaveMode.Inactive)
+                pietyEffects = new List<Piety_Memory>();
         }
+
+        public IEnumerable<Piety_Memory> Piety => pietyEffects;
 
         public void Add(Piety_Memory pietyMultiplier)
         {
@@ -23,6 +26,17 @@ namespace ReligionsOfRimworld
         public void Remove(Piety_Memory pietyMultiplier)
         {
             pietyEffects.Remove(pietyMultiplier);
+        }
+
+        public float TotalMemoryMultiplpierValue
+        {
+            get
+            {
+                float v = 1f;
+                foreach (Piety_Memory m in pietyEffects)
+                    v *= m.MultiplierValue;
+                return v;
+            }
         }
 
         public void Interval()
@@ -43,7 +57,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            Scribe_Collections.Look<Piety_Memory>(ref this.pietyEffects, "pietyMemories", LookMode.Deep);
+            Scribe_Collections.Look<Piety_Memory>(ref this.pietyEffects, "pietyMemories", LookMode.Deep, (Pawn)null, (PietyDef)null);
         }
     }
 }

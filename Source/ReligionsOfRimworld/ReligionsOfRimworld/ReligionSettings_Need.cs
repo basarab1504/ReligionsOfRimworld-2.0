@@ -11,10 +11,7 @@ namespace ReligionsOfRimworld
     {
         private NeedDef needDef;
 
-        public NeedDef NeedDef
-        {
-            get => needDef;
-        }
+        public NeedDef NeedDef => needDef;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
@@ -24,6 +21,7 @@ namespace ReligionsOfRimworld
 
         public override void ExposeData()
         {
+            base.ExposeData();
             Scribe_Defs.Look<NeedDef>(ref this.needDef, "needDef");
         }
     }

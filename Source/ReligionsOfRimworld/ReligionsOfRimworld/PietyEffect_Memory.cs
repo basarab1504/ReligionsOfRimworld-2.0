@@ -22,6 +22,14 @@ namespace ReligionsOfRimworld
             }
         }
 
+        public override string LabelCap
+        {
+            get
+            {
+                return string.Format(this.CurStage.Label, (object)CurStage.Description).CapitalizeFirst();
+            }
+        }
+
         public void Interval()
         {
             this.age += 150;
@@ -42,8 +50,8 @@ namespace ReligionsOfRimworld
 
         public void SetForcedStage(int stageIndex)
         {
-            if (stageIndex >= def.Stages.Count)
-                this.forcedStage = def.Stages.Count - 1;
+            if (stageIndex >= def.Stages.Count())
+                this.forcedStage = def.Stages.Count() - 1;
             else
                 this.forcedStage = stageIndex;
         }

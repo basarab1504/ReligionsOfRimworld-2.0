@@ -60,12 +60,14 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="FaithCardUtility.cs" />
     <Compile Include="GraphicCache.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="InteractionWorker_ReligionTalks.cs" />
     <Compile Include="ITab_Pawn_Religion.cs" />
     <Compile Include="MainTabWindow_Religions.cs" />
     <Compile Include="Need_Piety.cs" />
     <Compile Include="PawnReligionGenerator.cs" />
     <Compile Include="Pawn_PietyTracker.cs" />
-    <Compile Include="Pawn_ReligionTracker.cs" />
+    <Compile Include="Pawn_ReligionCompability.cs" />
     <Compile Include="PietyEffectDef.cs" />
     <Compile Include="PietyEffectHandler.cs" />
     <Compile Include="PietyEffectMemoryHandler.cs" />
@@ -78,18 +80,33 @@
     <Compile Include="PietyUtility.cs" />
     <Compile Include="PietyWorker.cs" />
     <Compile Include="Religion.cs" />
+    <Compile Include="ReligionAllowance_Gender.cs" />
+    <Compile Include="ReligionAllowance_Hediff.cs" />
+    <Compile Include="ReligionAllowance_Trait.cs" />
     <Compile Include="ReligionDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReligionEntry.cs" />
+    <Compile Include="ReligionFromDefUtility.cs" />
     <Compile Include="ReligionInfo.cs" />
     <Compile Include="ReligionInfoEntry.cs" />
     <Compile Include="ReligionManager.cs" />
+    <Compile Include="ReligionRestriction.cs" />
+    <Compile Include="ReligionRestrictionImportance.cs" />
     <Compile Include="ReligionSettings.cs" />
     <Compile Include="ReligionSettingsDef.cs" />
     <Compile Include="ReligionSettings_Need.cs" />
+    <Compile Include="ReligionSettings_ReligionTalks.cs" />
     <Compile Include="ReligionsOfRimworldModBase.cs" />
     <Compile Include="ReligionsTabUtility.cs" />
+    <Compile Include="Religion_JoiningRestrictionSettings.cs" />
     <Compile Include="SettingsTagDef.cs" />
     <Compile Include="SettingsTagDefOf.cs" />
+    <Compile Include="SimpleCurveDef.cs" />
+    <Compile Include="WorldGenStep_Religions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DefaultPietyWorkers\" />
+    <Folder Include="DefaultThoughtWorkers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

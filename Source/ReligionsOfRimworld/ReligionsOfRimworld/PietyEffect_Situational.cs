@@ -14,19 +14,16 @@ namespace ReligionsOfRimworld
         public Piety_Situational(Pawn pawn, PietyDef def) : base(pawn, def)
         { }
 
-        public bool Active
-        {
-            get
-            {
-                return this.curStageIndex >= 0;
-            }
-        }
+        public bool Active => this.curStageIndex >= 0;
+        public override int CurStageIndex => this.curStageIndex;
 
-        public override int CurStageIndex
+        public override string LabelCap
         {
             get
             {
-                return this.curStageIndex;
+                if (!this.reason.NullOrEmpty())
+                    return string.Format(this.CurStage.Label, (object)this.reason).CapitalizeFirst();
+                return string.Format(this.CurStage.Label, (object)CurStage.Description).CapitalizeFirst();
             }
         }
 

@@ -76,13 +76,13 @@ namespace ReligionsOfRimworld
                 return false;
             int index = this.StageIndexFor(def);
             if (index >= 0)
-                return def.Stages[index] != null;
+                return def.Stages.ElementAt(index) != null;
             return false;
         }
 
         public int StageIndexFor(PietyDef def)
         {
-            return Mathf.Min(this.StageIndex, def.Stages.Count - 1);
+            return Mathf.Min(this.StageIndex, def.Stages.Count() - 1);
         }
     }
 }

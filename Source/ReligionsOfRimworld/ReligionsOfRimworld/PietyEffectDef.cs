@@ -13,13 +13,10 @@ namespace ReligionsOfRimworld
         private PietyWorker workerInt;
         private float durationDays;
 
-        public List<PietyStage> Stages
-        {
-            get
-            {
-                return stages;
-            }
-        }
+        public IEnumerable<PietyStage> Stages => stages;
+        public bool IsSituational => this.Worker != null;
+        public float DurationDays => durationDays;
+        public int DurationTicks => (int)((double)this.durationDays * 60000.0);
 
         public PietyWorker Worker
         {
@@ -31,30 +28,6 @@ namespace ReligionsOfRimworld
                     this.workerInt.def = this;
                 }
                 return this.workerInt;
-            }
-        }
-
-        public bool IsSituational
-        {
-            get
-            {
-                return this.Worker != null;
-            }
-        }
-
-        public float DurationDays
-        {
-            get
-            {
-                return durationDays;
-            }
-        }
-
-        public int DurationTicks
-        {
-            get
-            {
-                return (int)((double)this.durationDays * 60000.0);
             }
         }
     }

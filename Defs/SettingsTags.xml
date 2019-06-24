@@ -2,5 +2,19 @@
 <Defs>
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>NeedTag</defName>
+		<label>NeedTag</label>
+		<description>suu</description>
 	</ReligionsOfRimworld.SettingsTagDef>
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>JoiningRestrictionTag</defName>
+		<label>JoiningRestrictionTag</label>
+		<description>suu</description>		
+	</ReligionsOfRimworld.SettingsTagDef>
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>ReligionTalksTag</defName>
+		<label>ReligionTalksTag</label>
+		<description>suu</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
 </Defs>

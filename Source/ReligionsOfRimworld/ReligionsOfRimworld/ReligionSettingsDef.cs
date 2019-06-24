@@ -9,24 +9,15 @@ namespace ReligionsOfRimworld
     public class ReligionSettingsDef : Def
     {
         private ReligionSettings settings;
-        private SettingsTagDef tag;
 
-        public ReligionSettings Settings
-        {
-            get => settings;
-        }
+        public ReligionSettings Settings => settings;
 
-        public SettingsTagDef Tag
-        {
-            get => tag;
-        }
-
-        public ReligionInfo GetInfoCategory()
-        {
-            ReligionInfo infoCategory = new ReligionInfo(LabelCap);
-            infoCategory.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description));
-            infoCategory.AddRange(settings.GetInfoEntries());
-            return infoCategory;
-        }
+        //public ReligionInfo GetInfoCategory()
+        //{
+        //    ReligionInfo infoCategory = new ReligionInfo(LabelCap);
+        //    infoCategory.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description));
+        //    infoCategory.AddRange(settings.GetInfoEntries());
+        //    return infoCategory;
+        //}
     }
 }

@@ -26,29 +26,24 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                return this.def.Stages[this.CurStageIndex];
+                return this.def.Stages.ElementAt(this.CurStageIndex);
             }
         }
 
         public abstract int CurStageIndex { get; }
 
-        //public virtual string LabelCap
-        //{
-        //    get
-        //    {
-        //        if (!this.reason.NullOrEmpty())
-        //            return string.Format(this.CurStage.label, (object)this.reason).CapitalizeFirst();
-        //        return string.Format(this.CurStage.label, (object)CurStage.description).CapitalizeFirst();
-        //    }
-        //}
+        public abstract string LabelCap
+        {
+            get;
+        }
 
-        //public virtual float Value
-        //{
-        //    get
-        //    {
-        //        return CurStage.multiplierValue;
-        //    }
-        //}
+        public virtual float MultiplierValue
+        {
+            get
+            {
+                return CurStage.MultiplierValue;
+            }
+        }
 
         //public virtual float InstantAdd
         //{

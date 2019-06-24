@@ -8,35 +8,31 @@ namespace ReligionsOfRimworld
 {
     public class PietySituationalHandler
     {
-        private List<Piety_Situational> cachedPiety = new List<Piety_Situational>();
-        private HashSet<PietyDef> tmpCachedPiety = new HashSet<PietyDef>();
+        private Pawn pawn;
+        private List<Piety_Situational> cachedPiety;
+        private HashSet<PietyDef> tmpCachedPiety;
         private int lastPietyRecalculationTick = -99999;
-        Pawn pawn;
 
         public PietySituationalHandler(Pawn p)
         {
+            cachedPiety = new List<Piety_Situational>();
+            tmpCachedPiety = new HashSet<PietyDef>();
             pawn = p;
         }
 
-        //public float Value
-        //{
-        //    get
-        //    {
-        //        float v = 1f;
-        //        foreach (Piety_Situational m in cachedMultipliers)
-        //            if (m.Active)
-        //                v *= m.Value;
-        //        return v;
-        //    }
-        //}
+        public float TotalSitationalMultiplierValue
+        {
+            get
+            {
+                float v = 1f;
+                foreach (Piety_Situational m in cachedPiety)
+                    if (m.Active)
+                        v *= m.MultiplierValue;
+                return v;
+            }
+        }
 
-        //public List<Piety_Situational> Multipliers
-        //{
-        //    get
-        //    {
-        //        return (from t in cachedMultipliers where t.Active select t).ToList();
-        //    }
-        //}
+        public IEnumerable<Piety_Situational> Piety => from t in cachedPiety where t.Active select t;
 
         public void Interval()
         {

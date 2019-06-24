@@ -10,5 +10,7 @@ namespace ReligionsOfRimworld
     public static class SettingsTagDefOf
     {
         public static SettingsTagDef NeedTag;
+        public static SettingsTagDef JoiningRestrictionTag;
+        public static SettingsTagDef ReligionTalksTag;
     }
 }

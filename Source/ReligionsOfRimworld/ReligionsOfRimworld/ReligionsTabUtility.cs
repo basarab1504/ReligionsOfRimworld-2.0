@@ -19,12 +19,12 @@ namespace ReligionsOfRimworld
             Rect rect = new Rect(0.0f, 0.0f, position.width - 16f, scrollViewHeight);
             Widgets.BeginScrollView(outRect, ref scrollPosition, rect, true);
             float num = 0.0f;
-            foreach (Religion religion in FindExtensions.GetReligionManager().AllReligions)
+            foreach (Religion religion in ReligionManager.GetReligionManager().AllReligions)
             {
                 GUI.color = new Color(1f, 1f, 1f, 0.2f);
                 Widgets.DrawLineHorizontal(0.0f, num, rect.width);
                 GUI.color = Color.white;
-                num += DrawReligionRow(religion.ReligionDef, num, rect);
+                num += DrawReligionRow(religion, num, rect);
             }
             if (Event.current.type == EventType.Layout)
                 scrollViewHeight = num;
@@ -32,7 +32,7 @@ namespace ReligionsOfRimworld
             GUI.EndGroup();
         }
 
-        static float DrawReligionRow(ReligionDef religion, float rowY, Rect fillRect)
+        static float DrawReligionRow(Religion religion, float rowY, Rect fillRect)
         {
             Rect rect1 = new Rect(35f, rowY, 250f, 80f);
             StringBuilder stringBuilder = new StringBuilder();
@@ -46,7 +46,7 @@ namespace ReligionsOfRimworld
                 GUI.DrawTexture(rect2, (Texture)TexUI.HighlightTex);
             Verse.Text.Font = GameFont.Small;
             Verse.Text.Anchor = TextAnchor.UpperLeft;
-            string label1 = religion.label.CapitalizeFirst();
+            string label1 = religion.Label.CapitalizeFirst();
             Widgets.Label(rect1, label1);
             Rect rect3 = new Rect(rect1.xMax, rowY, 60f, 80f);
             ReligionInfo(rect3.x, rect3.y, religion);
@@ -56,11 +56,11 @@ namespace ReligionsOfRimworld
             return height;
         }
 
-        static bool ReligionInfo(float x, float y, ReligionDef def)
+        static bool ReligionInfo(float x, float y, Religion religion)
         {
             if (!InfoCardButtonWorker(x, y))
                 return false;
-            Find.WindowStack.Add((Window)new Dialog_ReligionInfo(def));
+            Find.WindowStack.Add((Window)new Dialog_ReligionInfo(religion));
             return true;
         }
 

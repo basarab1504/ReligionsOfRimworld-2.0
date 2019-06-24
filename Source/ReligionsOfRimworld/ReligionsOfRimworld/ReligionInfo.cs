@@ -16,10 +16,7 @@ namespace ReligionsOfRimworld
             infoEntries = new List<ReligionInfoEntry>();
         }
 
-        public IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            return infoEntries;
-        }
+        public IEnumerable<ReligionInfoEntry> GetInfoEntries() => infoEntries;
 
         public void Add(ReligionInfoEntry religionInfoEntry)
         {

@@ -6,6 +6,7 @@
 		<description>suka</description>
 		<settingsDefs>
 			<li>RoRNeedSettingsPiety</li>
+			<li>RoRJoiningRestrictionTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 </Defs>
