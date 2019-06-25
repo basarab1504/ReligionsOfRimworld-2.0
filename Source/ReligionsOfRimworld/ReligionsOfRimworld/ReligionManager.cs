@@ -16,8 +16,8 @@ namespace ReligionsOfRimworld
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
-                Log.Message("oh siu");
                 allReligions = new List<Religion>();
+                CreateReligions();
             }
         }
 
@@ -43,7 +43,7 @@ namespace ReligionsOfRimworld
             RecacheReligions();
         }
 
-        public void CreateReligions()
+        private void CreateReligions()
         {
             foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
                 allReligions.Add(MakeReligionFromDefUtility.MakeReligionFromDef(def));
@@ -51,7 +51,8 @@ namespace ReligionsOfRimworld
 
         public void RecacheReligions()
         {
-
+            foreach (Pawn pawn in Find.World.worldPawns.AllPawnsAlive)
+                pawn.GetReligionComponent().Refresh();
         }
 
         public void ExposeData()

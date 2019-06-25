@@ -31,7 +31,7 @@ namespace ReligionsOfRimworld
 
         public void Refresh()
         {
-
+            religionCompability.RecalculateCompabilities();
         }
 
         public override void CompTick()
