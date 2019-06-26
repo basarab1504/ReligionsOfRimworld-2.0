@@ -7,14 +7,32 @@
 	</ReligionsOfRimworld.SettingsTagDef>
 
 	<ReligionsOfRimworld.SettingsTagDef>
-		<defName>JoiningRestrictionTag</defName>
-		<label>JoiningRestrictionTag</label>
+		<defName>JoiningRestrictionsTag</defName>
+		<label>JoiningRestrictionsTag</label>
 		<description>suu</description>		
 	</ReligionsOfRimworld.SettingsTagDef>
 
 	<ReligionsOfRimworld.SettingsTagDef>
-		<defName>ReligionTalksTag</defName>
-		<label>ReligionTalksTag</label>
+		<defName>TalksTag</defName>
+		<label>TalksTag</label>
 		<description>suu</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>IncidentsTag</defName>
+		<label>IncidentsTag</label>
+		<description>fasfsa</description>
+	</ReligionsOfRimworld.SettingsTagDef>		
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>MentalBreaksTag</defName>
+		<label>MentalBreaksTag</label>
+		<description>faf</description>
+	</ReligionsOfRimworld.SettingsTagDef>		
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>OpinionTag</defName>
+		<label>OpinionTag</label>
+		<description>aafs</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 </Defs>

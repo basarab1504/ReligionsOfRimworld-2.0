@@ -38,7 +38,7 @@ namespace ReligionsOfRimworld
         {
             base.CompTick();
             if (religion == null && parent is Pawn)
-                PawnReligionHandler.GenerateReligionToPawn((Pawn)parent);
+                ChangeReligion(religionCompability.MostSuitableReligion());
             pietyTracker.TrackerTick();
         }
 

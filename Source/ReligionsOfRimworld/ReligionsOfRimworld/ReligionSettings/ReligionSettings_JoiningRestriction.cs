@@ -8,7 +8,13 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettings_JoiningRestriction : ReligionSettings
     {
-        private List<ReligionPermission> permissions = new List<ReligionPermission>();
+        private List<ReligionPermission> permissions;
+
+        public ReligionSettings_JoiningRestriction()
+        {
+            if(Scribe.mode == LoadSaveMode.Inactive)
+            permissions = new List<ReligionPermission>();
+        }
 
         public IEnumerable<ReligionPermission> Permissions => permissions;
 

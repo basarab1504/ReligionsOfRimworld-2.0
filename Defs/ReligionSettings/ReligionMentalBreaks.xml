@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRMentalBreaksBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_MentalBreaks">
+			<tag>MentalBreaksTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

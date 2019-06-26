@@ -2,7 +2,7 @@
 <Defs>
 	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRJoiningRestrictionBase" Abstract="true">
 		<settings Class="ReligionsOfRimworld.ReligionSettings_JoiningRestriction">
-			<tag>JoiningRestrictionTag</tag>
+			<tag>JoiningRestrictionsTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 

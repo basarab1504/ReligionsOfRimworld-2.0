@@ -9,7 +9,7 @@
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRNeedSettingsBase">
 		<defName>RoRNeedSettingsPiety</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Need">
-			<needDef>Piety</needDef>
+			<need>Piety</need>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

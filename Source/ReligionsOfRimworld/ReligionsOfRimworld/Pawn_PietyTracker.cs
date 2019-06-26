@@ -17,7 +17,7 @@ namespace ReligionsOfRimworld
             if (Scribe.mode == LoadSaveMode.Inactive)
                 this.piety = new Need_Piety(pawn)
             {
-                def = religion.NeedSettings.NeedDef
+                def = religion.NeedSettings.Need
             };
         }
 

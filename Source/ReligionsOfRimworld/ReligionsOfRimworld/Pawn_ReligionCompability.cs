@@ -30,6 +30,11 @@ namespace ReligionsOfRimworld
             }
         }
 
+        public Religion MostSuitableReligion()
+        {
+            return compabilities.RandomElementByWeight(x => x.Value).Key;
+        }
+
         private float CalculateCompabilityForReligion(ReligionSettings_JoiningRestriction settings)
         {
             float currentCompability = 1f;

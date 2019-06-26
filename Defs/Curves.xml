@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.SimpleCurveDef>
+		<defName>GoodOpinionFactor</defName>
+		<label>good opinion affection</label>
+		<description>good opinion affection</description>
+		<curve>
+			<points>
+				<li>
+					<loc>
+						<x>100</x>
+						<y>0.95</y>
+					</loc>
+				</li>
+				<li>
+					<loc>
+						<x>-100</x>
+						<y>0.05</y>
+					</loc>
+				</li>
+			</points>
+		</curve>
+	</ReligionsOfRimworld.SimpleCurveDef>
+
+	<ReligionsOfRimworld.SimpleCurveDef>
+		<defName>BadMoodHighChanceFactor</defName>
+		<label>bad mood affection</label>
+		<description>bad mood affection</description>
+		<curve>
+			<points>
+				<li>
+					<loc>
+						<x>0.0</x>
+						<y>0.95</y>
+					</loc>
+				</li>
+				<li>
+					<loc>
+						<x>1</x>
+						<y>0.05</y>
+					</loc>
+				</li>
+			</points>
+		</curve>
+	</ReligionsOfRimworld.SimpleCurveDef>
+</Defs>

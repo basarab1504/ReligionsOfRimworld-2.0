@@ -9,20 +9,20 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettings_Need : ReligionSettings
     {
-        private NeedDef needDef;
+        private NeedDef need;
 
-        public NeedDef NeedDef => needDef;
+        public NeedDef Need => need;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            if(needDef != null)
-                yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), needDef.seekerFallPerHour.ToString());
+            if(need != null)
+                yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), need.seekerFallPerHour.ToString());
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look<NeedDef>(ref this.needDef, "needDef");
+            Scribe_Defs.Look<NeedDef>(ref this.need, "need");
         }
     }
 }

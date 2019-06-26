@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<InteractionDef>
+    	<defName>ReligionTalkDefault</defName>
+    	<label>religion talk</label>
+    	<workerClass>ReligionsOfRimworld.InteractionWorker_ReligionTalks</workerClass>
+   	 	<symbol>Things/Symbols/Religion</symbol>
+    	<logRulesInitiator>
+      		<rulesStrings>
+        		<li>r_logentry->[INITIATOR_nameDef] told [RECIPIENT_nameDef] about his religion.</li>
+      		</rulesStrings>
+    	</logRulesInitiator>
+ 	</InteractionDef>
+</Defs>

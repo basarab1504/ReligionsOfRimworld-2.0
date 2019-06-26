@@ -14,7 +14,7 @@ namespace ReligionsOfRimworld
             ReligionSettings_ReligionTalks settings = initiator.GetReligionComponent().Religion.ReligionTalksSettings;
             if (settings != null && settings.Interaction == this.interaction)
                 return settings.BaseChanceOfConversation;
-            return 0;
+            return 0f;
         }
 
         public override void Interacted(Pawn initiator, Pawn recipient, List<RulePackDef> extraSentencePacks, out string letterText, out string letterLabel, out LetterDef letterDef)
@@ -22,11 +22,12 @@ namespace ReligionsOfRimworld
             base.Interacted(initiator, recipient, extraSentencePacks, out letterText, out letterLabel, out letterDef);
             CompReligion compReligion = initiator.GetReligionComponent();
             float successChance = ChanceToConvert(initiator, recipient);
-            if(new Random().NextDouble() <= successChance)
+            if((float)new Random().NextDouble() <= successChance)
             {
-                letterText = recipient.ToString() + " " + "Religion_NowBelieveIn".Translate() + " " + compReligion.Religion.Label;
-                letterLabel = "Religion_IsNowReligious".Translate();
+                letterText = recipient.ToString() + " " + "ReligionInfo_NowBelieveIn".Translate() + " " + compReligion.Religion.Label;
+                letterLabel = "ReligionInfo_IsNowReligious".Translate();
                 letterDef = LetterDefOf.NeutralEvent;
+                recipient.GetReligionComponent().ChangeReligion(compReligion.Religion);
             }
         }
 
@@ -38,8 +39,8 @@ namespace ReligionsOfRimworld
             float opinionFactor = settings.OpinionFactorCurve.Curve != null ? settings.OpinionFactorCurve.Curve.Evaluate((float)initiator.relations.OpinionOf(recipient)) : 1f;
             float moodFactor = settings.MoodFactorCurve.Curve != null ? settings.MoodFactorCurve.Curve.Evaluate((float)recipient.needs.mood.CurLevel) : 1f;
             float spouseRelationChanceFactor = settings.SpouseRelationChanceFactor;
-            //float compabilityFactor = recipientComp.ReligionCompability.CompabilityFor(initiatorComp.Religion);
-            return 1f * opinionFactor * moodFactor * spouseRelationChanceFactor /** compabilityFactor*/;
+            float compabilityFactor = recipientComp.ReligionCompability.CompabilityFor(initiatorComp.Religion);
+            return 1f * opinionFactor * moodFactor * spouseRelationChanceFactor * compabilityFactor;
         }
     }
 }

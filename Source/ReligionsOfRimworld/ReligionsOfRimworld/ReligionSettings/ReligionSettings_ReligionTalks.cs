@@ -9,23 +9,27 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettings_ReligionTalks : ReligionSettings
     {
-        private InteractionDef interaction /*= ReligionDefOf.ReligionTalk*/;
+        private InteractionDef interaction;
         private float baseChanceOfConversation = 0.05f;
-        //private float chanceToConvert = 1f;
         private float spouseRelationChanceFactor = 1f;
         private SimpleCurveDef moodFactorCurve;
         private SimpleCurveDef opinionFactorCurve;
 
         public InteractionDef Interaction => interaction;
         public float BaseChanceOfConversation => baseChanceOfConversation;
-        //public float ChanceToConvert => chanceToConvert;
         public float SpouseRelationChanceFactor => spouseRelationChanceFactor;
         public SimpleCurveDef MoodFactorCurve => moodFactorCurve;
         public SimpleCurveDef OpinionFactorCurve => opinionFactorCurve;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            return null;
+            if (interaction != null)
+                yield return new ReligionInfoEntry("ReligionInfo_BaseChanceOfConversation".Translate(), baseChanceOfConversation.ToString());
+            yield return new ReligionInfoEntry("ReligionInfo_SpouseRelationChanceFactor".Translate(), spouseRelationChanceFactor.ToString());
+            if (moodFactorCurve != null)
+                yield return new ReligionInfoEntry("ReligionInfo_MoodFactorCurve".Translate(), "", moodFactorCurve.description);
+            if (opinionFactorCurve != null)
+                yield return new ReligionInfoEntry("ReligionInfo_OpinionFactorCurve".Translate(), "", opinionFactorCurve.description);
         }
 
         public override void ExposeData()

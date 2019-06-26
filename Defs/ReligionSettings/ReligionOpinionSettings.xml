@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoROpinionSettingsBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.Religion_SocialSettings">
+			<tag>OpinionTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoROpinionSettingsBase">
+		<defName>RoROpinionSettingsTest</defName>
+		<settings Class="ReligionsOfRimworld.Religion_SocialSettings">			
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

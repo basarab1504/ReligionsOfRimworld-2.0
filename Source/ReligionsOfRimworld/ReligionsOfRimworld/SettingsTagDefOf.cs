@@ -1,8 +1,4 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ReligionsOfRimworld
 {
@@ -10,7 +6,9 @@ namespace ReligionsOfRimworld
     public static class SettingsTagDefOf
     {
         public static SettingsTagDef NeedTag;
-        public static SettingsTagDef JoiningRestrictionTag;
-        public static SettingsTagDef ReligionTalksTag;
+        public static SettingsTagDef JoiningRestrictionsTag;
+        public static SettingsTagDef TalksTag;
+        public static SettingsTagDef IncidentsTag;
+        public static SettingsTagDef MentalBreaksTag;
     }
 }

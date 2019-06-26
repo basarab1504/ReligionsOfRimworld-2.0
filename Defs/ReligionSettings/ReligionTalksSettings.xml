@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRTalksSettingsBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionTalks">
+			<tag>TalksTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRTalksSettingsBase">
+		<defName>RoRTalksSettingsDefault</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionTalks">
+			<interaction>ReligionTalkDefault</interaction>
+			<moodFactorCurve>BadMoodHighChanceFactor</moodFactorCurve>
+			<opinionFactorCurve>GoodOpinionFactor</opinionFactorCurve>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

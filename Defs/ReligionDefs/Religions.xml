@@ -7,6 +7,20 @@
 		<settingsDefs>
 			<li>RoRNeedSettingsPiety</li>
 			<li>RoRJoiningRestrictionTest</li>
+			<li>RoRTalksSettingsDefault</li>
+			<li>RoROpinionSettingsTest</li>
+		</settingsDefs>
+	</ReligionsOfRimworld.ReligionDef>
+
+	<ReligionsOfRimworld.ReligionDef>
+		<defName>SecondReligion</defName>
+		<label>Second religion</label>
+		<description>aaaba</description>
+		<settingsDefs>
+			<li>RoRNeedSettingsPiety</li>
+			<li>RoRJoiningRestrictionTest</li>
+			<li>RoRTalksSettingsDefault</li>
+			<li>RoROpinionSettingsTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 </Defs>
