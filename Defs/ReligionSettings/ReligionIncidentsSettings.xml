@@ -5,4 +5,13 @@
 			<tag>IncidentsTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRIncidentsBase">
+		<defName>RoRIncidentsTest</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Incidents">	
+		<incidents>
+			<li>ReligiousProvidence</li>
+		</incidents>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

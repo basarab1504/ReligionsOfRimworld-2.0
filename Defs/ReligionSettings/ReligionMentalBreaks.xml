@@ -5,4 +5,13 @@
 			<tag>MentalBreaksTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRMentalBreaksBase">
+		<defName>RoRMentalBreaksTest</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_MentalBreaks">	
+		<mentalBreaks>
+			<li>ReligiousBreakpoint</li>
+		</mentalBreaks>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

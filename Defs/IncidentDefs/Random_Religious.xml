@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+  	<defName>ReligiousProvidence</defName>
+    <workerClass>ReligionsOfRimworld.IncidentWorker_Providence</workerClass>
+    <category>DiseaseHuman</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+      <li>Map_TempIncident</li>
+      <li>Map_Misc</li>
+      <li>Map_RaidBeacon</li>
+      <li>Caravan</li>
+    </targetTags>
+    <letterText>had a povidence and now believes in</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <label>providence</label>
+    <letterLabel>Providence</letterLabel>
+  </IncidentDef>	  
+</Defs>

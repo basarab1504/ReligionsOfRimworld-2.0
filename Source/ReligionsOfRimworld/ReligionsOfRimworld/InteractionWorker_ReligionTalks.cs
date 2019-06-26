@@ -27,7 +27,7 @@ namespace ReligionsOfRimworld
                 letterText = recipient.ToString() + " " + "ReligionInfo_NowBelieveIn".Translate() + " " + compReligion.Religion.Label;
                 letterLabel = "ReligionInfo_IsNowReligious".Translate();
                 letterDef = LetterDefOf.NeutralEvent;
-                recipient.GetReligionComponent().ChangeReligion(compReligion.Religion);
+                recipient.GetReligionComponent().TryChangeReligion(compReligion.Religion);
             }
         }
 

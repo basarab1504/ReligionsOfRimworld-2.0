@@ -19,8 +19,8 @@ namespace ReligionsOfRimworld
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            foreach (MentalBreakDef incident in mentalBreaks)
-                yield return new ReligionInfoEntry("ReligionInfo_MentalBreak", incident.LabelCap);
+            foreach (MentalBreakDef mentalBreak in mentalBreaks)
+                yield return new ReligionInfoEntry("ReligionInfo_MentalBreak", mentalBreak.mentalState.LabelCap);
         }
     }
 }

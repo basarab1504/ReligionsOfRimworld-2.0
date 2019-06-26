@@ -92,7 +92,7 @@ namespace ReligionsOfRimworld
         {
             Rect rect1 = new Rect(0.0f, curY, rect.width, Verse.Text.CalcHeight(entry.Value, rect.width));
             Widgets.Label(rect1, entry.Label);
-            Widgets.Label(new Rect(0.0f + 330f, curY, rect.width, rect1.height), entry.Value);
+            Widgets.Label(new Rect(0.0f + 240f, curY, rect.width, rect1.height), entry.Value);
             curY += 24f;
             if (Mouse.IsOver(rect1))
             {
@@ -101,7 +101,7 @@ namespace ReligionsOfRimworld
             }
         }
 
-        public void DrawExplanation(Rect rect, string explanation)
+        private void DrawExplanation(Rect rect, string explanation)
         {
             float y = 0.0f;
             GUI.BeginGroup(rect);

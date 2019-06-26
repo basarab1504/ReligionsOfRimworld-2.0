@@ -16,7 +16,17 @@ namespace ReligionsOfRimworld
         public Pawn_ReligionCompability ReligionCompability => religionCompability;
         public Pawn_PietyTracker PietyTracker => pietyTracker;
 
-        public void ChangeReligion(Religion religion)
+        public bool TryChangeReligion(Religion religion)
+        {
+            if (religionCompability.CompabilityFor(religion) != 0f && religion != this.religion)
+            {
+                ChangeReligion(religion);
+                return true;
+            }
+            return false;
+        }
+
+        private void ChangeReligion(Religion religion)
         {
             this.religion = religion;
             pietyTracker = new Pawn_PietyTracker((Pawn)parent, religion);

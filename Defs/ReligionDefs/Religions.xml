@@ -9,6 +9,8 @@
 			<li>RoRJoiningRestrictionTest</li>
 			<li>RoRTalksSettingsDefault</li>
 			<li>RoROpinionSettingsTest</li>
+			<li>RoRIncidentsTest</li>
+			<li>RoRMentalBreaksTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 
@@ -21,6 +23,7 @@
 			<li>RoRJoiningRestrictionTest</li>
 			<li>RoRTalksSettingsDefault</li>
 			<li>RoROpinionSettingsTest</li>
+			<li>RoRIncidentsTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 </Defs>

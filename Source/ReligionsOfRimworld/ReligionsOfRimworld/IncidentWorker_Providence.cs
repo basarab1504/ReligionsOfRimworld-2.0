@@ -35,7 +35,7 @@ namespace ReligionsOfRimworld
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            Religion religion = ReligionManager.GetReligionManager().AllReligions.RandomElement();
+            Religion religion = ReligionManager.GetReligionManager().AllReligions.RandomElement();          
             if (religion.IncidentsSettings != null)
             {
                 ReligionSettings_Incidents settings = religion.IncidentsSettings;
@@ -44,7 +44,8 @@ namespace ReligionsOfRimworld
                     Pawn pawn = PotentialVictimCandidates(parms.target).RandomElement();
                     if (pawn == null)
                         return false;
-                    pawn.GetReligionComponent().ChangeReligion(religion);
+                    if (!pawn.GetReligionComponent().TryChangeReligion(religion))
+                        return false;
                     Find.LetterStack.ReceiveLetter(this.def.letterLabel, pawn.LabelCap + " " + def.letterText + " " + religion.Label, this.def.letterDef, (LookTargets)pawn, (Faction)null, (string)null);
                     return true;
                 }
