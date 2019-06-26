@@ -46,7 +46,7 @@ namespace ReligionsOfRimworld
         private void CreateReligions()
         {
             foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                allReligions.Add(MakeReligionFromDefUtility.MakeReligionFromDef(def));
+                allReligions.Add(ReligionMaker.MakeReligionFromDef(def));
         }
 
         public void RecacheReligions()

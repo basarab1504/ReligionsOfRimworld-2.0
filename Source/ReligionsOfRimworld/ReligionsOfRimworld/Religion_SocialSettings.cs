@@ -6,12 +6,12 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class Religion_SocialSettings : ReligionSettings
+    public class ReligionSettings_Social : ReligionSettings
     {
         private ReligionProperty defaultPropety;
         private List<ReligionProperty> properties;
 
-        public Religion_SocialSettings()
+        public ReligionSettings_Social()
         {
             properties = new List<ReligionProperty>();
         }

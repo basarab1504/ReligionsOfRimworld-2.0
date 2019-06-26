@@ -15,6 +15,7 @@ namespace ReligionsOfRimworld
         private ReligionSettings_ReligionTalks religionTalksSettings;
         private ReligionSettings_Incidents incidentsSettings;
         private ReligionSettings_MentalBreaks mentalBreaksSettings;
+        private ReligionSettings_Social opinionSettings;
 
         public Religion(ReligionConfiguration configuration)
         {
@@ -34,6 +35,7 @@ namespace ReligionsOfRimworld
         public ReligionSettings_ReligionTalks ReligionTalksSettings => religionTalksSettings;
         public ReligionSettings_Incidents IncidentsSettings => incidentsSettings;
         public ReligionSettings_MentalBreaks MentalBreaksSettings => mentalBreaksSettings;
+        public ReligionSettings_Social OpinionSettings => opinionSettings;
 
         public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings
         {
@@ -47,6 +49,7 @@ namespace ReligionsOfRimworld
             religionTalksSettings = configuration.FindByTag<ReligionSettings_ReligionTalks>(SettingsTagDefOf.TalksTag);
             incidentsSettings = configuration.FindByTag<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag);
             mentalBreaksSettings = configuration.FindByTag<ReligionSettings_MentalBreaks>(SettingsTagDefOf.MentalBreaksTag);
+            opinionSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.OpinionTag);
         }
 
         public string GetUniqueLoadID()

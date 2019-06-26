@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ReligionsOfRimworld
 {
-    public static class MakeReligionFromDefUtility
+    public static class ReligionMaker
     {
         private static List<ReligionSettings> listOfSettings = new List<ReligionSettings>();
 

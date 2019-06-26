@@ -10,5 +10,6 @@ namespace ReligionsOfRimworld
         public static SettingsTagDef TalksTag;
         public static SettingsTagDef IncidentsTag;
         public static SettingsTagDef MentalBreaksTag;
+        public static SettingsTagDef OpinionTag;
     }
 }

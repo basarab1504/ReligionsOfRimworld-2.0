@@ -49,21 +49,21 @@ namespace ReligionsOfRimworld
             }
         }
 
-        //public PietyCategory CurCategory
-        //{
-        //    get
-        //    {
-        //        if ((double)this.CurLevel < 0.00999999977648258)
-        //            return PietyCategory.Empty;
-        //        if ((double)this.CurLevel < 0.150000005960464)
-        //            return PietyCategory.VeryLow;
-        //        if ((double)this.CurLevel < 0.300000011920929)
-        //            return PietyCategory.Low;
-        //        if ((double)this.CurLevel < 0.699999988079071)
-        //            return PietyCategory.Satisfied;
-        //        return (double)this.CurLevel < 0.850000023841858 ? PietyCategory.High : PietyCategory.Extreme;
-        //    }
-        //}
+        public PietyCategory CurCategory
+        {
+            get
+            {
+                if ((double)this.CurLevel < 0.00999999977648258)
+                    return PietyCategory.Empty;
+                if ((double)this.CurLevel < 0.150000005960464)
+                    return PietyCategory.VeryLow;
+                if ((double)this.CurLevel < 0.300000011920929)
+                    return PietyCategory.Low;
+                if ((double)this.CurLevel < 0.699999988079071)
+                    return PietyCategory.Satisfied;
+                return (double)this.CurLevel < 0.850000023841858 ? PietyCategory.High : PietyCategory.Extreme;
+            }
+        }
 
         public void Gain(float amount)
         {
