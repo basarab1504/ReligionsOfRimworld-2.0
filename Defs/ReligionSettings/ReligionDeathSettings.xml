@@ -17,6 +17,10 @@
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
 				<socialThought>ReligiousDeadHappy</socialThought>
+			</li>	
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Monkey</thingObject>
+				<socialThought>ReligiousDeadHappy</socialThought>
 			</li>			
 		</properties>		
 		</settings>

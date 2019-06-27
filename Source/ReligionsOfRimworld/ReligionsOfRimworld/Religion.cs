@@ -44,6 +44,21 @@ namespace ReligionsOfRimworld
         public ReligionSettings_Social KillSettings => killSettings;
         public ReligionSettings_Social WeaponSettings => weaponSettings;
 
+        public void TryAddSettings(ReligionSettings settings)
+        {
+            configuration.TryAddSettings(settings);
+        }
+
+        public void TryRemoveSettings(SettingsTagDef settingsTag)
+        {
+            configuration.TryRemoveSettings(settingsTag);
+        }
+
+        public void TryChangeSettings(ReligionSettings settings)
+        {
+            configuration.TryChangeSettings(settings);
+        }
+
         private void InitializeReligion()
         {
             needSettings = configuration.FindByTag<ReligionSettings_Need>(SettingsTagDefOf.NeedTag);

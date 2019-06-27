@@ -19,6 +19,11 @@
 				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
 				<individualThought>ReligiousKilledHappy</individualThought>
 				<socialThought>ReligiousKilledHappySocial</socialThought>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Monkey</thingObject>
+				<individualThought>ReligiousKilledHappy</individualThought>
+				<socialThought>ReligiousKilledHappySocial</socialThought>
 			</li>			
 		</properties>		
 		</settings>
