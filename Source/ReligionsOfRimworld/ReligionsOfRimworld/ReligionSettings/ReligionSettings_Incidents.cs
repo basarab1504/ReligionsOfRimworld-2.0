@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Verse;
 
 namespace ReligionsOfRimworld
 {
@@ -12,6 +13,7 @@ namespace ReligionsOfRimworld
 
         public ReligionSettings_Incidents()
         {
+            if(Scribe.mode == LoadSaveMode.Inactive)
             incidents = new List<IncidentDef>();
         }
 
@@ -21,6 +23,12 @@ namespace ReligionsOfRimworld
         {
             foreach (IncidentDef incident in incidents)
                 yield return new ReligionInfoEntry("ReligionInfo_Incident", incident.LabelCap);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Collections.Look<IncidentDef>(ref this.incidents, "incidents", LookMode.Def);
         }
     }
 }

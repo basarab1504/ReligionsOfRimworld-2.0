@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRKillSettingsBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">
+			<tag>KillTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRKillSettingsBase">
+		<defName>RoRKillSettingsTest</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
+				<individualThought>ReligiousKilledSad</individualThought>
+				<socialThought>ReligiousKilledSadSocial</socialThought>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
+				<individualThought>ReligiousKilledHappy</individualThought>
+				<socialThought>ReligiousKilledHappySocial</socialThought>
+			</li>			
+		</properties>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

@@ -11,5 +11,8 @@ namespace ReligionsOfRimworld
         public static SettingsTagDef IncidentsTag;
         public static SettingsTagDef MentalBreaksTag;
         public static SettingsTagDef OpinionTag;
+        public static SettingsTagDef DeathTag;
+        public static SettingsTagDef KillTag;
+        public static SettingsTagDef WeaponTag;
     }
 }

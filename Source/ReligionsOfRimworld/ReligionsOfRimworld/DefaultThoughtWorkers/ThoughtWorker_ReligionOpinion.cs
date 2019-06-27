@@ -13,6 +13,7 @@ namespace ReligionsOfRimworld.DefaultThoughtWorkers
         {
             if (!p.RaceProps.Humanlike)
                 return (ThoughtState)false;
+
             if (!RelationsUtility.PawnsKnowEachOther(p, other))
                 return (ThoughtState)false;
 
@@ -27,23 +28,7 @@ namespace ReligionsOfRimworld.DefaultThoughtWorkers
             if (property == null || property.SocialThought == null || property.SocialThought != this.def)
                 return (ThoughtState)false;
 
-            switch (p.GetReligionComponent().PietyTracker.Piety.CurCategory)
-            {
-                case PietyCategory.Empty:
-                    return ThoughtState.ActiveAtStage(0);
-                case PietyCategory.VeryLow:
-                    return ThoughtState.ActiveAtStage(1);
-                case PietyCategory.Low:
-                    return ThoughtState.ActiveAtStage(2);
-                case PietyCategory.Satisfied:
-                    return ThoughtState.ActiveAtStage(3);
-                case PietyCategory.High:
-                    return ThoughtState.ActiveAtStage(4);
-                case PietyCategory.Extreme:
-                    return ThoughtState.ActiveAtStage(5);
-                default:
-                    return ThoughtState.Inactive;
-            }
+            return ThoughtState.ActiveAtStage(p.GetReligionComponent().PietyTracker.Piety.CurCategoryInt);
         }
     }
 }

@@ -14,9 +14,18 @@ namespace ReligionsOfRimworld
         public PietyHandler(Pawn pawn)
         {
             if(Scribe.mode == LoadSaveMode.Inactive)
-            memoryPiety = new PietyMemoryHandler();
-
+                memoryPiety = new PietyMemoryHandler();
             situationalPiety = new PietySituationalHandler(pawn);
+        }
+
+        public void Add(Piety_Memory pietyMultiplier)
+        {
+            memoryPiety.Add(pietyMultiplier);
+        }
+
+        public void Remove(Piety_Memory pietyMultiplier)
+        {
+            memoryPiety.Remove(pietyMultiplier);
         }
 
         public float MultiplierValue

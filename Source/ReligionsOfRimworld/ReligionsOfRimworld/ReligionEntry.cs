@@ -40,11 +40,6 @@ namespace ReligionsOfRimworld
                 yield return setting.GetInfoCategory();
         }
 
-        public ReligionSettings FindByTag(SettingsTagDef tag)
-        {
-            return settings.FirstOrDefault(x => x.Tag == tag);
-        }
-
         public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings
         {
             return (T)settings.FirstOrDefault(x => x.Tag == tag);

@@ -14,5 +14,11 @@ namespace ReligionsOfRimworld
         {
             return religionGroupTagObject;
         }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look<ReligionGroupTagDef>(ref this.religionGroupTagObject, "religionGroupTagObject");
+        }
     }
 }

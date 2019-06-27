@@ -1,4 +1,5 @@
 ﻿using Harmony;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,15 @@ namespace ReligionsOfRimworld
                     CompReligion religionComp = __result.GetReligionComponent();
                     religionComp.TryChangeReligion(religionComp.ReligionCompability.MostSuitableReligion());
                 }
+            }
+        }
+
+        [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "GetThoughts")]
+        private static class Patch_GetThoughts
+        {
+            private static void Postfix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind, List<IndividualThoughtToAdd> outIndividualThoughts)
+            {
+                Religion_PawnDiedOrDownedUtility.AppendThoughts_Religious(victim, dinfo, thoughtsKind, outIndividualThoughts);
             }
         }
     }

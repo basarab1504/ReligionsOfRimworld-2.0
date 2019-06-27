@@ -14,5 +14,11 @@ namespace ReligionsOfRimworld
         {
             return thingObject;
         }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look<ThingDef>(ref this.thingObject, "thingObject");
+        }
     }
 }

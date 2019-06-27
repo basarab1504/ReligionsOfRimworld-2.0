@@ -7,13 +7,13 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public abstract class ReligionProperty
+    public abstract class ReligionProperty : IExposable
     {
-        private PietyDef individualPiety;
-        private PietyDef socialPiety;
-        private ThoughtDef individualThought;
-        private ThoughtDef socialThought;
-        private bool onlyForPlayerColony;
+        protected PietyDef individualPiety;
+        protected PietyDef socialPiety;
+        protected ThoughtDef individualThought;
+        protected ThoughtDef socialThought;
+        protected bool onlyForPlayerColony;
 
         public PietyDef IndividualPiety => individualPiety;
         public PietyDef SocialPiety => socialPiety;
@@ -89,6 +89,15 @@ namespace ReligionsOfRimworld
                 i++;
             }
             return stringBuilder.ToString();
+        }
+
+        public virtual void ExposeData()
+        {
+            Scribe_Defs.Look<PietyDef>(ref this.individualPiety, "individualPiety");
+            Scribe_Defs.Look<PietyDef>(ref this.socialPiety, "socialPiety");
+            Scribe_Defs.Look<ThoughtDef>(ref this.individualThought, "individualThought");
+            Scribe_Defs.Look<ThoughtDef>(ref this.socialThought, "socialThought");
+            Scribe_Values.Look<bool>(ref this.onlyForPlayerColony, "onlyForPlayerColony");
         }
     }
 }

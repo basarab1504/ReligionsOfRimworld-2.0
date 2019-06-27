@@ -12,6 +12,7 @@ namespace ReligionsOfRimworld
 
         public ReligionSettings_MentalBreaks()
         {
+            if(Scribe.mode == LoadSaveMode.Inactive)
             mentalBreaks = new List<MentalBreakDef>();
         }
 
@@ -21,6 +22,12 @@ namespace ReligionsOfRimworld
         {
             foreach (MentalBreakDef mentalBreak in mentalBreaks)
                 yield return new ReligionInfoEntry("ReligionInfo_MentalBreak", mentalBreak.mentalState.LabelCap);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Collections.Look<MentalBreakDef>(ref this.mentalBreaks, "mentalBreaks", LookMode.Def);
         }
     }
 }

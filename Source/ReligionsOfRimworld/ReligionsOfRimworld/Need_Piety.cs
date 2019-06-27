@@ -39,6 +39,16 @@ namespace ReligionsOfRimworld
             };
         }
 
+        public void Add(Piety_Memory pietyMultiplier)
+        {
+            pietyEffectHandler.Add(pietyMultiplier);
+        }
+
+        public void Remove(Piety_Memory pietyMultiplier)
+        {
+            pietyEffectHandler.Remove(pietyMultiplier);
+        }
+
         private int lastGainTick = -999;
 
         private bool GainingPiety
@@ -46,6 +56,22 @@ namespace ReligionsOfRimworld
             get
             {
                 return Find.TickManager.TicksGame < this.lastGainTick + 10;
+            }
+        }
+
+        public int CurCategoryInt
+        {
+            get
+            {
+                if ((double)this.CurLevel < 0.00999999977648258)
+                    return 0;
+                if ((double)this.CurLevel < 0.150000005960464)
+                    return 1;
+                if ((double)this.CurLevel < 0.300000011920929)
+                    return 2;
+                if ((double)this.CurLevel < 0.699999988079071)
+                    return 3;
+                return (double)this.CurLevel < 0.850000023841858 ? 4 : 5;
             }
         }
 

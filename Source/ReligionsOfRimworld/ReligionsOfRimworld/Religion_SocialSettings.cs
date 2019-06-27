@@ -13,6 +13,7 @@ namespace ReligionsOfRimworld
 
         public ReligionSettings_Social()
         {
+            if(Scribe.mode == LoadSaveMode.Inactive)
             properties = new List<ReligionProperty>();
         }
 
@@ -36,6 +37,13 @@ namespace ReligionsOfRimworld
             foreach (ReligionProperty property in properties)
                 foreach (ReligionInfoEntry entry in property.GetInfoEntries())
                     yield return entry;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Collections.Look<ReligionProperty>(ref this.properties, "properties", LookMode.Deep);
+            Scribe_Deep.Look<ReligionProperty>(ref this.defaultPropety, "defaultProperty");
         }
     }
 }

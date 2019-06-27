@@ -34,5 +34,23 @@
 		<defName>OpinionTag</defName>
 		<label>OpinionTag</label>
 		<description>aafs</description>
+	</ReligionsOfRimworld.SettingsTagDef>
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>DeathTag</defName>
+		<label>DeathTag</label>
+		<description>fasf</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>KillTag</defName>
+		<label>KillTag</label>
+		<description>fasf</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>WeaponTag</defName>
+		<label>WeaponTag</label>
+		<description>fasf</description>
+	</ReligionsOfRimworld.SettingsTagDef>		
 </Defs>

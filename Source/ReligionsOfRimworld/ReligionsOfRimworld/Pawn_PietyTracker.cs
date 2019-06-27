@@ -15,10 +15,12 @@ namespace ReligionsOfRimworld
         {
             this.pawn = pawn;
             if (Scribe.mode == LoadSaveMode.Inactive)
-                this.piety = new Need_Piety(pawn)
             {
-                def = religion.NeedSettings.Need
-            };
+                this.piety = new Need_Piety(pawn)
+                {
+                    def = religion.NeedSettings.Need
+                };
+            }
         }
 
         public Need_Piety Piety => piety;

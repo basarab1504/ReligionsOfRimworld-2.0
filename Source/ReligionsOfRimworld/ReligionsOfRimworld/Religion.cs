@@ -16,6 +16,9 @@ namespace ReligionsOfRimworld
         private ReligionSettings_Incidents incidentsSettings;
         private ReligionSettings_MentalBreaks mentalBreaksSettings;
         private ReligionSettings_Social opinionSettings;
+        private ReligionSettings_Social deathSettings;
+        private ReligionSettings_Social killSettings;
+        private ReligionSettings_Social weaponSettings;
 
         public Religion(ReligionConfiguration configuration)
         {
@@ -37,6 +40,9 @@ namespace ReligionsOfRimworld
         public ReligionSettings_Incidents IncidentsSettings => incidentsSettings;
         public ReligionSettings_MentalBreaks MentalBreaksSettings => mentalBreaksSettings;
         public ReligionSettings_Social OpinionSettings => opinionSettings;
+        public ReligionSettings_Social DeathSettings => deathSettings;
+        public ReligionSettings_Social KillSettings => killSettings;
+        public ReligionSettings_Social WeaponSettings => weaponSettings;
 
         private void InitializeReligion()
         {
@@ -46,6 +52,9 @@ namespace ReligionsOfRimworld
             incidentsSettings = configuration.FindByTag<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag);
             mentalBreaksSettings = configuration.FindByTag<ReligionSettings_MentalBreaks>(SettingsTagDefOf.MentalBreaksTag);
             opinionSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.OpinionTag);
+            deathSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.DeathTag);
+            killSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.KillTag);
+            weaponSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.WeaponTag);
         }
 
         public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings

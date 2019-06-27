@@ -16,6 +16,7 @@
 			<li>RoRTalksSettingsDefault</li>
 			<li>RoRIncidentsTest</li>
 			<li>RoRMentalBreaksTest</li>
+			<li>RoRKillSettingsTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 
@@ -36,6 +37,7 @@
 			<li>RoRTalksSettingsDefault</li>
 			<li>RoROpinionSettingsTest</li>
 			<li>RoRIncidentsTest</li>
+			<li>RoRDeathSettingsTest</li>			
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 </Defs>
