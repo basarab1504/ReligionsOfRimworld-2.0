@@ -10,26 +10,28 @@ namespace ReligionsOfRimworld
     public class ReligionProperty
     {
         private ThingDef subjectThing;
-        private ReligionDef subjectReligion;
+        private ReligionGroupTagDef subjectReligionGroup;
         private PietyDef individualPiety;
         private PietyDef socialPiety;
         private ThoughtDef individualThought;
         private ThoughtDef socialThought;
+        private bool onlyForPlayerColony;
 
         public ThingDef SubjectThing => subjectThing;
-        public ReligionDef SubjectReligion => subjectReligion;
+        public ReligionGroupTagDef SubjectReligionGroup => subjectReligionGroup;
         public PietyDef IndividualPiety => individualPiety;
         public PietyDef SocialPiety => socialPiety;
         public ThoughtDef IndividualThought => individualThought;
         public ThoughtDef SocialThought => socialThought;
+        public bool OnlyForPlayerColony => onlyForPlayerColony;
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
             yield return new ReligionInfoEntry("");
             if (subjectThing != null)
                 yield return new ReligionInfoEntry("ReligionInfo_SubjectThing".Translate(), subjectThing.LabelCap, subjectThing.description);
-            if (subjectReligion != null)
-                yield return new ReligionInfoEntry("ReligionInfo_SubjectReligion".Translate(), subjectReligion.LabelCap, subjectReligion.description);
+            if (subjectReligionGroup != null)
+                yield return new ReligionInfoEntry("ReligionInfo_SubjectReligion".Translate(), subjectReligionGroup.LabelCap, subjectReligionGroup.description);
             if (individualPiety != null)
                 yield return new ReligionInfoEntry("ReligionInfo_IndividualPiety".Translate(), "", PietyDefExplanation(individualPiety));
             if (socialPiety != null)

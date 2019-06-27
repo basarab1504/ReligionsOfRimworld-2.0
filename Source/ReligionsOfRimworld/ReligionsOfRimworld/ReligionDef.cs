@@ -8,6 +8,7 @@ namespace ReligionsOfRimworld
 {
     public class ReligionDef : Def
     {
+        private ReligionGroupTagDef groupTag;
         private List<ReligionSettingsDef> settingsDefs;
 
         public ReligionDef()
@@ -16,5 +17,6 @@ namespace ReligionsOfRimworld
         }
 
         public IEnumerable<ReligionSettingsDef> SettingsDefs => settingsDefs;
+        public ReligionGroupTagDef GroupTag => groupTag;
     }
 }

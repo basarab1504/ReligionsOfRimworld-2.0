@@ -14,7 +14,8 @@ namespace ReligionsOfRimworld
             listOfSettings.Clear();
             foreach (ReligionSettingsDef d in def.SettingsDefs)
                 listOfSettings.Add(d.Settings);
-            return new Religion(new ReligionConfiguration(def.label, def.description, listOfSettings));
+            return new Religion(new ReligionConfiguration(def.GroupTag.label, def.description, def.GroupTag, listOfSettings));
+            
         }
     }
 }

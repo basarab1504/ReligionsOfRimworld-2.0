@@ -10,9 +10,10 @@ namespace ReligionsOfRimworld
     {
         private string label;
         private string description;
+        private ReligionGroupTagDef groupTag;
         private List<ReligionSettings> settings;
 
-        public ReligionConfiguration(string label, string description, IEnumerable<ReligionSettings> settings)
+        public ReligionConfiguration(string label, string description, ReligionGroupTagDef groupTag, IEnumerable<ReligionSettings> settings)
         {
             if(Scribe.mode == LoadSaveMode.Inactive)
             {
@@ -20,6 +21,7 @@ namespace ReligionsOfRimworld
                 this.description = description;
                 this.settings = new List<ReligionSettings>();
                 this.settings.AddRange(settings);
+                this.groupTag = groupTag;
             }
         }
 
@@ -31,6 +33,7 @@ namespace ReligionsOfRimworld
         {
             ReligionInfo category = new ReligionInfo("ReligionInfo_Overall".Translate());
             category.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description));
+            category.Add(new ReligionInfoEntry("ReligionInfo_GroupTag".Translate(), groupTag.LabelCap, groupTag.description));
             yield return category;
             foreach (ReligionSettings setting in settings)
                 yield return setting.GetInfoCategory();
