@@ -95,6 +95,8 @@
     <Compile Include="ReligionInfoEntry.cs" />
     <Compile Include="ReligionManager.cs" />
     <Compile Include="ReligionPermissions\ReligionRestriction.cs" />
+    <Compile Include="ReligionProperty_ReligionObject.cs" />
+    <Compile Include="ReligionProperty_ReligionSubject.cs" />
     <Compile Include="ReligionRestrictionImportance.cs" />
     <Compile Include="ReligionSettings\ReligionSettings.cs" />
     <Compile Include="ReligionSettingsDef.cs" />

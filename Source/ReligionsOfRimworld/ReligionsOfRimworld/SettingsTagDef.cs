@@ -8,8 +8,5 @@ namespace ReligionsOfRimworld
 {
     public class SettingsTagDef : Def
     {
-        private string tag;
-
-        public string Tag => tag;
     }
 }

@@ -6,13 +6,13 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionProperty_ThingObject : ReligionProperty
+    public class ReligionProperty_ReligionGroupObject : ReligionProperty
     {
-        private ThingDef thingObject;
+        private ReligionGroupTagDef religionGroupTagObject;
 
         public override Def GetObject()
         {
-            return thingObject;
+            return religionGroupTagObject;
         }
     }
 }

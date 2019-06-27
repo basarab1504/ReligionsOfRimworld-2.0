@@ -22,7 +22,10 @@ namespace ReligionsOfRimworld.DefaultThoughtWorkers
             ReligionSettings_Social opinionSettings = thisPawnReligion.OpinionSettings;
             if(opinionSettings == null)
                 return (ThoughtState)false;
-            if(opinionSettings.GetPropertyBySubject(otherPawnReligion.) == null)
+
+            ReligionProperty property = opinionSettings.GetPropertyBySubject(otherPawnReligion.GroupTag);
+            if (property == null || property.SocialThought == null || property.SocialThought != this.def)
+                return (ThoughtState)false;
 
             switch (p.GetReligionComponent().PietyTracker.Piety.CurCategory)
             {

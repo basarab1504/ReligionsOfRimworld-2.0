@@ -7,31 +7,27 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionProperty
+    public abstract class ReligionProperty
     {
-        private ThingDef subjectThing;
-        private ReligionGroupTagDef subjectReligionGroup;
         private PietyDef individualPiety;
         private PietyDef socialPiety;
         private ThoughtDef individualThought;
         private ThoughtDef socialThought;
         private bool onlyForPlayerColony;
 
-        public ThingDef SubjectThing => subjectThing;
-        public ReligionGroupTagDef SubjectReligionGroup => subjectReligionGroup;
         public PietyDef IndividualPiety => individualPiety;
         public PietyDef SocialPiety => socialPiety;
         public ThoughtDef IndividualThought => individualThought;
         public ThoughtDef SocialThought => socialThought;
         public bool OnlyForPlayerColony => onlyForPlayerColony;
 
+        public abstract Def GetObject();
+
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
             yield return new ReligionInfoEntry("");
-            if (subjectThing != null)
-                yield return new ReligionInfoEntry("ReligionInfo_SubjectThing".Translate(), subjectThing.LabelCap, subjectThing.description);
-            if (subjectReligionGroup != null)
-                yield return new ReligionInfoEntry("ReligionInfo_SubjectReligion".Translate(), subjectReligionGroup.LabelCap, subjectReligionGroup.description);
+            if (GetObject() != null)
+                yield return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetObject().description);
             if (individualPiety != null)
                 yield return new ReligionInfoEntry("ReligionInfo_IndividualPiety".Translate(), "", PietyDefExplanation(individualPiety));
             if (socialPiety != null)
@@ -59,10 +55,11 @@ namespace ReligionsOfRimworld
             {
                 stringBuilder.AppendLine("ReligionInfo_Stage".Translate() + ": " + i.ToString());
                 stringBuilder.AppendLine(stage.Label);
-                stringBuilder.AppendLine(stage.Description);
+                //stringBuilder.AppendLine(stage.Description); 
                 stringBuilder.AppendLine("ReligionInfo_PietyOffset".Translate() + " " + stage.PietyOffset.ToString());
                 stringBuilder.AppendLine("ReligionInfo_MultiplierValue".Translate() + " " + stage.MultiplierValue.ToString());
                 stringBuilder.AppendLine("ReligionInfo_PietyRate".Translate() + " " + stage.PietyRate.ToString());
+                stringBuilder.AppendLine();
                 i++;
             }
             return stringBuilder.ToString();
@@ -85,9 +82,10 @@ namespace ReligionsOfRimworld
             {
                 stringBuilder.AppendLine("ReligionInfo_Stage".Translate() + ": " + i.ToString());
                 stringBuilder.AppendLine(stage.label);
-                stringBuilder.AppendLine(stage.description);
+                //stringBuilder.AppendLine(stage.description);
                 stringBuilder.AppendLine("ReligionInfo_BaseMoodEffect".Translate() + " " + stage.baseMoodEffect.ToString());
                 stringBuilder.AppendLine("ReligionInfo_BaseOpinionOffset".Translate() + " " + stage.baseOpinionOffset.ToString());
+                stringBuilder.AppendLine();
                 i++;
             }
             return stringBuilder.ToString();

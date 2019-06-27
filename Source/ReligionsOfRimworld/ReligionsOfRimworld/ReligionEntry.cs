@@ -27,6 +27,7 @@ namespace ReligionsOfRimworld
 
         public string Label => label;
         public string Description => description;
+        public ReligionGroupTagDef GroupTag => groupTag;
         public IEnumerable<ReligionSettings> Settings => settings;
 
         public IEnumerable<ReligionInfo> GetInfo()
@@ -53,6 +54,7 @@ namespace ReligionsOfRimworld
         {
             Scribe_Values.Look<string>(ref this.label, "label");
             Scribe_Values.Look<string>(ref this.description, "descrtiption");
+            Scribe_Defs.Look<ReligionGroupTagDef>(ref this.groupTag, "groupTag");
             Scribe_Collections.Look<ReligionSettings>(ref this.settings, "settings", LookMode.Deep);
         }
     }

@@ -21,7 +21,7 @@ namespace ReligionsOfRimworld
 
         public ReligionProperty GetPropertyBySubject(Def def)
         {
-            ReligionProperty property = properties.FirstOrDefault(x => x.SubjectThing == def);
+            ReligionProperty property = properties.FirstOrDefault(x => x.GetObject() == def);
             if (property != null)
                 return property;
             return defaultPropety;

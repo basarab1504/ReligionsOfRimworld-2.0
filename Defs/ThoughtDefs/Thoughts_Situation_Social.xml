@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>  
+  <ThoughtDef>
+    <defName>RORNegativeSocialThought</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>ReligionsOfRimworld.DefaultThoughtWorkers.ThoughtWorker_ReligionOpinion</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>-3</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>-5</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>-7</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>-15</baseOpinionOffset>
+      </li>      
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RORPositiveSocialThought</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>ReligionsOfRimworld.DefaultThoughtWorkers.ThoughtWorker_ReligionOpinion</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>3</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>5</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>7</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>10</baseOpinionOffset>
+      </li>
+      <li>
+        <label>foreign religion</label>
+        <baseOpinionOffset>15</baseOpinionOffset>
+      </li>      
+    </stages>
+  </ThoughtDef>
+</Defs>

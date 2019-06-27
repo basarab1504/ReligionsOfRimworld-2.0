@@ -29,18 +29,14 @@ namespace ReligionsOfRimworld
 
         public string Label => configuration.Label;
         public string Description => configuration.Description;
-        public ReligionConfiguration Configuration => configuration;
+        public ReligionGroupTagDef GroupTag => configuration.GroupTag;
+        //public ReligionConfiguration Configuration => configuration;
         public ReligionSettings_Need NeedSettings => needSettings;
         public ReligionSettings_JoiningRestriction JoiningRestrictionsSettings => joiningRestrictionsSettings;
         public ReligionSettings_ReligionTalks ReligionTalksSettings => religionTalksSettings;
         public ReligionSettings_Incidents IncidentsSettings => incidentsSettings;
         public ReligionSettings_MentalBreaks MentalBreaksSettings => mentalBreaksSettings;
         public ReligionSettings_Social OpinionSettings => opinionSettings;
-
-        public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings
-        {
-            return (T)configuration.FindByTag<T>(tag);
-        }
 
         private void InitializeReligion()
         {
@@ -52,6 +48,16 @@ namespace ReligionsOfRimworld
             opinionSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.OpinionTag);
         }
 
+        public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings
+        {
+            return (T)configuration.FindByTag<T>(tag);
+        }
+
+        public IEnumerable<ReligionInfo> GetInfo()
+        {
+            return configuration.GetInfo();
+        }
+
         public string GetUniqueLoadID()
         {
             return "Religion_" + this.loadID;
@@ -60,7 +66,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.loadID, "loadID");
-            Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", null, null, null);
+            Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", null, null, null, null);
             if(Scribe.mode == LoadSaveMode.LoadingVars)
                 InitializeReligion();
         }

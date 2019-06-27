@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<ReligionsOfRimworld.ReligionSettingsDef Name="RoROpinionSettingsBase" Abstract="true">
-		<settings Class="ReligionsOfRimworld.Religion_SocialSettings">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">
 			<tag>OpinionTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoROpinionSettingsBase">
 		<defName>RoROpinionSettingsTest</defName>
-		<settings Class="ReligionsOfRimworld.Religion_SocialSettings">			
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
+				<socialThought>RORPositiveSocialThought</socialThought>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
+				<socialThought>RORNegativeSocialThought</socialThought>
+			</li>			
+		</properties>		
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+	<ReligionsOfRimworld.ReligionGroupTagDef>
+		<defName>ReligionOfOneGroup</defName>
+		<label>ReligionOfOneGroup</label>
+		<description>ReligionOfOneGroupDesc</description>
+	</ReligionsOfRimworld.ReligionGroupTagDef>
 	<ReligionsOfRimworld.ReligionDef>
 		<defName>ReligionOfOne</defName>
 		<label>Religion of One</label>
 		<description>suka</description>
+		<groupTag>ReligionOfOneGroup</groupTag>
 		<settingsDefs>
 			<li>RoRNeedSettingsPiety</li>
 			<li>RoRJoiningRestrictionTest</li>
 			<li>RoRTalksSettingsDefault</li>
-			<li>RoROpinionSettingsTest</li>
 			<li>RoRIncidentsTest</li>
 			<li>RoRMentalBreaksTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 
+
+	<ReligionsOfRimworld.ReligionGroupTagDef>
+		<defName>SecondReligionGroup</defName>
+		<label>SecondReligionGroup</label>
+		<description>SecondReligionDesc</description>
+	</ReligionsOfRimworld.ReligionGroupTagDef>
 	<ReligionsOfRimworld.ReligionDef>
 		<defName>SecondReligion</defName>
 		<label>Second religion</label>
 		<description>aaaba</description>
+		<groupTag>SecondReligionGroup</groupTag>		
 		<settingsDefs>
 			<li>RoRNeedSettingsPiety</li>
 			<li>RoRJoiningRestrictionTest</li>

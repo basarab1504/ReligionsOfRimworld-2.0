@@ -47,8 +47,6 @@ namespace ReligionsOfRimworld
         public override void CompTick()
         {
             base.CompTick();
-            if (religion == null && parent is Pawn)
-                ChangeReligion(religionCompability.MostSuitableReligion());
             pietyTracker.TrackerTick();
         }
 
