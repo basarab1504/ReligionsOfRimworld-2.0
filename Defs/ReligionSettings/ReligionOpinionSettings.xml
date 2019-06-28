@@ -12,11 +12,11 @@
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
-				<socialThought>RORSameReligionGoodOpinion</socialThought>
+				<socialThought>ROR_ReligionGoodOpinion</socialThought>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
-				<socialThought>RORForeignReligionBadOpinion</socialThought>
+				<socialThought>ROR_ReligionBadOpinion</socialThought>
 			</li>			
 		</properties>		
 		</settings>

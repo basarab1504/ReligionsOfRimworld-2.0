@@ -53,4 +53,10 @@
 		<label>WeaponTag</label>
 		<description>fasf</description>
 	</ReligionsOfRimworld.SettingsTagDef>		
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>FoodTag</defName>
+		<label>FoodTag</label>
+		<description>fasf</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
 </Defs>

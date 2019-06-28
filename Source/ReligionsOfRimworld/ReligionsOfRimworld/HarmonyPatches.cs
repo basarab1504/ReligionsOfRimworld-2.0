@@ -23,6 +23,15 @@ namespace ReligionsOfRimworld
             }
         }
 
+        [HarmonyPatch(typeof(FoodUtility), "ThoughtsFromIngesting")]
+        private static class Patch_ThoughtsFromIngesting
+        {
+            private static void Postfix(Pawn ingester, Thing foodSource, ThingDef foodDef, List<ThoughtDef> __result)
+            {
+                Religion_IngestingUtility.FoodIngested(ingester, foodSource, foodDef, __result);
+            }
+        }
+
         [HarmonyPatch(typeof(PawnGenerator), "TryGenerateNewPawnInternal")]
         private static class Patch_TryGenerateNewPawnInternal
         {

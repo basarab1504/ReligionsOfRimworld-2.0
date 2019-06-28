@@ -43,7 +43,6 @@ namespace ReligionsOfRimworld
                             AppendThought_ForInstigator(instigator, weapon, SettingsTagDefOf.WeaponTag);
                     }
                 }
-                Log.Message(objectDef.defName + " " + instigator.LabelCap + " " + weapon.LabelCap);
                 AppendThoughts_ForWitnesses(objectDef, victim, instigator);
             }
         }
@@ -54,7 +53,6 @@ namespace ReligionsOfRimworld
             {
                 if(Witnessed(pawn, victim) || RelationsUtility.PawnsKnowEachOther(pawn, victim))
                 {
-                    Log.Message(pawn.LabelCap + " is witness");
                     foreach (SettingsTagDef tag in tagsToLook)
                         AppendThought_ForWitness(pawn, objectDef, tag, instigator);
                 }
@@ -75,7 +73,7 @@ namespace ReligionsOfRimworld
             ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tagDef);
             if (settings != null)
             {
-                ReligionProperty property = settings.GetPropertyBySubject(objectDef);
+                ReligionProperty property = settings.GetPropertyByObject(objectDef);
                 if (property != null)
                 {
                     outIndividualThoughts.Add(AppendThought(property.SocialThought, pawn, instigator));
@@ -88,7 +86,7 @@ namespace ReligionsOfRimworld
             ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tagDef);
             if (settings != null)
             {
-                ReligionProperty property = settings.GetPropertyBySubject(objectDef);
+                ReligionProperty property = settings.GetPropertyByObject(objectDef);
                 if (property != null)
                 {
                     outIndividualThoughts.Add(AppendThought(property.IndividualThought, pawn));

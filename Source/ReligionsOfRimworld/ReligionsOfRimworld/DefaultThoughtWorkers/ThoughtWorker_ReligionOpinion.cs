@@ -24,11 +24,11 @@ namespace ReligionsOfRimworld.DefaultThoughtWorkers
             if(opinionSettings == null)
                 return (ThoughtState)false;
 
-            ReligionProperty property = opinionSettings.GetPropertyBySubject(otherPawnReligion.GroupTag);
+            ReligionProperty property = opinionSettings.GetPropertyByObject(otherPawnReligion.GroupTag);
             if (property == null || property.SocialThought == null || property.SocialThought != this.def)
                 return (ThoughtState)false;
 
-            return ThoughtState.ActiveAtStage(p.GetReligionComponent().PietyTracker.Piety.CurCategoryInt);
+            return ThoughtState.ActiveAtStage(p.GetReligionComponent().PietyTracker.Piety.CurCategoryInt, otherPawnReligion.GroupTag.LabelCap);
         }
     }
 }

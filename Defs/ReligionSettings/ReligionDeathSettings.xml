@@ -12,15 +12,15 @@
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
-				<socialThought>ReligiousDeadSad</socialThought>
+				<socialThought>ROR_ReligiousDeadSad</socialThought>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
-				<socialThought>ReligiousDeadHappy</socialThought>
+				<socialThought>ROR_ReligiousDeadHappy</socialThought>
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Monkey</thingObject>
-				<socialThought>ReligiousDeadHappy</socialThought>
+				<socialThought>ROR_ReligiousDeadHappy</socialThought>
 			</li>			
 		</properties>		
 		</settings>

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThoughtDef>
-    <defName>ROR_ReligiousKilledSadSocial</defName>
+    <defName>ROR_IngestHolyFoodBadSocial</defName>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
-    <durationDays>10</durationDays>
+    <durationDays>2</durationDays>
     <stackLimit>300</stackLimit>
     <stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
     <stages>
       <li>
-        <label>death of good religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>-3</baseOpinionOffset>
       </li>
       <li>
-        <label>death of good religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>-5</baseOpinionOffset>
       </li>
       <li>
-        <label>death of good religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>-7</baseOpinionOffset>
       </li>
       <li>
-        <label>death of good religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>-10</baseOpinionOffset>
       </li>
       <li>
-        <label>death of good religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>-5</baseOpinionOffset>
       </li>
@@ -37,35 +37,35 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>ROR_ReligiousKilledHappySocial</defName>
+    <defName>ROR_IngestHolyFoodGoodSocial</defName>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
-    <durationDays>10</durationDays>
+    <durationDays>2</durationDays>
     <stackLimit>300</stackLimit>
     <stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
     <stages>
       <li>
-        <label>death of bad religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>3</baseOpinionOffset>
       </li>
       <li>
-        <label>death of bad religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>5</baseOpinionOffset>
       </li>
       <li>
-        <label>death of bad religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>7</baseOpinionOffset>
       </li>
       <li>
-        <label>death of bad religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>10</baseOpinionOffset>
       </li>
       <li>
-        <label>death of bad religion fella</label>
+        <label>ingest holy food</label>
         <description>sad</description>
         <baseOpinionOffset>5</baseOpinionOffset>
       </li>

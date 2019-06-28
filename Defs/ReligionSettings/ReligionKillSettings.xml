@@ -12,18 +12,18 @@
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
-				<individualThought>ReligiousKilledSad</individualThought>
-				<socialThought>ReligiousKilledSadSocial</socialThought>
+				<individualThought>ROR_ReligiousKilledSad</individualThought>
+				<socialThought>ROR_ReligiousKilledSadSocial</socialThought>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
-				<individualThought>ReligiousKilledHappy</individualThought>
-				<socialThought>ReligiousKilledHappySocial</socialThought>
+				<individualThought>ROR_ReligiousKilledHappy</individualThought>
+				<socialThought>ROR_ReligiousKilledHappySocial</socialThought>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Monkey</thingObject>
-				<individualThought>ReligiousKilledHappy</individualThought>
-				<socialThought>ReligiousKilledHappySocial</socialThought>
+				<individualThought>ROR_ReligiousKilledHappy</individualThought>
+				<socialThought>ROR_ReligiousKilledHappySocial</socialThought>
 			</li>			
 		</properties>		
 		</settings>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRFoodSettingsBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">
+			<tag>FoodTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRFoodSettingsBase">
+		<defName>RoRFoodSettingsTest</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Corpse_Panther</thingObject>
+				<individualThought>ROR_IngestHolyFoodGood</individualThought>
+				<socialThought>ROR_IngestHolyFoodGoodSocial</socialThought>
+			</li>	
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Meat_Panther</thingObject>
+				<individualThought>ROR_IngestHolyFoodGood</individualThought>
+				<socialThought>ROR_IngestHolyFoodGoodSocial</socialThought>
+			</li>	
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Corpse_Monkey</thingObject>
+				<individualThought>ROR_IngestHolyFoodBad</individualThought>
+				<socialThought>ROR_IngestHolyFoodBadSocial</socialThought>
+			</li>	
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Meat_Monkey</thingObject>
+				<individualThought>ROR_IngestHolyFoodBad</individualThought>
+				<socialThought>ROR_IngestHolyFoodBadSocial</socialThought>
+			</li>		
+		</properties>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

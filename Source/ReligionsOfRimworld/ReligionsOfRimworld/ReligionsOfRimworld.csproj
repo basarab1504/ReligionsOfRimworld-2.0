@@ -108,6 +108,7 @@
     <Compile Include="ReligionsTabUtility.cs" />
     <Compile Include="ReligionSettings\ReligionSettings_JoiningRestriction.cs" />
     <Compile Include="ReligionStat.cs" />
+    <Compile Include="Religion_IngestingUtility.cs" />
     <Compile Include="Religion_PawnDamaged.cs" />
     <Compile Include="Religion_PawnDiedOrDownedUtility.cs" />
     <Compile Include="Religion_SocialSettings.cs" />

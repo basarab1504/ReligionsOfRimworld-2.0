@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThoughtDef>
-    <defName>ROR_ReligiousKilledSad</defName>
+    <defName>ROR_ReligiousDeadSad</defName>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>
     <stages>
       <li>
-        <label>killed of good religion fella</label>
+        <label>death of good religion fella</label>
         <description>sad</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
-        <label>killed of good religion fella</label>
+        <label>death of good religion fella</label>
         <description>sad</description>
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
-        <label>killed of good religion fella</label>
+        <label>death of good religion fella</label>
         <description>sad</description>
         <baseMoodEffect>-7</baseMoodEffect>
       </li>
       <li>
-        <label>killed of good religion fella</label>
+        <label>death of good religion fella</label>
         <description>sad</description>
         <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
-        <label>killed of good religion fella</label>
+        <label>death of good religion fella</label>
         <description>sad</description>
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
@@ -35,33 +35,33 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>ROR_ReligiousKilledHappy</defName>
+    <defName>ROR_ReligiousDeadHappy</defName>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>
     <stages>
       <li>
-        <label>killed of bad religion fella</label>
+        <label>death of bad religion fella</label>
         <description>sad</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
-        <label>killed of bad religion fella</label>
+        <label>death of bad religion fella</label>
         <description>sad</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
-        <label>killed of bad religion fella</label>
+        <label>death of bad religion fella</label>
         <description>sad</description>
         <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
-        <label>killed of bad religion fella</label>
+        <label>death of bad religion fella</label>
         <description>sad</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
-        <label>killed of bad religion fella</label>
+        <label>death of bad religion fella</label>
         <description>sad</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>

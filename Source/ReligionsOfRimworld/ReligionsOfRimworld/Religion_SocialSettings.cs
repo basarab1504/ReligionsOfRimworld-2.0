@@ -20,7 +20,7 @@ namespace ReligionsOfRimworld
         public ReligionProperty DefaultPropety => defaultPropety;
         public IEnumerable<ReligionProperty> Properties => properties;
 
-        public ReligionProperty GetPropertyBySubject(Def def)
+        public ReligionProperty GetPropertyByObject(Def def)
         {
             ReligionProperty property = properties.FirstOrDefault(x => x.GetObject() == def);
             if (property != null)
