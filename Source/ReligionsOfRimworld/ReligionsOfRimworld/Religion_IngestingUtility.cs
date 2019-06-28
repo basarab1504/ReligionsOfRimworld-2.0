@@ -11,7 +11,7 @@ namespace ReligionsOfRimworld
     {
         private static List<ReligionProperty> properties = new List<ReligionProperty>();
 
-        public static void FoodIngested(Pawn ingester, Thing foodSource, ThingDef foodDef, List<ThoughtDef> thoughtsFromIngesting)
+        public static void FoodIngested(Pawn ingester, Thing foodSource, ThingDef foodDef)
         {
             properties.Clear();
             ReligionSettings_Social settings = ingester.GetReligionComponent().Religion.FoodSettings;
@@ -25,11 +25,11 @@ namespace ReligionsOfRimworld
                     foreach (ThingDef ingridient in comp.ingredients)
                         properties.Add(settings.GetPropertyByObject(ingridient));
                 }
-                AppendThoughts(thoughtsFromIngesting);
+                AppendThoughts(new ReligionProperty_ThingObject());
             }
         }
 
-        private static void AppendThoughts(List<ThoughtDef> __result)
+        private static void AppendThoughts(IEnumerable<ReligionProperty> __result)
         {
             foreach (ReligionProperty property in properties)
                 if (property != null && property.IndividualThought != null)

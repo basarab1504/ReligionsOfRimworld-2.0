@@ -14,6 +14,11 @@ namespace ReligionsOfRimworld
         public Piety_Memory(Pawn pawn, PietyDef def) : base(pawn, def)
         { }
 
+        public Piety_Memory(Pawn pawm, PietyDef def, int forcedStage) : base(pawm, def)
+        {
+            SetForcedStage(forcedStage);
+        }
+
         public override int CurStageIndex
         {
             get
