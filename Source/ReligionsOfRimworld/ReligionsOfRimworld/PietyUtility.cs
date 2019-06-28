@@ -11,33 +11,54 @@ namespace ReligionsOfRimworld
     {
         public static List<PietyDef> situationalPietyList = DefDatabase<PietyDef>.AllDefs.Where(x => x.IsSituational).ToList<PietyDef>();
 
-        public static void TryApplyReligionProperty(Pawn pawn, ReligionProperty property, Pawn otherPawn = null)
-        {           
-            int curPietyStage = pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryInt;
-            if (property != null)
-            {             
-                if(property.IndividualThought != null)
-                    AddThought(pawn, ThoughtMaker.MakeThought(property.IndividualThought, curPietyStage), otherPawn);
+        public static void TryApplyReligionPropertiesIndividual(Pawn pawn, IEnumerable<ReligionProperty> properties)
+        {
+            foreach (ReligionProperty property in properties)
+                TryApplyReligionPropertyIndividual(pawn, property);
+        }
 
-                if(property.SocialThought != null)
-                    AddThought(pawn, ThoughtMaker.MakeThought(property.SocialThought, curPietyStage), otherPawn);
+        public static void TryApplyReligionPropertyIndividual(Pawn pawn, ReligionProperty property)
+        {
+            int curPietyStage = pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryInt;
+            if(property != null)
+            {
+                if (property.IndividualThought != null)
+                    AddThought(pawn, curPietyStage, property.IndividualThought, null);
 
                 if (property.IndividualPiety != null)
-                    AddPiety(pawn, property.IndividualPiety);
-
-                if (property.SocialThought != null)
-                    AddPiety(pawn, property.SocialPiety);
+                    AddPiety(pawn, curPietyStage, property.IndividualPiety);
             }
         }
 
-        public static void AddPiety(Pawn pawn, PietyDef pietyDef)
+        public static void TryApplyReligionPropertiesSocial(Pawn pawn, IEnumerable<ReligionProperty> properties, Pawn otherPawn = null)
         {
-            pawn.GetReligionComponent().PietyTracker.Piety.Add(new Piety_Memory(pawn, pietyDef));
+            foreach (ReligionProperty property in properties)
+                TryApplyReligionPropertySocial(pawn, property, otherPawn);
         }
 
-        private static void AddThought(Pawn pawn, Thought_Memory memory, Pawn otherPawn = null)
+        public static void TryApplyReligionPropertySocial(Pawn pawn, ReligionProperty property, Pawn otherPawn = null)
         {
-            pawn.needs.mood.thoughts.memories.TryGainMemory(memory);
+            int curPietyStage = pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryInt;
+            if (property != null)
+            {
+                if (property.SocialThought != null)
+                    AddThought(pawn, curPietyStage, property.SocialThought, otherPawn);
+
+                if (property.SocialPiety != null)
+                    AddPiety(pawn, curPietyStage, property.SocialPiety);
+            }
+        }
+
+        private static void AddPiety(Pawn pawn, int curPietyStage, PietyDef pietyDef)
+        {
+            if (pietyDef != null)
+                pawn.GetReligionComponent().PietyTracker.Piety.Add(new Piety_Memory(pawn, pietyDef, curPietyStage));
+        }
+
+        private static void AddThought(Pawn pawn, int curPietyStage, ThoughtDef thoughtDef, Pawn otherPawn = null)
+        {
+            if(thoughtDef != null)
+                pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(thoughtDef, curPietyStage), otherPawn);
         }
     }
 }

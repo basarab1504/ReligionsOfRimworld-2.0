@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRWeaponSettingsBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">
+			<tag>WeaponTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRWeaponSettingsBase">
+		<defName>RoRWeaponSettingsTest</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Gun_PumpShotgun</thingObject>
+				<individualThought>ROR_WeaponKillHappy</individualThought>
+			</li>		
+		</properties>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

@@ -18,6 +18,7 @@
 			<li>RoRMentalBreaksTest</li>
 			<li>RoRKillSettingsTest</li>
 			<li>RoRFoodSettingsTest</li>
+			<li>RoRWeaponSettingsTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 
@@ -39,7 +40,8 @@
 			<li>RoROpinionSettingsTest</li>
 			<li>RoRIncidentsTest</li>
 			<li>RoRDeathSettingsTest</li>	
-			<li>RoRFoodSettingsTest</li>		
+			<li>RoRFoodSettingsTest</li>
+			<li>RoRWeaponSettingsTest</li>		
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 </Defs>

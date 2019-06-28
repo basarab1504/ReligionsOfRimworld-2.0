@@ -25,15 +25,8 @@ namespace ReligionsOfRimworld
                     foreach (ThingDef ingridient in comp.ingredients)
                         properties.Add(settings.GetPropertyByObject(ingridient));
                 }
-                AppendThoughts(new ReligionProperty_ThingObject());
+                PietyUtility.TryApplyReligionPropertiesIndividual(ingester, properties);
             }
-        }
-
-        private static void AppendThoughts(IEnumerable<ReligionProperty> __result)
-        {
-            foreach (ReligionProperty property in properties)
-                if (property != null && property.IndividualThought != null)
-                    __result.Add(property.IndividualThought);
         }
     }
 }

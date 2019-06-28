@@ -11,12 +11,10 @@ namespace ReligionsOfRimworld
     public static class Religion_PawnDiedOrDownedUtility
     {
         private static List<SettingsTagDef> tagsToLook = new List<SettingsTagDef>();
-        private static List<IndividualThoughtToAdd> outIndividualThoughts;
 
-        public static void AppendThoughts_Religious(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind, List<IndividualThoughtToAdd> outIndividualThoughts_)
+        public static void AppendThoughts_Religious(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
         {
             tagsToLook.Clear();
-            outIndividualThoughts = outIndividualThoughts_;
             Def objectDef = null;
             Pawn instigator = null;
             ThingDef weapon = null;
@@ -74,10 +72,7 @@ namespace ReligionsOfRimworld
             if (settings != null)
             {
                 ReligionProperty property = settings.GetPropertyByObject(objectDef);
-                if (property != null)
-                {
-                    outIndividualThoughts.Add(AppendThought(property.SocialThought, pawn, instigator));
-                }
+                PietyUtility.TryApplyReligionPropertySocial(pawn, property, instigator);
             }
         }
 
@@ -87,18 +82,8 @@ namespace ReligionsOfRimworld
             if (settings != null)
             {
                 ReligionProperty property = settings.GetPropertyByObject(objectDef);
-                if (property != null)
-                {
-                    outIndividualThoughts.Add(AppendThought(property.IndividualThought, pawn));
-                }
+                PietyUtility.TryApplyReligionPropertyIndividual(pawn, property);
             }
-        }
-
-        private static IndividualThoughtToAdd AppendThought(ThoughtDef def, Pawn pawn, Pawn insigator = null)
-        {
-            IndividualThoughtToAdd thoughtToAdd = new IndividualThoughtToAdd(def, pawn, insigator);
-            thoughtToAdd.thought.SetForcedStage(pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryInt);
-            return thoughtToAdd;
         }
     }
 }

@@ -26,9 +26,9 @@ namespace ReligionsOfRimworld
         [HarmonyPatch(typeof(FoodUtility), "ThoughtsFromIngesting")]
         private static class Patch_ThoughtsFromIngesting
         {
-            private static void Postfix(Pawn ingester, Thing foodSource, ThingDef foodDef, List<ThoughtDef> __result)
+            private static void Postfix(Pawn ingester, Thing foodSource, ThingDef foodDef)
             {
-                Religion_IngestingUtility.FoodIngested(ingester, foodSource, foodDef, __result);
+                Religion_IngestingUtility.FoodIngested(ingester, foodSource, foodDef);
             }
         }
 
@@ -48,9 +48,9 @@ namespace ReligionsOfRimworld
         [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "GetThoughts")]
         private static class Patch_GetThoughts
         {
-            private static void Postfix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind, List<IndividualThoughtToAdd> outIndividualThoughts)
+            private static void Postfix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
             {
-                Religion_PawnDiedOrDownedUtility.AppendThoughts_Religious(victim, dinfo, thoughtsKind, outIndividualThoughts);
+                Religion_PawnDiedOrDownedUtility.AppendThoughts_Religious(victim, dinfo, thoughtsKind);
             }
         }
     }
