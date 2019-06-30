@@ -36,7 +36,7 @@ namespace ReligionsOfRimworld
                     AddThought(pawn, curPietyStage, propertyData.Thought);
 
                 if (propertyData.OpinionThought != null)
-                    AddThought(pawn, curPietyStage, propertyData.Thought, subjectPawn);
+                    AddThought(pawn, curPietyStage, propertyData.OpinionThought, subjectPawn);
 
                 if (propertyData.Piety != null)
                     AddPiety(pawn, curPietyStage, propertyData.Piety);

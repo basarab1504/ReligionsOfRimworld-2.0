@@ -10,14 +10,14 @@ namespace ReligionsOfRimworld
 {
     public static class Religion_PawnDiedOrDownedUtility
     {
-        private static List<SettingsTagDef> tagsToLook = new List<SettingsTagDef>();
+        //private static List<SettingsTagDef> tagsToLook = new List<SettingsTagDef>();
 
         public static void AppendThoughts_Religious(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
         {
-            tagsToLook.Clear();
+            //tagsToLook.Clear();
             if (thoughtsKind == PawnDiedOrDownedThoughtsKind.Died)
             {                             
-                tagsToLook.Add(SettingsTagDefOf.DeathTag);
+                //tagsToLook.Add(SettingsTagDefOf.DeathTag);
                 Def objectDef = null;
 
                 if (victim.RaceProps.Humanlike)
@@ -25,36 +25,45 @@ namespace ReligionsOfRimworld
                 else
                     objectDef = victim.def;
 
+                AppendThoughts_PotentialRelatedPawns(victim, SettingsTagDefOf.DeathTag, objectDef);
+
                 Pawn instigator = (Pawn)dinfo.Value.Instigator;
                 if (dinfo.HasValue)
                 {                  
                     if (instigator != null && instigator.RaceProps.Humanlike)
                     {
-                        tagsToLook.Add(SettingsTagDefOf.KillTag);
-                        AppendThought_ForInstigator(objectDef, SettingsTagDefOf.KillTag, instigator, victim);
+                        //tagsToLook.Add(SettingsTagDefOf.KillTag);
+                        ApppendThought_ForInstigator(instigator, victim, SettingsTagDefOf.KillTag, objectDef);
+                        AppendThoughts_PotentialRelatedPawns(instigator, SettingsTagDefOf.KillTag, objectDef);
 
                         if (dinfo.Value.Weapon != null)
                         {
-                            AppendThought_ForInstigator(dinfo.Value.Weapon, SettingsTagDefOf.WeaponTag, instigator, victim);
+                            ApppendThought_ForInstigator(instigator, victim, SettingsTagDefOf.WeaponTag, dinfo.Value.Weapon);
                         }                          
                     }
                 }
-                AppendThoughts_PotentialRelatedPawns(objectDef, victim, instigator);
             }
         }
 
-        private static void AppendThoughts_PotentialRelatedPawns(Def objectDef, Pawn victim, Pawn instigator = null)
+        private static void ApppendThought_ForInstigator(Pawn subject, Pawn victim, SettingsTagDef tagDef, Def objectDef)
+        {
+            ReligionProperty property = GetProperty(victim, objectDef, tagDef);
+            if (property != null)
+            {
+                PietyUtility.TryApplyOnPawn(property.Subject, subject, victim);
+            }
+        }
+
+        private static void AppendThoughts_PotentialRelatedPawns(Pawn subject, SettingsTagDef tagDef, Def objectDef)
         {
             foreach (Pawn pawn in ReligionExtensions.AllMapsCaravansAndTravelingTransportPods_Alive_Religious)
             {
-                if(Witnessed(pawn, victim) || pawn.Faction == victim.Faction || (instigator != null && pawn.Faction == instigator.Faction))
+                if(Witnessed(pawn, subject) || pawn.Faction == subject.Faction)
                 {
-                    foreach (SettingsTagDef tag in tagsToLook)
-                        AppendThought_PotentialRelatedPawn(objectDef, tag, pawn, victim, instigator);
+                    AppendThought_TryApplyOnRelatedPawn(pawn, subject, tagDef, objectDef);
                 }
             }
         }
-
 
         private static bool Witnessed(Pawn pawn, Pawn victim)
         {
@@ -65,66 +74,21 @@ namespace ReligionsOfRimworld
             return victim.Spawned && pawn.Spawned && (pawn.Position.InHorDistOf(victim.Position, 12f) && GenSight.LineOfSight(victim.Position, pawn.Position, victim.Map, false, (Func<IntVec3, bool>)null, 0, 0));
         }
 
-        private static void AppendThought_PotentialRelatedPawn(Def objectDef, SettingsTagDef tagDef, Pawn pawn, Pawn victim, Pawn instigator = null)
+        private static void AppendThought_TryApplyOnRelatedPawn(Pawn pawn, Pawn subject, SettingsTagDef tagDef, Def objectDef)
         {
-            ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tagDef);
-            if (settings != null)
+            ReligionProperty property = GetProperty(pawn, objectDef, tagDef);
+            if (property != null)
             {
-                ReligionProperty property = settings.GetPropertyByObject(objectDef);
-                if (instigator != null)
-                {
-                    if(instigator != pawn)
-                        PietyUtility.TryApplyOnPawn(property.Witness, pawn, instigator);
-                }
-                else
-                {
-                    PietyUtility.TryApplyOnPawn(property.Witness, pawn, victim);
-                }
-                    
+                PietyUtility.TryApplyOnPawn(property.Witness, pawn, subject);
             }
         }
 
-        private static void AppendThought_ForInstigator(Def objectDef, SettingsTagDef tagDef, Pawn instigator, Pawn victim)
+        private static ReligionProperty GetProperty(Pawn pawn, Def objectDef, SettingsTagDef tagDef)
         {
-            if (objectDef == null)
-                Log.Message("no obj");
-            else
-                Log.Message(objectDef.ToString());
-
-            if (tagDef == null)
-                Log.Message("no tagDef");
-            else
-                Log.Message(tagDef.ToString());
-
-            if (instigator == null)
-                Log.Message("no instigator");
-            else
-                Log.Message(instigator.ToString());
-
-            if (victim == null)
-                Log.Message("no victim");
-            else
-                Log.Message(victim.ToString());
-
-            if(instigator.GetReligionComponent() == null)
-                Log.Message("no GetReligionComponent");
-            else
-                Log.Message("comp is ok");
-
-            if (instigator.GetReligionComponent().Religion == null)
-                Log.Message("no GetReligionComponent");
-            else
-                Log.Message("Religion is ok");
-
-            ReligionSettings_Social settings = instigator.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tagDef);
+            ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tagDef);
             if (settings != null)
-            {
-                Log.Message("settings is ok");
-                ReligionProperty property = settings.GetPropertyByObject(objectDef);
-                PietyUtility.TryApplyOnPawn(property.Subject, instigator, victim);
-            }
-            else
-                Log.Message("settings is not ok");
+                return settings.GetPropertyByObject(objectDef);
+            return null;
         }
     }
 }
