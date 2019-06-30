@@ -55,11 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompReligion.cs" />
-    <Compile Include="CompProperties_FaithComp.cs" />
+    <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="DefaultThoughtWorkers\ThoughtWorker_NeedPiety.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionOpinion.cs" />
     <Compile Include="Dialog_ReligionInfo.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="FaithCardUtility.cs" />
+    <Compile Include="ReligionExtensions.cs" />
+    <Compile Include="ReligionCardUtility.cs" />
     <Compile Include="GraphicCache.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="IncidentWorker_Providence.cs" />
@@ -91,8 +92,8 @@
     <Compile Include="ReligionPermissions\ReligionAllowance_Trait.cs" />
     <Compile Include="ReligionDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReligionEntry.cs" />
-    <Compile Include="ReligionFromDefUtility.cs" />
+    <Compile Include="ReligionConfiguration.cs" />
+    <Compile Include="ReligionMaker.cs" />
     <Compile Include="ReligionInfo.cs" />
     <Compile Include="ReligionInfoEntry.cs" />
     <Compile Include="ReligionManager.cs" />
@@ -109,11 +110,10 @@
     <Compile Include="ReligionsOfRimworldModBase.cs" />
     <Compile Include="ReligionsTabUtility.cs" />
     <Compile Include="ReligionSettings\ReligionSettings_JoiningRestriction.cs" />
-    <Compile Include="ReligionStat.cs" />
+    <Compile Include="ReligionProperty.cs" />
     <Compile Include="Religion_IngestingUtility.cs" />
-    <Compile Include="Religion_PawnDamaged.cs" />
     <Compile Include="Religion_PawnDiedOrDownedUtility.cs" />
-    <Compile Include="Religion_SocialSettings.cs" />
+    <Compile Include="ReligionSettings\ReligionSettings_Social.cs" />
     <Compile Include="SettingsTagDef.cs" />
     <Compile Include="SettingsTagDefOf.cs" />
     <Compile Include="SimpleCurveDef.cs" />

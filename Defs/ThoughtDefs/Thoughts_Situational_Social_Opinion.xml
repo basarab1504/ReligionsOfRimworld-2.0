@@ -3,7 +3,7 @@
   <ThoughtDef>
     <defName>ROR_ReligionBadOpinionSocial</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
-    <workerClass>ReligionsOfRimworld.DefaultThoughtWorkers.ThoughtWorker_ReligionOpinion</workerClass>
+    <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
@@ -37,7 +37,7 @@
   <ThoughtDef>
     <defName>ROR_ReligionGoodOpinionSocial</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
-    <workerClass>ReligionsOfRimworld.DefaultThoughtWorkers.ThoughtWorker_ReligionOpinion</workerClass>
+    <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>

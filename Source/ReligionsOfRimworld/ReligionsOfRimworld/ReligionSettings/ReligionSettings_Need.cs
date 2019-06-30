@@ -10,8 +10,10 @@ namespace ReligionsOfRimworld
     public class ReligionSettings_Need : ReligionSettings
     {
         private NeedDef need;
+        private ThoughtDef needThought;
 
         public NeedDef Need => need;
+        public ThoughtDef NeedThought => needThought;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
@@ -23,6 +25,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_Defs.Look<NeedDef>(ref this.need, "need");
+            Scribe_Defs.Look<ThoughtDef>(ref this.needThought, "needThought");
         }
     }
 }

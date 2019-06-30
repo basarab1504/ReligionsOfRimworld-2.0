@@ -5,7 +5,7 @@ using System.Text;
 using RimWorld;
 using Verse;
 
-namespace ReligionsOfRimworld.DefaultThoughtWorkers
+namespace ReligionsOfRimworld
 {
     public class ThoughtWorker_ReligionOpinion : ThoughtWorker
     {

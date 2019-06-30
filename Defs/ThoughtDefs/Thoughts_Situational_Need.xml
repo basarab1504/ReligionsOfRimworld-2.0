@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>  
+  <ThoughtDef>
+    <defName>ROR_NeedPiety</defName>
+    <workerClass>ReligionsOfRimworld.ThoughtWorker_NeedPiety</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>empty</label>
+        <description>fasf</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+      <li>
+        <label>very low</label>
+        <description>fasf</description>        
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>low </label>
+        <description>fasf</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>satisfied</label>
+        <description>fasf</description>
+        <baseMoodEffect>0</baseMoodEffect>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>high</label>
+        <description>fasf</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>very high</label>
+        <description>fasf</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>          
+    </stages>
+  </ThoughtDef>
+</Defs>

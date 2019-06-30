@@ -10,6 +10,7 @@
 		<defName>RoRNeedSettingsPiety</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Need">
 			<need>Piety</need>
+			<needThought>ROR_NeedPiety</needThought>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>
