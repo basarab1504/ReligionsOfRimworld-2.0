@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>  
   <ThoughtDef>
-    <defName>ROR_ReligionBadOpinion</defName>
+    <defName>ROR_ReligionBadOpinionSocial</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.DefaultThoughtWorkers.ThoughtWorker_ReligionOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
@@ -35,7 +35,7 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>ROR_ReligionGoodOpinion</defName>
+    <defName>ROR_ReligionGoodOpinionSocial</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.DefaultThoughtWorkers.ThoughtWorker_ReligionOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>

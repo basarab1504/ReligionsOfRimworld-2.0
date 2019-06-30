@@ -12,7 +12,9 @@
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Gun_PumpShotgun</thingObject>
-				<individualThought>ROR_WeaponKillHappy</individualThought>
+				<subject>
+					<thought>ROR_WeaponKillHappy</thought>
+				</subject>	
 			</li>		
 		</properties>		
 		</settings>

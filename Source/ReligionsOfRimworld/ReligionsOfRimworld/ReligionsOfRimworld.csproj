@@ -82,6 +82,8 @@
     <Compile Include="PietyState.cs" />
     <Compile Include="PietyUtility.cs" />
     <Compile Include="PietyWorker.cs" />
+    <Compile Include="PropertyPawnCategory.cs" />
+    <Compile Include="PropertyPawnCategoryUtility.cs" />
     <Compile Include="Religion.cs" />
     <Compile Include="ReligionGroupTagDef.cs" />
     <Compile Include="ReligionPermissions\ReligionAllowance_Gender.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="SettingsTagDef.cs" />
     <Compile Include="SettingsTagDefOf.cs" />
     <Compile Include="SimpleCurveDef.cs" />
+    <Compile Include="ThoughtPietyPair.cs" />
     <Compile Include="WorldGenStep_Religions.cs" />
   </ItemGroup>
   <ItemGroup>

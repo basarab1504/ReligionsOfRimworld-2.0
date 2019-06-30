@@ -67,4 +67,72 @@
       </li>
     </stages>
   </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>ROR_ReligiousKilledWitnessSad</defName>
+    <showBubble>true</showBubble>
+    <durationDays>6</durationDays>
+    <stackLimit>5</stackLimit>
+    <stages>
+      <li>
+        <label>witness of killing a good religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a good religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a good religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a good religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a good religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>ROR_ReligiousKilledWitnessHappy</defName>
+    <showBubble>true</showBubble>
+    <durationDays>6</durationDays>
+    <stackLimit>5</stackLimit>
+    <stages>
+      <li>
+        <label>witness of killing a bad religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a bad religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a bad religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a bad religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>witness of killing a bad religion fella</label>
+        <description>sad</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 </Defs>

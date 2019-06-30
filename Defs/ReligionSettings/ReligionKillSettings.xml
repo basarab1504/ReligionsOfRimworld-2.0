@@ -12,18 +12,32 @@
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
-				<individualThought>ROR_ReligiousKilledSad</individualThought>
-				<socialThought>ROR_ReligiousKilledSadSocial</socialThought>
+				<subject>
+					<thought>ROR_ReligiousKilledSad</thought>
+				</subject>
+				<witness>
+					<thought>ROR_ReligiousKilledWitnessSad</thought>
+					<opinionThought>ROR_ReligiousKilledSadSocial</opinionThought>
+				</witness>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
 				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
-				<individualThought>ROR_ReligiousKilledHappy</individualThought>
-				<socialThought>ROR_ReligiousKilledHappySocial</socialThought>
+				<subject>
+					<thought>ROR_ReligiousKilledHappy</thought>
+				</subject>
+				<witness>
+					<thought>ROR_ReligiousKilledWitnessHappy</thought>
+					<opinionThought>ROR_ReligiousKilledHappySocial</opinionThought>
+				</witness>				
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Monkey</thingObject>
-				<individualThought>ROR_ReligiousKilledHappy</individualThought>
-				<socialThought>ROR_ReligiousKilledHappySocial</socialThought>
+				<subject>
+					<thought>ROR_ReligiousKilledHappy</thought>
+				</subject>
+				<witness>
+					<opinionThought>ROR_ReligiousKilledHappySocial</opinionThought>
+				</witness>
 			</li>			
 		</properties>		
 		</settings>

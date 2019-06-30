@@ -12,23 +12,39 @@
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Corpse_Panther</thingObject>
-				<individualThought>ROR_IngestHolyFoodGood</individualThought>
-				<socialThought>ROR_IngestHolyFoodGoodSocial</socialThought>
+				<subject>
+					<thought>ROR_IngestHolyFoodGood</thought>
+				</subject>
+				<witness>
+					<opinionThought>ROR_IngestHolyFoodGoodSocial</opinionThought>
+				</witness>
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Meat_Panther</thingObject>
-				<individualThought>ROR_IngestHolyFoodGood</individualThought>
-				<socialThought>ROR_IngestHolyFoodGoodSocial</socialThought>
+				<subject>
+					<thought>ROR_IngestHolyFoodGood</thought>
+				</subject>
+				<witness>
+					<opinionThought>ROR_IngestHolyFoodGoodSocial</opinionThought>
+				</witness>				
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Corpse_Monkey</thingObject>
-				<individualThought>ROR_IngestHolyFoodBad</individualThought>
-				<socialThought>ROR_IngestHolyFoodBadSocial</socialThought>
+				<subject>
+					<thought>ROR_IngestHolyFoodBad</thought>
+				</subject>
+				<witness>
+					<opinionThought>ROR_IngestHolyFoodBadSocial</opinionThought>
+				</witness>
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
 				<thingObject>Meat_Monkey</thingObject>
-				<individualThought>ROR_IngestHolyFoodBad</individualThought>
-				<socialThought>ROR_IngestHolyFoodBadSocial</socialThought>
+				<subject>
+					<thought>ROR_IngestHolyFoodBad</thought>
+				</subject>
+				<witness>
+					<opinionThought>ROR_IngestHolyFoodBadSocial</opinionThought>
+				</witness>
 			</li>		
 		</properties>		
 		</settings>

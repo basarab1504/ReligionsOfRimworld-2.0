@@ -25,7 +25,9 @@ namespace ReligionsOfRimworld
                     foreach (ThingDef ingridient in comp.ingredients)
                         properties.Add(settings.GetPropertyByObject(ingridient));
                 }
-                PietyUtility.TryApplyReligionPropertiesIndividual(ingester, properties);
+                foreach(ReligionProperty property in properties)
+                    if(property != null)
+                        PietyUtility.TryApplyOnPawn(property.Subject, ingester);
             }
         }
     }

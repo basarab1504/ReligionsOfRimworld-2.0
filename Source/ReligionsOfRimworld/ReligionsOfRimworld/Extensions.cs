@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,18 @@ namespace ReligionsOfRimworld
             return pawn.TryGetComp<CompReligion>();
         }
 
-        //public static bool IsReligious(this Pawn pawn)
-        //{
-        //    return GetReligionComponent(pawn) != null;
-        //}
+        public static IEnumerable<Pawn> AllMapsCaravansAndTravelingTransportPods_Alive_Religious
+        {
+            get
+            {
+                foreach (Pawn p in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive)
+                {
+                    if (p.GetReligionComponent() != null)
+                    {
+                        yield return p;
+                    }
+                }
+            }
+        }
     }
 }
