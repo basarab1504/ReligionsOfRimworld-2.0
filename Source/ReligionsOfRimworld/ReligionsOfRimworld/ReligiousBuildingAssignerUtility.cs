@@ -37,12 +37,14 @@ namespace ReligionsOfRimworld
                         {
                             TryToUnassignAllBuildings(parent);
                             SelectParent();
+                            return;
                         }
 
                         if (child.AvaliableToAssign)
                         {
                             TryToAssignBuilding(parent, child);
                             SelectParent();
+                            return;
                         }
                         else
                             Messages.Message("ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign".Translate(), MessageTypeDefOf.NeutralEvent);

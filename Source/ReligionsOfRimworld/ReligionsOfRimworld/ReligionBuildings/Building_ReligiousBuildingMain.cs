@@ -103,11 +103,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_References.Look<Religion>(ref this.assignedReligion, "assignedReligion");
-            foreach(Building_ReligionBuilding assignedBuilding in assignedBuildings)
-            {
-                Building_ReligiousBuildingFacility facility = (Building_ReligiousBuildingFacility)assignedBuilding;
-                Scribe_References.Look<Building_ReligiousBuildingFacility>(ref facility, "assignedFacilities");
-            }
+            Scribe_Collections.Look<Building_ReligionBuilding>(ref this.assignedBuildings, "assignedBuildings", LookMode.Reference);
         }
     }
 }

@@ -75,8 +75,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
-            Building_ReligiousBuildingMain parent = (Building_ReligiousBuildingMain)parentBuilding;
-            Scribe_References.Look<Building_ReligiousBuildingMain>(ref parent, "parentBuilding");
+            Scribe_References.Look<Building_ReligionBuilding>(ref this.parentBuilding, "parentBuilding");
         }
     }
 }

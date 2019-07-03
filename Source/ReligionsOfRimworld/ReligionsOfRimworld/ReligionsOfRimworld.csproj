@@ -57,12 +57,12 @@
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
     <Compile Include="Dialog_AssignReligion.cs" />
-    <Compile Include="HolyBuildings\Building_ReligionBuildingMain.cs" />
-    <Compile Include="HolyBuildings\Building_ReligionFacility.cs" />
+    <Compile Include="ReligionBuildings\Building_ReligionBuilding.cs" />
+    <Compile Include="ReligionBuildings\Building_ReligionFacility.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_NeedPiety.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionOpinion.cs" />
     <Compile Include="Dialog_ReligionInfo.cs" />
-    <Compile Include="HolyBuildings\Building_ReligiousBuilding.cs" />
+    <Compile Include="ReligionBuildings\Building_ReligiousBuildingMain.cs" />
     <Compile Include="ReligiousBuildingAssignerUtility.cs" />
     <Compile Include="ReligionExtensions.cs" />
     <Compile Include="ReligionCardUtility.cs" />
