@@ -56,9 +56,14 @@
   <ItemGroup>
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="Dialog_AssignReligion.cs" />
+    <Compile Include="HolyBuildings\Building_ReligionBuildingMain.cs" />
+    <Compile Include="HolyBuildings\Building_ReligionFacility.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_NeedPiety.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionOpinion.cs" />
     <Compile Include="Dialog_ReligionInfo.cs" />
+    <Compile Include="HolyBuildings\Building_ReligiousBuilding.cs" />
+    <Compile Include="ReligiousBuildingAssignerUtility.cs" />
     <Compile Include="ReligionExtensions.cs" />
     <Compile Include="ReligionCardUtility.cs" />
     <Compile Include="GraphicCache.cs" />
@@ -114,6 +119,7 @@
     <Compile Include="Religion_IngestingUtility.cs" />
     <Compile Include="Religion_PawnDiedOrDownedUtility.cs" />
     <Compile Include="ReligionSettings\ReligionSettings_Social.cs" />
+    <Compile Include="RequestType.cs" />
     <Compile Include="SettingsTagDef.cs" />
     <Compile Include="SettingsTagDefOf.cs" />
     <Compile Include="SimpleCurveDef.cs" />

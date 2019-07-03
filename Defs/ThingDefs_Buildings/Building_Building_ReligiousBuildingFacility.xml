@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>WorshipSpot</defName>
+    <thingClass>ReligionsOfRimworld.Building_ReligiousBuildingFacility</thingClass>
+    <label>worship spot</label>
+    <description>Designates a spot for throwing parties.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/PartySpot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <statBases>
+      <WorkToBuild>0</WorkToBuild>
+    </statBases>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+		<useHitPoints>False</useHitPoints>
+    <passability>Standable</passability>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <interactionCellIcon>DiningChair</interactionCellIcon>     
+    <placeWorkers>
+      <li>PlaceWorker_WatchArea</li>
+    </placeWorkers>
+    <designationCategory>ReligionBuildings</designationCategory>
+    <!--<inspectorTabs>
+      <li>Religion.ITab_Worship</li>
+    </inspectorTabs>
+    <researchPrerequisites>
+      <li>ReligionStuff</li>
+    </researchPrerequisites> -->
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>    
+    <building>
+      <sowTag>SupportPlantsOnly</sowTag>
+      <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+      <ai_chillDestination>false</ai_chillDestination>
+      <watchBuildingStandDistanceRange>
+        <min>1</min>
+        <max>8</max>
+      </watchBuildingStandDistanceRange>
+      <watchBuildingStandRectWidth>7</watchBuildingStandRectWidth>
+    </building>
+    <designationHotKey>Misc11</designationHotKey>
+    <tickerType>Rare</tickerType>
+  </ThingDef>	
+</Defs>
