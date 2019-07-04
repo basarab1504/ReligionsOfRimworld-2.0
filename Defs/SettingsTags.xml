@@ -59,4 +59,10 @@
 		<label>FoodTag</label>
 		<description>fasf</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>AllowedBuildingsTag</defName>
+		<label>AllowedBuildingsTag</label>
+		<description>fasf</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
 </Defs>

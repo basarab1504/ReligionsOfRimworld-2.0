@@ -63,6 +63,7 @@
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionOpinion.cs" />
     <Compile Include="Dialog_ReligionInfo.cs" />
     <Compile Include="ReligionBuildings\Building_ReligiousBuildingMain.cs" />
+    <Compile Include="ReligionSettings\ReligionSettings_ReligionBuildings.cs" />
     <Compile Include="ReligiousBuildingAssignerUtility.cs" />
     <Compile Include="ReligionExtensions.cs" />
     <Compile Include="ReligionCardUtility.cs" />

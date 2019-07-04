@@ -20,6 +20,7 @@ namespace ReligionsOfRimworld
         private ReligionSettings_Social killSettings;
         private ReligionSettings_Social weaponSettings;
         private ReligionSettings_Social foodSettings;
+        private ReligionSettings_AllowedBuildings allowedBuildingsSettings;
 
         public Religion(ReligionConfiguration configuration)
         {
@@ -45,6 +46,7 @@ namespace ReligionsOfRimworld
         public ReligionSettings_Social KillSettings => killSettings;
         public ReligionSettings_Social WeaponSettings => weaponSettings;
         public ReligionSettings_Social FoodSettings => foodSettings;
+        public ReligionSettings_AllowedBuildings AllowedBuildingsSettings => allowedBuildingsSettings;
 
         public void TryAddSettings(ReligionSettings settings)
         {
@@ -73,6 +75,7 @@ namespace ReligionsOfRimworld
             killSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.KillTag);
             weaponSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.WeaponTag);
             foodSettings = configuration.FindByTag<ReligionSettings_Social>(SettingsTagDefOf.FoodTag);
+            allowedBuildingsSettings = configuration.FindByTag<ReligionSettings_AllowedBuildings>(SettingsTagDefOf.AllowedBuildingsTag);
         }
 
         public T FindByTag<T>(SettingsTagDef tag) where T : ReligionSettings

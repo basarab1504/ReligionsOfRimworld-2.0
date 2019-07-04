@@ -16,7 +16,8 @@ namespace ReligionsOfRimworld
 
         public Building_ReligiousBuildingMain()
         {
-            assignedBuildings = new List<Building_ReligionBuilding>();
+            if (Scribe.mode == LoadSaveMode.Inactive)
+                assignedBuildings = new List<Building_ReligionBuilding>();
         }
 
         public Religion AssignedReligion => assignedReligion;
@@ -49,10 +50,20 @@ namespace ReligionsOfRimworld
 
         public override bool MayAssignBuilding(Building_ReligionBuilding religionBuilding)
         {
-            if (religionBuilding is Building_ReligiousBuildingFacility && !assignedBuildings.Contains(religionBuilding))
+            if (religionBuilding is Building_ReligiousBuildingFacility 
+                && DoReligionAllowsBuildings(religionBuilding)
+                && !assignedBuildings.Contains(religionBuilding))
                 return true;
             else
                 return false;
+        }
+
+        private bool DoReligionAllowsBuildings(Building_ReligionBuilding building)
+        {
+            if (assignedReligion != null && assignedReligion.AllowedBuildingsSettings != null)
+                if (assignedReligion.AllowedBuildingsSettings.AllowedBuildings.Any(x => x == building.def))
+                    return true;
+            return false;
         }
 
         protected override void AssignBuilding(Building_ReligionBuilding religionBuilding)

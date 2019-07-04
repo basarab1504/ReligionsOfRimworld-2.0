@@ -19,7 +19,7 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            yield return new ReligionInfoEntry("");
+            //yield return new ReligionInfoEntry("");
             if (GetObject() != null)
                 yield return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetObject().description);
 

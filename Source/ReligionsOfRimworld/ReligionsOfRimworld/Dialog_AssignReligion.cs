@@ -63,7 +63,8 @@ namespace ReligionsOfRimworld
                     y += 15f;
                 foreach (Religion assigningCandidate in ReligionManager.GetReligionManager().AllReligions)
                 {
-                    if (assigningCandidate != assignable.AssignedReligion)
+                    if (assigningCandidate != assignable.AssignedReligion 
+                        && assigningCandidate.AllowedBuildingsSettings != null && assigningCandidate.AllowedBuildingsSettings.AllowedBuildings.Any(x => x == assignable.def))
                     {
                         Rect rect = new Rect(0.0f, y, viewRect.width * 0.6f, 32f);
                         Widgets.Label(rect, assigningCandidate.Label);
