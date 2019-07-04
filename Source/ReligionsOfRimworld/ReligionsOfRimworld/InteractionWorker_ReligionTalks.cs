@@ -36,11 +36,18 @@ namespace ReligionsOfRimworld
             CompReligion initiatorComp = initiator.GetReligionComponent();
             CompReligion recipientComp = recipient.GetReligionComponent();
             ReligionSettings_ReligionTalks settings = initiatorComp.Religion.ReligionTalksSettings;
-            float opinionFactor = settings.OpinionFactorCurve.Curve != null ? settings.OpinionFactorCurve.Curve.Evaluate((float)initiator.relations.OpinionOf(recipient)) : 1f;
-            float moodFactor = settings.MoodFactorCurve.Curve != null ? settings.MoodFactorCurve.Curve.Evaluate((float)recipient.needs.mood.CurLevel) : 1f;
-            float spouseRelationChanceFactor = settings.SpouseRelationChanceFactor;
-            float compabilityFactor = recipientComp.ReligionCompability.CompabilityFor(initiatorComp.Religion);
-            return 1f * opinionFactor * moodFactor * spouseRelationChanceFactor * compabilityFactor;
+
+            if (recipientComp.ReligionRestrictions.MayConvertByTalking)
+            {
+                float opinionFactor = settings.OpinionFactorCurve.Curve != null ? settings.OpinionFactorCurve.Curve.Evaluate((float)initiator.relations.OpinionOf(recipient)) : 1f;
+                float moodFactor = settings.MoodFactorCurve.Curve != null ? settings.MoodFactorCurve.Curve.Evaluate((float)recipient.needs.mood.CurLevel) : 1f;
+                float spouseRelationChanceFactor = settings.SpouseRelationChanceFactor;
+                float compabilityFactor = recipientComp.ReligionCompability.CompabilityFor(initiatorComp.Religion);
+
+                return 1f * opinionFactor * moodFactor * spouseRelationChanceFactor * compabilityFactor;
+            }
+            else
+                return 0f;
         }
     }
 }

@@ -35,8 +35,8 @@ namespace ReligionsOfRimworld
             GUI.BeginGroup(rect);
             float y = 0.0f;
             DrawOverall(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
-            //y += 30f;
-            //DrawRestrictions(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
+            y += 30f;
+            DrawRestrictions(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
             y += 30f;
             DrawCompabilities(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
             GUI.EndGroup();
@@ -119,20 +119,28 @@ namespace ReligionsOfRimworld
             curY += 24f;
         }
 
-        //public static void DrawRestrictions(Rect rect, Pawn pawn, ref float curY)
-        //{
-        //    GUI.BeginGroup(rect);
-        //    float y = 0.0f;
-        //    Widgets.ListSeparator(ref y, rect.width, "Restrictions".Translate());
-        //    Rect rect2 = new Rect(rect.x, y, rect.width, 24f);
-        //    y += 24f;
-        //    Widgets.CheckboxLabeled(rect2, "restrict_attend", ref pawn.GetReligionComponent().religionActivity);
-        //    Rect rect3 = new Rect(rect.x, y, rect2.width, 24f);
-        //    y += 24f;
-        //    Widgets.CheckboxLabeled(rect3, "restrict_convert", ref pawn.GetReligionComponent().ableToConvert);
-        //    curY += y;
-        //    GUI.EndClip();
-        //}
+        public static void DrawRestrictions(Rect rect, Pawn pawn, ref float curY)
+        {
+            GUI.BeginGroup(rect);
+            float y = 0.0f;
+            Widgets.ListSeparator(ref y, rect.width, "Restrictions".Translate());
+            Rect rect2 = new Rect(rect.x, y, rect.width, 24f);
+            y += 24f;
+
+            bool mayConvertByTalking = pawn.GetReligionComponent().ReligionRestrictions.MayConvertByTalking;
+            Widgets.CheckboxLabeled(rect2, "restrict_attend", ref mayConvertByTalking);
+            pawn.GetReligionComponent().ReligionRestrictions.MayConvertByTalking = mayConvertByTalking;
+
+            Rect rect3 = new Rect(rect.x, y, rect2.width, 24f);
+            y += 24f;
+
+            bool mayDoReligionActivities = pawn.GetReligionComponent().ReligionRestrictions.MayDoReligionActivities;
+            Widgets.CheckboxLabeled(rect3, "restrict_convert", ref mayDoReligionActivities);
+            pawn.GetReligionComponent().ReligionRestrictions.MayDoReligionActivities = mayDoReligionActivities;
+
+            curY += y;
+            GUI.EndClip();
+        }
 
         public static void DrawCompabilities(Rect rect, Pawn pawn, ref float curY)
         {
