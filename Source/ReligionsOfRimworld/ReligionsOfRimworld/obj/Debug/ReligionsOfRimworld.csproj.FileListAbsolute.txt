@@ -1,6 +1,6 @@
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Assemblies\ReligionsOfRimworld.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Assemblies\ReligionsOfRimworld.pdb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Source\ReligionsOfRimworld\ReligionsOfRimworld\obj\Debug\ReligionsOfRimworld.csprojResolveAssemblyReference.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Source\ReligionsOfRimworld\ReligionsOfRimworld\obj\Debug\ReligionsOfRimworld.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Assemblies\ReligionsOfRimworld.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Assemblies\ReligionsOfRimworld.pdb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Source\ReligionsOfRimworld\ReligionsOfRimworld\obj\Debug\ReligionsOfRimworld.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Religions Beta 2.0\Source\ReligionsOfRimworld\ReligionsOfRimworld\obj\Debug\ReligionsOfRimworld.pdb

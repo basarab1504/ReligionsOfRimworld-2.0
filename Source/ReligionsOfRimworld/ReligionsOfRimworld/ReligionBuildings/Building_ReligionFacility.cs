@@ -9,9 +9,31 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class Building_ReligiousBuildingFacility : Building_ReligionBuilding
+    public class Building_ReligiousBuildingFacility : Building_ReligionBuilding, IBillGiver
     {
         private Building_ReligionBuilding parentBuilding;
+        private BillStack billStack;
+
+        public Building_ReligiousBuildingFacility()
+        {
+            this.billStack = new BillStack((IBillGiver)this);
+        }
+
+        public BillStack BillStack => billStack;
+        public IntVec3 BillInteractionCell => InteractionCell;
+        public IEnumerable<IntVec3> IngredientStackCells => GenAdj.CellsOccupiedBy((Thing)this);
+        public bool CurrentlyUsableForBills() => this.InteractionCell.IsValid;
+        public bool UsableForBillsAfterFueling() => this.CurrentlyUsableForBills();
+
+        public override Religion AssignedReligion
+        {
+            get
+            {
+                if (parentBuilding != null)
+                    return parentBuilding.AssignedReligion;
+                return null;
+            }
+        }
 
         public override bool AvaliableToAssign
         {
@@ -76,6 +98,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_References.Look<Building_ReligionBuilding>(ref this.parentBuilding, "parentBuilding");
+            Scribe_Deep.Look<BillStack>(ref this.billStack, "billStack", (object)this);
         }
     }
 }

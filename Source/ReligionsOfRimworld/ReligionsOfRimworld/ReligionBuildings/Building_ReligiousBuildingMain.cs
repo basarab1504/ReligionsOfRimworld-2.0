@@ -20,8 +20,6 @@ namespace ReligionsOfRimworld
                 assignedBuildings = new List<Building_ReligionBuilding>();
         }
 
-        public Religion AssignedReligion => assignedReligion;
-
         public bool TryAssignReligion(Religion religion)
         {
             assignedReligion = religion;
@@ -45,6 +43,8 @@ namespace ReligionsOfRimworld
                 return false;
             }
         }
+
+        public override Religion AssignedReligion => assignedReligion;
 
         public override IEnumerable<Building_ReligionBuilding> AssignedBuildings => assignedBuildings;
 

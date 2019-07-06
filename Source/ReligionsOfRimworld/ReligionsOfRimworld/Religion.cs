@@ -36,6 +36,7 @@ namespace ReligionsOfRimworld
         public string Description => configuration.Description;
         public ReligionGroupTagDef GroupTag => configuration.GroupTag;
         //public ReligionConfiguration Configuration => configuration;
+        public IEnumerable<ReligionSettings> AllSettings => configuration.Settings;
         public ReligionSettings_Need NeedSettings => needSettings;
         public ReligionSettings_JoiningRestriction JoiningRestrictionsSettings => joiningRestrictionsSettings;
         public ReligionSettings_ReligionTalks ReligionTalksSettings => religionTalksSettings;
@@ -82,6 +83,7 @@ namespace ReligionsOfRimworld
         {
             return (T)configuration.FindByTag<T>(tag);
         }
+
 
         public IEnumerable<ReligionInfo> GetInfo()
         {

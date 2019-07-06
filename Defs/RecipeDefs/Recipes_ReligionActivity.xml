@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RecipeDef>
+    <defName>ReligionActivity</defName>
+    <label>wo corpse</label>
+    <description>Cremate a corpse to completely destroy it.</description>
+    <jobString>Cremating.</jobString>
+    <workAmount>300</workAmount>
+    <workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
+    <effectWorking>Cremate</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <autoStripCorpses>false</autoStripCorpses>
+    <fixedIngredientFilter>
+        <thingDefs>
+            <li>MeleeWeapon_Club</li>
+        </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+</Defs>

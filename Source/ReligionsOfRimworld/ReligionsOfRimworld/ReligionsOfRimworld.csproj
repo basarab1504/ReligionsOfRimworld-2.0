@@ -54,17 +54,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityJobNode.cs" />
+    <Compile Include="ActivityJobQueue.cs" />
+    <Compile Include="Bill_ReligionActivity.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
     <Compile Include="Dialog_AssignReligion.cs" />
+    <Compile Include="Dialog_ReligionActivityBillConfig.cs" />
+    <Compile Include="MiscDefOf.cs" />
     <Compile Include="Pawn_ReligionRestrictions.cs" />
+    <Compile Include="ReligionActivityProperty.cs" />
+    <Compile Include="ReligionActivityStack.cs" />
+    <Compile Include="ReligionActivityTask.cs" />
     <Compile Include="ReligionBuildings\Building_ReligionBuilding.cs" />
     <Compile Include="ReligionBuildings\Building_ReligionFacility.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_NeedPiety.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionOpinion.cs" />
     <Compile Include="Dialog_ReligionInfo.cs" />
     <Compile Include="ReligionBuildings\Building_ReligiousBuildingMain.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings_ReligionBuildings.cs" />
+    <Compile Include="ReligionPropertyData.cs" />
+    <Compile Include="ITab_ReligionActivity.cs" />
+    <Compile Include="ReligionActivityUtility.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_ReligionBuildings.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_ReligionActivity.cs" />
     <Compile Include="ReligiousBuildingAssignerUtility.cs" />
     <Compile Include="ReligionExtensions.cs" />
     <Compile Include="ReligionCardUtility.cs" />
@@ -108,24 +120,24 @@
     <Compile Include="ReligionProperty_ReligionObject.cs" />
     <Compile Include="ReligionProperty_ReligionSubject.cs" />
     <Compile Include="ReligionRestrictionImportance.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings.cs" />
     <Compile Include="ReligionSettingsDef.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings_Need.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings_ReligionTalks.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings_Incidents.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings_MentalBreaks.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_Need.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_ReligionTalks.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_Incidents.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_MentalBreaks.cs" />
     <Compile Include="ReligionsOfRimworldModBase.cs" />
     <Compile Include="ReligionsTabUtility.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings_JoiningRestriction.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_JoiningRestriction.cs" />
     <Compile Include="ReligionProperty.cs" />
     <Compile Include="Religion_IngestingUtility.cs" />
     <Compile Include="Religion_PawnDiedOrDownedUtility.cs" />
-    <Compile Include="ReligionSettings\ReligionSettings_Social.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_Social.cs" />
     <Compile Include="RequestType.cs" />
     <Compile Include="SettingsTagDef.cs" />
     <Compile Include="SettingsTagDefOf.cs" />
     <Compile Include="SimpleCurveDef.cs" />
-    <Compile Include="ThoughtPietyPair.cs" />
+    <Compile Include="WorkGiver_DoReligionActivity.cs" />
     <Compile Include="WorldGenStep_Religions.cs" />
   </ItemGroup>
   <ItemGroup>

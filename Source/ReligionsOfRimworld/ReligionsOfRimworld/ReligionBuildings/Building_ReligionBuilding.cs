@@ -8,6 +8,8 @@ namespace ReligionsOfRimworld
 {
     public abstract class Building_ReligionBuilding : Building
     {
+        public abstract Religion AssignedReligion { get; }
+
         public abstract bool AvaliableToAssign { get; }
 
         public abstract IEnumerable<Building_ReligionBuilding> AssignedBuildings { get; }

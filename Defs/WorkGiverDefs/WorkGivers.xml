@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+    <defName>DoBillsReligionActivity</defName>
+    <label>do cremation bills</label>
+    <giverClass>ReligionsOfRimworld.WorkGiver_DoReligionActivity</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>40</priorityInType>
+    <verb>cremate</verb>
+    <gerund>cremating at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+</Defs>

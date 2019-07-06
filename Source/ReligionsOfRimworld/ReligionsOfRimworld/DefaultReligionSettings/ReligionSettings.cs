@@ -12,12 +12,15 @@ namespace ReligionsOfRimworld
 
         public SettingsTagDef Tag => tag;
 
+        public string Label => tag.LabelCap;
+        public string Description => tag.description;
+
         public abstract IEnumerable<ReligionInfoEntry> GetInfoEntries();
 
         public ReligionInfo GetInfoCategory()
         {
-            ReligionInfo infoCategory = new ReligionInfo(tag.LabelCap);
-            infoCategory.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", tag.description));
+            ReligionInfo infoCategory = new ReligionInfo(Label);
+            infoCategory.Add(new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", Description));
             infoCategory.AddRange(GetInfoEntries());
             return infoCategory;
         }

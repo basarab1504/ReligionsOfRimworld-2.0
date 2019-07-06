@@ -65,4 +65,16 @@
 		<label>AllowedBuildingsTag</label>
 		<description>fasf</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>WorshipTag</defName>
+		<label>WorshipTag</label>
+		<description>fasf</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>SacrificeTag</defName>
+		<label>SacrificeTag</label>
+		<description>fasf</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
 </Defs>

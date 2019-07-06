@@ -20,6 +20,7 @@
 			<li>RoRFoodSettingsTest</li>
 			<li>RoRWeaponSettingsTest</li>
 			<li>RoRAllowedBuildingsSettingsTest</li>
+			<li>RoRWorshipSettingsTest</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 

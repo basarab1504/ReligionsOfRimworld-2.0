@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRWorshipSettingsBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">
+			<tag>WorshipTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRWorshipSettingsBase">
+		<defName>RoRWorshipSettingsTest</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">	
+		<activityRelics>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+				<thingObject>Gun_PumpShotgun</thingObject>
+				<subject>
+					<thought>ROR_WeaponKillHappy</thought>
+				</subject>	
+			</li>		
+		</activityRelics>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

@@ -21,6 +21,9 @@
     <placeWorkers>
       <li>PlaceWorker_WatchArea</li>
     </placeWorkers>
+    <inspectorTabs>
+      <li>ReligionsOfRimworld.ITab_ReligionActivity</li>
+    </inspectorTabs>
     <designationCategory>ReligionBuildings</designationCategory>
     <!--<inspectorTabs>
       <li>Religion.ITab_Worship</li>
