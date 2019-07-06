@@ -10,6 +10,8 @@ namespace ReligionsOfRimworld
     {
         public abstract Religion AssignedReligion { get; }
 
+        public virtual void Notify_BuildingAssigningChanged() { }
+
         public abstract bool AvaliableToAssign { get; }
 
         public abstract IEnumerable<Building_ReligionBuilding> AssignedBuildings { get; }
@@ -20,7 +22,7 @@ namespace ReligionsOfRimworld
 
         protected abstract void UnassignBuilding(Building_ReligionBuilding building);
 
-        public void UnassignAllBuildings()
+        public void UnassignAllBuildingsAndNotify()
         {
             foreach (Building_ReligionBuilding building in AssignedBuildings.ToList())
                 SendAssigningRequest(building, AssigningRequestType.Delete);
@@ -32,20 +34,26 @@ namespace ReligionsOfRimworld
             {
                 case AssigningRequestType.Add:
                     {
-                        if (toBuilding.GetAssigningRequest(this, requestType))
+                        if (toBuilding.AssigningRequestAccepted(this, requestType))
+                        {
                             AssignBuilding(toBuilding);
+                            Notify_BuildingAssigningChanged();
+                        }
                         return;
                     }
                 case AssigningRequestType.Delete:
                     {
-                        if (toBuilding.GetAssigningRequest(this, requestType))
+                        if (toBuilding.AssigningRequestAccepted(this, requestType))
+                        {
                             UnassignBuilding(toBuilding);
+                            Notify_BuildingAssigningChanged();
+                        }
                         return;
                     }
             }
         }
 
-        private bool GetAssigningRequest(Building_ReligionBuilding fromBuilding, AssigningRequestType requestType)
+        private bool AssigningRequestAccepted(Building_ReligionBuilding fromBuilding, AssigningRequestType requestType)
         {
             switch (requestType)
             {
@@ -54,6 +62,7 @@ namespace ReligionsOfRimworld
                         if (MayAssignBuilding(fromBuilding) && fromBuilding.MayAssignBuilding(this))
                         {
                             AssignBuilding(fromBuilding);
+                            Notify_BuildingAssigningChanged();
                             return true;
                         }
                         return false;
@@ -61,6 +70,7 @@ namespace ReligionsOfRimworld
                 case AssigningRequestType.Delete:
                     {
                         UnassignBuilding(fromBuilding);
+                        Notify_BuildingAssigningChanged();
                         return true;
                     }
                 default:

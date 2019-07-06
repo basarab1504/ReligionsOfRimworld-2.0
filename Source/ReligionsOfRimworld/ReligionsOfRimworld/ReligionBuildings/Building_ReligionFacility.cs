@@ -9,21 +9,18 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class Building_ReligiousBuildingFacility : Building_ReligionBuilding, IBillGiver
+    public class Building_ReligiousBuildingFacility : Building_ReligionBuilding
     {
         private Building_ReligionBuilding parentBuilding;
-        private BillStack billStack;
+        private ReligionActivityTaskStack taskStack;
 
         public Building_ReligiousBuildingFacility()
         {
-            this.billStack = new BillStack((IBillGiver)this);
+            if (Scribe.mode == LoadSaveMode.Inactive)
+                taskStack = new ReligionActivityTaskStack();
         }
 
-        public BillStack BillStack => billStack;
-        public IntVec3 BillInteractionCell => InteractionCell;
-        public IEnumerable<IntVec3> IngredientStackCells => GenAdj.CellsOccupiedBy((Thing)this);
-        public bool CurrentlyUsableForBills() => this.InteractionCell.IsValid;
-        public bool UsableForBillsAfterFueling() => this.CurrentlyUsableForBills();
+        public ReligionActivityTaskStack TaskStack => taskStack;
 
         public override Religion AssignedReligion
         {
@@ -33,6 +30,11 @@ namespace ReligionsOfRimworld
                     return parentBuilding.AssignedReligion;
                 return null;
             }
+        }
+
+        public override void Notify_BuildingAssigningChanged()
+        {
+            taskStack.Clear();
         }
 
         public override bool AvaliableToAssign
@@ -98,7 +100,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_References.Look<Building_ReligionBuilding>(ref this.parentBuilding, "parentBuilding");
-            Scribe_Deep.Look<BillStack>(ref this.billStack, "billStack", (object)this);
+            Scribe_Deep.Look<ReligionActivityTaskStack>(ref this.taskStack, "taskStack");
         }
     }
 }

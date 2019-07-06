@@ -23,14 +23,14 @@ namespace ReligionsOfRimworld
         public bool TryAssignReligion(Religion religion)
         {
             assignedReligion = religion;
-            UnassignAllBuildings();
+            UnassignAllBuildingsAndNotify();
             return true;
         }
 
         public bool TryUnassignReligion()
         {
             assignedReligion = null;
-            UnassignAllBuildings();
+            UnassignAllBuildingsAndNotify();
             return true;
         }
 

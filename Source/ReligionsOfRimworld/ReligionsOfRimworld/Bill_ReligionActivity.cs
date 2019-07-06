@@ -47,8 +47,8 @@ namespace ReligionsOfRimworld
             Widgets.Label(rect, this.RepeatInfoText);
             GUI.color = baseColor;
             WidgetRow widgetRow = new WidgetRow(baseRect.xMax, baseRect.y + 29f, UIDirection.LeftThenUp, 99999f, 4f);
-            if (widgetRow.ButtonText("Details".Translate() + "...", (string)null, true, false))
-                Find.WindowStack.Add((Window)new Dialog_ReligionActivityBillConfig(this, ((Thing)this.billStack.billGiver).Position));
+            //if (widgetRow.ButtonText("Details".Translate() + "...", (string)null, true, false))
+                //Find.WindowStack.Add((Window)new Dialog_ReligionActivityTaskConfig(this, ((Thing)this.billStack.billGiver).Position));
             //if (widgetRow.ButtonText(this.repeatMode.LabelCap.PadRight(20), (string)null, true, false))
             //    BillRepeatModeUtility.MakeConfigFloatMenu(this);
             //if (widgetRow.ButtonIcon(TexButton.Plus, (string)null, new Color?()))

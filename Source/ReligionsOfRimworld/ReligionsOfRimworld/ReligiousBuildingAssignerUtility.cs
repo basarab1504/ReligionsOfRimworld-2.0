@@ -64,7 +64,7 @@ namespace ReligionsOfRimworld
         {
             if (parent.AssignedBuildings.Count() != 0)
             {
-                parent.UnassignAllBuildings();
+                parent.UnassignAllBuildingsAndNotify();
                 Messages.Message("ReligiousBuilgingAssigner_BuildingWasUnassigned".Translate(), MessageTypeDefOf.NeutralEvent);
             }
         }
