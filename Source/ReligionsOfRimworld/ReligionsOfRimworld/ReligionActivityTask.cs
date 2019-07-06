@@ -1,55 +1,50 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using Verse;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Verse;
 
-//namespace ReligionsOfRimworld
-//{
-//    public class ReligionActivityTask : IExposable, ILoadReferenceable
-//    {
-//        private int loadID = -1;
-//        ReligionActivityStack stack; 
-//        public bool suspended;
-//        public ThingFilter ingredientFilter;
-//        public Pawn pawnRestriction;
+namespace ReligionsOfRimworld
+{
+    public class ReligionActivityTask : IExposable, ILoadReferenceable
+    {
+        private int loadID;
+        private ThingFilter fixedFilter;
+        private ThingFilter dynamicFilter;
+        private bool suspended;
 
-//        public ReligionActivityTask(ReligionSettings_ReligionActivity religionSettings)
-//        {
-//            if (Scribe.mode == LoadSaveMode.Inactive)
-//            {
-//                this.loadID = Find.UniqueIDsManager.GetNextBillID();
-//                ingredientFilter = new ThingFilter();
+        public ReligionActivityTask(IEnumerable<ThingDef> allowedThings)
+        {
+            if(Scribe.mode == LoadSaveMode.Inactive)
+            {
+                this.loadID = Find.UniqueIDsManager.GetNextBillID();
+                fixedFilter = new ThingFilter();
+                dynamicFilter = new ThingFilter();
 
-//                if (religionSettings.ActivityRelics != null)
-//                    foreach (ThingDef def in GetAllThingDefsFromProperties(religionSettings.ActivityRelics))
-//                        ingredientFilter.SetAllow(def, true);
-//            }
-//        }
+                foreach (ThingDef def in allowedThings)
+                    fixedFilter.SetAllow(def, true);
 
-//        public bool ShouldDoNow()
-//        {
-//            return !suspended;
-//        }
+                dynamicFilter.SetAllowAll(fixedFilter);
+            }
+        }
 
-//        private IEnumerable<ThingDef> GetAllThingDefsFromProperties(IEnumerable<ReligionProperty> properties)
-//        {
-//            foreach (ReligionProperty property in properties)
-//                if (property != null && property.GetObject() != null)
-//                    yield return (ThingDef)property.GetObject();
-//        }
+        public ThingFilter FixedFilter => fixedFilter;
+        public ThingFilter DynamicFilter => dynamicFilter;
+        public bool Suspended => suspended;
 
-//        public string GetUniqueLoadID()
-//        {
-//            return "ReligionActivityTask_" + (object)this.loadID;
-//        }
+        public bool ShouldDoNow => !suspended;
 
-//        public void ExposeData()
-//        {
-//            Scribe_Values.Look<int>(ref this.loadID, "loadID", 0, false);
-//            Scribe_Values.Look<bool>(ref this.suspended, "suspended", false, false);
-//            Scribe_References.Look<Pawn>(ref this.pawnRestriction, "pawnRestriction", false);
-//            Scribe_Deep.Look<ThingFilter>(ref this.ingredientFilter, "ingredientFilter");
-//        }
-//    }
-//}
+        public string GetUniqueLoadID()
+        {
+            return "ReligionActivityTask_" + (object)this.loadID;
+        }
+
+        public void ExposeData()
+        {
+            Scribe_Values.Look<int>(ref this.loadID, "loadID");
+            Scribe_Deep.Look<ThingFilter>(ref this.fixedFilter, "fixedFilter");
+            Scribe_Deep.Look<ThingFilter>(ref this.dynamicFilter, "dynamicFilter");
+            Scribe_Values.Look<bool>(ref this.suspended, "suspended");
+        }
+    }
+}

@@ -9,6 +9,7 @@
       <texPath>Things/Building/Misc/PartySpot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+    
     <altitudeLayer>FloorEmplacement</altitudeLayer>
     <statBases>
       <WorkToBuild>0</WorkToBuild>
@@ -25,6 +26,9 @@
       <li>ReligionsOfRimworld.ITab_ReligionActivity</li>
     </inspectorTabs>
     <designationCategory>ReligionBuildings</designationCategory>
+    <recipes>
+      <li>ReligionActivity</li>
+    </recipes>
     <!--<inspectorTabs>
       <li>Religion.ITab_Worship</li>
     </inspectorTabs>

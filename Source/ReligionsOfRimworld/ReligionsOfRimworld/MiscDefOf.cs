@@ -12,5 +12,6 @@ namespace ReligionsOfRimworld
     {
         public static RecipeDef ReligionActivity;
         public static WorkGiverDef DoBillsReligionActivity;
+        public static JobDef DoReligionActivity;
     }
 }

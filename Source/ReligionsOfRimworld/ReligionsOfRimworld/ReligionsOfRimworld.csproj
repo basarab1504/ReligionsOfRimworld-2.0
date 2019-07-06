@@ -61,11 +61,11 @@
     <Compile Include="CompProperties_ReligionComp.cs" />
     <Compile Include="Dialog_AssignReligion.cs" />
     <Compile Include="Dialog_ReligionActivityBillConfig.cs" />
+    <Compile Include="JobDriver_DoReligionActivity.cs" />
+    <Compile Include="LordJob_ReligionActivity.cs" />
     <Compile Include="MiscDefOf.cs" />
     <Compile Include="Pawn_ReligionRestrictions.cs" />
     <Compile Include="ReligionActivityProperty.cs" />
-    <Compile Include="ReligionActivityStack.cs" />
-    <Compile Include="ReligionActivityTask.cs" />
     <Compile Include="ReligionBuildings\Building_ReligionBuilding.cs" />
     <Compile Include="ReligionBuildings\Building_ReligionFacility.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_NeedPiety.cs" />

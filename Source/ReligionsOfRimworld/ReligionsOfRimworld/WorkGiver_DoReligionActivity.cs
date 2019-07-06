@@ -10,6 +10,9 @@ namespace ReligionsOfRimworld
 {
     public class WorkGiver_DoReligionActivity : WorkGiver_DoBill
     {
+
+        public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForGroup(ThingRequestGroup.PotentialBillGiver);
+
         public override Job JobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
             if (thing is Building_ReligiousBuildingFacility facility)
@@ -23,9 +26,13 @@ namespace ReligionsOfRimworld
                 if (!this.def.fixedBillGiverDefs.Contains(thing.def))
                     this.def.fixedBillGiverDefs.Add(thing.def);
 
-                if (base.JobOnThing(pawn, thing, forced) != null)
+                Job newJob = base.JobOnThing(pawn, thing, forced);
+
+                if (newJob != null)
                 {
-                    return null;
+                    //newJob.def = MiscDefOf.DoReligionActivity;
+                    //Log.Message((newJob == null).ToString() + " " + pawn + " " + thing);
+                    return newJob;
                 }
             }
             return (Job)null;
