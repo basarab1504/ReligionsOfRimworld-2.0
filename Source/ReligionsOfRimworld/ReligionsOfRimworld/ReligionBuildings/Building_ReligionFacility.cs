@@ -12,15 +12,15 @@ namespace ReligionsOfRimworld
     public class Building_ReligiousBuildingFacility : Building_ReligionBuilding
     {
         private Building_ReligionBuilding parentBuilding;
-        private ReligionActivityTaskStack taskStack;
+        private ReligionActivityTaskList taskStack;
 
         public Building_ReligiousBuildingFacility()
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
-                taskStack = new ReligionActivityTaskStack();
+                taskStack = new ReligionActivityTaskList();
         }
 
-        public ReligionActivityTaskStack TaskStack => taskStack;
+        public ReligionActivityTaskList TaskStack => taskStack;
 
         public override Religion AssignedReligion
         {
@@ -100,7 +100,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_References.Look<Building_ReligionBuilding>(ref this.parentBuilding, "parentBuilding");
-            Scribe_Deep.Look<ReligionActivityTaskStack>(ref this.taskStack, "taskStack");
+            Scribe_Deep.Look<ReligionActivityTaskList>(ref this.taskStack, "taskStack");
         }
     }
 }

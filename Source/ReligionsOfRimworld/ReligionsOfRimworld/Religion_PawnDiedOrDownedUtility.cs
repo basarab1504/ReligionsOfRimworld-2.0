@@ -26,10 +26,10 @@ namespace ReligionsOfRimworld
                     objectDef = victim.def;
 
                 AppendThoughts_PotentialRelatedPawns(victim, SettingsTagDefOf.DeathTag, objectDef);
-
-                Pawn instigator = (Pawn)dinfo.Value.Instigator;
+               
                 if (dinfo.HasValue)
-                {                  
+                {
+                    Pawn instigator = (Pawn)dinfo.Value.Instigator;
                     if (instigator != null && instigator.RaceProps.Humanlike)
                     {
                         //tagsToLook.Add(SettingsTagDefOf.KillTag);

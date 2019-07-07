@@ -10,11 +10,14 @@
 		<defName>RoRWorshipSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">	
 		<activityRelics>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
-				<thingObject>Gun_PumpShotgun</thingObject>
-				<subject>
-					<thought>ROR_WeaponKillHappy</thought>
-				</subject>	
+			<li>
+				<property>
+					<thingObject>Gun_PumpShotgun</thingObject>
+					<subject>
+						<thought>ROR_WeaponKillHappy</thought>
+					</subject>
+				</property>
+				<count>1</count>	
 			</li>		
 		</activityRelics>		
 		</settings>

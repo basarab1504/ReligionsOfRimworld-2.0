@@ -61,6 +61,7 @@
     <Compile Include="CompProperties_ReligionComp.cs" />
     <Compile Include="Dialog_AssignReligion.cs" />
     <Compile Include="Dialog_ReligionActivityBillConfig.cs" />
+    <Compile Include="FindThingsForActivityUtility.cs" />
     <Compile Include="JobDriver_DoReligionActivity.cs" />
     <Compile Include="LordJob_ReligionActivity.cs" />
     <Compile Include="MiscDefOf.cs" />

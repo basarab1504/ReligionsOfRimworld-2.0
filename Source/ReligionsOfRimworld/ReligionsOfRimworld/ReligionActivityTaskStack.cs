@@ -7,12 +7,14 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionActivityTaskStack : IExposable
+    public class ReligionActivityTaskList : IExposable
     {
         private List<ReligionActivityTask> tasks = new List<ReligionActivityTask>();
 
         public IEnumerable<ReligionActivityTask> Tasks => tasks;
-        
+
+        public ReligionActivityTask this[int key] => tasks[key];
+
         public void Add(ReligionActivityTask task)
         {
             tasks.Add(task);
@@ -27,6 +29,10 @@ namespace ReligionsOfRimworld
         {
             tasks.Clear();
         }
+
+        public int Count => tasks.Count;
+
+        public bool AnyShouldDoNow => tasks.Any(x => x.ShouldDoNow);
 
         public ReligionActivityTask FirstShouldDoNow
         {

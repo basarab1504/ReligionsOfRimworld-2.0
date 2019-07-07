@@ -12,16 +12,18 @@ namespace ReligionsOfRimworld
     public class ReligionActivityTask : IExposable, ILoadReferenceable
     {
         private int loadID;
-        private ReligionActivityTaskStack taskStack;
+        private ReligionActivityTaskList taskStack;
         private SettingsTagDef tag;
+        private Dictionary<ThingDef, int> thingDefCount;
         private ThingFilter fixedFilter;
         private ThingFilter dynamicFilter;
         private bool suspended;
         private float thingSearchRadius = 999f;
         private IntVec3 searchCenter;
         private Pawn pawnRestriction;
+        private int lastThingSearchFailTicks = -99999;
 
-        public ReligionActivityTask(ReligionActivityTaskStack taskStack, ReligionSettings_ReligionActivity religionSettings, IntVec3 giverPosition)
+        public ReligionActivityTask(ReligionActivityTaskList taskStack, ReligionSettings_ReligionActivity religionSettings, IntVec3 giverPosition)
         {
             this.taskStack = taskStack;
             if (Scribe.mode == LoadSaveMode.Inactive)
@@ -31,7 +33,9 @@ namespace ReligionsOfRimworld
                 this.loadID = Find.UniqueIDsManager.GetNextBillID();
                 fixedFilter = new ThingFilter();
                 dynamicFilter = new ThingFilter();
-                FirstInitilizeFilters(religionSettings);
+                thingDefCount = new Dictionary<ThingDef, int>(); 
+                if (religionSettings.ActivityRelics != null)
+                    FirstInitilizeFiltersAndCount(religionSettings);
             }
         }
 
@@ -40,10 +44,39 @@ namespace ReligionsOfRimworld
         public bool Suspended => suspended;
         public float ThingSearchRadius { get => thingSearchRadius; set => thingSearchRadius = value; }
         public Pawn PawnRestriction { get => pawnRestriction; set => pawnRestriction = value; }
+        public int LastIngredientSearchFailTicks { get => lastThingSearchFailTicks; set => lastThingSearchFailTicks = value; }
 
         public bool ShouldDoNow => !suspended;
         public string Label => tag.LabelCap;
         public string Description => tag.description;
+
+        public int GetCount(ThingDef thingDef)
+        {
+            if (thingDefCount.ContainsKey(thingDef))
+                return thingDefCount[thingDef];
+            return 0;
+        }
+
+        public virtual bool PawnAllowedToStartAnew(Pawn p)
+        {
+            if (this.pawnRestriction != null)
+                return this.pawnRestriction == p;
+            //if (this.recipe.workSkill != null)
+            //{
+            //    int level = p.skills.GetSkill(this.recipe.workSkill).Level;
+            //    if (level < this.allowedSkillRange.min)
+            //    {
+            //        JobFailReason.Is("UnderAllowedSkill".Translate((NamedArgument)this.allowedSkillRange.min), this.Label);
+            //        return false;
+            //    }
+            //    if (level > this.allowedSkillRange.max)
+            //    {
+            //        JobFailReason.Is("AboveAllowedSkill".Translate((NamedArgument)this.allowedSkillRange.max), this.Label);
+            //        return false;
+            //    }
+            //}
+            return true;
+        }
 
         public Rect DoInterface(float x, float y, float width, int index)
         {
@@ -185,13 +218,12 @@ namespace ReligionsOfRimworld
             //TutorSystem.Notify_Event((EventPack)(this.recipe.defName + "-RepeatCountSetTo-" + (object)this.repeatCount));
         }
 
-        private void FirstInitilizeFilters(ReligionSettings_ReligionActivity religionSettings)
+        private void FirstInitilizeFiltersAndCount(ReligionSettings_ReligionActivity religionSettings)
         {
-            foreach (ReligionProperty property in religionSettings.ActivityRelics)
+            foreach (ReligionActivityProperty property in religionSettings.ActivityRelics)
             {
-                ThingDef def = property.GetObject() as ThingDef;
-                if (def != null)
-                    fixedFilter.SetAllow(def, true);
+                fixedFilter.SetAllow(property.Relic, true);
+                thingDefCount.Add(property.Relic, property.Count);
             }
             dynamicFilter.SetAllowAll(fixedFilter);
         }
@@ -210,6 +242,8 @@ namespace ReligionsOfRimworld
             Scribe_Values.Look<bool>(ref this.suspended, "suspended");
             Scribe_Values.Look<float>(ref this.thingSearchRadius, "thingSearchRadius");
             Scribe_Values.Look<IntVec3>(ref this.searchCenter, "searchCenter");
+            Scribe_Collections.Look<ThingDef, int>(ref this.thingDefCount, "thingDefCount");
+            Scribe_Values.Look<int>(ref this.lastThingSearchFailTicks, "lastThingSearchFailTicks");
         }
     }
 }
