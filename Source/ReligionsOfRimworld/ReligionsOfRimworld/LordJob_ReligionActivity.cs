@@ -25,18 +25,23 @@ namespace ReligionsOfRimworld
         public void RecieveStageEndedSignal(Pawn pawn)
         {
             if (!signalsCounted[pawn])
+            {
+                Log.Message(pawn.ToString() + " counted");
                 signalsCounted[pawn] = true;
+            }
         }
 
         public override void Notify_PawnAdded(Pawn p)
         {
             base.Notify_PawnAdded(p);
+            Log.Message(p.ToString() + " added");
             signalsCounted.Add(p, false);
         }
 
         public override void Notify_PawnLost(Pawn p, PawnLostCondition condition)
         {
             base.Notify_PawnLost(p, condition);
+            Log.Message(p.ToString() + " lost");
             signalsCounted.Remove(p);
         }
 
@@ -46,8 +51,8 @@ namespace ReligionsOfRimworld
             {
                 if (p == data.Organizer)
                     return 100f;
-                if(p.GetLord() == null)
-                    return p.GetReligionComponent().PietyTracker.Piety.CurCategoryInt * 20f;
+                else
+                    return p.GetReligionComponent().PietyTracker.Piety.CurCategoryInt * 19f;
             }
             return 0.0f;
         }
@@ -89,6 +94,7 @@ namespace ReligionsOfRimworld
         private void MoveNext()
         {
             activityCurrentStage++;
+            Log.Message("CURRENT " + activityCurrentStage.ToString());
             foreach (Pawn pawn in lord.ownedPawns)
                 signalsCounted[pawn] = false;
         }
@@ -149,6 +155,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
+            Scribe_Deep.Look<ReligionActivityData>(ref this.data, "activityData");
         }
     }
 }

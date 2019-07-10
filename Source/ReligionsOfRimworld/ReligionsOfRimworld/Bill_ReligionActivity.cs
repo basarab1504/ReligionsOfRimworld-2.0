@@ -81,5 +81,11 @@ namespace ReligionsOfRimworld
             //    return;
             //TutorSystem.Notify_Event((EventPack)(this.recipe.defName + "-RepeatCountSetTo-" + (object)this.repeatCount));
         }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Deep.Look<ReligionActivityProperty>(ref this.property, "property");
+        }
     }
 }
