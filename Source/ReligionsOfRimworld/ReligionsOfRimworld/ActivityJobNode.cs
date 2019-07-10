@@ -8,22 +8,28 @@ namespace ReligionsOfRimworld
 {
     public class ActivityJobNode : IExposable
     {
-        private JobDef headPawnJob;
-        private JobDef congregationMemberJob;
+        private JobDef organizerJob;
+        private JobDef congregationJob;
+
+        public ActivityJobNode()
+        { }
 
         public ActivityJobNode(JobDef headJob, JobDef memberJob)
         {
             if(Scribe.mode == LoadSaveMode.Inactive)
             {
-                this.headPawnJob = headJob;
-                this.congregationMemberJob = memberJob;
+                this.organizerJob = headJob;
+                this.congregationJob = memberJob;
             }
         }
 
+        public JobDef OrganizerJob => organizerJob;
+        public JobDef CongregationJob => congregationJob;
+
         public void ExposeData()
         {
-            Scribe_Defs.Look<JobDef>(ref this.headPawnJob, "headPawnJob");
-            Scribe_Defs.Look<JobDef>(ref this.congregationMemberJob, "congregationMemberJob");
+            Scribe_Defs.Look<JobDef>(ref this.organizerJob, "organizerJob");
+            Scribe_Defs.Look<JobDef>(ref this.congregationJob, "congregationJob");
         }
     }
 }

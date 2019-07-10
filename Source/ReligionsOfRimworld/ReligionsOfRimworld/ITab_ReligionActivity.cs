@@ -21,7 +21,7 @@ namespace ReligionsOfRimworld
         private static float PasteSize = 24f;
         private float viewHeight = 1000f;
         private Vector2 scrollPosition = new Vector2();
-        private ReligionActivityTask mouseoverTask;
+        private Bill mouseoverTask;
 
         public ITab_ReligionActivity()
         {
@@ -79,23 +79,23 @@ namespace ReligionsOfRimworld
             //    }
             //    TooltipHandler.TipRegion(rect1, (TipSignal)"PasteBillTip".Translate());
             //}
-            this.mouseoverTask = this.SelFacility.TaskStack.DoListing(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), (Func<List<FloatMenuOption>>)(() =>
+            this.mouseoverTask = this.SelFacility.BillStack.DoListing(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), (Func<List<FloatMenuOption>>)(() =>
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
-                foreach(ReligionSettings_ReligionActivity settings in GetAllRelatedSettings(SelFacility.AssignedReligion))
+                foreach(ReligionActivityProperty property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.WorshipTag).Properties)
                 {
-                    list.Add(new FloatMenuOption(settings.Label, (Action)(() =>
+                    list.Add(new FloatMenuOption(property.Recipe.label, (Action)(() =>
                     {
-                        if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>((Func<Pawn, bool>)(col => ReligionActivityUtility.PawnSatisfiesSkillRequirements(col, settings.SkillRequirements))))
-                            CreateNoPawnsWithSkillDialog(settings);
+                        if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>((Func<Pawn, bool>)(col => ReligionActivityUtility.PawnSatisfiesSkillRequirements(col, property.Recipe.skillRequirements))))
+                            CreateNoPawnsWithSkillDialog(property.Recipe);
                         if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>(x => x.GetReligionComponent().Religion == SelFacility.AssignedReligion))
                             CreateNoPawnsOfReligionDialog(SelFacility.AssignedReligion);
-                        this.SelFacility.TaskStack.Add(new ReligionActivityTask(SelFacility.TaskStack, settings, SelFacility.Position));
-                        //if (recipe.conceptLearned != null)
-                        //    PlayerKnowledgeDatabase.KnowledgeDemonstrated(recipe.conceptLearned, KnowledgeAmount.Total);
-                        //if (!TutorSystem.TutorialMode)
-                        //    return;
-                        TutorSystem.Notify_Event((EventPack)("AddBill-" + settings.Label));
+                        this.SelFacility.BillStack.AddBill(new Bill_ReligionActivity(property));
+                    //if (recipe.conceptLearned != null)
+                    //    PlayerKnowledgeDatabase.KnowledgeDemonstrated(recipe.conceptLearned, KnowledgeAmount.Total);
+                    //if (!TutorSystem.TutorialMode)
+                    //    return;
+                    TutorSystem.Notify_Event((EventPack)("AddBill-" + property.Recipe.LabelCap));
                     }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), (Def)MiscDefOf.ReligionActivity)), (WorldObject)null));
                 }
                 if (!list.Any<FloatMenuOption>())
@@ -108,14 +108,7 @@ namespace ReligionsOfRimworld
         {
             if (this.mouseoverTask == null)
                 return;           
-            this.mouseoverTask = (ReligionActivityTask)null;
-        }
-
-        private IEnumerable<ReligionSettings_ReligionActivity> GetAllRelatedSettings(Religion religion)
-        {
-            foreach (ReligionSettings settings in religion.AllSettings)
-                if (settings is ReligionSettings_ReligionActivity)
-                    yield return (ReligionSettings_ReligionActivity)settings;
+            this.mouseoverTask = null;
         }
 
         private void CreateNoAssignedReligionDialog()
@@ -123,9 +116,9 @@ namespace ReligionsOfRimworld
             Find.WindowStack.Add((Window)new Dialog_MessageBox("Religion_NoAssignedReligion".Translate(), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
         }
 
-        private void CreateNoPawnsWithSkillDialog(ReligionSettings_ReligionActivity settings)
+        private void CreateNoPawnsWithSkillDialog(RecipeDef recipe)
         {
-            Find.WindowStack.Add((Window)new Dialog_MessageBox("ActivityRequiresSkills".Translate((NamedArgument)settings.Label) + "\n\n" + ReligionActivityUtility.MinSkillString(settings.SkillRequirements), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
+            Find.WindowStack.Add((Window)new Dialog_MessageBox("ActivityRequiresSkills".Translate((NamedArgument)recipe.LabelCap) + "\n\n" + ReligionActivityUtility.MinSkillString(recipe.skillRequirements), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
         }
 
         private void CreateNoPawnsOfReligionDialog(Religion religion)

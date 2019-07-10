@@ -10,14 +10,10 @@ namespace ReligionsOfRimworld
 {
     public static class Religion_PawnDiedOrDownedUtility
     {
-        //private static List<SettingsTagDef> tagsToLook = new List<SettingsTagDef>();
-
         public static void AppendThoughts_Religious(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
         {
-            //tagsToLook.Clear();
             if (thoughtsKind == PawnDiedOrDownedThoughtsKind.Died)
             {                             
-                //tagsToLook.Add(SettingsTagDefOf.DeathTag);
                 Def objectDef = null;
 
                 if (victim.RaceProps.Humanlike)
@@ -32,7 +28,6 @@ namespace ReligionsOfRimworld
                     Pawn instigator = (Pawn)dinfo.Value.Instigator;
                     if (instigator != null && instigator.RaceProps.Humanlike)
                     {
-                        //tagsToLook.Add(SettingsTagDefOf.KillTag);
                         ApppendThought_ForInstigator(instigator, victim, SettingsTagDefOf.KillTag, objectDef);
                         AppendThoughts_PotentialRelatedPawns(instigator, SettingsTagDefOf.KillTag, objectDef);
 

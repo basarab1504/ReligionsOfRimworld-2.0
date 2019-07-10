@@ -9,4 +9,20 @@
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
+  <JobDef>
+    <defName>ReadPrayers</defName>
+    <driverClass>ReligionsOfRimworld.JobDriver_ReadPrayers</driverClass>
+    <reportString>read</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>ListenPrayers</defName>
+    <driverClass>ReligionsOfRimworld.JobDriver_ListenPrayers</driverClass>
+    <reportString>listen</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
 </Defs>

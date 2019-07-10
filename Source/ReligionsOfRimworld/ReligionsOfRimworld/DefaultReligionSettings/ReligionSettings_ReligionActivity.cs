@@ -8,35 +8,36 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettings_ReligionActivity : ReligionSettings
     {
-        private ActivityJobQueue activityJobQueue;
-        private List<ReligionActivityProperty> activityRelics;
-        private List<SkillRequirement> skillRequirements;
-
-        public IEnumerable<ReligionActivityProperty> ActivityRelics => activityRelics;
-        public IEnumerable<SkillRequirement> SkillRequirements => skillRequirements;
+        private List<ReligionActivityProperty> properties;
 
         public ReligionSettings_ReligionActivity()
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
-            {
-                activityRelics = new List<ReligionActivityProperty>();
-                skillRequirements = new List<SkillRequirement>();
-            }
+                properties = new List<ReligionActivityProperty>();
         }
+
+        public IEnumerable<ReligionActivityProperty> Properties => properties;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            foreach (ReligionActivityProperty property in activityRelics)
-                foreach (ReligionInfoEntry entry in property.GetInfoEntries())
-                    yield return entry;
+            yield return new ReligionInfoEntry("");
+            //yield return new ReligionInfoEntry("");
+            //if (GetObject() != null)
+            //    yield return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetObject().description);
+
+            //if (subject != null)
+            //    foreach (ReligionInfoEntry entry in subject.GetInfoEntries())
+            //        yield return entry;
+
+            //if (witness != null)
+            //    foreach (ReligionInfoEntry entry in witness.GetInfoEntries())
+            //        yield return entry;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look<ActivityJobQueue>(ref this.activityJobQueue, "activityJobQueue");
-            Scribe_Collections.Look<ReligionActivityProperty>(ref this.activityRelics, "activityRelics", LookMode.Deep);
-            Scribe_Collections.Look<SkillRequirement>(ref this.skillRequirements, "skillRequirements", LookMode.Deep);
+            Scribe_Collections.Look<ReligionActivityProperty>(ref this.properties, "properties");
         }
     }
 }

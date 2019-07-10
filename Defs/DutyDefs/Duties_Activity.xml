@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <DutyDef>
+    <defName>ReligionActivityStageDuty</defName>
+    <hook>HighPriority</hook>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>     
+        <li Class="ReligionsOfRimworld.JobGiver_ActivityStage"></li>
+        <li Class="ReligionsOfRimworld.SpectateReligionActivity"></li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+</Defs>
+

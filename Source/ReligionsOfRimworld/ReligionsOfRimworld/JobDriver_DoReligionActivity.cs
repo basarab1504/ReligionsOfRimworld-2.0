@@ -126,40 +126,43 @@ namespace ReligionsOfRimworld
             yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.C, findPlaceTarget, false);
             yield return Toils_Jump.JumpIfHaveTargetInQueue(TargetIndex.B, extract);
             yield return gotoBillGiver;
-            yield return Toils_Recipe.MakeUnfinishedThingIfNeeded();
-            //yield return StartActivity();
-            yield return Waiting();
-            yield return DoRecipeWork();
-            yield return Toils_Recipe.FinishRecipeAndStartStoringProduct();
-            if (!this.job.RecipeDef.products.NullOrEmpty<ThingDefCountClass>() || !this.job.RecipeDef.specialProducts.NullOrEmpty<SpecialProductType>())
-            {
-                yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
-                Toil carryToCell = Toils_Haul.CarryHauledThingToCell(TargetIndex.B);
-                yield return carryToCell;
-                yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.B, carryToCell, true);
-                Toil recount = new Toil();
-                recount.initAction = delegate
-                {
-                    Bill_Production bill_Production = recount.actor.jobs.curJob.bill as Bill_Production;
-                    if (bill_Production != null && bill_Production.repeatMode == BillRepeatModeDefOf.TargetCount)
-                    {
-                        this.Map.resourceCounter.UpdateResourceCounts();
-                    }
-                };
-                yield return recount;
-            }
+            yield return StartActivity();
+            //yield return Waiting();
+            //yield return DoRecipeWork();
+            //yield return Toils_Recipe.FinishRecipeAndStartStoringProduct();///////////////////////
+            //if (!this.job.RecipeDef.products.NullOrEmpty<ThingDefCountClass>() || !this.job.RecipeDef.specialProducts.NullOrEmpty<SpecialProductType>())
+            //{
+            //    yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
+            //    Toil carryToCell = Toils_Haul.CarryHauledThingToCell(TargetIndex.B);
+            //    yield return carryToCell;
+            //    yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.B, carryToCell, true);
+            //    Toil recount = new Toil();
+            //    recount.initAction = delegate
+            //    {
+            //        Bill_Production bill_Production = recount.actor.jobs.curJob.bill as Bill_Production;
+            //        if (bill_Production != null && bill_Production.repeatMode == BillRepeatModeDefOf.TargetCount)
+            //        {
+            //            this.Map.resourceCounter.UpdateResourceCounts();
+            //        }
+            //    };
+            //    yield return recount;
+            //}
         }
 
-        //private Toil StartActivity()
-        //{
-        //    return new Toil()
-        //    {
-        //        initAction = delegate
-        //        {
-        //            LordMaker.MakeNewLord(pawn.Faction, new LordJob_ReligionActivity(pawn, TargetFacility, this.job.GetTarget(TargetIndex.B).Thing), this.Map);
-        //        }
-        //    };
-        //}
+        private Toil StartActivity()
+        {
+            return new Toil()
+            {
+                initAction = delegate
+                {
+                    Religion religion = TargetFacility.AssignedReligion;
+                    Pawn organizer = pawn;
+                    IEnumerable<LocalTargetInfo> relics = this.job.GetTargetQueue(TargetIndex.B);
+
+                    ReligionActivityUtility.StartActivity(religion, organizer, (Bill_ReligionActivity)this.job.bill, relics);
+                }
+            };
+        }
 
         private Toil Waiting()
         {
@@ -170,85 +173,85 @@ namespace ReligionsOfRimworld
             }.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
         }
 
-        private Toil DoRecipeWork()
-        {
-            Toil toil = new Toil();
-            toil.initAction = (Action)(() =>
-            {
-                Pawn actor = toil.actor;
-                Job curJob = actor.jobs.curJob;
-                JobDriver_DoReligionActivity curDriver = (JobDriver_DoReligionActivity)actor.jobs.curDriver;
-                UnfinishedThing thing = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
-                if (thing != null && thing.Initialized)
-                {
-                    curDriver.workLeft = thing.workLeft;
-                }
-                else
-                {
-                    curDriver.workLeft = curJob.bill.recipe.WorkAmountTotal(thing == null ? (ThingDef)null : thing.Stuff);
-                    if (thing != null)
-                        thing.workLeft = curDriver.workLeft;
-                }
-                curDriver.billStartTick = Find.TickManager.TicksGame;
-                curDriver.ticksSpentDoingRecipeWork = 0;
-                curJob.bill.Notify_DoBillStarted(actor);
-            });
-            toil.tickAction = (Action)(() =>
-            {
-                Pawn actor = toil.actor;
-                Job curJob = actor.jobs.curJob;
-                JobDriver_DoReligionActivity curDriver = (JobDriver_DoReligionActivity)actor.jobs.curDriver;
-                UnfinishedThing thing1 = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
-                if (thing1 != null && thing1.Destroyed)
-                {
-                    actor.jobs.EndCurrentJob(JobCondition.Incompletable, true);
-                }
-                else
-                {
-                    ++curDriver.ticksSpentDoingRecipeWork;
-                    curJob.bill.Notify_PawnDidWork(actor);
-                    IBillGiverWithTickAction thing2 = toil.actor.CurJob.GetTarget(TargetIndex.A).Thing as IBillGiverWithTickAction;
-                    if (thing2 != null)
-                        thing2.UsedThisTick();
-                    if (curJob.RecipeDef.workSkill != null && curJob.RecipeDef.UsesUnfinishedThing)
-                        actor.skills.Learn(curJob.RecipeDef.workSkill, 0.1f * curJob.RecipeDef.workSkillLearnFactor, false);
-                    float num1 = curJob.RecipeDef.workSpeedStat != null ? actor.GetStatValue(curJob.RecipeDef.workSpeedStat, true) : 1f;
-                    if (curJob.RecipeDef.workTableSpeedStat != null)
-                    {
-                        Building_ReligiousBuildingFacility facility = curDriver.TargetFacility as Building_ReligiousBuildingFacility;
-                        if (facility != null)
-                            num1 *= facility.GetStatValue(curJob.RecipeDef.workTableSpeedStat, true);
-                    }
-                    if (DebugSettings.fastCrafting)
-                        num1 *= 30f;
-                    curDriver.workLeft -= num1;
-                    if (thing1 != null)
-                        thing1.workLeft = curDriver.workLeft;
-                    actor.GainComfortFromCellIfPossible();
-                    if ((double)curDriver.workLeft <= 0.0)
-                        curDriver.ReadyForNextToil();
-                    if (!curJob.bill.recipe.UsesUnfinishedThing)
-                        return;
-                    int num2 = Find.TickManager.TicksGame - curDriver.billStartTick;
-                    if (num2 < 3000 || num2 % 1000 != 0)
-                        return;
-                    actor.jobs.CheckForJobOverride();
-                }
-            });
-            toil.defaultCompleteMode = ToilCompleteMode.Never;
-            toil.WithEffect((Func<EffecterDef>)(() => toil.actor.CurJob.bill.recipe.effectWorking), TargetIndex.A);
-            toil.PlaySustainerOrSound((Func<SoundDef>)(() => toil.actor.CurJob.bill.recipe.soundWorking));
-            toil.WithProgressBar(TargetIndex.A, (Func<float>)(() =>
-            {
-                Pawn actor = toil.actor;
-                Job curJob = actor.CurJob;
-                UnfinishedThing thing = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
-                return (float)(1.0 - (double)((JobDriver_DoReligionActivity)actor.jobs.curDriver).workLeft / (double)curJob.bill.recipe.WorkAmountTotal(thing == null ? (ThingDef)null : thing.Stuff));
-            }), false, -0.5f);
-            toil.FailOn<Toil>((Func<bool>)(() => toil.actor.CurJob.bill.suspended));
-            toil.activeSkill = (Func<SkillDef>)(() => toil.actor.CurJob.bill.recipe.workSkill);
-            return toil;
-        }
+        //private Toil DoRecipeWork()
+        //{
+        //    Toil toil = new Toil();
+        //    toil.initAction = (Action)(() =>
+        //    {
+        //        Pawn actor = toil.actor;
+        //        Job curJob = actor.jobs.curJob;
+        //        JobDriver_DoReligionActivity curDriver = (JobDriver_DoReligionActivity)actor.jobs.curDriver;
+        //        UnfinishedThing thing = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
+        //        if (thing != null && thing.Initialized)
+        //        {
+        //            curDriver.workLeft = thing.workLeft;
+        //        }
+        //        else
+        //        {
+        //            curDriver.workLeft = curJob.bill.recipe.WorkAmountTotal(thing == null ? (ThingDef)null : thing.Stuff);
+        //            if (thing != null)
+        //                thing.workLeft = curDriver.workLeft;
+        //        }
+        //        curDriver.billStartTick = Find.TickManager.TicksGame;
+        //        curDriver.ticksSpentDoingRecipeWork = 0;
+        //        curJob.bill.Notify_DoBillStarted(actor);
+        //    });
+        //    toil.tickAction = (Action)(() =>
+        //    {
+        //        Pawn actor = toil.actor;
+        //        Job curJob = actor.jobs.curJob;
+        //        JobDriver_DoReligionActivity curDriver = (JobDriver_DoReligionActivity)actor.jobs.curDriver;
+        //        UnfinishedThing thing1 = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
+        //        if (thing1 != null && thing1.Destroyed)
+        //        {
+        //            actor.jobs.EndCurrentJob(JobCondition.Incompletable, true);
+        //        }
+        //        else
+        //        {
+        //            ++curDriver.ticksSpentDoingRecipeWork;
+        //            curJob.bill.Notify_PawnDidWork(actor);
+        //            IBillGiverWithTickAction thing2 = toil.actor.CurJob.GetTarget(TargetIndex.A).Thing as IBillGiverWithTickAction;
+        //            if (thing2 != null)
+        //                thing2.UsedThisTick();
+        //            if (curJob.RecipeDef.workSkill != null && curJob.RecipeDef.UsesUnfinishedThing)
+        //                actor.skills.Learn(curJob.RecipeDef.workSkill, 0.1f * curJob.RecipeDef.workSkillLearnFactor, false);
+        //            float num1 = curJob.RecipeDef.workSpeedStat != null ? actor.GetStatValue(curJob.RecipeDef.workSpeedStat, true) : 1f;
+        //            if (curJob.RecipeDef.workTableSpeedStat != null)
+        //            {
+        //                Building_ReligiousBuildingFacility facility = curDriver.TargetFacility as Building_ReligiousBuildingFacility;
+        //                if (facility != null)
+        //                    num1 *= facility.GetStatValue(curJob.RecipeDef.workTableSpeedStat, true);
+        //            }
+        //            if (DebugSettings.fastCrafting)
+        //                num1 *= 30f;
+        //            curDriver.workLeft -= num1;
+        //            if (thing1 != null)
+        //                thing1.workLeft = curDriver.workLeft;
+        //            actor.GainComfortFromCellIfPossible();
+        //            if ((double)curDriver.workLeft <= 0.0)
+        //                curDriver.ReadyForNextToil();
+        //            if (!curJob.bill.recipe.UsesUnfinishedThing)
+        //                return;
+        //            int num2 = Find.TickManager.TicksGame - curDriver.billStartTick;
+        //            if (num2 < 3000 || num2 % 1000 != 0)
+        //                return;
+        //            actor.jobs.CheckForJobOverride();
+        //        }
+        //    });
+        //    toil.defaultCompleteMode = ToilCompleteMode.Never;
+        //    toil.WithEffect((Func<EffecterDef>)(() => toil.actor.CurJob.bill.recipe.effectWorking), TargetIndex.A);
+        //    toil.PlaySustainerOrSound((Func<SoundDef>)(() => toil.actor.CurJob.bill.recipe.soundWorking));
+        //    toil.WithProgressBar(TargetIndex.A, (Func<float>)(() =>
+        //    {
+        //        Pawn actor = toil.actor;
+        //        Job curJob = actor.CurJob;
+        //        UnfinishedThing thing = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
+        //        return (float)(1.0 - (double)((JobDriver_DoReligionActivity)actor.jobs.curDriver).workLeft / (double)curJob.bill.recipe.WorkAmountTotal(thing == null ? (ThingDef)null : thing.Stuff));
+        //    }), false, -0.5f);
+        //    toil.FailOn<Toil>((Func<bool>)(() => toil.actor.CurJob.bill.suspended));
+        //    toil.activeSkill = (Func<SkillDef>)(() => toil.actor.CurJob.bill.recipe.workSkill);
+        //    return toil;
+        //}
 
         private static Toil JumpToCollectNextIntoHandsForBill(Toil gotoGetTargetToil, TargetIndex ind)
         {

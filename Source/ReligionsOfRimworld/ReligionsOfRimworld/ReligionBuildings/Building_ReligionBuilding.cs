@@ -22,6 +22,12 @@ namespace ReligionsOfRimworld
 
         protected abstract void UnassignBuilding(Building_ReligionBuilding building);
 
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            UnassignAllBuildingsAndNotify();
+            base.Destroy(mode);
+        }
+
         public void UnassignAllBuildingsAndNotify()
         {
             foreach (Building_ReligionBuilding building in AssignedBuildings.ToList())

@@ -6,26 +6,24 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionActivityProperty
+    public class ReligionActivityProperty : IExposable
     {
-        private ReligionProperty_ThingObject property;
-        private int count;
+        private ActivityJobQueueDef activityJobQueue;
+        private ReligionPropertyData organizerProperty;
+        private ReligionPropertyData congregationProperty;
+        private RecipeDef recipe;
 
-        public ThingDef Relic => (ThingDef)property.GetObject();
-        public int Count => count;
-
-        public IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            //yield return new ReligionInfoEntry("");
-            if (property != null)
-                foreach (ReligionInfoEntry entry in property.GetInfoEntries())
-                    yield return entry;
-        }
+        public ActivityJobQueueDef ActivityJobQueue => activityJobQueue;
+        public ReligionPropertyData Subject => organizerProperty;
+        public ReligionPropertyData Witness => congregationProperty;
+        public RecipeDef Recipe => recipe;
 
         public virtual void ExposeData()
         {
-            Scribe_Deep.Look<ReligionProperty_ThingObject>(ref this.property, "property");
-            Scribe_Deep.Look<int>(ref this.count, "count");
+            Scribe_Defs.Look<ActivityJobQueueDef>(ref this.activityJobQueue, "activityJobQueue");
+            Scribe_Deep.Look<ReligionPropertyData>(ref this.organizerProperty, "organizerProperty");
+            Scribe_Deep.Look<ReligionPropertyData>(ref this.congregationProperty, "congregationProperty");
+            Scribe_Defs.Look<RecipeDef>(ref this.recipe, "recipe");
         }
     }
 }
