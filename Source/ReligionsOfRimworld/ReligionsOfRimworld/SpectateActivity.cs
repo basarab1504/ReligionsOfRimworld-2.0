@@ -8,7 +8,7 @@ using Verse.AI;
 
 namespace ReligionsOfRimworld
 {
-    class SpectateReligionActivity : ThinkNode_JobGiver
+    class JobGiver_SpectateReligionActivity : ThinkNode_JobGiver
     {
         protected override Job TryGiveJob(Pawn pawn)
         {

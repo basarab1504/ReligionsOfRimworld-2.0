@@ -12,11 +12,7 @@ namespace ReligionsOfRimworld
 {
     public class JobDriver_DoReligionActivity : JobDriver
     {
-        public float workLeft;
-
         public int billStartTick;
-
-        public int ticksSpentDoingRecipeWork;
 
         public const PathEndMode GotoIngredientPathEndMode = PathEndMode.ClosestTouch;
 
@@ -51,9 +47,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<float>(ref this.workLeft, "workLeft", 0f, false);
             Scribe_Values.Look<int>(ref this.billStartTick, "billStartTick", 0, false);
-            Scribe_Values.Look<int>(ref this.ticksSpentDoingRecipeWork, "ticksSpentDoingRecipeWork", 0, false);
         }
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)

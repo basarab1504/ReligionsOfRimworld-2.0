@@ -11,17 +11,19 @@ namespace ReligionsOfRimworld
         private Religion religion;
         private Pawn organizer;
         private List<LocalTargetInfo> relics;
-        private Bill_ReligionActivity bill; 
+        private Bill_ReligionActivity bill;
 
         public ReligionActivityData(Religion religion, Pawn organizer, Bill_ReligionActivity bill, IEnumerable<LocalTargetInfo> relics = null)
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
+            {
                 this.relics = new List<LocalTargetInfo>();
+                this.relics.AddRange(relics);
+            }
 
             this.religion = religion;
             this.organizer = organizer;
             this.bill = bill;
-            this.relics.AddRange(relics);
         }
 
         public Religion Religion => religion;

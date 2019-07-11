@@ -12,6 +12,9 @@ namespace ReligionsOfRimworld
     {
         private ReligionActivityProperty property;
 
+        public Bill_ReligionActivity()
+        { }
+
         public Bill_ReligionActivity(ReligionActivityProperty property) : base(property.Recipe)
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
