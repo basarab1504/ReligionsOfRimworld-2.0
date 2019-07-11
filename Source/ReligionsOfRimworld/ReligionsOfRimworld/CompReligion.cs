@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,7 @@ namespace ReligionsOfRimworld
             pietyTracker = new Pawn_PietyTracker((Pawn)parent, religion);
             religionCompability.RecalculateCompabilities();
             religionRestrictions.RestoreToDefault();
+            BillUtility.Notify_ColonistUnavailable((Pawn)this.parent);
         }
 
         public override void Initialize(CompProperties props)

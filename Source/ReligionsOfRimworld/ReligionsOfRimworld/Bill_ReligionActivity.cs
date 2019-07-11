@@ -34,6 +34,13 @@ namespace ReligionsOfRimworld
             this.billStack.Delete(this);
         }
 
+        public override void ValidateSettings()
+        {
+            base.ValidateSettings();
+            if(this.pawnRestriction != null && pawnRestriction.GetReligionComponent().Religion != ((Building_ReligiousBuildingFacility)billStack.billGiver).AssignedReligion)
+                this.pawnRestriction = (Pawn)null;
+        }
+
         protected override void DoConfigInterface(Rect baseRect, Color baseColor)
         {
             Rect rect = new Rect(28f, 32f, 100f, 30f);
