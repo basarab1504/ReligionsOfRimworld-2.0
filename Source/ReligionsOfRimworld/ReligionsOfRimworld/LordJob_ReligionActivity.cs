@@ -33,7 +33,7 @@ namespace ReligionsOfRimworld
         {
             if (!signalsCounted[pawn])
             {
-                //Log.Message(pawn.ToString() + " counted");
+                Log.Message(pawn.ToString() + " counted");
                 signalsCounted[pawn] = true;
             }
         }
@@ -41,14 +41,14 @@ namespace ReligionsOfRimworld
         public override void Notify_PawnAdded(Pawn p)
         {
             base.Notify_PawnAdded(p);
-            //Log.Message(p.ToString() + " added");
+            Log.Message(p.ToString() + " added");
             signalsCounted.Add(p, false);
         }
 
         public override void Notify_PawnLost(Pawn p, PawnLostCondition condition)
         {
             base.Notify_PawnLost(p, condition);
-            //Log.Message(p.ToString() + " lost");
+            Log.Message(p.ToString() + " lost");
             signalsCounted.Remove(p);
         }
 
@@ -101,7 +101,7 @@ namespace ReligionsOfRimworld
         private void MoveNext()
         {
             activityCurrentStage++;
-            //Log.Message("CURRENT " + activityCurrentStage.ToString());
+            Log.Message("CURRENT " + activityCurrentStage.ToString());
             foreach (Pawn pawn in lord.ownedPawns)
                 signalsCounted[pawn] = false;
         }
@@ -146,6 +146,32 @@ namespace ReligionsOfRimworld
             }
 
             return job;
+        }
+
+        public Job GetSpectateJob(Pawn pawn)
+        {
+            if (activityCurrentStage >= data.ActivityJobs.Count())
+                return null;
+
+            PawnDuty duty = pawn.mindState.duty;
+            if (duty == null)
+                return (Job)null;
+
+            IntVec3 cell;
+
+            ReligionActivityUtility.TrySendStageEndedSignal(pawn);
+
+            if (pawn == data.Organizer)
+                return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)data.Facility.Position, (LocalTargetInfo)data.Facility.Position);
+
+            if (!SpectatorCellFinder.TryFindSpectatorCellFor(pawn, duty.spectateRect, pawn.Map, out cell, duty.spectateRectAllowedSides, 1, (List<IntVec3>)null))
+                return (Job)null;
+            IntVec3 centerCell = duty.spectateRect.CenterCell;
+            Building edifice = cell.GetEdifice(pawn.Map);
+
+            if (edifice != null && edifice.def.category == ThingCategory.Building && (edifice.def.building.isSittable && pawn.CanReserve((LocalTargetInfo)((Thing)edifice), 1, -1, (ReservationLayerDef)null, false)))
+                return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)((Thing)edifice), (LocalTargetInfo)centerCell);
+            return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)cell, (LocalTargetInfo)centerCell);
         }
 
         private void ActivityEnd()
