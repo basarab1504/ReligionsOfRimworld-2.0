@@ -33,7 +33,7 @@ namespace ReligionsOfRimworld
         {
             if (!signalsCounted[pawn])
             {
-                Log.Message(pawn.ToString() + " counted");
+                //Log.Message(pawn.ToString() + " counted");
                 signalsCounted[pawn] = true;
             }
         }
@@ -41,14 +41,14 @@ namespace ReligionsOfRimworld
         public override void Notify_PawnAdded(Pawn p)
         {
             base.Notify_PawnAdded(p);
-            Log.Message(p.ToString() + " added");
+            //Log.Message(p.ToString() + " added");
             signalsCounted.Add(p, false);
         }
 
         public override void Notify_PawnLost(Pawn p, PawnLostCondition condition)
         {
             base.Notify_PawnLost(p, condition);
-            Log.Message(p.ToString() + " lost");
+            //Log.Message(p.ToString() + " lost");
             signalsCounted.Remove(p);
         }
 
@@ -192,43 +192,5 @@ namespace ReligionsOfRimworld
             Scribe_Values.Look<int>(ref this.activityCurrentStage, "currentStage");
             Scribe_Collections.Look<Pawn, bool> (ref this.signalsCounted, "countedSignals", LookMode.Reference, LookMode.Value, ref pawnsKeysWorkingList, ref signalsValuesWorkingList);
         }
-
-        //private class SignalCounter
-        //{
-        //    private List<Signal> signals;
-
-        //    public SignalCounter()
-        //    {
-        //        if (Scribe.mode == LoadSaveMode.Inactive)
-        //            signals = new List<Signal>();
-        //    }
-
-        //    public Signal this[Pawn pawn]
-        //    {
-        //        get
-        //        {
-        //            return signals.Where(x => x.Pawn == pawn)
-        //        }
-        //        set
-        //        {
-        //            signals[key] = value;
-        //        }
-        //    }
-
-        //    public void Add(Pawn pawn) => signals.Add(new Signal(pawn));
-        //    public void Remove(Pawn pawn) => signals.Remove(pawn);
-        //    public void ChangeSignal(Pawn pawn, bool signal) => signal[]
-
-        //    private class Signal
-        //    {
-        //        private Pawn pawn;
-        //        private bool signal;
-
-        //        public Signal(Pawn pawn) => this.pawn = pawn;
-        //        public Pawn Pawn => pawn;
-        //        public bool CurrentSignal => signal;
-        //        public void ChangeSignal(bool signal) => this.signal = signal;
-        //    }
-        //}
     }
 }

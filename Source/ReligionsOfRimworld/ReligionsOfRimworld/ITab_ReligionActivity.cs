@@ -96,7 +96,7 @@ namespace ReligionsOfRimworld
                     //if (!TutorSystem.TutorialMode)
                     //    return;
                     TutorSystem.Notify_Event((EventPack)("AddBill-" + property.Recipe.LabelCap));
-                    }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), (Def)MiscDefOf.ReligionActivity)), (WorldObject)null));
+                    }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), property.Recipe)), (WorldObject)null));
                 }
                 if (!list.Any<FloatMenuOption>())
                     list.Add(new FloatMenuOption("NoneBrackets".Translate(), (Action)null, MenuOptionPriority.Default, (Action)null, (Thing)null, 0.0f, (Func<Rect, bool>)null, (WorldObject)null));

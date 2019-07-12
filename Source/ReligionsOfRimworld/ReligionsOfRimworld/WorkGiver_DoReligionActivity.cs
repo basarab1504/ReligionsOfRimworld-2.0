@@ -37,15 +37,17 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                return ThingRequest.ForGroup(ThingRequestGroup.PotentialBillGiver);
+                return ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial);
             }
         }
 
         public override Job JobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
-            IBillGiver giver = thing as IBillGiver;
-            if(giver == null && giver is Building_ReligiousBuildingFacility)
+            if(!(thing is Building_ReligiousBuildingFacility))
                 return (Job)null;
+
+            IBillGiver giver = thing as IBillGiver;
+
             if ((!giver.BillStack.AnyShouldDoNow || !giver.UsableForBillsAfterFueling()) || (!pawn.CanReserve((LocalTargetInfo)thing, 1, -1, (ReservationLayerDef)null, forced) || thing.IsBurning() || thing.IsForbidden(pawn)))
                 return (Job)null;
             giver.BillStack.RemoveIncompletableBills();

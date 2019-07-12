@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <RecipeDef>
-    <defName>ReligionActivity</defName>
-    <label>wo corpse</label>
-    <description>Cremate a corpse to completely destroy it.</description>
-    <jobString>Cremating.</jobString>
-    <workAmount>300</workAmount>
-    <workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
-    <effectWorking>Cremate</effectWorking>
-    <soundWorking>Recipe_Cremate</soundWorking>
-    <autoStripCorpses>false</autoStripCorpses>
+    <defName>Testt</defName>
+    <label>cook simple meal</label>
+    <description>Cook a straightforward meal from one ingredient.</description>
+    <jobString>Cooking simple meal.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
     <ingredients>
       <li>
         <filter>
@@ -20,10 +20,25 @@
         <count>0.5</count>
       </li>
     </ingredients>
-    <fixedIngredientFilter>
-        <thingDefs>
-            <li>MeleeWeapon_Club</li>
-        </thingDefs>
-    </fixedIngredientFilter>
+	<fixedIngredientFilter>
+		<categories>
+			<li>FoodRaw</li>
+		</categories>
+		<specialFiltersToDisallow>
+			<li>AllowPlantFood</li>
+		</specialFiltersToDisallow>
+	</fixedIngredientFilter>    
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>Testtt</defName>
+    <label>cook suka meal</label>
+    <description>Cook a straightforward meal from one ingredient.</description>
+    <jobString>Cooking simple meal.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>  
   </RecipeDef>
 </Defs>

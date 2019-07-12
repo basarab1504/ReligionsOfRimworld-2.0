@@ -26,9 +26,6 @@
       <li>ReligionsOfRimworld.ITab_ReligionActivity</li>
     </inspectorTabs>
     <designationCategory>ReligionBuildings</designationCategory>
-    <recipes>
-      <li>ReligionActivity</li>
-    </recipes>
     <!--<inspectorTabs>
       <li>Religion.ITab_Worship</li>
     </inspectorTabs>

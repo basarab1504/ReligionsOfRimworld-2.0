@@ -11,8 +11,12 @@
 		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">	
 			<properties>
 				<li>
-          <activityJobQueue>UwU</activityJobQueue>
+          			<activityJobQueue>UwU</activityJobQueue>
 					<recipe>Testt</recipe>
+				</li>
+				<li>
+          			<activityJobQueue>UwU</activityJobQueue>
+					<recipe>Testtt</recipe>
 				</li>
 			</properties>
 		</settings>
@@ -29,26 +33,4 @@
       </li>
     </activityNodes>
   </ReligionsOfRimworld.ActivityJobQueueDef>
-
-	<RecipeDef ParentName="CookMealBase">
-    <defName>Testt</defName>
-    <label>cook simple meal</label>
-    <description>Cook a straightforward meal from one ingredient.</description>
-    <jobString>Cooking simple meal.</jobString>
-    <workSpeedStat>CookSpeed</workSpeedStat>
-    <effectWorking>Cook</effectWorking>
-    <soundWorking>Recipe_CookMeal</soundWorking>
-    <allowMixingIngredients>true</allowMixingIngredients>
-    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
-    <ingredients>
-      <li>
-        <filter>
-          <categories>
-            <li>FoodRaw</li>
-          </categories>
-        </filter>
-        <count>0.5</count>
-      </li>
-    </ingredients>
-  </RecipeDef>
 </Defs>

@@ -18,6 +18,21 @@ namespace ReligionsOfRimworld
         public ReligionPropertyData Witness => congregationProperty;
         public RecipeDef Recipe => recipe;
 
+        public IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        {
+            //yield return new ReligionInfoEntry("");
+            if (recipe != null)
+                yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), recipe.LabelCap, recipe.description);
+
+            if (organizerProperty != null)
+                foreach (ReligionInfoEntry entry in organizerProperty.GetInfoEntries())
+                    yield return entry;
+
+            if (congregationProperty != null)
+                foreach (ReligionInfoEntry entry in congregationProperty.GetInfoEntries())
+                    yield return entry;
+        }
+
         public virtual void ExposeData()
         {
             Scribe_Defs.Look<ActivityJobQueueDef>(ref this.activityJobQueue, "activityJobQueue");
