@@ -34,6 +34,17 @@ namespace ReligionsOfRimworld
             return true;
         }
 
+        public override bool IsComplete
+        {
+            get
+            {
+                if (assignedReligion != null)
+                    return true;
+                return false;
+            }
+        }
+
+
         public override bool AvaliableToAssign
         {
             get

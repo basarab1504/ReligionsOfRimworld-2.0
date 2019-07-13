@@ -218,7 +218,13 @@ namespace ReligionsOfRimworld
             Text.Font = GameFont.Small;
             listing_Standard.EndSection(listing_Standard3);
             listing_Standard.Gap(12f);
-            Listing_Standard listing_Standard4 = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);
+
+            Listing_Standard listing_Standard3Half = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);
+            Widgets.Dropdown<Bill_ReligionActivity, Pawn>(listing_Standard3Half.GetRect(30f), this.bill, (Bill_ReligionActivity b) => b.MaterialPawn, (Bill_ReligionActivity b) => this.GeneratePawnMaterialOptions(), (this.bill.MaterialPawn != null) ? this.bill.MaterialPawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
+            listing_Standard.EndSection(listing_Standard3Half);
+            listing_Standard.End();
+
+            Listing_Standard listing_Standard4 = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);           
             Widgets.Dropdown<Bill_ReligionActivity, Pawn>(listing_Standard4.GetRect(30f), this.bill, (Bill_ReligionActivity b) => b.pawnRestriction, (Bill_ReligionActivity b) => this.GeneratePawnRestrictionOptions(), (this.bill.pawnRestriction != null) ? this.bill.pawnRestriction.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
             if (this.bill.pawnRestriction == null && this.bill.recipe.workSkill != null)
             {
@@ -311,6 +317,30 @@ namespace ReligionsOfRimworld
             //    ThingDef thingDef = this.bill.recipe.products[0].thingDef;
             //    Widgets.InfoCardButton(rect2.x, rect4.y, thingDef, GenStuff.DefaultStuffFor(thingDef));
             //}
+        }
+
+        private IEnumerable<Widgets.DropdownMenuElement<Pawn>> GeneratePawnMaterialOptions()
+        {
+            yield return new Widgets.DropdownMenuElement<Pawn>
+            {
+                option = new FloatMenuOption("Anyone".Translate(), delegate
+                {
+                    this.bill.MaterialPawn = null;
+                }, MenuOptionPriority.Default, null, null, 0f, null, null),
+                payload = null
+            };
+            IEnumerable<Pawn> pawns = bill.Map.mapPawns.AllPawns;
+            foreach (Pawn pawn in pawns)
+            {
+                yield return new Widgets.DropdownMenuElement<Pawn>
+                {
+                    option = new FloatMenuOption(string.Format("{0}", pawn.LabelShortCap), delegate
+                    {
+                        this.bill.MaterialPawn = pawn;
+                    }, MenuOptionPriority.Default, null, null, 0f, null, null),
+                    payload = pawn
+                };
+            }
         }
 
         private IEnumerable<Widgets.DropdownMenuElement<Pawn>> GeneratePawnRestrictionOptions()

@@ -2,7 +2,7 @@
 <Defs>
 	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRWorshipSettingsBase" Abstract="true">
 		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">
-			<tag>WorshipTag</tag>
+			<tag>ActivityTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 

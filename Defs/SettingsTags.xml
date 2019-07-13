@@ -67,14 +67,15 @@
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
-		<defName>WorshipTag</defName>
-		<label>WorshipTag</label>
+		<defName>ActivityTag</defName>
+		<label>ActivityTag</label>
 		<description>fasf</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
-		<defName>SacrificeTag</defName>
-		<label>SacrificeTag</label>
-		<description>fasf</description>
+		<defName>PrayingsTag</defName>
+		<label>PrayingsTag</label>
+		<description>PrayingsTag</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
+	
 </Defs>

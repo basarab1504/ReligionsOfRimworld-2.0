@@ -41,9 +41,9 @@ namespace ReligionsOfRimworld
         {
             Rect rect1 = new Rect(ITab_ReligionActivity.WinSize.x - ITab_ReligionActivity.PasteX, ITab_ReligionActivity.PasteY, ITab_ReligionActivity.PasteSize, ITab_ReligionActivity.PasteSize);
 
-            if (SelFacility.AssignedReligion == null)
+            if (!SelFacility.IsComplete)
             {
-                Widgets.Label(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), "Religion_NoAssignedReligion".Translate());
+                Widgets.Label(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), "Religion_BuildingIsNotAvaliable".Translate());
                 return;
             }
 
@@ -82,7 +82,7 @@ namespace ReligionsOfRimworld
             this.mouseoverTask = this.SelFacility.BillStack.DoListing(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), (Func<List<FloatMenuOption>>)(() =>
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
-                foreach(ReligionActivityProperty property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.WorshipTag).Properties)
+                foreach(ReligionActivityProperty property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.ActivityTag).Properties)
                 {
                     list.Add(new FloatMenuOption(property.Recipe.label, (Action)(() =>
                     {

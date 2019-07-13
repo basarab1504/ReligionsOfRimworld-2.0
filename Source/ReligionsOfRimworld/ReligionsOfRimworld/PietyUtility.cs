@@ -11,6 +11,12 @@ namespace ReligionsOfRimworld
     {
         public static List<PietyDef> situationalPietyList = DefDatabase<PietyDef>.AllDefs.Where(x => x.IsSituational).ToList<PietyDef>();
 
+        public static void PietyRateTick(ReligionPropertyData propertyData, Pawn pawn)
+        {
+            if (propertyData != null)
+                PietyTick(pawn, pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryInt, propertyData.Piety);
+        }
+
         public static void TryApplyOnPawns(ReligionPropertyData propertyData, IEnumerable<Pawn> pawns, Pawn subjectPawn = null)
         {
             foreach (Pawn pawn in pawns)
@@ -53,6 +59,15 @@ namespace ReligionsOfRimworld
         {
             if(thoughtDef != null)
                 pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(thoughtDef, curPietyStage), otherPawn);
+        }
+
+        private static void PietyTick(Pawn pawn, int curPietyStage, PietyDef pietyDef)
+        {
+            if (pietyDef != null)
+            {
+                float amount = pietyDef.Stages.ElementAt(curPietyStage).PietyRate;
+                pawn.GetReligionComponent().PietyTracker.Piety.Gain(amount);
+            }
         }
     }
 }

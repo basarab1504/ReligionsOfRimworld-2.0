@@ -21,6 +21,7 @@
 			<li>RoRWeaponSettingsTest</li>
 			<li>RoRAllowedBuildingsSettingsTest</li>
 			<li>RoRWorshipSettingsTest</li>
+			<li>RoRPrayingSettings</li>
 		</settingsDefs>
 	</ReligionsOfRimworld.ReligionDef>
 

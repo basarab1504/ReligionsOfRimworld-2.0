@@ -13,11 +13,13 @@ namespace ReligionsOfRimworld
         private Pawn_ReligionCompability religionCompability;
         private Pawn_PietyTracker pietyTracker;
         private Pawn_ReligionRestrictions religionRestrictions;
+        private Pawn_PrayTracker prayTracker;
 
         public Religion Religion => religion;
         public Pawn_ReligionCompability ReligionCompability => religionCompability;
         public Pawn_PietyTracker PietyTracker => pietyTracker;
         public Pawn_ReligionRestrictions ReligionRestrictions => religionRestrictions;
+        public Pawn_PrayTracker PrayTracker => prayTracker;
 
         public bool TryChangeReligion(Religion religion)
         {
@@ -43,6 +45,7 @@ namespace ReligionsOfRimworld
             base.Initialize(props);
             religionCompability = new Pawn_ReligionCompability((Pawn)parent);
             religionRestrictions = new Pawn_ReligionRestrictions();
+            prayTracker = new Pawn_PrayTracker();
         }
 
         public void Refresh()
@@ -62,6 +65,7 @@ namespace ReligionsOfRimworld
             Scribe_References.Look<Religion>(ref this.religion, "religionOfPawn");
             Scribe_Deep.Look<Pawn_PietyTracker>(ref this.pietyTracker, "pietyTracker", (Pawn)parent, religion);
             Scribe_Deep.Look<Pawn_ReligionRestrictions>(ref this.religionRestrictions, "religionRestrictions");
+            Scribe_Deep.Look<Pawn_PrayTracker>(ref prayTracker, "prayTracker");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ReligionsOfRimworld
     {
         public static WorkGiverDef DoBillsReligionActivity;
         public static JobDef DoReligionActivity;
+        public static JobDef ReligionActivityPreparations;
         //public static JobDef SpectateReligionActivity;
         public static DutyDef ReligionActivityStageDuty;
     }

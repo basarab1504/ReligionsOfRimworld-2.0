@@ -7,11 +7,10 @@ namespace ReligionsOfRimworld
 {
     public enum PietyCategory : byte
     {
-        Empty = 0,
-        VeryLow = 1,
-        Low = 2,
-        Satisfied = 3,
-        High = 4,
-        Extreme = 5
+        VeryLow = 0,
+        Low = 1,
+        Satisfied = 2,
+        High = 3,
+        Extreme = 4
     }
 }

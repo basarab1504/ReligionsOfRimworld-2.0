@@ -6,11 +6,6 @@
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>empty</label>
-        <description>fasf</description>
-        <baseMoodEffect>-20</baseMoodEffect>
-      </li>
-      <li>
         <label>very low</label>
         <description>fasf</description>        
         <baseMoodEffect>-10</baseMoodEffect>

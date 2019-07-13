@@ -11,6 +11,7 @@ namespace ReligionsOfRimworld
     public class Bill_ReligionActivity : Bill_Production
     {
         private ReligionActivityProperty property;
+        private Pawn materialPawn;
 
         public Bill_ReligionActivity()
         { }
@@ -21,6 +22,7 @@ namespace ReligionsOfRimworld
                 this.property = property;
         }
 
+        public Pawn MaterialPawn { get => materialPawn; set => materialPawn = value; }
         public ReligionActivityProperty Property => property;
 
         public override bool ShouldDoNow()
@@ -39,6 +41,8 @@ namespace ReligionsOfRimworld
             base.ValidateSettings();
             if(this.pawnRestriction != null && pawnRestriction.GetReligionComponent().Religion != ((Building_ReligiousBuildingFacility)billStack.billGiver).AssignedReligion)
                 this.pawnRestriction = (Pawn)null;
+            if (this.materialPawn != null && materialPawn.Dead)
+                this.materialPawn = null;
         }
 
         protected override void DoConfigInterface(Rect baseRect, Color baseColor)
@@ -96,6 +100,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_Deep.Look<ReligionActivityProperty>(ref this.property, "property");
+            Scribe_References.Look<Pawn>(ref this.materialPawn, "materialPawn");
         }
     }
 }

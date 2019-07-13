@@ -40,12 +40,22 @@ namespace ReligionsOfRimworld
             billStack.Clear();
         }
 
+        public override bool IsComplete
+        {
+            get
+            {
+                if (parentBuilding != null)
+                    return parentBuilding.IsComplete;
+                return false;
+            }
+        }
+
         public override bool AvaliableToAssign
         {
             get
             {
                 if (parentBuilding != null)
-                    return parentBuilding.AvaliableToAssign;
+                    return false;
                 return true;
             }
         }

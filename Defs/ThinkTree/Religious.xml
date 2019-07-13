@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--<ThinkTreeDef>
+		<defName>Humanlike</defName>
+    	<insertTag>Humanlike_PostMain</insertTag>	
+		<thinkRoot Class="ThinkNode_Priority">
+			<subNodes>
+        <li Class="ThinkNode_ConditionalColonist">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>Idle</tagToGive>
+              <subNodes>        
+                <li Class="Religion.JobGiver_WanderChurch">
+                  <maxDanger>None</maxDanger>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>				
+			</subNodes>
+		</thinkRoot>
+	</ThinkTreeDef>-->
+  <ThinkTreeDef>
+    <defName>PietyNeed</defName>
+    <insertTag>Humanlike_PostMain</insertTag>
+    <insertPriority>100</insertPriority>
+    <thinkRoot Class="ThinkNode_Tagger">
+      <tagToGive>SatisfyingNeeds</tagToGive>
+      <subNodes>
+        <li Class="ThinkNode_PrioritySorter">
+          <subNodes>
+            <li Class="ReligionsOfRimworld.JobGiver_Pray"/>
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+</Defs>

@@ -138,6 +138,13 @@ namespace ReligionsOfRimworld
             Widgets.CheckboxLabeled(rect3, "restrict_convert", ref mayDoReligionActivities);
             pawn.GetReligionComponent().ReligionRestrictions.MayDoReligionActivities = mayDoReligionActivities;
 
+            Rect rect4 = new Rect(rect.x, y, rect2.width, 24f);
+            y += 24f;
+
+            bool mayPray = pawn.GetReligionComponent().ReligionRestrictions.MayPray;
+            Widgets.CheckboxLabeled(rect4, "restrict_convert", ref mayDoReligionActivities);
+            pawn.GetReligionComponent().ReligionRestrictions.MayPray = mayPray;
+
             curY += y;
             GUI.EndClip();
         }

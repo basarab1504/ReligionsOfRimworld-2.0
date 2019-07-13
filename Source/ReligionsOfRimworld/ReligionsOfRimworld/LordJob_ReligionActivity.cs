@@ -54,12 +54,13 @@ namespace ReligionsOfRimworld
 
         public override float VoluntaryJoinPriorityFor(Pawn p)
         {
-            if (p.GetReligionComponent().Religion == data.Religion)
+            CompReligion comp = p.GetReligionComponent();
+            if (comp.Religion == data.Religion && comp.ReligionRestrictions.MayDoReligionActivities)
             {
                 if (p == data.Organizer)
                     return 100f;
                 else
-                    return p.GetReligionComponent().PietyTracker.Piety.CurCategoryInt * 19f;
+                    return p.GetReligionComponent().PietyTracker.Piety.CurCategoryIntWithoutZero * 19f;
             }
             return 0.0f;
         }

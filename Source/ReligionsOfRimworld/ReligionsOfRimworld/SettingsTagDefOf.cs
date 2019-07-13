@@ -16,7 +16,7 @@ namespace ReligionsOfRimworld
         public static SettingsTagDef WeaponTag;
         public static SettingsTagDef FoodTag;
         public static SettingsTagDef AllowedBuildingsTag;
-        public static SettingsTagDef WorshipTag;
-        public static SettingsTagDef SacrificeTag;
+        public static SettingsTagDef ActivityTag;
+        public static SettingsTagDef PrayingsTag;
     }
 }

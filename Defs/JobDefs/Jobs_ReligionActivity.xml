@@ -1,10 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   <JobDef>
     <defName>DoReligionActivity</defName>
     <driverClass>ReligionsOfRimworld.JobDriver_DoReligionActivity</driverClass>
     <reportString>doing bill at TargetA.</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>ReligionActivityPreparations</defName>
+    <driverClass>ReligionsOfRimworld.JobDriver_ActivityPreparations</driverClass>
+    <reportString>waiting for a congregation arrival</reportString>
     <suspendable>false</suspendable>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>

@@ -14,6 +14,8 @@ namespace ReligionsOfRimworld
 
         public abstract bool AvaliableToAssign { get; }
 
+        public abstract bool IsComplete { get; }
+
         public abstract IEnumerable<Building_ReligionBuilding> AssignedBuildings { get; }
 
         public abstract bool MayAssignBuilding(Building_ReligionBuilding building);

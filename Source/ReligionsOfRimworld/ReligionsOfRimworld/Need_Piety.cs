@@ -32,10 +32,10 @@ namespace ReligionsOfRimworld
                 pietyEffectHandler = new PietyHandler(pawn);
             this.threshPercents = new List<float>
             {
-                0.15f,
-                0.3f,
-                0.7f,
-                0.85f
+                0.16f,
+                0.32f,
+                0.64f,
+                0.80f
             };
         }
 
@@ -59,19 +59,27 @@ namespace ReligionsOfRimworld
             }
         }
 
+        public int CurCategoryIntWithoutZero => CurCategoryInt + 1;
+
         public int CurCategoryInt
         {
             get
             {
-                if ((double)this.CurLevel < 0.00999999977648258)
-                    return 0;
-                if ((double)this.CurLevel < 0.150000005960464)
-                    return 1;
-                if ((double)this.CurLevel < 0.300000011920929)
-                    return 2;
-                if ((double)this.CurLevel < 0.699999988079071)
-                    return 3;
-                return (double)this.CurLevel < 0.850000023841858 ? 4 : 5;
+                switch(CurCategory)
+                {
+                    case PietyCategory.VeryLow:
+                        return 0;
+                    case PietyCategory.Low:
+                        return 1;
+                    case PietyCategory.Satisfied:
+                        return 2;
+                    case PietyCategory.High:
+                        return 3;
+                    case PietyCategory.Extreme:
+                        return 4;
+                    default:
+                        return 0;
+                }
             }
         }
 
@@ -79,15 +87,15 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                if ((double)this.CurLevel < 0.00999999977648258)
-                    return PietyCategory.Empty;
-                if ((double)this.CurLevel < 0.150000005960464)
+                if ((double)this.CurLevel < 0.160000005960464)
                     return PietyCategory.VeryLow;
-                if ((double)this.CurLevel < 0.300000011920929)
+                if ((double)this.CurLevel < 0.320000005960464)
                     return PietyCategory.Low;
-                if ((double)this.CurLevel < 0.699999988079071)
+                if ((double)this.CurLevel < 0.640000011920929)
                     return PietyCategory.Satisfied;
-                return (double)this.CurLevel < 0.850000023841858 ? PietyCategory.High : PietyCategory.Extreme;
+                if ((double)this.CurLevel < 0.809999988079071)
+                    return PietyCategory.High;
+                return PietyCategory.Extreme;
             }
         }
 
