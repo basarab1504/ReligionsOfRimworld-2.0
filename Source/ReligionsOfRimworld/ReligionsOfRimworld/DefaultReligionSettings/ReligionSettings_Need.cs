@@ -7,24 +7,24 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionSettings_Need : ReligionSettings
+    public class ReligionSettings_PietyNeed : ReligionSettings
     {
-        private NeedDef need;
+        private NeedDef pietyNeed;
         private ThoughtDef needThought;
 
-        public NeedDef Need => need;
+        public NeedDef PietyNeed => pietyNeed;
         public ThoughtDef NeedThought => needThought;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            if(need != null)
-                yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), need.seekerFallPerHour.ToString());
+            if(pietyNeed != null)
+                yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), pietyNeed.seekerFallPerHour.ToString());
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look<NeedDef>(ref this.need, "need");
+            Scribe_Defs.Look<NeedDef>(ref this.pietyNeed, "pietyNeed");
             Scribe_Defs.Look<ThoughtDef>(ref this.needThought, "needThought");
         }
     }

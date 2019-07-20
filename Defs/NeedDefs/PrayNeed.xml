@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <NeedDef>
-    <defName>Piety</defName>
-    <label>piety</label>
-    <needClass>ReligionsOfRimworld.Need_Piety</needClass>
+    <defName>Pray</defName>
+    <label>pray</label>
+    <needClass>ReligionsOfRimworld.Need_Pray</needClass>
     <description>Mood represents how happy or stressed someone is. If mood gets too low, the person may suffer a mental break. Depending on how low his mood is, someone who has a mental break may hide in his room for a day, or may go on a murder spree.</description>
     <minIntelligence>Humanlike</minIntelligence>
-    <seekerFallPerHour>0.0027</seekerFallPerHour>
-    <listPriority>450</listPriority>
+    <seekerFallPerHour>0.125</seekerFallPerHour>
+    <listPriority>455</listPriority>
     <showOnNeedList>false</showOnNeedList>
   </NeedDef>
 </Defs>

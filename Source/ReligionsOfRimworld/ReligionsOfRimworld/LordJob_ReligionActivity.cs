@@ -60,7 +60,7 @@ namespace ReligionsOfRimworld
                 if (p == data.Organizer)
                     return 100f;
                 else
-                    return p.GetReligionComponent().PietyTracker.Piety.CurCategoryIntWithoutZero * 19f;
+                    return p.GetReligionComponent().PietyTracker.PietyNeed.CurCategoryIntWithoutZero * 19f;
             }
             return 0.0f;
         }
@@ -102,7 +102,7 @@ namespace ReligionsOfRimworld
         private void MoveNext()
         {
             activityCurrentStage++;
-            Log.Message("CURRENT " + activityCurrentStage.ToString());
+            //Log.Message("CURRENT " + activityCurrentStage.ToString());
             foreach (Pawn pawn in lord.ownedPawns)
                 signalsCounted[pawn] = false;
         }

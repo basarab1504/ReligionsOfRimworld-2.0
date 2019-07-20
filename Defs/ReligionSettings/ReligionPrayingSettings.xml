@@ -9,41 +9,42 @@
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRPrayingSettingsBase">
 		<defName>RoRPrayingSettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Prayings">
+			<prayNeed>Pray</prayNeed>
 			<prayJob>TestPray</prayJob>
 			<prayProperty>
 				<piety>PrayPietyTest</piety>
 			</prayProperty>
-			<prayIntervalHours>4</prayIntervalHours>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
 	<ReligionsOfRimworld.PietyDef>
 		<defName>PrayPietyTest</defName>
+		<durationDays>0.25</durationDays>
 		<stages>
 	      <li>
 	        <label>very low</label>
 	        <description>sad</description>
-	        <pietyRate>1.3</pietyRate>
+	        <pietyOffset>20</pietyOffset>
 	      </li>
 	      <li>
 	        <label>low</label>
 	        <description>sad</description>
-	        <pietyRate>1.3</pietyRate>
+	        <pietyOffset>30</pietyOffset>
 	      </li>
 	      <li>
 	        <label>ok</label>
 	        <description>sad</description>
-	        <pietyRate>1.3</pietyRate>
+	        <pietyOffset>40</pietyOffset>
 	      </li>
 	      <li>
 	        <label>good</label>
 	        <description>sad</description>
-	        <pietyRate>1.3</pietyRate>
+	        <pietyOffset>50</pietyOffset>
 	      </li>
 	      <li>
 	        <label>verygood</label>
 	        <description>sad</description>
-	        <pietyRate>1.3</pietyRate>
+	        <pietyOffset>60</pietyOffset>
 	      </li>
 		</stages>
 	</ReligionsOfRimworld.PietyDef>

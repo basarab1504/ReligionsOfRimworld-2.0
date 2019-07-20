@@ -48,8 +48,6 @@ namespace ReligionsOfRimworld
                 stringBuilder.AppendLine(stage.Label);
                 //stringBuilder.AppendLine(stage.Description); 
                 stringBuilder.AppendLine("ReligionInfo_PietyOffset".Translate() + " " + stage.PietyOffset.ToString());
-                stringBuilder.AppendLine("ReligionInfo_MultiplierValue".Translate() + " " + stage.MultiplierValue.ToString());
-                stringBuilder.AppendLine("ReligionInfo_PietyRate".Translate() + " " + stage.PietyRate.ToString());
                 stringBuilder.AppendLine();
                 i++;
             }

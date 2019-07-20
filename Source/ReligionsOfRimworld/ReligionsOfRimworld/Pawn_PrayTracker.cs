@@ -8,14 +8,36 @@ namespace ReligionsOfRimworld
 {
     public class Pawn_PrayTracker : IExposable
     {
-        private int lastPrayTick;
+        private Pawn pawn;
+        private Need_Pray pray;
 
-        public int LastPrayTick { get => lastPrayTick; set => lastPrayTick = value; }
-        //public int LastPrayHour => lastPrayTick * 2500;
+        public Pawn_PrayTracker(Pawn pawn, Religion religion)
+        {
+            this.pawn = pawn;
+            if (Scribe.mode == LoadSaveMode.Inactive)
+            {
+                if (religion.PrayingSettings != null)
+                    this.pray = new Need_Pray(pawn)
+                {
+                    def = religion.PrayingSettings.Need
+                };
+            }
+        }
+
+        public Need_Pray PrayNeed => pray;
+
+        public void TrackerTick()
+        {
+            if (!this.pawn.IsHashIntervalTick(150))
+                return;
+            if (pray == null)
+                return;
+            pray.NeedInterval();
+        }
 
         public void ExposeData()
         {
-            Scribe_Values.Look<int>(ref lastPrayTick, "lastPrayTick");
+            Scribe_Deep.Look<Need_Pray>(ref this.pray, "pray", pawn);
         }
     }
 }

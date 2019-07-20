@@ -18,33 +18,33 @@ namespace ReligionsOfRimworld
             situationalPiety = new PietySituationalHandler(pawn);
         }
 
-        public void Add(Piety_Memory pietyMultiplier)
+        public float TotalOffset()
         {
-            memoryPiety.Add(pietyMultiplier);
+            float total = 0f;
+            foreach (Piety piety in Piety)
+                total += piety.CurStage.PietyOffset;
+            return total;
         }
 
-        public void Remove(Piety_Memory pietyMultiplier)
-        {
-            memoryPiety.Remove(pietyMultiplier);
-        }
-
-        public float MultiplierValue
+        public IEnumerable<Piety> Piety
         {
             get
             {
-                float v = 1f;
-                v *= memoryPiety.TotalMemoryMultiplpierValue;
-                v *= situationalPiety.TotalSitationalMultiplierValue;
-                return v;
+                foreach (Piety piety in memoryPiety.Piety)
+                    yield return piety;
+                foreach (Piety piety in situationalPiety.Piety)
+                    yield return piety;
             }
         }
 
-        public void GetPiety(List<Piety> outMultipliers)
+        public void Add(Piety_Memory piety)
         {
-            foreach (Piety piety in memoryPiety.Piety)
-                outMultipliers.Add(piety);
-            foreach (Piety piety in situationalPiety.Piety)
-                outMultipliers.Add(piety);
+            memoryPiety.Add(piety);
+        }
+
+        public void Remove(Piety_Memory piety)
+        {
+            memoryPiety.Remove(piety);
         }
 
         public void PietyInterval()

@@ -18,25 +18,14 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<Piety_Memory> Piety => pietyEffects;
 
-        public void Add(Piety_Memory pietyMultiplier)
+        public void Add(Piety_Memory piety)
         {
-            pietyEffects.Add(pietyMultiplier);
+            pietyEffects.Add(piety);
         }
 
-        public void Remove(Piety_Memory pietyMultiplier)
+        public void Remove(Piety_Memory piety)
         {
-            pietyEffects.Remove(pietyMultiplier);
-        }
-
-        public float TotalMemoryMultiplpierValue
-        {
-            get
-            {
-                float v = 1f;
-                foreach (Piety_Memory m in pietyEffects)
-                    v *= m.MultiplierValue;
-                return v;
-            }
+            pietyEffects.Remove(piety);
         }
 
         public void Interval()

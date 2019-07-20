@@ -9,21 +9,16 @@ namespace ReligionsOfRimworld
     public class Piety_Memory : Piety
     {
         private int age = 0;
-        private int forcedStage;
+        //private int forcedStage;
 
         public Piety_Memory(Pawn pawn, PietyDef def) : base(pawn, def)
         { }
-
-        public Piety_Memory(Pawn pawm, PietyDef def, int forcedStage) : base(pawm, def)
-        {
-            SetForcedStage(forcedStage);
-        }
 
         public override int CurStageIndex
         {
             get
             {
-                return forcedStage;
+                return pawn.GetReligionComponent().PietyTracker.PietyNeed.CurCategoryInt;
             }
         }
 
@@ -53,18 +48,18 @@ namespace ReligionsOfRimworld
             return this.age > def.DurationTicks;
         }
 
-        public void SetForcedStage(int stageIndex)
-        {
-            if (stageIndex >= def.Stages.Count())
-                this.forcedStage = def.Stages.Count() - 1;
-            else
-                this.forcedStage = stageIndex;
-        }
+        //public void SetForcedStage(int stageIndex)
+        //{
+        //    if (stageIndex >= def.Stages.Count())
+        //        this.forcedStage = def.Stages.Count() - 1;
+        //    else
+        //        this.forcedStage = stageIndex;
+        //}
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<int>(ref this.forcedStage, "forcedStage");
+            //Scribe_Values.Look<int>(ref this.forcedStage, "forcedStage");
             Scribe_Values.Look<int>(ref this.age, "age");
         }
     }

@@ -20,18 +20,6 @@ namespace ReligionsOfRimworld
             pawn = p;
         }
 
-        public float TotalSitationalMultiplierValue
-        {
-            get
-            {
-                float v = 1f;
-                foreach (Piety_Situational m in cachedPiety)
-                    if (m.Active)
-                        v *= m.MultiplierValue;
-                return v;
-            }
-        }
-
         public IEnumerable<Piety_Situational> Piety => from t in cachedPiety where t.Active select t;
 
         public void Interval()
@@ -61,9 +49,9 @@ namespace ReligionsOfRimworld
                     {
                         if (situationalPietyList[index1].Worker.CurrentState(pawn).ActiveFor(situationalPietyList[index1]))
                         {
-                            Piety_Situational pietyMultiplier = TryCreatePiety(situationalPietyList[index1]);
-                            if (pietyMultiplier != null)
-                                this.cachedPiety.Add(pietyMultiplier);
+                            Piety_Situational piety = TryCreatePiety(situationalPietyList[index1]);
+                            if (piety != null)
+                                this.cachedPiety.Add(piety);
                         }
                     }
                 }

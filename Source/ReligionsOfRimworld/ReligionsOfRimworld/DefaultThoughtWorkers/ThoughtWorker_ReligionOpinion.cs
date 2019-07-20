@@ -33,7 +33,7 @@ namespace ReligionsOfRimworld
             if (!PropertyPawnCategoryUtility.IsSubjectFromRightCategory(p, other, property.Witness.PawnCategory))
                 return (ThoughtState)false;
 
-            return ThoughtState.ActiveAtStage(p.GetReligionComponent().PietyTracker.Piety.CurCategoryInt, otherPawnReligion.GroupTag.LabelCap);
+            return ThoughtState.ActiveAtStage(p.GetReligionComponent().PietyTracker.PietyNeed.CurCategoryInt, otherPawnReligion.GroupTag.LabelCap);
         }
     }
 }

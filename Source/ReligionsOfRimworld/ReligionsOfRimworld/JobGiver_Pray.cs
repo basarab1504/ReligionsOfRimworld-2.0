@@ -12,7 +12,16 @@ namespace ReligionsOfRimworld
     {
         public override float GetPriority(Pawn pawn)
         {
-            return pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryIntWithoutZero * 19f;
+            Need_Pray prayNeed = pawn.GetReligionComponent().PrayTracker.PrayNeed;
+            if (prayNeed != null)
+            {
+                float curLevel = prayNeed.CurLevel;
+                TimeAssignmentDef timeAssignmentDef = pawn.timetable != null ? pawn.timetable.CurrentAssignment : TimeAssignmentDefOf.Anything;
+                if (timeAssignmentDef.allowJoy && curLevel <= 0.05f)
+                    return 1f;
+            }
+            return 0.0f;
+            //return pawn.GetReligionComponent().PietyTracker.PietyNeed.CurCategoryIntWithoutZero * 19f;
         }
 
         protected override Job TryGiveJob(Pawn pawn)
@@ -21,7 +30,7 @@ namespace ReligionsOfRimworld
                 return (Job)null;
 
             CompReligion comp = pawn.GetReligionComponent();
-            if (comp.Religion.PrayingSettings != null && comp.ReligionRestrictions.MayPray && comp.Religion.PrayingSettings.PrayIntervalHours * 2500 + comp.PrayTracker.LastPrayTick <= Find.TickManager.TicksGame)
+            if (comp.ReligionRestrictions.MayPray)
             {
                 Building placeToPray = GetRightPlaceToPray(pawn);
                 if (placeToPray == null)

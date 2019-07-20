@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRNeedSettingsBase" Abstract="true">
-		<settings Class="ReligionsOfRimworld.ReligionSettings_Need">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_PietyNeed">
 			<tag>NeedTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRNeedSettingsBase">
 		<defName>RoRNeedSettingsPiety</defName>
-		<settings Class="ReligionsOfRimworld.ReligionSettings_Need">
-			<need>Piety</need>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_PietyNeed">
+			<pietyNeed>Piety</pietyNeed>
 			<needThought>ROR_NeedPiety</needThought>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>

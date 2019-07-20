@@ -12,19 +12,6 @@ namespace ReligionsOfRimworld
     {
         private PietyHandler pietyEffectHandler;
 
-        public float MultiplierValue
-        {
-            get
-            {
-                return pietyEffectHandler.MultiplierValue;
-            }
-        }
-
-        public void GetPiety(List<Piety> outList)
-        {
-            pietyEffectHandler.GetPiety(outList);
-        }
-
         public Need_Piety(Pawn pawn)
         : base(pawn)
         {
@@ -39,24 +26,16 @@ namespace ReligionsOfRimworld
             };
         }
 
-        public void Add(Piety_Memory pietyMultiplier)
+        public IEnumerable<Piety> Piety => pietyEffectHandler.Piety;
+
+        public void Add(Piety_Memory piety)
         {
-            pietyEffectHandler.Add(pietyMultiplier);
+            pietyEffectHandler.Add(piety);
         }
 
-        public void Remove(Piety_Memory pietyMultiplier)
+        public void Remove(Piety_Memory piety)
         {
-            pietyEffectHandler.Remove(pietyMultiplier);
-        }
-
-        private int lastGainTick = -999;
-
-        private bool GainingPiety
-        {
-            get
-            {
-                return Find.TickManager.TicksGame < this.lastGainTick + 10;
-            }
+            pietyEffectHandler.Remove(piety);
         }
 
         public int CurCategoryIntWithoutZero => CurCategoryInt + 1;
@@ -99,19 +78,12 @@ namespace ReligionsOfRimworld
             }
         }
 
-        public void Gain(float amount)
-        {
-            amount = Mathf.Min(amount, 1f - this.CurLevel);
-            this.curLevelInt += amount;
-            this.lastGainTick = Find.TickManager.TicksGame;
-        }
+        public override float CurInstantLevel => Mathf.Clamp01(this.pietyEffectHandler.TotalOffset() / 100f);
 
         public override void NeedInterval()
         {
-            if (this.IsFrozen || this.GainingPiety)
-                return;
+            base.NeedInterval();
             pietyEffectHandler.PietyInterval();
-            this.CurLevel -= this.def.seekerFallPerHour * 0.06f * pietyEffectHandler.MultiplierValue;
         }
 
         public override void ExposeData()

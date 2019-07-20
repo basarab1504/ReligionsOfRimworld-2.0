@@ -10,7 +10,7 @@ namespace ReligionsOfRimworld
     {
         private int loadID;
         private ReligionConfiguration configuration;
-        private ReligionSettings_Need needSettings;
+        private ReligionSettings_PietyNeed needSettings;
         private ReligionSettings_JoiningRestriction joiningRestrictionsSettings;
         private ReligionSettings_ReligionTalks religionTalksSettings;
         private ReligionSettings_Incidents incidentsSettings;
@@ -38,7 +38,7 @@ namespace ReligionsOfRimworld
         public ReligionGroupTagDef GroupTag => configuration.GroupTag;
         //public ReligionConfiguration Configuration => configuration;
         public IEnumerable<ReligionSettings> AllSettings => configuration.Settings;
-        public ReligionSettings_Need NeedSettings => needSettings;
+        public ReligionSettings_PietyNeed NeedSettings => needSettings;
         public ReligionSettings_JoiningRestriction JoiningRestrictionsSettings => joiningRestrictionsSettings;
         public ReligionSettings_ReligionTalks ReligionTalksSettings => religionTalksSettings;
         public ReligionSettings_Incidents IncidentsSettings => incidentsSettings;
@@ -68,7 +68,7 @@ namespace ReligionsOfRimworld
 
         private void InitializeReligion()
         {
-            needSettings = configuration.FindByTag<ReligionSettings_Need>(SettingsTagDefOf.NeedTag);
+            needSettings = configuration.FindByTag<ReligionSettings_PietyNeed>(SettingsTagDefOf.NeedTag);
             joiningRestrictionsSettings = configuration.FindByTag<ReligionSettings_JoiningRestriction>(SettingsTagDefOf.JoiningRestrictionsTag);
             religionTalksSettings = configuration.FindByTag<ReligionSettings_ReligionTalks>(SettingsTagDefOf.TalksTag);
             incidentsSettings = configuration.FindByTag<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag);

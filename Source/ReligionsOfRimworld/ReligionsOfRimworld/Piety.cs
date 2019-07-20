@@ -37,26 +37,9 @@ namespace ReligionsOfRimworld
             get;
         }
 
-        public virtual float MultiplierValue
-        {
-            get
-            {
-                return CurStage.MultiplierValue;
-            }
-        }
-
-        //public virtual float InstantAdd
-        //{
-        //    get
-        //    {
-        //        return CurStage.addPiety;
-        //    }
-        //}
-
         public virtual void ExposeData()
         {
             Scribe_Defs.Look<PietyDef>(ref this.def, "def");
-            //Scribe_Values.Look<string>(ref this.reason, "reason");
         }
     }
 }

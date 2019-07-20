@@ -35,6 +35,7 @@ namespace ReligionsOfRimworld
         {
             this.religion = religion;
             pietyTracker = new Pawn_PietyTracker((Pawn)parent, religion);
+            prayTracker = new Pawn_PrayTracker((Pawn)parent, religion);
             religionCompability.RecalculateCompabilities();
             religionRestrictions.RestoreToDefault();
             BillUtility.Notify_ColonistUnavailable((Pawn)this.parent);
@@ -45,7 +46,6 @@ namespace ReligionsOfRimworld
             base.Initialize(props);
             religionCompability = new Pawn_ReligionCompability((Pawn)parent);
             religionRestrictions = new Pawn_ReligionRestrictions();
-            prayTracker = new Pawn_PrayTracker();
         }
 
         public void Refresh()
@@ -57,6 +57,7 @@ namespace ReligionsOfRimworld
         {
             base.CompTick();
             pietyTracker.TrackerTick();
+            prayTracker.TrackerTick();
         }
 
         public override void PostExposeData()
@@ -65,7 +66,7 @@ namespace ReligionsOfRimworld
             Scribe_References.Look<Religion>(ref this.religion, "religionOfPawn");
             Scribe_Deep.Look<Pawn_PietyTracker>(ref this.pietyTracker, "pietyTracker", (Pawn)parent, religion);
             Scribe_Deep.Look<Pawn_ReligionRestrictions>(ref this.religionRestrictions, "religionRestrictions");
-            Scribe_Deep.Look<Pawn_PrayTracker>(ref prayTracker, "prayTracker");
+            Scribe_Deep.Look<Pawn_PrayTracker>(ref prayTracker, "prayTracker", (Pawn)parent, religion);
         }
     }
 }

@@ -35,19 +35,18 @@ namespace ReligionsOfRimworld
 
             yield return new Toil()
             {
-                defaultCompleteMode = ToilCompleteMode.Delay,
-                defaultDuration = 1200,
+                defaultCompleteMode = ToilCompleteMode.Never,
                 tickAction = delegate
                 {
+                    PrayUtility.TickCheckEnd(pawn);
                     this.pawn.rotationTracker.FaceCell(base.TargetA.Cell);
                     this.pawn.GainComfortFromCellIfPossible();
-                    PietyUtility.PietyRateTick(Data, pawn);
                 }
             }.WithProgressBarToilDelay(TargetIndex.A, false, .5f);
 
             this.AddFinishAction(() =>
             {
-                pawn.GetReligionComponent().PrayTracker.LastPrayTick = Find.TickManager.TicksGame;
+                PietyUtility.TryApplyOnPawn(pawn.GetReligionComponent().Religion.PrayingSettings.PrayProperty, pawn);
             });
         }
 

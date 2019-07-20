@@ -71,8 +71,10 @@
     <Compile Include="LordJob_ReligionActivity.cs" />
     <Compile Include="LordToil_ActivityStage.cs" />
     <Compile Include="MiscDefOf.cs" />
+    <Compile Include="Need_Pray.cs" />
     <Compile Include="Pawn_PrayTracker.cs" />
     <Compile Include="Pawn_ReligionRestrictions.cs" />
+    <Compile Include="PrayUtility.cs" />
     <Compile Include="ReligionActivityData.cs" />
     <Compile Include="ReligionActivityProperty.cs" />
     <Compile Include="ReligionBuildings\Building_ReligionBuilding.cs" />

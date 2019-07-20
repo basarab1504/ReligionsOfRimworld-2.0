@@ -10,11 +10,11 @@ namespace ReligionsOfRimworld
     public static class ReligionCardUtility
     {
         private static Pawn selPawn;
-        private static List<Piety> cachedMultipliers = new List<Piety>();
+        private static List<Piety> cachedPiety = new List<Piety>();
         private static Vector2 scrollPosition = Vector2.zero;
         private static CompReligion CompReligion => selPawn.GetReligionComponent();
         private static Religion Religion => CompReligion.Religion;
-        private static Need_Piety Piety => CompReligion.PietyTracker.Piety;
+        private static Need_Piety Piety => CompReligion.PietyTracker.PietyNeed;
 
         public static void DrawReligionCard(Rect rect, Pawn pawn)
         {
@@ -69,35 +69,38 @@ namespace ReligionsOfRimworld
                 Rect rect2 = new Rect(rect.x, rect.y, 225f, 70);
                 if (Piety != null)
                     Piety.DrawOnGUI(rect2, int.MaxValue, -1f, true, true);
-                Rect rect3 = new Rect(rect.x, rect2.y + 80, rect.width, 20f);
+
+                Rect prayNeedRect = new Rect(rect.x, rect2.y + 40, 225f, 70);
+                if (CompReligion.PrayTracker.PrayNeed != null)
+                    CompReligion.PrayTracker.PrayNeed.DrawOnGUI(prayNeedRect);
+
+                Rect rect3 = new Rect(rect.x, prayNeedRect.y + 80, rect.width, 20f);
                 if (Mouse.IsOver(rect3))
                     Widgets.DrawHighlight(rect3);
-                Widgets.Label(rect3, "PietyMultiplier".Translate() + " " + Piety.MultiplierValue.ToString());
+                Widgets.Label(rect3, "PietyOverall".Translate() + " " + Piety.CurInstantLevel);
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append(Religion.Label);
                 TooltipHandler.TipRegion(rect3, new TipSignal(stringBuilder.ToString(), 7773));
-                DrawMultiplierListing(new Rect(rect.x, rect3.y + 30, rect.width, rect.height), pawn);
+                DrawPietyListing(new Rect(rect.x, rect3.y + 30, rect.width, rect.height), pawn);
             }
         }
 
-        public static void DrawMultiplierListing(Rect listingRect, Pawn pawn)
+        public static void DrawPietyListing(Rect listingRect, Pawn pawn)
         {
             if (Event.current.type == EventType.Layout)
                 return;
             Verse.Text.Font = GameFont.Small;
-            cachedMultipliers.Clear();
-            Piety.GetPiety(cachedMultipliers);
-            float height = cachedMultipliers.Count * 24f;
+            float height = cachedPiety.Count * 24f;
             Widgets.BeginScrollView(listingRect, ref scrollPosition, new Rect(0.0f, 0.0f, listingRect.width, height), false);
             Verse.Text.Anchor = TextAnchor.MiddleLeft;
             float y = 0.0f;
-            foreach (Piety piety in cachedMultipliers)
-                DrawMultiplier(piety, listingRect, ref y);
+            foreach (Piety piety in Piety.Piety)
+                DrawPiety(piety, listingRect, ref y);
             Widgets.EndScrollView();
             Verse.Text.Anchor = TextAnchor.UpperLeft;
         }
 
-        public static void DrawMultiplier(Piety piety, Rect rect, ref float curY)
+        public static void DrawPiety(Piety piety, Rect rect, ref float curY)
         {
             Rect rectRow = new Rect(0.0f, curY, rect.width, 24f);
             StringBuilder stringBuilder = new StringBuilder();
@@ -115,7 +118,7 @@ namespace ReligionsOfRimworld
             if (Mouse.IsOver(rectRow))
                 Widgets.DrawHighlight(rectRow);
             Widgets.Label(rectRow, piety.LabelCap.ToString());
-            Widgets.Label(new Rect(rectRow.x + 190f, rectRow.y, rectRow.width, rectRow.height), piety.MultiplierValue.ToString());
+            Widgets.Label(new Rect(rectRow.x + 190f, rectRow.y, rectRow.width, rectRow.height), piety.CurStage.PietyOffset.ToString());
             curY += 24f;
         }
 

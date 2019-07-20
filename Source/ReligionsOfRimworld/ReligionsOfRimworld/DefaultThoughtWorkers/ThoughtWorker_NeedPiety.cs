@@ -15,12 +15,12 @@ namespace ReligionsOfRimworld
             if (comp == null)
                 return ThoughtState.Inactive;
 
-            ReligionSettings_Need settings = comp.Religion.NeedSettings;
+            ReligionSettings_PietyNeed settings = comp.Religion.NeedSettings;
             if(settings == null)
                 return ThoughtState.Inactive;
 
             if (settings.NeedThought != null && settings.NeedThought == this.def)
-                return ThoughtState.ActiveAtStage(comp.PietyTracker.Piety.CurCategoryInt);
+                return ThoughtState.ActiveAtStage(comp.PietyTracker.PietyNeed.CurCategoryInt);
 
             return ThoughtState.Inactive;
         }

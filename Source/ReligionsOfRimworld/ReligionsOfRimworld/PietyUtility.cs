@@ -11,12 +11,6 @@ namespace ReligionsOfRimworld
     {
         public static List<PietyDef> situationalPietyList = DefDatabase<PietyDef>.AllDefs.Where(x => x.IsSituational).ToList<PietyDef>();
 
-        public static void PietyRateTick(ReligionPropertyData propertyData, Pawn pawn)
-        {
-            if (propertyData != null)
-                PietyTick(pawn, pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryInt, propertyData.Piety);
-        }
-
         public static void TryApplyOnPawns(ReligionPropertyData propertyData, IEnumerable<Pawn> pawns, Pawn subjectPawn = null)
         {
             foreach (Pawn pawn in pawns)
@@ -36,7 +30,7 @@ namespace ReligionsOfRimworld
                 if (subjectPawn != null && !PropertyPawnCategoryUtility.IsSubjectFromRightCategory(pawn, subjectPawn, propertyData.PawnCategory))
                     return;
 
-                int curPietyStage = pawn.GetReligionComponent().PietyTracker.Piety.CurCategoryInt;
+                int curPietyStage = pawn.GetReligionComponent().PietyTracker.PietyNeed.CurCategoryInt;
 
                 if (propertyData.Thought != null)
                     AddThought(pawn, curPietyStage, propertyData.Thought);
@@ -45,29 +39,20 @@ namespace ReligionsOfRimworld
                     AddThought(pawn, curPietyStage, propertyData.OpinionThought, subjectPawn);
 
                 if (propertyData.Piety != null)
-                    AddPiety(pawn, curPietyStage, propertyData.Piety);
+                    AddPiety(pawn, propertyData.Piety);
             }
         }
 
-        private static void AddPiety(Pawn pawn, int curPietyStage, PietyDef pietyDef)
+        private static void AddPiety(Pawn pawn, PietyDef pietyDef)
         {
             if (pietyDef != null)
-                pawn.GetReligionComponent().PietyTracker.Piety.Add(new Piety_Memory(pawn, pietyDef, curPietyStage));
+                pawn.GetReligionComponent().PietyTracker.PietyNeed.Add(new Piety_Memory(pawn, pietyDef));
         }
 
         private static void AddThought(Pawn pawn, int curPietyStage, ThoughtDef thoughtDef, Pawn otherPawn = null)
         {
             if(thoughtDef != null)
                 pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(thoughtDef, curPietyStage), otherPawn);
-        }
-
-        private static void PietyTick(Pawn pawn, int curPietyStage, PietyDef pietyDef)
-        {
-            if (pietyDef != null)
-            {
-                float amount = pietyDef.Stages.ElementAt(curPietyStage).PietyRate;
-                pawn.GetReligionComponent().PietyTracker.Piety.Gain(amount);
-            }
         }
     }
 }
