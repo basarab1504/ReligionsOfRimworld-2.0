@@ -39,6 +39,7 @@ namespace ReligionsOfRimworld
             religionCompability.RecalculateCompabilities();
             religionRestrictions.RestoreToDefault();
             BillUtility.Notify_ColonistUnavailable((Pawn)this.parent);
+            //((Pawn)parent).jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
         }
 
         public override void Initialize(CompProperties props)
