@@ -15,10 +15,6 @@ namespace ReligionsOfRimworld
         public Need_Pray(Pawn pawn)
         : base(pawn)
         {
-            this.threshPercents = new List<float>
-            {
-                0.05f
-            };
         }
 
         public void Gain(float amount)

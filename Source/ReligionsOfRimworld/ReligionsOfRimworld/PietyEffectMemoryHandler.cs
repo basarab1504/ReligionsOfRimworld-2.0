@@ -30,7 +30,7 @@ namespace ReligionsOfRimworld
 
         public void Interval()
         {
-            foreach (Piety_Memory pietyEffect in pietyEffects)
+            foreach(Piety_Memory pietyEffect in pietyEffects)
                 pietyEffect.Interval();
             RemoveExpired();
         }
@@ -47,13 +47,6 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Collections.Look<Piety_Memory>(ref this.pietyEffects, "pietyMemories", LookMode.Deep, (Pawn)null, (PietyDef)null);
-            if (Scribe.mode != LoadSaveMode.PostLoadInit)
-                return;
-            for (int index = this.pietyEffects.Count - 1; index >= 0; --index)
-            {
-                if (this.pietyEffects[index].Def == null)
-                    this.pietyEffects.RemoveAt(index);
-            }
         }
     }
 }

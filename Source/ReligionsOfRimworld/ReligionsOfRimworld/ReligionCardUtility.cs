@@ -64,32 +64,28 @@ namespace ReligionsOfRimworld
 
         public static void RightSide(Rect rect, Pawn pawn)
         {
-            //GUI.BeginGroup(rect);
-            float y = 0.0f;
             if (Piety != null)
             {
-                Piety.DrawOnGUI(new Rect(rect.x, y, 225f, 70), int.MaxValue, -1f, true, true);
-                y += 70f;
+                Rect rect2 = new Rect(rect.x, rect.y, 225f, 70);
+                if (Piety != null)
+                    Piety.DrawOnGUI(rect2, int.MaxValue, -1f, true, true);
 
+                Rect prayNeedRect = new Rect(rect.x, rect2.y + 40, 225f, 70);
                 if (CompReligion.PrayTracker.PrayNeed != null)
-                {
-                    CompReligion.PrayTracker.PrayNeed.DrawOnGUI(new Rect(rect.x, y, 225f, 70));
-                    y += 70f;
-                }
+                    CompReligion.PrayTracker.PrayNeed.DrawOnGUI(prayNeedRect);
 
-                Rect rect3 = new Rect(rect.x, y, rect.width, 20f);
+                Rect rect3 = new Rect(rect.x, prayNeedRect.y + 80, rect.width, 20f);
                 if (Mouse.IsOver(rect3))
                     Widgets.DrawHighlight(rect3);
                 Widgets.Label(rect3, "PietyOverall".Translate() + " " + Piety.CurInstantLevel);
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append(Religion.Label);
                 TooltipHandler.TipRegion(rect3, new TipSignal(stringBuilder.ToString(), 7773));
-                DrawPietyListing(new Rect(rect.x, rect3.y + 30, rect.width, rect.height), pawn, ref y);
+                DrawPietyListing(new Rect(rect.x, rect3.y + 30, rect.width, rect.height), pawn);
             }
-            //GUI.EndGroup();
         }
 
-        public static void DrawPietyListing(Rect listingRect, Pawn pawn, ref float curY)
+        public static void DrawPietyListing(Rect listingRect, Pawn pawn)
         {
             if (Event.current.type == EventType.Layout)
                 return;
@@ -135,21 +131,21 @@ namespace ReligionsOfRimworld
             y += 24f;
 
             bool mayConvertByTalking = pawn.GetReligionComponent().ReligionRestrictions.MayConvertByTalking;
-            Widgets.CheckboxLabeled(rect2, "ReligionMayConvert", ref mayConvertByTalking);
+            Widgets.CheckboxLabeled(rect2, "restrict_attend", ref mayConvertByTalking);
             pawn.GetReligionComponent().ReligionRestrictions.MayConvertByTalking = mayConvertByTalking;
 
             Rect rect3 = new Rect(rect.x, y, rect2.width, 24f);
             y += 24f;
 
             bool mayDoReligionActivities = pawn.GetReligionComponent().ReligionRestrictions.MayDoReligionActivities;
-            Widgets.CheckboxLabeled(rect3, "ReligionMayAttend", ref mayDoReligionActivities);
+            Widgets.CheckboxLabeled(rect3, "restrict_convert", ref mayDoReligionActivities);
             pawn.GetReligionComponent().ReligionRestrictions.MayDoReligionActivities = mayDoReligionActivities;
 
             Rect rect4 = new Rect(rect.x, y, rect2.width, 24f);
             y += 24f;
 
             bool mayPray = pawn.GetReligionComponent().ReligionRestrictions.MayPray;
-            Widgets.CheckboxLabeled(rect4, "ReligionMayPray", ref mayPray);
+            Widgets.CheckboxLabeled(rect4, "restrict_convert", ref mayDoReligionActivities);
             pawn.GetReligionComponent().ReligionRestrictions.MayPray = mayPray;
 
             curY += y;

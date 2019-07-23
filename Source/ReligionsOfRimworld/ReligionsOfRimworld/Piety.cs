@@ -39,7 +39,6 @@ namespace ReligionsOfRimworld
 
         public virtual void ExposeData()
         {
-            Scribe_References.Look<Pawn>(ref pawn, "pawn");
             Scribe_Defs.Look<PietyDef>(ref this.def, "def");
         }
     }

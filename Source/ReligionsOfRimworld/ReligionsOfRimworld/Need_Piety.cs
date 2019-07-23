@@ -44,7 +44,7 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                switch (CurCategory)
+                switch(CurCategory)
                 {
                     case PietyCategory.VeryLow:
                         return 0;
@@ -82,20 +82,7 @@ namespace ReligionsOfRimworld
 
         public override void NeedInterval()
         {
-            if (this.IsFrozen)
-                return;
-
-            float curInstantLevel = this.CurInstantLevel;
-            if ((double)curInstantLevel > (double)this.CurLevel)
-            {
-                this.CurLevel += this.def.seekerRisePerHour * 0.06f;
-                this.CurLevel = Mathf.Min(this.CurLevel, curInstantLevel);
-            }
-            if ((double)curInstantLevel >= (double)this.CurLevel)
-                return;
-            this.CurLevel -= this.def.seekerFallPerHour * 0.06f;
-            this.CurLevel = Mathf.Max(this.CurLevel, curInstantLevel);
-
+            base.NeedInterval();
             pietyEffectHandler.PietyInterval();
         }
 
