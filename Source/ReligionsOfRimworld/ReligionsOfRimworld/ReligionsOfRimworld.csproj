@@ -124,6 +124,7 @@
     <Compile Include="ReligionDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReligionConfiguration.cs" />
+    <Compile Include="ReligionMaker.cs" />
     <Compile Include="ReligionInfo.cs" />
     <Compile Include="ReligionInfoEntry.cs" />
     <Compile Include="ReligionManager.cs" />

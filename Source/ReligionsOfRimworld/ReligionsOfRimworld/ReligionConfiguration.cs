@@ -19,20 +19,10 @@ namespace ReligionsOfRimworld
             {
                 this.label = label;
                 this.description = description;
-                this.groupTag = groupTag;
                 this.allSettings = new List<ReligionSettings>();
                 this.allSettings.AddRange(settings);
+                this.groupTag = groupTag;
             }
-        }
-
-        public ReligionConfiguration(ReligionDef def)
-        {
-            this.label = def.LabelCap;
-            this.description = def.description;
-            this.groupTag = def.GroupTag;
-            this.allSettings = new List<ReligionSettings>();
-            foreach (ReligionSettingsDef settingsDef in def.SettingsDefs)
-                allSettings.Add(settingsDef.Settings);
         }
 
         public string Label => label;

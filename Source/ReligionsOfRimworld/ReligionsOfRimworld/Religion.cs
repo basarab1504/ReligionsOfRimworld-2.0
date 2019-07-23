@@ -9,7 +9,6 @@ namespace ReligionsOfRimworld
     public class Religion : IExposable, ILoadReferenceable
     {
         private int loadID;
-        private ReligionDef religionDef;
         private ReligionConfiguration configuration;
         private ReligionSettings_PietyNeed needSettings;
         private ReligionSettings_JoiningRestriction joiningRestrictionsSettings;
@@ -30,17 +29,6 @@ namespace ReligionsOfRimworld
             {
                 loadID = Find.UniqueIDsManager.GetNextThingID();
                 this.configuration = configuration;
-                InitializeReligion();
-            }
-        }
-
-        public Religion(ReligionDef def)
-        {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-            {
-                this.religionDef = def;
-                loadID = Find.UniqueIDsManager.GetNextThingID();
-                this.configuration = new ReligionConfiguration(def);
                 InitializeReligion();
             }
         }
@@ -113,15 +101,9 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.loadID, "loadID");
-            Scribe_Defs.Look<ReligionDef>(ref this.religionDef, "religionDef");
-            if(religionDef != null)
-                Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", new object[4]);
-            else
-                Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", religionDef);
-            if (Scribe.mode == LoadSaveMode.LoadingVars)
-            {
+            Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", null, null, null, null);
+            if(Scribe.mode == LoadSaveMode.LoadingVars)
                 InitializeReligion();
-            }
         }
     }
 }
