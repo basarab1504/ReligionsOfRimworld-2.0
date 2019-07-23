@@ -46,7 +46,7 @@ namespace ReligionsOfRimworld
         private void CreateReligions()
         {
             foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                allReligions.Add(ReligionMaker.MakeReligionFromDef(def));
+                allReligions.Add(new Religion(def));
         }
 
         public void RecacheReligions()
@@ -57,7 +57,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep, (ReligionConfiguration)null);
+            Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep, new ReligionDef());
         }
     }
 }

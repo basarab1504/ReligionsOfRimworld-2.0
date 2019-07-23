@@ -42,7 +42,7 @@ namespace ReligionsOfRimworld
                     this.pawn.rotationTracker.FaceCell(base.TargetA.Cell);
                     this.pawn.GainComfortFromCellIfPossible();
                 }
-            }.WithProgressBarToilDelay(TargetIndex.A, false, .5f);
+            };
 
             this.AddFinishAction(() =>
             {
