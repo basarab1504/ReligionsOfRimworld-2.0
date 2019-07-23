@@ -10,27 +10,63 @@
 		<defName>RoRWorshipSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">	
 			<properties>
-				<li>
-          			<activityJobQueue>UwU</activityJobQueue>
-					<recipe>Testt</recipe>
-				</li>
-				<li>
-          			<activityJobQueue>UwU</activityJobQueue>
-					<recipe>Testtt</recipe>
-				</li>
+				<li>Testt</li>
+				<li>Testtt</li>
 			</properties>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
   <ReligionsOfRimworld.ActivityJobQueueDef>
     <defName>UwU</defName>
-    <activityNodes>
-      <li>
-        <organizerJob>ReadPrayers</organizerJob>
-      </li>
-      <li>
-        <congregationJob>ListenPrayers</congregationJob>
-      </li>
-    </activityNodes>
+	<activityNodes>
+    	<li>
+    		<organizerJob>ReadPrayers</organizerJob>
+        	<congregationJob>ListenPrayers</congregationJob>
+    	</li>
+	</activityNodes>
   </ReligionsOfRimworld.ActivityJobQueueDef>
+
+  <ReligionsOfRimworld.ReligionActivityDef>
+    <defName>Testt</defName>
+    <label>cook simple meal</label>
+    <description>Cook a straightforward meal from one ingredient.</description>
+    <jobString>Cooking simple meal.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>FoodRaw</li>
+          </categories>
+        </filter>
+        <count>0.5</count>
+      </li>
+    </ingredients>
+	<fixedIngredientFilter>
+		<categories>
+			<li>FoodRaw</li>
+		</categories>
+		<specialFiltersToDisallow>
+			<li>AllowPlantFood</li>
+		</specialFiltersToDisallow>
+	</fixedIngredientFilter>    
+	<activityJobQueue>UwU</activityJobQueue>
+  </ReligionsOfRimworld.ReligionActivityDef>
+
+  <ReligionsOfRimworld.ReligionActivityDef>
+    <defName>Testtt</defName>
+    <label>cook suka meal</label>
+    <description>Cook a straightforward meal from one ingredient.</description>
+    <jobString>Cooking simple meal.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>  
+	<activityJobQueue>UwU</activityJobQueue>
+  </ReligionsOfRimworld.ReligionActivityDef>
 </Defs>

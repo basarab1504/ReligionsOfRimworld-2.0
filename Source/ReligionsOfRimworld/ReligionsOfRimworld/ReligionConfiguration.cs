@@ -27,12 +27,15 @@ namespace ReligionsOfRimworld
 
         public ReligionConfiguration(ReligionDef def)
         {
-            this.label = def.LabelCap;
-            this.description = def.description;
-            this.groupTag = def.GroupTag;
-            this.allSettings = new List<ReligionSettings>();
-            foreach (ReligionSettingsDef settingsDef in def.SettingsDefs)
-                allSettings.Add(settingsDef.Settings);
+            if (Scribe.mode == LoadSaveMode.Inactive)
+            {
+                this.label = def.LabelCap;
+                this.description = def.description;
+                this.groupTag = def.GroupTag;
+                this.allSettings = new List<ReligionSettings>();
+                foreach (ReligionSettingsDef settingsDef in def.SettingsDefs)
+                    allSettings.Add(settingsDef.Settings);
+            }
         }
 
         public string Label => label;

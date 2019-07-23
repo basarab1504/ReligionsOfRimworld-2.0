@@ -48,7 +48,6 @@ namespace ReligionsOfRimworld
         public string Label => configuration.Label;
         public string Description => configuration.Description;
         public ReligionGroupTagDef GroupTag => configuration.GroupTag;
-        //public ReligionConfiguration Configuration => configuration;
         public IEnumerable<ReligionSettings> AllSettings => configuration.Settings;
         public ReligionSettings_PietyNeed NeedSettings => needSettings;
         public ReligionSettings_JoiningRestriction JoiningRestrictionsSettings => joiningRestrictionsSettings;

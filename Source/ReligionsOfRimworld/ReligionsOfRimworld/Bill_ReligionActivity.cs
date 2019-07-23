@@ -10,20 +10,20 @@ namespace ReligionsOfRimworld
 {
     public class Bill_ReligionActivity : Bill_Production
     {
-        private ReligionActivityProperty property;
+        private ReligionActivityDef property;
         private Pawn materialPawn;
 
         public Bill_ReligionActivity()
         { }
 
-        public Bill_ReligionActivity(ReligionActivityProperty property) : base(property.Recipe)
+        public Bill_ReligionActivity(ReligionActivityDef property) : base(property)
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
                 this.property = property;
         }
 
         public Pawn MaterialPawn { get => materialPawn; set => materialPawn = value; }
-        public ReligionActivityProperty Property => property;
+        public ReligionActivityDef Property => property;
 
         public override bool ShouldDoNow()
         {
@@ -99,7 +99,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look<ReligionActivityProperty>(ref this.property, "property");
+            Scribe_Defs.Look<ReligionActivityDef>(ref this.property, "property");
             Scribe_References.Look<Pawn>(ref this.materialPawn, "materialPawn");
         }
     }
