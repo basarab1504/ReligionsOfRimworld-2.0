@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="ActivityJobNode.cs" />
     <Compile Include="ActivityJobQueueDef.cs" />
-    <Compile Include="Bill_ReligionActivity.cs" />
+    <Compile Include="ActivityTask.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
     <Compile Include="JobDriver_Pray.cs" />
@@ -149,6 +149,7 @@
     <Compile Include="SettingsTagDefOf.cs" />
     <Compile Include="SimpleCurveDef.cs" />
     <Compile Include="JobGiver_SpectateReligionActivity.cs" />
+    <Compile Include="TaskStack.cs" />
     <Compile Include="Toils_ReligionActivity.cs" />
     <Compile Include="WorkGiver_DoReligionActivity.cs" />
     <Compile Include="WorldGenStep_Religions.cs" />

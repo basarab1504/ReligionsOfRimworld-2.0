@@ -21,9 +21,10 @@
       </li>
     </ingredients>
 	<fixedIngredientFilter>
-		<categories>
-			<li>FoodRaw</li>
-		</categories>
+      	<thingDefs>
+        	<li>ChunkSlagSteel</li>
+        	<li>Chicken</li>
+      	</thingDefs>		
 		<specialFiltersToDisallow>
 			<li>AllowPlantFood</li>
 		</specialFiltersToDisallow>

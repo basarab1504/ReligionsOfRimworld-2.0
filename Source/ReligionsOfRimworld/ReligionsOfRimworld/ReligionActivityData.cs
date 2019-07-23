@@ -11,10 +11,10 @@ namespace ReligionsOfRimworld
         private Religion religion;
         private Pawn organizer;
         private List<LocalTargetInfo> relics;
-        private Bill_ReligionActivity bill;
+        private ActivityTask bill;
         private List<ActivityJobNode> activityJobNodes;
 
-        public ReligionActivityData(Religion religion, Pawn organizer, Bill_ReligionActivity bill, IEnumerable<LocalTargetInfo> relics = null)
+        public ReligionActivityData(Religion religion, Pawn organizer, ActivityTask bill, IEnumerable<LocalTargetInfo> relics = null)
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
@@ -37,14 +37,14 @@ namespace ReligionsOfRimworld
         public IEnumerable<ActivityJobNode> ActivityJobs => activityJobNodes;
         public ReligionPropertyData OrganizerProperty => bill.Property.Witness;
         public ReligionPropertyData СongregationProperty => bill.Property.Subject;
-        public Bill_ReligionActivity Bill => bill;
+        public ActivityTask Bill => bill;
 
         public void ExposeData()
         {
             Scribe_References.Look<Religion>(ref this.religion, "religion");
             Scribe_References.Look<Pawn>(ref this.organizer, "organizer");
             Scribe_Collections.Look<LocalTargetInfo>(ref this.relics, "relicsTargets", LookMode.LocalTargetInfo);
-            Scribe_References.Look<Bill_ReligionActivity>(ref this.bill, "bill");
+            Scribe_References.Look<ActivityTask>(ref this.bill, "bill");
             Scribe_Collections.Look<ActivityJobNode>(ref activityJobNodes, "activityJobNodes", LookMode.Deep);
         }
     }
