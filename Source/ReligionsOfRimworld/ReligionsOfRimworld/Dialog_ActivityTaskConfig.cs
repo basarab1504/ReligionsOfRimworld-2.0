@@ -295,19 +295,33 @@ namespace ReligionsOfRimworld
 
         private void ListOfThings(Listing_Standard holder)
         {
-            Listing_Standard listing_Standard = holder.BeginSection(100f);
-            Rect rect = listing_Standard.GetRect(85f);
-            float height = task.ThingFilter.Count * 24f;
-            float curY = 0.0f;
-            Rect viewRect = new Rect(0.0f, 0.0f, rect.width - 16f, height);
-            Widgets.BeginScrollView(rect, ref thingFilterScrollPosition, viewRect, true);
+            Listing_Standard listing_Standard = holder.BeginSection(200f);
 
-            foreach (ThingDef def in task.ThingFilter)
-                Widgets.Label(new Rect(viewRect.x, viewRect.y + curY, viewRect.width, viewRect.height), def.LabelCap);
-            Widgets.EndScrollView();
+            if (listing_Standard.ButtonText("ClearAll".Translate()))
+            {
+                task.ThingFilter.DisallowAll();
+                SoundDefOf.Checkbox_TurnedOff.PlayOneShotOnCamera((Map)null);
+            }
+            if (listing_Standard.ButtonText("AllowAll".Translate()))
+            {
+                task.ThingFilter.AllowAll();
+                SoundDefOf.Checkbox_TurnedOn.PlayOneShotOnCamera((Map)null);
+            }
+
+            Rect rect = listing_Standard.GetRect(190f);
+
+            Rect outRect = new Rect(0.0f, 0.0f, rect.width, rect.height);
+            Rect viewRect = new Rect(0.0f, 0.0f, outRect.width - 16f, task.ThingFilter.AvaliableThings.Count() * Text.LineHeight);
+
+            listing_Standard.BeginScrollView(outRect, ref thingFilterScrollPosition, ref viewRect);
+            foreach (ThingDef def in task.ThingFilter.AvaliableThings)
+            {
+                bool isAllowed = task.ThingFilter.Allows(def);
+                listing_Standard.CheckboxLabeled(def.LabelCap, ref isAllowed);
+                task.ThingFilter.SetAllowance(def, isAllowed);
+            }
+            listing_Standard.EndScrollView(ref viewRect);
             holder.EndSection(listing_Standard);
-            //if (Event.current.type == EventType.Layout)
-            //    ThingFilterUI.viewHeight = (float)((double)num2 + (double)listingTreeThingFilter.CurHeight + 90.0);
         }
     }
 }

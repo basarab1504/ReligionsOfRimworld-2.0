@@ -219,8 +219,7 @@ namespace ReligionsOfRimworld
             foreach (ThingDef def in defs)
                 defaultThings.Add(def);
 
-            allowedThings.Clear();
-            allowedThings.AddRange(defaultThings);
+            AllowAll();
         }
 
         public IEnumerator<ThingDef> GetEnumerator()
@@ -228,16 +227,26 @@ namespace ReligionsOfRimworld
             return allowedThings.GetEnumerator();
         }
 
+        public IEnumerable<ThingDef> AvaliableThings => defaultThings;
         public int Count => allowedThings.Count;
 
-        public void Add(ThingDef def)
+        public void DisallowAll()
         {
-            allowedThings.Add(def);
+            allowedThings.Clear();
         }
 
-        public void Remove(ThingDef def)
+        public void AllowAll()
         {
-            allowedThings.Remove(def);
+            allowedThings.Clear();
+            allowedThings.AddRange(defaultThings);
+        }
+
+        public void SetAllowance(ThingDef def, bool allowance)
+        {
+            if (allowance)
+                allowedThings.Add(def);
+            else
+                allowedThings.Remove(def);
         }
 
         public bool Allows(ThingDef def)

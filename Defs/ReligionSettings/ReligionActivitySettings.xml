@@ -34,6 +34,50 @@
 				<key>Human</key>
 				<value>1</value>
 			</li>
+			<li>
+				<key>Chicken</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>YorkshireTerrier</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>Husky</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>LabradorRetriever</key>
+				<value>1</value>
+			</li>	
+			<li>
+				<key>Cat</key>
+				<value>1</value>
+			</li>	
+			<li>
+				<key>Rhinoceros</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>Deer</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>Ibex</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>Caribou</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>WildBoar</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>Elk</key>
+				<value>1</value>
+			</li>				
 		</thingDefsCount>
 		<activityJobQueue>UwU</activityJobQueue>
 	</ReligionsOfRimworld.ActivityTaskDef>
