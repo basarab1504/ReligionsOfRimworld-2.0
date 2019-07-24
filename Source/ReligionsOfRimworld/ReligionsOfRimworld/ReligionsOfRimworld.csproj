@@ -56,14 +56,17 @@
   <ItemGroup>
     <Compile Include="ActivityJobNode.cs" />
     <Compile Include="ActivityJobQueueDef.cs" />
+    <Compile Include="ActivityTask.cs" />
     <Compile Include="Bill_ReligionActivity.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="Dialog_ActivityTaskConfig.cs" />
+    <Compile Include="Dialog_ReligionActivityBillConfig.cs" />
     <Compile Include="IngredientPawn.cs" />
+    <Compile Include="ITab_ActivityTasks.cs" />
     <Compile Include="JobDriver_Pray.cs" />
     <Compile Include="JobGiver_Pray.cs" />
     <Compile Include="Dialog_AssignReligion.cs" />
-    <Compile Include="Dialog_ReligionActivityBillConfig.cs" />
     <Compile Include="JobDriver_ActivityPreparations.cs" />
     <Compile Include="JobDriver_DoReligionActivity.cs" />
     <Compile Include="JobDriver_ListenPrayers.cs" />

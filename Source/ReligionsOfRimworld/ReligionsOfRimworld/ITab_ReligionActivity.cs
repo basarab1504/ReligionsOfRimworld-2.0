@@ -79,29 +79,29 @@ namespace ReligionsOfRimworld
             //    }
             //    TooltipHandler.TipRegion(rect1, (TipSignal)"PasteBillTip".Translate());
             //}
-            this.mouseoverTask = this.SelFacility.BillStack.DoListing(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), (Func<List<FloatMenuOption>>)(() =>
-            {
-                List<FloatMenuOption> list = new List<FloatMenuOption>();
-                foreach(ReligionActivityDef property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.ActivityTag).Properties)
-                {
-                    list.Add(new FloatMenuOption(property.label, (Action)(() =>
-                    {
-                        if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>((Func<Pawn, bool>)(col => ReligionActivityUtility.PawnSatisfiesSkillRequirements(col, property.skillRequirements))))
-                            CreateNoPawnsWithSkillDialog(property);
-                        if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>(x => x.GetReligionComponent().Religion == SelFacility.AssignedReligion))
-                            CreateNoPawnsOfReligionDialog(SelFacility.AssignedReligion);
-                        this.SelFacility.BillStack.AddBill(new Bill_ReligionActivity(property));
-                    //if (recipe.conceptLearned != null)
-                    //    PlayerKnowledgeDatabase.KnowledgeDemonstrated(recipe.conceptLearned, KnowledgeAmount.Total);
-                    //if (!TutorSystem.TutorialMode)
-                    //    return;
-                    TutorSystem.Notify_Event((EventPack)("AddBill-" + property.LabelCap));
-                    }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), property)), (WorldObject)null));
-                }
-                if (!list.Any<FloatMenuOption>())
-                    list.Add(new FloatMenuOption("NoneBrackets".Translate(), (Action)null, MenuOptionPriority.Default, (Action)null, (Thing)null, 0.0f, (Func<Rect, bool>)null, (WorldObject)null));
-                return list;
-            }), ref this.scrollPosition, ref this.viewHeight);
+            //this.mouseoverTask = this.SelFacility.BillStack.DoListing(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), (Func<List<FloatMenuOption>>)(() =>
+            //{
+            //    List<FloatMenuOption> list = new List<FloatMenuOption>();
+            //    foreach(ReligionActivityDef property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.ActivityTag).Properties)
+            //    {
+            //        list.Add(new FloatMenuOption(property.label, (Action)(() =>
+            //        {
+            //            if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>((Func<Pawn, bool>)(col => ReligionActivityUtility.PawnSatisfiesSkillRequirements(col, property.skillRequirements))))
+            //                CreateNoPawnsWithSkillDialog(property);
+            //            if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>(x => x.GetReligionComponent().Religion == SelFacility.AssignedReligion))
+            //                CreateNoPawnsOfReligionDialog(SelFacility.AssignedReligion);
+            //            this.SelFacility.BillStack.AddBill(new Bill_ReligionActivity(property));
+            //        //if (recipe.conceptLearned != null)
+            //        //    PlayerKnowledgeDatabase.KnowledgeDemonstrated(recipe.conceptLearned, KnowledgeAmount.Total);
+            //        //if (!TutorSystem.TutorialMode)
+            //        //    return;
+            //        TutorSystem.Notify_Event((EventPack)("AddBill-" + property.LabelCap));
+            //        }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), property)), (WorldObject)null));
+            //    }
+            //    if (!list.Any<FloatMenuOption>())
+            //        list.Add(new FloatMenuOption("NoneBrackets".Translate(), (Action)null, MenuOptionPriority.Default, (Action)null, (Thing)null, 0.0f, (Func<Rect, bool>)null, (WorldObject)null));
+            //    return list;
+            //}), ref this.scrollPosition, ref this.viewHeight);
         }
 
         public override void TabUpdate()

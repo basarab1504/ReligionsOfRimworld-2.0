@@ -13,9 +13,13 @@ namespace ReligionsOfRimworld
     {
         private Building_ReligionBuilding parentBuilding;
         private BillStack billStack;
+        private ActivityTaskManager taskManager;
+
+        public ActivityTaskManager TaskManager => taskManager;
 
         public Building_ReligiousBuildingFacility()
         {
+            this.taskManager = new ActivityTaskManager(this);
             this.billStack = new BillStack((IBillGiver)this);
         }
 

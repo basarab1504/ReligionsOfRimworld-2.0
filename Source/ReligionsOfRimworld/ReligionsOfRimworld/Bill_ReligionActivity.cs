@@ -21,11 +21,11 @@ namespace ReligionsOfRimworld
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
-                this.property = property;
-                if(property.IngredientHumanlike != null)
-                humanlike = new IngredientPawn(property.IngredientHumanlike);
-                if (property.IngredientAnimal != null)
-                    animal = new IngredientPawn(property.IngredientAnimal);
+                //this.property = property;
+                //if(property.IngredientHumanlike != null)
+                //humanlike = new IngredientPawn(property.IngredientHumanlike);
+                //if (property.IngredientAnimal != null)
+                //    animal = new IngredientPawn(property.IngredientAnimal);
             }
         }
 

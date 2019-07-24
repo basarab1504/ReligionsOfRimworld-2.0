@@ -8,19 +8,19 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettings_ReligionActivity : ReligionSettings
     {
-        private List<ReligionActivityDef> properties;
+        private List<ActivityTaskDef> properties;
 
         public ReligionSettings_ReligionActivity()
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
-                properties = new List<ReligionActivityDef>();
+                properties = new List<ActivityTaskDef>();
         }
 
-        public IEnumerable<ReligionActivityDef> Properties => properties;
+        public IEnumerable<ActivityTaskDef> Properties => properties;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            foreach (ReligionActivityDef property in properties)
+            foreach (ActivityTaskDef property in properties)
                 foreach (ReligionInfoEntry entry in property.GetInfoEntries())
                     yield return entry;
         }
@@ -28,7 +28,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.Look<ReligionActivityDef>(ref this.properties, "properties", LookMode.Def);
+            Scribe_Collections.Look<ActivityTaskDef>(ref this.properties, "properties", LookMode.Def);
         }
     }
 }

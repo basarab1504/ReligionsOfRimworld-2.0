@@ -10,8 +10,7 @@
 		<defName>RoRWorshipSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">	
 			<properties>
-				<li>Testt</li>
-				<li>Testtt</li>
+				<li>TaskGay</li>
 			</properties>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
@@ -26,56 +25,16 @@
 	</activityNodes>
   </ReligionsOfRimworld.ActivityJobQueueDef>
 
-  <ReligionsOfRimworld.ReligionActivityDef>
-    <defName>Testt</defName>
-    <label>cook simple meal</label>
-    <description>Cook a straightforward meal from one ingredient.</description>
-    <jobString>Cooking simple meal.</jobString>
-    <workSpeedStat>CookSpeed</workSpeedStat>
-    <effectWorking>Cook</effectWorking>
-    <soundWorking>Recipe_CookMeal</soundWorking>
-    <allowMixingIngredients>true</allowMixingIngredients>
-    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
-    <ingredients>
-      <li>
-        <filter>
-          <categories>
-            <li>FoodRaw</li>
-          </categories>
-        </filter>
-        <count>0.5</count>
-      </li>
-    </ingredients>
-	<fixedIngredientFilter>
-		<categories>
-			<li>FoodRaw</li>
-		</categories>
-		<thingDefs>
-			<li>Human</li>
-			<li>Chicken</li>
-		</thingDefs>
-		<specialFiltersToDisallow>
-			<li>AllowPlantFood</li>
-		</specialFiltersToDisallow>
-	</fixedIngredientFilter>    
-	<activityJobQueue>UwU</activityJobQueue>
-	  	<ingredientHumanlike>
-  		<thingDefs>
-  			<li>Human</li>
-  		</thingDefs>
-  	</ingredientHumanlike>
-  </ReligionsOfRimworld.ReligionActivityDef>
-
-  <ReligionsOfRimworld.ReligionActivityDef>
-    <defName>Testtt</defName>
-    <label>cook suka meal</label>
-    <description>Cook a straightforward meal from one ingredient.</description>
-    <jobString>Cooking simple meal.</jobString>
-    <workSpeedStat>CookSpeed</workSpeedStat>
-    <effectWorking>Cook</effectWorking>
-    <soundWorking>Recipe_CookMeal</soundWorking>
-    <allowMixingIngredients>true</allowMixingIngredients>
-    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>  
-	<activityJobQueue>UwU</activityJobQueue>
-  </ReligionsOfRimworld.ReligionActivityDef>
+	<ReligionsOfRimworld.ActivityTaskDef>
+		<defName>TaskGay</defName>
+		<label>gay</label>
+		<description>notgay</description>
+		<thingDefsCount>
+			<li>
+				<key>Human</key>
+				<value>1</value>
+			</li>
+		</thingDefsCount>
+		<activityJobQueue>UwU</activityJobQueue>
+	</ReligionsOfRimworld.ActivityTaskDef>
 </Defs>

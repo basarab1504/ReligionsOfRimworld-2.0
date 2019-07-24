@@ -23,7 +23,7 @@
       <li>PlaceWorker_WatchArea</li>
     </placeWorkers>
     <inspectorTabs>
-      <li>ReligionsOfRimworld.ITab_ReligionActivity</li>
+      <li>ReligionsOfRimworld.ITab_ActivityTasks</li>
     </inspectorTabs>
     <designationCategory>ReligionBuildings</designationCategory>
     <!--<inspectorTabs>
