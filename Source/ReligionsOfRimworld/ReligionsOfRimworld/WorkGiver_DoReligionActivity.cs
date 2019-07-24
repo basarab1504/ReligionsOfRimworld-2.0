@@ -33,19 +33,13 @@ namespace ReligionsOfRimworld
             return Danger.Some;
         }
 
-        public override ThingRequest PotentialWorkThingRequest
+        public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
-            get
-            {
-                return ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial);
-            }
+            return pawn.Map.listerThings.AllThings.Where(x => x is Building_ReligiousBuildingFacility);
         }
 
         public override Job JobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
-            if(!(thing is Building_ReligiousBuildingFacility))
-                return (Job)null;
-
             IBillGiver giver = thing as IBillGiver;
 
             if ((!giver.BillStack.AnyShouldDoNow || !giver.UsableForBillsAfterFueling()) || (!pawn.CanReserve((LocalTargetInfo)thing, 1, -1, (ReservationLayerDef)null, forced) || thing.IsBurning() || thing.IsForbidden(pawn)))

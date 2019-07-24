@@ -11,7 +11,8 @@ namespace ReligionsOfRimworld
     public class Bill_ReligionActivity : Bill_Production
     {
         private ReligionActivityDef property;
-        private Pawn materialPawn;
+        private IngredientPawn humanlike;
+        private IngredientPawn animal;
 
         public Bill_ReligionActivity()
         { }
@@ -19,11 +20,18 @@ namespace ReligionsOfRimworld
         public Bill_ReligionActivity(ReligionActivityDef property) : base(property)
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
+            {
                 this.property = property;
+                if(property.IngredientHumanlike != null)
+                humanlike = new IngredientPawn(property.IngredientHumanlike);
+                if (property.IngredientAnimal != null)
+                    animal = new IngredientPawn(property.IngredientAnimal);
+            }
         }
 
-        public Pawn MaterialPawn { get => materialPawn; set => materialPawn = value; }
         public ReligionActivityDef Property => property;
+        public IngredientPawn HumanlikeIngredient => humanlike;
+        public IngredientPawn AnimalIngredient => animal;
 
         public override bool ShouldDoNow()
         {
@@ -41,8 +49,6 @@ namespace ReligionsOfRimworld
             base.ValidateSettings();
             if(this.pawnRestriction != null && pawnRestriction.GetReligionComponent().Religion != ((Building_ReligiousBuildingFacility)billStack.billGiver).AssignedReligion)
                 this.pawnRestriction = (Pawn)null;
-            if (this.materialPawn != null && materialPawn.Dead)
-                this.materialPawn = null;
         }
 
         protected override void DoConfigInterface(Rect baseRect, Color baseColor)
@@ -100,7 +106,6 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_Defs.Look<ReligionActivityDef>(ref this.property, "property");
-            Scribe_References.Look<Pawn>(ref this.materialPawn, "materialPawn");
         }
     }
 }

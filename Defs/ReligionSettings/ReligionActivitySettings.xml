@@ -50,11 +50,20 @@
 		<categories>
 			<li>FoodRaw</li>
 		</categories>
+		<thingDefs>
+			<li>Human</li>
+			<li>Chicken</li>
+		</thingDefs>
 		<specialFiltersToDisallow>
 			<li>AllowPlantFood</li>
 		</specialFiltersToDisallow>
 	</fixedIngredientFilter>    
 	<activityJobQueue>UwU</activityJobQueue>
+	  	<ingredientHumanlike>
+  		<thingDefs>
+  			<li>Human</li>
+  		</thingDefs>
+  	</ingredientHumanlike>
   </ReligionsOfRimworld.ReligionActivityDef>
 
   <ReligionsOfRimworld.ReligionActivityDef>

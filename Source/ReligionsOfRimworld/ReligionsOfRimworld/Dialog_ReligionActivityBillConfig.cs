@@ -219,10 +219,21 @@ namespace ReligionsOfRimworld
             listing_Standard.EndSection(listing_Standard3);
             listing_Standard.Gap(12f);
 
-            Listing_Standard listing_Standard3Half = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);
-            Widgets.Dropdown<Bill_ReligionActivity, Pawn>(listing_Standard3Half.GetRect(30f), this.bill, (Bill_ReligionActivity b) => b.MaterialPawn, (Bill_ReligionActivity b) => this.GeneratePawnMaterialOptions(), (this.bill.MaterialPawn != null) ? this.bill.MaterialPawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
-            listing_Standard.EndSection(listing_Standard3Half);
-            listing_Standard.End();
+            if(this.bill.HumanlikeIngredient != null)
+            {
+                Listing_Standard humanlike = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);
+                Widgets.Dropdown<Bill_ReligionActivity, Pawn>(humanlike.GetRect(30f), this.bill, (Bill_ReligionActivity b) => b.HumanlikeIngredient.ConcretePawn, (Bill_ReligionActivity b) => this.GenerateIngredientPawnOptions(b.HumanlikeIngredient), (this.bill.HumanlikeIngredient.ConcretePawn != null) ? this.bill.HumanlikeIngredient.ConcretePawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
+                Widgets.Dropdown<Bill_ReligionActivity, bool>(humanlike.GetRect(60f), this.bill, (Bill_ReligionActivity b) => b.HumanlikeIngredient.PartOfColony, (Bill_ReligionActivity b) => this.GenerateBoolOptions(b.HumanlikeIngredient), this.bill.HumanlikeIngredient.PartOfColony.ToString(), null, null, null, null, false);
+                listing_Standard.EndSection(humanlike);
+                listing_Standard.End();
+            }
+            //if(this.bill.AnimalIngredient != null)
+            //{
+            //    Listing_Standard animal = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);
+            //    Widgets.Dropdown<Bill_ReligionActivity, Pawn>(animal.GetRect(30f), this.bill, (Bill_ReligionActivity b) => b.AnimalIngredient.ConcretePawn, (Bill_ReligionActivity b) => this.GenerateAnimalOptions(), (this.bill.AnimalIngredient.ConcretePawn != null) ? this.bill.AnimalIngredient.ConcretePawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
+            //    listing_Standard.EndSection(animal);
+            //    listing_Standard.End();
+            //}
 
             Listing_Standard listing_Standard4 = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);           
             Widgets.Dropdown<Bill_ReligionActivity, Pawn>(listing_Standard4.GetRect(30f), this.bill, (Bill_ReligionActivity b) => b.pawnRestriction, (Bill_ReligionActivity b) => this.GeneratePawnRestrictionOptions(), (this.bill.pawnRestriction != null) ? this.bill.pawnRestriction.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
@@ -244,7 +255,7 @@ namespace ReligionsOfRimworld
             IEnumerable<ThingDef> forceHiddenDefs = null;
             List<SpecialThingFilterDef> forceHiddenSpecialFilters = this.bill.recipe.forceHiddenSpecialFilters;
             List<ThingDef> premultipliedSmallIngredients = this.bill.recipe.GetPremultipliedSmallIngredients();
-            ThingFilterUI.DoThingFilterConfigWindow(rect6, ref this.thingFilterScrollPosition, ingredientFilter, fixedIngredientFilter, openMask, forceHiddenDefs, forceHiddenSpecialFilters, false, premultipliedSmallIngredients, this.bill.Map);
+            ThingFilterUI.DoThingFilterConfigWindow(rect6, ref this.thingFilterScrollPosition, ingredientFilter, fixedIngredientFilter, 1, null, null, false, null, this.bill.Map);
             bool flag2 = this.bill.GetStoreZone() == null || this.bill.recipe.WorkerCounter.CanPossiblyStoreInStockpile(this.bill, this.bill.GetStoreZone());
             if (flag && !flag2)
             {
@@ -319,27 +330,69 @@ namespace ReligionsOfRimworld
             //}
         }
 
-        private IEnumerable<Widgets.DropdownMenuElement<Pawn>> GeneratePawnMaterialOptions()
+        private IEnumerable<Widgets.DropdownMenuElement<bool>> GenerateBoolOptions(IngredientPawn ingredientPawn)
+        {
+            yield return new Widgets.DropdownMenuElement<bool>()
+            {
+                option = new FloatMenuOption("True".Translate(), delegate
+                {
+                    ingredientPawn.PartOfColony = true;
+                }, MenuOptionPriority.Default, null, null, 0f, null, null),
+                payload = false
+            };
+            yield return new Widgets.DropdownMenuElement<bool>()
+            {
+                option = new FloatMenuOption("False".Translate(), delegate
+                {
+                    ingredientPawn.PartOfColony = false;
+                }, MenuOptionPriority.Default, null, null, 0f, null, null),
+                payload = false
+            };
+        }
+
+        private IEnumerable<Widgets.DropdownMenuElement<Pawn>> GenerateIngredientPawnOptions(IngredientPawn ingredientPawn)
         {
             yield return new Widgets.DropdownMenuElement<Pawn>
             {
                 option = new FloatMenuOption("Anyone".Translate(), delegate
                 {
-                    this.bill.MaterialPawn = null;
+                    ingredientPawn.ConcretePawn = null;
                 }, MenuOptionPriority.Default, null, null, 0f, null, null),
                 payload = null
             };
-            IEnumerable<Pawn> pawns = bill.Map.mapPawns.AllPawns;
+            IEnumerable<Pawn> pawns = bill.Map.mapPawns.AllPawns.Where(x => x.RaceProps.Humanlike || x.RaceProps.Animal);
             foreach (Pawn pawn in pawns)
             {
-                yield return new Widgets.DropdownMenuElement<Pawn>
+                Log.Message(ingredientPawn.Filter.AllowedDefCount.ToString());
+                if (ingredientPawn.Filter.Allows(pawn.def))
                 {
-                    option = new FloatMenuOption(string.Format("{0}", pawn.LabelShortCap), delegate
+                    Log.Message("TRUE");
+                    if (ingredientPawn.PartOfColony)
                     {
-                        this.bill.MaterialPawn = pawn;
-                    }, MenuOptionPriority.Default, null, null, 0f, null, null),
-                    payload = pawn
-                };
+                        if (pawn.RaceProps.Humanlike && pawn.IsPrisonerOfColony || pawn.RaceProps.Animal && pawn.Faction == Faction.OfPlayer)
+                        {
+                            yield return new Widgets.DropdownMenuElement<Pawn>
+                            {
+                                option = new FloatMenuOption(string.Format("{0}", pawn.LabelShortCap), delegate
+                                {
+                                    ingredientPawn.ConcretePawn = pawn;
+                                }, MenuOptionPriority.Default, null, null, 0f, null, null),
+                                payload = pawn
+                            };
+                        }
+                    }
+                    else
+                    {
+                        yield return new Widgets.DropdownMenuElement<Pawn>
+                        {
+                            option = new FloatMenuOption(string.Format("{0}", pawn.LabelShortCap), delegate
+                            {
+                                ingredientPawn.ConcretePawn = pawn;
+                            }, MenuOptionPriority.Default, null, null, 0f, null, null),
+                            payload = pawn
+                        };
+                    }
+                }
             }
         }
 

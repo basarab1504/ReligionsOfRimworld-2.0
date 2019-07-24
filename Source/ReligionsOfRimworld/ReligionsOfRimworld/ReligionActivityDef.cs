@@ -11,10 +11,14 @@ namespace ReligionsOfRimworld
         private ActivityJobQueueDef activityJobQueue;
         private ReligionPropertyData organizerProperty;
         private ReligionPropertyData congregationProperty;
+        private ThingFilter ingredientHumanlike;
+        private ThingFilter ingredientAnimal;
 
         public ActivityJobQueueDef ActivityJobQueue => activityJobQueue;
         public ReligionPropertyData Subject => organizerProperty;
         public ReligionPropertyData Witness => congregationProperty;
+        public ThingFilter IngredientHumanlike => ingredientHumanlike;
+        public ThingFilter IngredientAnimal => ingredientAnimal;
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
