@@ -221,12 +221,20 @@ namespace ReligionsOfRimworld
         {
             Listing_Standard listing_Standard = holder.BeginSection(100f);
             string label = null;
+            string context = null;
             if (isHumanlike)
+            {
                 label = "RoR_ActivityPawnHumanlike".Translate();
+                context = label = "RoR_IsPrisonerOfColony".Translate();
+            }
+                
             else
+            {
                 label = "RoR_ActivityPawnAnimal".Translate();
+                context = "RoR_IsTamed".Translate();
+            }
             listing_Standard.Label(label.Translate());
-            Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
+            Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), context + " " + ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
             Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
         }
