@@ -134,6 +134,7 @@ namespace ReligionsOfRimworld
         public bool Suspended { get => suspended; set => suspended = value; }
         public Filter ThingFilter => filter;
         public Pawn PawnRestriction { get => pawnRestriction; set => pawnRestriction = value; }
+        public float IngredientSearchRadius { get => ingredientSearchRadius; set => ingredientSearchRadius = value; }
         public IngredientPawn HumanlikeIngredient => humanlike;
         public IngredientPawn AnimalIngredient => animal;
 
@@ -182,6 +183,13 @@ namespace ReligionsOfRimworld
             Text.Font = GameFont.Small;
             GUI.color = Color.white;
             return rect1;
+        }
+
+        public void TryDrawIngredientSearchRadiusOnMap()
+        {
+            if ((double)ingredientSearchRadius >= (double)GenRadial.MaxRadialPatternRadius)
+                return;
+            GenDraw.DrawRadiusRing(facility.Position, ingredientSearchRadius);
         }
 
         private void DoConfigInterface(Rect baseRect, Color baseColor)

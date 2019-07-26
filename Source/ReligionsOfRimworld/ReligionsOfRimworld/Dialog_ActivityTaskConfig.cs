@@ -15,6 +15,14 @@ namespace ReligionsOfRimworld
 
         private Vector2 thingFilterScrollPosition;
 
+        public override Vector2 InitialSize
+        {
+            get
+            {
+                return new Vector2(800f, 634f);
+            }
+        }
+
         public Dialog_ActivityTaskConfig(ActivityTask task)
         {
             this.task = task;
@@ -24,6 +32,12 @@ namespace ReligionsOfRimworld
             this.doCloseButton = true;
             this.absorbInputAroundWindow = true;
             this.closeOnClickedOutside = true;
+        }
+
+        public override void WindowUpdate()
+        {
+            base.WindowUpdate();
+            task.TryDrawIngredientSearchRadiusOnMap();
         }
 
         public override void DoWindowContents(Rect inRect)
@@ -55,17 +69,9 @@ namespace ReligionsOfRimworld
             Listing_Standard rightListing = new Listing_Standard();
             rightListing.Begin(rect4);
             DrawThingsFilter(rightListing);
+            rightListing.Gap();
+            DrawIngridientRadius(rightListing);
             rightListing.End();
-            //Listing_Standard listing_Standard4 = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);
-
-            //listing_Standard.EndSection(listing_Standard4);
-
-
-            //listing_Standard.Begin(rect4);
-            //Listing_Standard listing_Standard3 = listing_Standard.BeginSection(100f);
-            //ListOfThings(listing_Standard3.GetRect(90));
-            //listing_Standard.EndSection(listing_Standard3);
-            //listing_Standard.End();
         }
 
         private void DrawInfo(Listing_Standard holder)
@@ -302,7 +308,7 @@ namespace ReligionsOfRimworld
 
         private void DrawThingsFilter(Listing_Standard holder)
         {
-            Listing_Standard listing_Standard = holder.BeginSection(320f);
+            Listing_Standard listing_Standard = holder.BeginSection(400f);
 
             DrawThingsList(listing_Standard);
 
@@ -325,7 +331,7 @@ namespace ReligionsOfRimworld
         private void DrawThingsList(Listing_Standard holder)
         {
             Listing_Standard list = new Listing_Standard();
-            Rect outRect = holder.GetRect(200f);
+            Rect outRect = holder.GetRect(280f);
             Rect viewRect = new Rect(outRect.x, outRect.y, outRect.width - 16f, task.ThingFilter.AvaliableThings.Count() * (Text.LineHeight + holder.verticalSpacing));
             list.BeginScrollView(outRect, ref thingFilterScrollPosition, ref viewRect);
             foreach (ThingDef def in task.ThingFilter.AvaliableThings)
@@ -335,6 +341,18 @@ namespace ReligionsOfRimworld
                 task.ThingFilter.SetAllowance(def, isAllowed);
             }
             list.EndScrollView(ref viewRect);
+        }
+
+        private void DrawIngridientRadius(Listing_Standard holder)
+        {
+            Listing_Standard listingStandard = holder.BeginSection(70f);
+            string str1 = "IngredientSearchRadius".Translate();
+            string str2 = (double)this.task.IngredientSearchRadius != 999.0 ? this.task.IngredientSearchRadius.ToString("F0") : "Unlimited".Translate();
+            listingStandard.Label(str1 + ": " + str2, -1f, (string)null);
+            this.task.IngredientSearchRadius = listingStandard.Slider(this.task.IngredientSearchRadius, 3f, 100f);
+            if ((double)this.task.IngredientSearchRadius >= 100.0)
+                this.task.IngredientSearchRadius = 999f;
+            holder.EndSection(listingStandard);
         }
     }
 }
