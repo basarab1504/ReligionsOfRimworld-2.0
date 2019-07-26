@@ -63,9 +63,9 @@ namespace ReligionsOfRimworld
             if (tasks.Count < 15)
             {
                 Rect rect1 = new Rect(0.0f, 0.0f, 150f, 29f);
-                if (Widgets.ButtonText(rect1, "AddBill".Translate(), true, false, true))
+                if (Widgets.ButtonText(rect1, "AddTask".Translate(), true, false, true))
                     Find.WindowStack.Add((Window)new FloatMenu(recipeOptionsMaker));
-                UIHighlighter.HighlightOpportunity(rect1, "AddBill");
+                UIHighlighter.HighlightOpportunity(rect1, "AddTask");
             }
             Text.Anchor = TextAnchor.UpperLeft;
             GUI.color = Color.white;
