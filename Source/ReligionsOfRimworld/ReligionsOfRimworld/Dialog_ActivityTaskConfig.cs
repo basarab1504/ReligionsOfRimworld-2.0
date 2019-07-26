@@ -295,7 +295,21 @@ namespace ReligionsOfRimworld
 
         private void ListOfThings(Listing_Standard holder)
         {
-            Listing_Standard listing_Standard = holder.BeginSection(200f);
+            Listing_Standard listing_Standard = holder.BeginSection(320f);
+
+            Listing_Standard list = new Listing_Standard();
+            Rect outRect = listing_Standard.GetRect(200f);
+            Rect viewRect = new Rect(outRect.x, outRect.y, outRect.width - 16f, task.ThingFilter.AvaliableThings.Count() * (Text.LineHeight + listing_Standard.verticalSpacing));
+            list.BeginScrollView(outRect, ref thingFilterScrollPosition, ref viewRect);
+            foreach (ThingDef def in task.ThingFilter.AvaliableThings)
+            {
+                bool isAllowed = task.ThingFilter.Allows(def);
+                list.CheckboxLabeled(def.LabelCap, ref isAllowed);
+                task.ThingFilter.SetAllowance(def, isAllowed);
+            }
+            list.EndScrollView(ref viewRect);
+
+            listing_Standard.Gap();
 
             if (listing_Standard.ButtonText("ClearAll".Translate()))
             {
@@ -308,19 +322,6 @@ namespace ReligionsOfRimworld
                 SoundDefOf.Checkbox_TurnedOn.PlayOneShotOnCamera((Map)null);
             }
 
-            Rect rect = listing_Standard.GetRect(190f);
-
-            Rect outRect = new Rect(0.0f, 0.0f, rect.width, rect.height);
-            Rect viewRect = new Rect(0.0f, 0.0f, outRect.width - 16f, task.ThingFilter.AvaliableThings.Count() * Text.LineHeight);
-
-            listing_Standard.BeginScrollView(outRect, ref thingFilterScrollPosition, ref viewRect);
-            foreach (ThingDef def in task.ThingFilter.AvaliableThings)
-            {
-                bool isAllowed = task.ThingFilter.Allows(def);
-                listing_Standard.CheckboxLabeled(def.LabelCap, ref isAllowed);
-                task.ThingFilter.SetAllowance(def, isAllowed);
-            }
-            listing_Standard.EndScrollView(ref viewRect);
             holder.EndSection(listing_Standard);
         }
     }
