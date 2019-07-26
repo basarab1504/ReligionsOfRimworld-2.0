@@ -40,7 +40,7 @@ namespace ReligionsOfRimworld
 
             Listing_Standard mainListing = new Listing_Standard();
             mainListing.Begin(rect2);
-            General(mainListing);
+            DrawInfo(mainListing);
             mainListing.End();
 
             Listing_Standard middleListing = new Listing_Standard();
@@ -54,7 +54,7 @@ namespace ReligionsOfRimworld
 
             Listing_Standard rightListing = new Listing_Standard();
             rightListing.Begin(rect4);
-            ListOfThings(rightListing);
+            DrawThingsFilter(rightListing);
             rightListing.End();
             //Listing_Standard listing_Standard4 = listing_Standard.BeginSection((float)Dialog_Bill_ReligionActivityConfig.WorkerSelectionSubdialogHeight);
 
@@ -68,7 +68,7 @@ namespace ReligionsOfRimworld
             //listing_Standard.End();
         }
 
-        private void General(Listing_Standard holder)
+        private void DrawInfo(Listing_Standard holder)
         {
             Listing_Standard listing_Standard = holder.BeginSection(100f);
             if (this.task.Suspended)
@@ -101,6 +101,7 @@ namespace ReligionsOfRimworld
         private void PawnRestriction(Listing_Standard holder)
         {
             Listing_Standard listing_Standard = holder.BeginSection(100f);
+            listing_Standard.Label("RoR_ActivityPawnRestriction".Translate());
             Widgets.Dropdown<ActivityTask, Pawn>(listing_Standard.GetRect(30f), this.task, (ActivityTask b) => b.PawnRestriction, (ActivityTask b) => this.GeneratePawnRestrictionOptions(), (this.task.PawnRestriction != null) ? this.task.PawnRestriction.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
         }
@@ -213,6 +214,12 @@ namespace ReligionsOfRimworld
         private void IngredientPawnRestriction(Listing_Standard holder, IngredientPawn ingredientPawn, bool isHumanlike)
         {
             Listing_Standard listing_Standard = holder.BeginSection(100f);
+            string label = null;
+            if (isHumanlike)
+                label = "RoR_ActivityPawnHumanlike".Translate();
+            else
+                label = "RoR_ActivityPawnAnimal".Translate();
+            listing_Standard.Label(label.Translate());
             Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
             Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
@@ -293,21 +300,11 @@ namespace ReligionsOfRimworld
             return (WorkGiverDef)null;
         }
 
-        private void ListOfThings(Listing_Standard holder)
+        private void DrawThingsFilter(Listing_Standard holder)
         {
             Listing_Standard listing_Standard = holder.BeginSection(320f);
 
-            Listing_Standard list = new Listing_Standard();
-            Rect outRect = listing_Standard.GetRect(200f);
-            Rect viewRect = new Rect(outRect.x, outRect.y, outRect.width - 16f, task.ThingFilter.AvaliableThings.Count() * (Text.LineHeight + listing_Standard.verticalSpacing));
-            list.BeginScrollView(outRect, ref thingFilterScrollPosition, ref viewRect);
-            foreach (ThingDef def in task.ThingFilter.AvaliableThings)
-            {
-                bool isAllowed = task.ThingFilter.Allows(def);
-                list.CheckboxLabeled(def.LabelCap, ref isAllowed);
-                task.ThingFilter.SetAllowance(def, isAllowed);
-            }
-            list.EndScrollView(ref viewRect);
+            DrawThingsList(listing_Standard);
 
             listing_Standard.Gap();
 
@@ -323,6 +320,21 @@ namespace ReligionsOfRimworld
             }
 
             holder.EndSection(listing_Standard);
+        }
+
+        private void DrawThingsList(Listing_Standard holder)
+        {
+            Listing_Standard list = new Listing_Standard();
+            Rect outRect = holder.GetRect(200f);
+            Rect viewRect = new Rect(outRect.x, outRect.y, outRect.width - 16f, task.ThingFilter.AvaliableThings.Count() * (Text.LineHeight + holder.verticalSpacing));
+            list.BeginScrollView(outRect, ref thingFilterScrollPosition, ref viewRect);
+            foreach (ThingDef def in task.ThingFilter.AvaliableThings)
+            {
+                bool isAllowed = task.ThingFilter.Allows(def);
+                list.CheckboxLabeled(def.LabelCap, ref isAllowed);
+                task.ThingFilter.SetAllowance(def, isAllowed);
+            }
+            list.EndScrollView(ref viewRect);
         }
     }
 }
