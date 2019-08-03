@@ -38,7 +38,6 @@ namespace ReligionsOfRimworld
             }
             else
             {
-                TaskManager.Reorder();
                 DrawMonth(new Rect(0.0f, 0.0f, ITab_ActivityTasks.WinSize.x, ITab_ActivityTasks.WinSize.y).ContractedBy(25f));
             }             
         }

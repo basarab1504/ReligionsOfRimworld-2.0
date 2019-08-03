@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ScheduledDay
+    public class ScheduledDay : IExposable
     {
         private int dayNumber;
         private List<ActivityTask> tasks;
@@ -35,6 +36,12 @@ namespace ReligionsOfRimworld
         public void Reorder()
         {
             tasks.Sort((x, y) => x.StartHour.CompareTo(y.StartHour));
+        }
+
+        public void ExposeData()
+        {
+            Scribe_Values.Look<int>(ref dayNumber, "dayNumber");
+            Scribe_Collections.Look<ActivityTask>(ref tasks, "tasks", LookMode.Deep);
         }
     }
 }

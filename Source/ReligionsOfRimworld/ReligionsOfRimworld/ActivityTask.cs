@@ -61,8 +61,14 @@ namespace ReligionsOfRimworld
 
         public void Reorder()
         {
+            schedule.RemoveAll(x => x.Tasks.Count() == 0);
+
             foreach (ScheduledDay day in schedule)
+            {
+                if (day.Tasks.Count() == 0)
+                    schedule.Remove(day);
                 day.Reorder();
+            }
         }
 
         public void ExposeData()
