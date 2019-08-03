@@ -12,6 +12,7 @@ namespace ReligionsOfRimworld
     public class Dialog_ActivityTaskConfig : Window
     {
         private ActivityTask task;
+        private string buffer;
 
         private Vector2 thingFilterScrollPosition;
 
@@ -55,6 +56,8 @@ namespace ReligionsOfRimworld
             Listing_Standard mainListing = new Listing_Standard();
             mainListing.Begin(rect2);
             DrawInfo(mainListing);
+            mainListing.Gap();
+            DrawHourSelector(mainListing);
             mainListing.End();
 
             Listing_Standard middleListing = new Listing_Standard();
@@ -100,6 +103,15 @@ namespace ReligionsOfRimworld
             string str4 = stringBuilder.ToString();
             listing_Standard.Label(str4, -1f, (string)null);
             Verse.Text.Font = GameFont.Small;
+            holder.EndSection(listing_Standard);
+        }
+
+        private void DrawHourSelector(Listing_Standard holder)
+        {
+            Listing_Standard listing_Standard = holder.BeginSection(40f);
+            int value = task.StartHour;
+            listing_Standard.TextFieldNumericLabeled("ActivityStartHour".Translate(), ref value, ref buffer, 0, 23);
+            task.StartHour = value;
             holder.EndSection(listing_Standard);
         }
 

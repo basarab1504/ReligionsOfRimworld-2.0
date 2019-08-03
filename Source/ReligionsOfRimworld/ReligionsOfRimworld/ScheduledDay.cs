@@ -34,7 +34,7 @@ namespace ReligionsOfRimworld
 
         public void Reorder()
         {
-            tasks.OrderByDescending(x => x.StartHour);
+            tasks.Sort((x, y) => x.StartHour.CompareTo(y.StartHour));
         }
     }
 }

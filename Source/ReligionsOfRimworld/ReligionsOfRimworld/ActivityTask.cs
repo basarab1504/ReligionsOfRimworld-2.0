@@ -45,6 +45,7 @@ namespace ReligionsOfRimworld
             schedule = new List<ScheduledDay>(15);
         }
 
+        public Building_ReligiousBuildingFacility Facility => facility;
         public IEnumerable<ScheduledDay> Schedule => schedule;
 
         public void Create(int dayNumber)
@@ -73,7 +74,7 @@ namespace ReligionsOfRimworld
     public class ActivityTask : IExposable, ILoadReferenceable
     {
         private int loadID = -1;
-        private Building_ReligiousBuildingFacility facility;
+        private ActivityTaskManager manager;
         private SimpleFilter filter;
         private float ingredientSearchRadius = 999f;
         private int lastIngredientSearchFailTicks = -99999;
@@ -84,11 +85,11 @@ namespace ReligionsOfRimworld
         private IngredientPawn humanlike;
         private IngredientPawn animal;
 
-        public ActivityTask(Building_ReligiousBuildingFacility facility, ActivityTaskDef def)
+        public ActivityTask(ActivityTaskManager manager, ActivityTaskDef def)
         {
             if(Scribe.mode == LoadSaveMode.Inactive)
             {
-                this.facility = facility;
+                this.manager = manager;
                 startHour = 12;
                 this.property = def;
                 this.loadID = Find.UniqueIDsManager.GetNextBillID();
@@ -101,8 +102,15 @@ namespace ReligionsOfRimworld
             }
         }
 
-        public int StartHour => startHour;
-        public Building_ReligiousBuildingFacility Facility => facility;
+        public int StartHour {
+            get => startHour;
+            set
+            {
+                startHour = value;
+                manager.Reorder();
+            }
+        }
+        public Building_ReligiousBuildingFacility Facility => manager.Facility;
         public bool Suspended { get => suspended; set => suspended = value; }
         public SimpleFilter ThingFilter => filter;
         public Pawn PawnRestriction { get => pawnRestriction; set => pawnRestriction = value; }
@@ -162,7 +170,7 @@ namespace ReligionsOfRimworld
         {
             if ((double)ingredientSearchRadius >= (double)GenRadial.MaxRadialPatternRadius)
                 return;
-            GenDraw.DrawRadiusRing(facility.Position, ingredientSearchRadius);
+            GenDraw.DrawRadiusRing(Facility.Position, ingredientSearchRadius);
         }
 
         private void DoConfigInterface(Rect baseRect, Color baseColor)

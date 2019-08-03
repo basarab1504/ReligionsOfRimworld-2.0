@@ -22,7 +22,7 @@ namespace ReligionsOfRimworld
             this.forcePause = true;
             this.doCloseX = true;
             this.doCloseButton = true;
-            this.absorbInputAroundWindow = true;
+            //this.absorbInputAroundWindow = true;
             this.closeOnClickedOutside = true;
         }
 

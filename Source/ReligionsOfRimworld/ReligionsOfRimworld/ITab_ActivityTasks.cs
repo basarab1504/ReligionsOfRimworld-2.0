@@ -121,7 +121,7 @@ namespace ReligionsOfRimworld
                 {
                     if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>(x => x.GetReligionComponent().Religion == SelFacility.AssignedReligion))
                         CreateNoPawnsOfReligionDialog(SelFacility.AssignedReligion);
-                    day.Add(new ActivityTask(SelFacility, property));
+                    day.Add(new ActivityTask(SelFacility.TaskManager, property));
                     day.Reorder();
                 }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), property)), (WorldObject)null));
             }
