@@ -40,46 +40,13 @@ namespace ReligionsOfRimworld
 
         public override Job JobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
-            IBillGiver giver = thing as IBillGiver;
+            Building_ReligiousBuildingFacility giver = thing as Building_ReligiousBuildingFacility;
 
             if ((!giver.BillStack.AnyShouldDoNow || !giver.UsableForBillsAfterFueling()) || (!pawn.CanReserve((LocalTargetInfo)thing, 1, -1, (ReservationLayerDef)null, forced) || thing.IsBurning() || thing.IsForbidden(pawn)))
                 return (Job)null;
             giver.BillStack.RemoveIncompletableBills();
             return this.StartOrResumeBillJob(pawn, giver);
         }
-
-        //private static UnfinishedThing ClosestUnfinishedThingForBill(Pawn pawn, Bill_ProductionWithUft bill)
-        //{
-        //    Predicate<Thing> validator = (Predicate<Thing>)(t =>
-        //    {
-        //        if (!t.IsForbidden(pawn) && ((UnfinishedThing)t).Recipe == bill.recipe && (((UnfinishedThing)t).Creator == pawn && ((UnfinishedThing)t).ingredients.TrueForAll((Predicate<Thing>)(x => bill.IsFixedOrAllowedIngredient(x.def)))))
-        //            return pawn.CanReserve((LocalTargetInfo)t, 1, -1, (ReservationLayerDef)null, false);
-        //        return false;
-        //    });
-        //    return (UnfinishedThing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(bill.recipe.unfinishedThingDef), PathEndMode.InteractionCell, TraverseParms.For(pawn, pawn.NormalMaxDanger(), TraverseMode.ByPawn, false), 9999f, validator, (IEnumerable<Thing>)null, 0, -1, false, RegionType.Set_Passable, false);
-        //}
-
-        //private static Job FinishUftJob(Pawn pawn, UnfinishedThing uft, Bill_ProductionWithUft bill)
-        //{
-        //    if (uft.Creator != pawn)
-        //    {
-        //        Log.Error("Tried to get FinishUftJob for " + (object)pawn + " finishing " + (object)uft + " but its creator is " + (object)uft.Creator, false);
-        //        return (Job)null;
-        //    }
-        //    Job job = WorkGiverUtility.HaulStuffOffBillGiverJob(pawn, bill.billStack.billGiver, (Thing)uft);
-        //    if (job != null && job.targetA.Thing != uft)
-        //        return job;
-        //    return new Job(JobDefOf.DoBill, (LocalTargetInfo)((Thing)bill.billStack.billGiver))
-        //    {
-        //        bill = (Bill)bill,
-        //        targetQueueB = new List<LocalTargetInfo>()
-        //{
-        //  (LocalTargetInfo) ((Thing) uft)
-        //},
-        //        countQueue = new List<int>() { 1 },
-        //        haulMode = HaulMode.ToCellNonStorage
-        //    };
-        //}
 
         private Job StartOrResumeBillJob(Pawn pawn, IBillGiver giver)
         {

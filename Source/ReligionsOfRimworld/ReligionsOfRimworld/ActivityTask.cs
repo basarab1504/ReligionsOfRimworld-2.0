@@ -105,7 +105,7 @@ namespace ReligionsOfRimworld
     {
         private int loadID = -1;
         private Building_ReligiousBuildingFacility facility;
-        private Filter filter;
+        private SimpleFilter filter;
         private float ingredientSearchRadius = 999f;
         private int lastIngredientSearchFailTicks = -99999;
         private bool suspended;
@@ -126,13 +126,13 @@ namespace ReligionsOfRimworld
                 List<ThingDef> defs = new List<ThingDef>();
                 foreach (KeyValuePair<ThingDef, int> kvp in def.ThingDefsCount)
                     defs.Add(kvp.Key);
-                filter = new Filter(defs);
+                filter = new SimpleFilter(defs);
             }
         }
 
         public Building_ReligiousBuildingFacility Facility => facility;
         public bool Suspended { get => suspended; set => suspended = value; }
-        public Filter ThingFilter => filter;
+        public SimpleFilter ThingFilter => filter;
         public Pawn PawnRestriction { get => pawnRestriction; set => pawnRestriction = value; }
         public float IngredientSearchRadius { get => ingredientSearchRadius; set => ingredientSearchRadius = value; }
         public IngredientPawn HumanlikeIngredient => humanlike;
@@ -211,55 +211,6 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
 
-        }
-    }
-
-    public class Filter
-    {
-        private HashSet<ThingDef> defaultThings;
-        private HashSet<ThingDef> allowedThings;
-
-        public Filter(IEnumerable<ThingDef> defs)
-        {
-            defaultThings = new HashSet<ThingDef>();
-            allowedThings = new HashSet<ThingDef>();
-
-            foreach (ThingDef def in defs)
-                defaultThings.Add(def);
-
-            AllowAll();
-        }
-
-        public IEnumerator<ThingDef> GetEnumerator()
-        {
-            return allowedThings.GetEnumerator();
-        }
-
-        public IEnumerable<ThingDef> AvaliableThings => defaultThings;
-        public int Count => allowedThings.Count;
-
-        public void DisallowAll()
-        {
-            allowedThings.Clear();
-        }
-
-        public void AllowAll()
-        {
-            allowedThings.Clear();
-            allowedThings.AddRange(defaultThings);
-        }
-
-        public void SetAllowance(ThingDef def, bool allowance)
-        {
-            if (allowance)
-                allowedThings.Add(def);
-            else
-                allowedThings.Remove(def);
-        }
-
-        public bool Allows(ThingDef def)
-        {
-            return allowedThings.Contains(def);
         }
     }
 }

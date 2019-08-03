@@ -153,6 +153,7 @@
     <Compile Include="SettingsTagDefOf.cs" />
     <Compile Include="SimpleCurveDef.cs" />
     <Compile Include="JobGiver_SpectateReligionActivity.cs" />
+    <Compile Include="SimpleFilter.cs" />
     <Compile Include="Toils_ReligionActivity.cs" />
     <Compile Include="WorkGiver_DoReligionActivity.cs" />
     <Compile Include="WorldGenStep_Religions.cs" />
