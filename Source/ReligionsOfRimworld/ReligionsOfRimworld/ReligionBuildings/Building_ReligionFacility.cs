@@ -58,8 +58,6 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                if (parentBuilding != null)
-                    return false;
                 return true;
             }
         }

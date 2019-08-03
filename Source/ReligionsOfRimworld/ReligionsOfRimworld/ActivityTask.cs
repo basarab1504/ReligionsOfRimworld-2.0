@@ -37,67 +37,36 @@ namespace ReligionsOfRimworld
     public class ActivityTaskManager : IExposable
     {
         private Building_ReligiousBuildingFacility facility;
-        private List<ActivityTask> tasks;
+        private List<ScheduledDay> schedule;
 
         public ActivityTaskManager(Building_ReligiousBuildingFacility facility)
         {
             this.facility = facility;
-            tasks = new List<ActivityTask>();
+            schedule = new List<ScheduledDay>(15);
         }
 
-        public void Create(ActivityTaskDef def)
+        public IEnumerable<ScheduledDay> Schedule => schedule;
+
+        public void Create(int dayNumber)
         {
-            tasks.Add(new ActivityTask(facility, def));
+            if (!schedule.Contains(schedule.FirstOrDefault(x => x.DayNumber == dayNumber)))
+                schedule.Add(new ScheduledDay(dayNumber));
         }
 
-        public void Delete(ActivityTask activityTask)
+        public void Delete(int dayNumber)
         {
-            tasks.Remove(activityTask);
+            schedule.Remove(schedule.FirstOrDefault(x => x.DayNumber == dayNumber));
         }
 
-        public ActivityTask DoListing(Rect rect, List<FloatMenuOption> recipeOptionsMaker, ref Vector2 scrollPosition, ref float viewHeight)
+        public void Reorder()
         {
-            ActivityTask task1 = (ActivityTask)null;
-            GUI.BeginGroup(rect);
-            Text.Font = GameFont.Small;
-            if (tasks.Count < 15)
-            {
-                Rect rect1 = new Rect(0.0f, 0.0f, 150f, 29f);
-                if (Widgets.ButtonText(rect1, "AddTask".Translate(), true, false, true))
-                    Find.WindowStack.Add((Window)new FloatMenu(recipeOptionsMaker));
-                UIHighlighter.HighlightOpportunity(rect1, "AddTask");
-            }
-            Text.Anchor = TextAnchor.UpperLeft;
-            GUI.color = Color.white;
-            Rect outRect = new Rect(0.0f, 35f, rect.width, rect.height - 35f);
-            Rect viewRect = new Rect(0.0f, 0.0f, outRect.width - 16f, viewHeight);
-            Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect, true);
-            float y = 0.0f;
-            for (int index = 0; index < tasks.Count; ++index)
-            {
-                ActivityTask task2 = this.tasks[index];
-                Rect rect1 = task2.DoInterface(0.0f, y, viewRect.width, index);
-                Rect deleteRect = new Rect(rect1.width - 24f, 0.0f, 24f, 24f);
-                if (Widgets.ButtonImage(deleteRect, GraphicsCache.DeleteX, Color.white, Color.white * GenUI.SubtleMouseoverColor))
-                {
-                    this.Delete(task2);
-                    SoundDefOf.Click.PlayOneShotOnCamera((Map)null);
-                }
-                TooltipHandler.TipRegion(deleteRect, (TipSignal)"DeleteBillTip".Translate());
-                if (/*!task2.DeletedOrDereferenced && */Mouse.IsOver(rect1))
-                    task1 = task2;
-                y += rect1.height + 6f;
-            }
-            if (Event.current.type == EventType.Layout)
-                viewHeight = y + 60f;
-            Widgets.EndScrollView();
-            GUI.EndGroup();
-            return task1;
+            foreach (ScheduledDay day in schedule)
+                day.Reorder();
         }
 
         public void ExposeData()
         {
-            Scribe_Collections.Look<ActivityTask>(ref this.tasks, "tasks", LookMode.Deep, null, null);
+            Scribe_Collections.Look<ScheduledDay>(ref this.schedule, "schedule", LookMode.Deep, null, null);
         }
     }
 
@@ -111,6 +80,7 @@ namespace ReligionsOfRimworld
         private bool suspended;
         private Pawn pawnRestriction;
         private ActivityTaskDef property;
+        private int startHour;
         private IngredientPawn humanlike;
         private IngredientPawn animal;
 
@@ -119,6 +89,7 @@ namespace ReligionsOfRimworld
             if(Scribe.mode == LoadSaveMode.Inactive)
             {
                 this.facility = facility;
+                startHour = 12;
                 this.property = def;
                 this.loadID = Find.UniqueIDsManager.GetNextBillID();
                 humanlike = new IngredientPawn();
@@ -130,6 +101,7 @@ namespace ReligionsOfRimworld
             }
         }
 
+        public int StartHour => startHour;
         public Building_ReligiousBuildingFacility Facility => facility;
         public bool Suspended { get => suspended; set => suspended = value; }
         public SimpleFilter ThingFilter => filter;
@@ -159,7 +131,8 @@ namespace ReligionsOfRimworld
             if (index % 2 == 0)
                 Widgets.DrawAltRect(rect1);
             GUI.BeginGroup(rect1);
-            Widgets.Label(new Rect(28f, 0.0f, (float)((double)rect1.width - 48.0 - 20.0), rect1.height + 5f), this.property.LabelCap);
+            Widgets.Label(new Rect(20, 0.0f, (float)((double)rect1.width - 48.0 - 20.0), rect1.height + 5f), this.startHour.ToString());
+            Widgets.Label(new Rect(50f, 0.0f, (float)((double)rect1.width - 48.0 - 20.0), rect1.height + 5f), this.property.LabelCap);
             this.DoConfigInterface(rect1.AtZero(), baseColor);
             Rect rect5 = new Rect(rect1.width - 24f, 0.0f, 24f, 24f);
             rect5.x -= rect5.width + 4f;

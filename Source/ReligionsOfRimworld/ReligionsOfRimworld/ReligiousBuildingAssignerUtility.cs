@@ -18,7 +18,7 @@ namespace ReligionsOfRimworld
                 foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()).ToList<Thing>())
                     if (thing is Building_ReligionBuilding parent)
                     {
-                        if (parent.IsComplete)
+                        if (parent.AvaliableToAssign)
                             SelectChild(parent);
                         else
                             Messages.Message("ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign".Translate(), MessageTypeDefOf.NeutralEvent);
