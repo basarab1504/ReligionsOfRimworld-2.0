@@ -4,7 +4,6 @@
   	<thingClass>ReligionsOfRimworld.Building_ReligiousBuildingMain</thingClass>
     <designationCategory>ReligionBuildings</designationCategory> 
     <altitudeLayer>Building</altitudeLayer>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <rotatable>true</rotatable>
     <socialPropernessMatters>true</socialPropernessMatters>    
     <comps>

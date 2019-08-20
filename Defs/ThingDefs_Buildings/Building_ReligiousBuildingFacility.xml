@@ -19,9 +19,6 @@
     <passability>Standable</passability>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <interactionCellIcon>DiningChair</interactionCellIcon>     
-    <placeWorkers>
-      <li>PlaceWorker_WatchArea</li>
-    </placeWorkers>
     <inspectorTabs>
       <li>ReligionsOfRimworld.ITab_ActivityTasks</li>
     </inspectorTabs>

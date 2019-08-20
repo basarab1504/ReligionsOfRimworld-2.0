@@ -15,15 +15,15 @@
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
-  <ReligionsOfRimworld.ActivityJobQueueDef>
-    <defName>UwU</defName>
-	<activityNodes>
-    	<li>
-    		<organizerJob>ReadPrayers</organizerJob>
-        	<congregationJob>ListenPrayers</congregationJob>
-    	</li>
-	</activityNodes>
-  </ReligionsOfRimworld.ActivityJobQueueDef>
+  	<ReligionsOfRimworld.ActivityJobQueueDef>
+	    <defName>UwU</defName>
+		<activityNodes>
+	    	<li>
+	    		<organizerJob>ReadPrayers</organizerJob>
+	        	<congregationJob>ListenPrayers</congregationJob>
+	    	</li>
+		</activityNodes>
+  	</ReligionsOfRimworld.ActivityJobQueueDef>
 
 	<ReligionsOfRimworld.ActivityTaskDef>
 		<defName>TaskGay</defName>
@@ -34,7 +34,7 @@
 			<li>
 				<key>WoodLog</key>
 				<value>15</value>
-			</li>
+			</li>		
 			<li>
 				<key>Human</key>
 				<value>1</value>

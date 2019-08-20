@@ -172,7 +172,6 @@ namespace ReligionsOfRimworld
                 float baseCount = thingDefsCount.ElementAt(index1).Value;
                 for (int index2 = 0; index2 < availableThings.Count; ++index2)
                 {
-                    Log.Message(availableThings[index2].Label);
                     Thing availableThing = availableThings[index2];
                     if (task.ThingFilter.Allows(availableThing.def))
                     {
