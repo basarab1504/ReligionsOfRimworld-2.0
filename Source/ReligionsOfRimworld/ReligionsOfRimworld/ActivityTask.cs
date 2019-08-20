@@ -15,8 +15,25 @@ namespace ReligionsOfRimworld
         private ActivityJobQueueDef activityJobQueue;
         private ReligionPropertyData organizerProperty;
         private ReligionPropertyData congregationProperty;
+        [Unsaved]
+        private IngredientValueGetter ingredientValueGetterInt;
+        private Type ingredientValueGetterClass = typeof(IngredientValueGetter_Volume);
 
         public IEnumerable<KeyValuePair<ThingDef, int>> ThingDefsCount => thingDefsCount;
+        public ActivityJobQueueDef ActivityQueue => activityJobQueue;
+        public ReligionPropertyData OrganizerProperty => organizerProperty;
+        public ReligionPropertyData CongregationProperty => congregationProperty;
+
+        public IngredientValueGetter IngredientValueGetter
+        {
+            get
+            {
+                if (this.ingredientValueGetterInt == null)
+                    this.ingredientValueGetterInt = (IngredientValueGetter)Activator.CreateInstance(this.ingredientValueGetterClass);
+                return this.ingredientValueGetterInt;
+            }
+        }
+
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
@@ -34,53 +51,62 @@ namespace ReligionsOfRimworld
         }
     }
 
-    public class ActivityTaskManager : IExposable
+    public class ActivityTaskSchedule : IExposable
     {
         private Building_ReligiousBuildingFacility facility;
-        private List<ScheduledDay> schedule;
+        private List<ScheduledDay> scheduledDays;
 
-        public ActivityTaskManager(Building_ReligiousBuildingFacility facility)
+        public ActivityTaskSchedule(Building_ReligiousBuildingFacility facility)
         {
             this.facility = facility;
-            schedule = new List<ScheduledDay>(15);
+            scheduledDays = new List<ScheduledDay>(15);
         }
 
         public Building_ReligiousBuildingFacility Facility => facility;
-        public IEnumerable<ScheduledDay> Schedule => schedule;
+        public IEnumerable<ScheduledDay> ScheduledDays => scheduledDays;
+
+        public IEnumerable<ActivityTask> AllTasks()
+        {
+            foreach (ScheduledDay day in scheduledDays)
+                foreach (ActivityTask task in day.Tasks)
+                    yield return task;
+        }
+
+        public bool AnyShouldDoNow => scheduledDays.Any(x => x.AnyShouldDoNow);
 
         public void Create(int dayNumber)
         {
-            if (!schedule.Contains(schedule.FirstOrDefault(x => x.DayNumber == dayNumber)))
-                schedule.Add(new ScheduledDay(dayNumber));
+            if (!scheduledDays.Contains(scheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber)))
+                scheduledDays.Add(new ScheduledDay(dayNumber));
         }
 
         public void Delete(int dayNumber)
         {
-            schedule.Remove(schedule.FirstOrDefault(x => x.DayNumber == dayNumber));
+            scheduledDays.Remove(scheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber));
         }
 
         public void Reorder()
         {
-            schedule.RemoveAll(x => x.Tasks.Count() == 0);
+            scheduledDays.RemoveAll(x => x.Tasks.Count() == 0);
 
-            foreach (ScheduledDay day in schedule)
+            foreach (ScheduledDay day in scheduledDays)
             {
                 if (day.Tasks.Count() == 0)
-                    schedule.Remove(day);
+                    scheduledDays.Remove(day);
                 day.Reorder();
             }
         }
 
         public void ExposeData()
         {
-            Scribe_Collections.Look<ScheduledDay>(ref this.schedule, "schedule", LookMode.Deep, null, null);
+            Scribe_Collections.Look<ScheduledDay>(ref this.scheduledDays, "scheduledDays", LookMode.Deep, null, null);
         }
     }
 
     public class ActivityTask : IExposable, ILoadReferenceable
     {
         private int loadID = -1;
-        private ActivityTaskManager manager;
+        private ActivityTaskSchedule manager;
         private SimpleFilter filter;
         private float ingredientSearchRadius = 999f;
         private int lastIngredientSearchFailTicks = -99999;
@@ -91,7 +117,7 @@ namespace ReligionsOfRimworld
         private IngredientPawn humanlike;
         private IngredientPawn animal;
 
-        public ActivityTask(ActivityTaskManager manager, ActivityTaskDef def)
+        public ActivityTask(ActivityTaskSchedule manager, ActivityTaskDef def)
         {
             if(Scribe.mode == LoadSaveMode.Inactive)
             {
@@ -116,22 +142,41 @@ namespace ReligionsOfRimworld
                 manager.Reorder();
             }
         }
-        public Building_ReligiousBuildingFacility Facility => manager.Facility;
+        public Building_ReligiousBuildingFacility ParentFacility => manager.Facility;
         public bool Suspended { get => suspended; set => suspended = value; }
         public SimpleFilter ThingFilter => filter;
         public Pawn PawnRestriction { get => pawnRestriction; set => pawnRestriction = value; }
         public float IngredientSearchRadius { get => ingredientSearchRadius; set => ingredientSearchRadius = value; }
+        public int LastIngredientSearchFailTicks { get => lastIngredientSearchFailTicks; set => lastIngredientSearchFailTicks = value; }
         public IngredientPawn HumanlikeIngredient => humanlike;
         public IngredientPawn AnimalIngredient => animal;
-
+        public ActivityTaskDef Property => property;
         public string Label => property.LabelCap;
         public string Description => property.description;
+
+        public void ValidateSettings()
+        {
+            if (pawnRestriction != null && pawnRestriction.Dead)
+                pawnRestriction = null;
+        }
 
         public bool ShouldDoNow()
         {
             if (!suspended)
                 return true;
             return false;
+        }
+
+        public void Notify_IterationCompleted(Pawn pawn)
+        {
+            suspended = true;
+        }
+
+        public bool PawnAllowedToStartAnew(Pawn p)
+        {
+            if (this.pawnRestriction != null)
+                return this.pawnRestriction == p;
+            return p.GetReligionComponent().Religion == ParentFacility.AssignedReligion;
         }
 
         public Rect DoInterface(float x, float y, float width, int index)
@@ -176,7 +221,7 @@ namespace ReligionsOfRimworld
         {
             if ((double)ingredientSearchRadius >= (double)GenRadial.MaxRadialPatternRadius)
                 return;
-            GenDraw.DrawRadiusRing(Facility.Position, ingredientSearchRadius);
+            GenDraw.DrawRadiusRing(ParentFacility.Position, ingredientSearchRadius);
         }
 
         private void DoConfigInterface(Rect baseRect, Color baseColor)

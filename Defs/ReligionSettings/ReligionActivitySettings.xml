@@ -29,7 +29,12 @@
 		<defName>TaskGay</defName>
 		<label>gay</label>
 		<description>notgay</description>
+		<ingredientValueGetterClass>IngredientValueGetter_Volume</ingredientValueGetterClass>
 		<thingDefsCount>
+			<li>
+				<key>WoodLog</key>
+				<value>15</value>
+			</li>
 			<li>
 				<key>Human</key>
 				<value>1</value>

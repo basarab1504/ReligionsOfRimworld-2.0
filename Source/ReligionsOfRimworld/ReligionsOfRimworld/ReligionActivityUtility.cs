@@ -9,9 +9,9 @@ namespace ReligionsOfRimworld
 {
     public static class ReligionActivityUtility
     {
-        public static void StartActivity(Religion religion, Pawn organizer, Bill_ReligionActivity bill, IEnumerable<LocalTargetInfo> relics = null)
+        public static void StartActivity(Religion religion, Pawn organizer, ActivityTask task, IEnumerable<LocalTargetInfo> relics = null)
         {
-            ReligionActivityData data = new ReligionActivityData(religion, organizer, bill, relics);
+            ReligionActivityData data = new ReligionActivityData(religion, organizer, task, relics);
             LordMaker.MakeNewLord(organizer.Faction, new LordJob_ReligionActivity(data), organizer.Map, new[] {organizer});
         }
 

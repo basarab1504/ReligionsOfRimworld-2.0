@@ -4,7 +4,7 @@
   <WorkGiverDef>
     <defName>DoBillsReligionActivity</defName>
     <label>do cremation bills</label>
-    <giverClass>ReligionsOfRimworld.WorkGiver_DoReligionActivity</giverClass>
+    <giverClass>ReligionsOfRimworld.WorkGiver_DoActivityTask</giverClass>
     <workType>Hauling</workType>
     <priorityInType>40</priorityInType>
     <verb>cremate</verb>

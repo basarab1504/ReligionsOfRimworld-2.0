@@ -27,7 +27,7 @@ namespace ReligionsOfRimworld
         }
 
         protected Building_ReligiousBuildingFacility SelFacility => (Building_ReligiousBuildingFacility)this.SelThing;
-        private ActivityTaskManager TaskManager => SelFacility.TaskManager;
+        private ActivityTaskSchedule TaskManager => SelFacility.TaskSchedule;
 
         protected override void FillTab()
         {
@@ -67,7 +67,7 @@ namespace ReligionsOfRimworld
             Widgets.DrawBox(rect);
 
             Widgets.Label(rect.ContractedBy(6), dayNumber.ToString());
-            ScheduledDay day = TaskManager.Schedule.FirstOrDefault(x => x.DayNumber == dayNumber);
+            ScheduledDay day = TaskManager.ScheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber);
 
             if (day != null)
                 DrawDayInterFace(new Rect(rect.x + 6, rect.y + 30f, rect.width, rect.height * .75f), day);
@@ -120,7 +120,7 @@ namespace ReligionsOfRimworld
                 {
                     if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>(x => x.GetReligionComponent().Religion == SelFacility.AssignedReligion))
                         CreateNoPawnsOfReligionDialog(SelFacility.AssignedReligion);
-                    day.Add(new ActivityTask(SelFacility.TaskManager, property));
+                    day.Add(new ActivityTask(SelFacility.TaskSchedule, property));
                     day.Reorder();
                 }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), property)), (WorldObject)null));
             }

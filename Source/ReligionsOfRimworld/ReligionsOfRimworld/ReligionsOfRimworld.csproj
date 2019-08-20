@@ -54,10 +54,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityJob.cs" />
     <Compile Include="ActivityJobNode.cs" />
     <Compile Include="ActivityJobQueueDef.cs" />
     <Compile Include="ActivitySchedule.cs" />
     <Compile Include="ActivityTask.cs" />
+    <Compile Include="ActivityUtility.cs" />
     <Compile Include="Bill_ReligionActivity.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="JobGiver_SpectateReligionActivity.cs" />
     <Compile Include="SimpleFilter.cs" />
     <Compile Include="Toils_ReligionActivity.cs" />
+    <Compile Include="WorkGiver_DoActivityTask.cs" />
     <Compile Include="WorkGiver_DoReligionActivity.cs" />
     <Compile Include="WorldGenStep_Religions.cs" />
   </ItemGroup>

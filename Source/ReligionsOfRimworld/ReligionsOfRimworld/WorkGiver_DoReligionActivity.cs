@@ -274,7 +274,8 @@ namespace ReligionsOfRimworld
                 for (int index2 = 0; index2 < WorkGiver_DoReligionActivity.availableCounts.Count; ++index2)
                 {
                     float f = (float)ingredient.CountRequiredOfFor(WorkGiver_DoReligionActivity.availableCounts.GetDef(index2), bill.recipe);
-                    if ((double)f <= (double)WorkGiver_DoReligionActivity.availableCounts.GetCount(index2) && ingredient.filter.Allows(WorkGiver_DoReligionActivity.availableCounts.GetDef(index2)) && (ingredient.IsFixedIngredient || bill.ingredientFilter.Allows(WorkGiver_DoReligionActivity.availableCounts.GetDef(index2))))
+                    if ((double)f <= (double)WorkGiver_DoReligionActivity.availableCounts.GetCount(index2) && ingredient.filter.Allows(WorkGiver_DoReligionActivity.availableCounts.GetDef(index2)) 
+                        && (ingredient.IsFixedIngredient || bill.ingredientFilter.Allows(WorkGiver_DoReligionActivity.availableCounts.GetDef(index2))))
                     {
                         for (int index3 = 0; index3 < availableThings.Count; ++index3)
                         {

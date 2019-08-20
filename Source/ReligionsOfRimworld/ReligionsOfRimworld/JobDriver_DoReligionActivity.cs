@@ -75,38 +75,23 @@ namespace ReligionsOfRimworld
                 return JobCondition.Ongoing;
             });
             this.FailOnBurningImmobile(TargetIndex.A);
-            this.FailOn(delegate
-            {
-                IBillGiver billGiver = this.job.GetTarget(TargetIndex.A).Thing as IBillGiver;
-                if (billGiver != null)
-                {
-                    if (this.job.bill.DeletedOrDereferenced)
-					{
-						return true;
-					}
-					if (!billGiver.CurrentlyUsableForBills())
-					{
-						return true;
-					}
-                }
-                return false;
-            });
+     //       this.FailOn(delegate
+     //       {
+     //           IBillGiver billGiver = this.job.GetTarget(TargetIndex.A).Thing as IBillGiver;
+     //           if (billGiver != null)
+     //           {
+     //               if (this.job.bill.DeletedOrDereferenced)
+					//{
+					//	return true;
+					//}
+					//if (!billGiver.CurrentlyUsableForBills())
+					//{
+					//	return true;
+					//}
+     //           }
+     //           return false;
+     //       });
             Toil gotoBillGiver = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
-            yield return new Toil
-            {
-                initAction = delegate
-                {
-                    if (this.job.targetQueueB != null && this.job.targetQueueB.Count == 1)
-
-                    {
-                        UnfinishedThing unfinishedThing = this.job.targetQueueB[0].Thing as UnfinishedThing;
-                        if (unfinishedThing != null)
-                        {
-                            unfinishedThing.BoundBill = (Bill_ProductionWithUft)this.job.bill;
-                        }
-                    }
-                }
-            };
             yield return Toils_Jump.JumpIf(gotoBillGiver, () => this.job.GetTargetQueue(TargetIndex.B).NullOrEmpty<LocalTargetInfo>());
             Toil extract = Toils_JobTransforms.ExtractNextTargetFromQueue(TargetIndex.B, true);
             yield return extract;
@@ -153,7 +138,7 @@ namespace ReligionsOfRimworld
                     Pawn organizer = pawn;
                     IEnumerable<LocalTargetInfo> relics = this.job.GetTargetQueue(TargetIndex.B);
 
-                    ReligionActivityUtility.StartActivity(religion, organizer, (Bill_ReligionActivity)this.job.bill, relics);
+                    ReligionActivityUtility.StartActivity(religion, organizer, ((ActivityJob)job).activityTask, relics);
                 }
             };
         }

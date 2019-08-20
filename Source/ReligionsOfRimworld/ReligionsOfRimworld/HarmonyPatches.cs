@@ -45,6 +45,15 @@ namespace ReligionsOfRimworld
             }
         }
 
+        [HarmonyPatch(typeof(Pawn), "Kill")]
+        private static class Patch_PawnKill
+        {
+            private static void Postfix(Pawn __instance)
+            {
+                ActivityUtility.Notify_ColonistUnavailable(__instance);
+            }
+        }
+
         [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "GetThoughts")]
         private static class Patch_GetThoughts
         {

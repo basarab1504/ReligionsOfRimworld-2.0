@@ -11,10 +11,10 @@ namespace ReligionsOfRimworld
         private Religion religion;
         private Pawn organizer;
         private List<LocalTargetInfo> relics;
-        private Bill_ReligionActivity bill;
+        private ActivityTask task;
         private List<ActivityJobNode> activityJobNodes;
 
-        public ReligionActivityData(Religion religion, Pawn organizer, Bill_ReligionActivity bill, IEnumerable<LocalTargetInfo> relics = null)
+        public ReligionActivityData(Religion religion, Pawn organizer, ActivityTask task, IEnumerable<LocalTargetInfo> relics = null)
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
@@ -22,29 +22,29 @@ namespace ReligionsOfRimworld
                 this.relics.AddRange(relics);
                 this.activityJobNodes = new List<ActivityJobNode>();
                 this.activityJobNodes.Add(new ActivityJobNode(MiscDefOf.ReligionActivityPreparations, null));
-                this.activityJobNodes.AddRange(bill.Property.ActivityJobQueue.ActivityNodes);
+                this.activityJobNodes.AddRange(task.Property.ActivityQueue.ActivityNodes);
             }
 
             this.religion = religion;
             this.organizer = organizer;
-            this.bill = bill;
+            this.task = task;
         }
 
         public Religion Religion => religion;
         public Pawn Organizer => organizer;
-        public Building_ReligiousBuildingFacility Facility => (Building_ReligiousBuildingFacility)bill.billStack.billGiver;
+        public Building_ReligiousBuildingFacility Facility => (Building_ReligiousBuildingFacility)task.ParentFacility;
         public IEnumerable<LocalTargetInfo> Relics => relics;
         public IEnumerable<ActivityJobNode> ActivityJobs => activityJobNodes;
-        public ReligionPropertyData OrganizerProperty => bill.Property.Witness;
-        public ReligionPropertyData СongregationProperty => bill.Property.Subject;
-        public Bill_ReligionActivity Bill => bill;
+        public ReligionPropertyData OrganizerProperty => task.Property.OrganizerProperty;
+        public ReligionPropertyData СongregationProperty => task.Property.CongregationProperty;
+        public ActivityTask Task => task;
 
         public void ExposeData()
         {
             Scribe_References.Look<Religion>(ref this.religion, "religion");
             Scribe_References.Look<Pawn>(ref this.organizer, "organizer");
             Scribe_Collections.Look<LocalTargetInfo>(ref this.relics, "relicsTargets", LookMode.LocalTargetInfo);
-            Scribe_References.Look<Bill_ReligionActivity>(ref this.bill, "bill");
+            Scribe_References.Look<ActivityTask>(ref this.task, "task");
             Scribe_Collections.Look<ActivityJobNode>(ref activityJobNodes, "activityJobNodes", LookMode.Deep);
         }
     }

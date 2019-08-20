@@ -136,9 +136,12 @@ namespace ReligionsOfRimworld
             {
                 if (pawn == data.Organizer)
                 {
-                    job = new Job(data.ActivityJobs.ElementAt(activityCurrentStage).OrganizerJob, duty.focus, duty.focusSecond)
+                    job = new ActivityJob()
                     {
-                        bill = data.Bill
+                        def = data.ActivityJobs.ElementAt(activityCurrentStage).OrganizerJob,
+                        targetA = duty.focus,
+                        targetC = duty.focusSecond,
+                        activityTask = data.Task
                     };
                     pawn.Reserve(duty.focus, job);
                 }
@@ -183,7 +186,7 @@ namespace ReligionsOfRimworld
                 else
                     PietyUtility.TryApplyOnPawn(data.СongregationProperty, pawn);
 
-            data.Bill.Notify_IterationCompleted(data.Organizer, null);
+            data.Task.Notify_IterationCompleted(data.Organizer);
         }
 
         public override void ExposeData()

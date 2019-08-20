@@ -168,7 +168,7 @@ namespace ReligionsOfRimworld
                             payload = pawn
                         };
                     }
-                    if (pawn.GetReligionComponent().Religion != task.Facility.AssignedReligion)
+                    if (pawn.GetReligionComponent().Religion != task.ParentFacility.AssignedReligion)
                     {
                         yield return new Widgets.DropdownMenuElement<Pawn>
                         {
@@ -234,12 +234,12 @@ namespace ReligionsOfRimworld
             Listing_Standard listing_Standard = holder.BeginSection(100f);
             string label = null;
             string context = null;
+
             if (isHumanlike)
             {
                 label = "RoR_ActivityPawnHumanlike".Translate();
                 context = label = "RoR_IsPrisonerOfColony".Translate();
-            }
-                
+            }               
             else
             {
                 label = "RoR_ActivityPawnAnimal".Translate();
@@ -281,7 +281,7 @@ namespace ReligionsOfRimworld
                 }, MenuOptionPriority.Default, null, null, 0f, null, null),
                 payload = null
             };
-            IEnumerable<Pawn> pawns = task.Facility.Map.mapPawns.AllPawnsSpawned;
+            IEnumerable<Pawn> pawns = task.ParentFacility.Map.mapPawns.AllPawnsSpawned;
 
             if (isHumanlike)
                 pawns = pawns.Where(x => x.RaceProps.Humanlike);
@@ -318,11 +318,11 @@ namespace ReligionsOfRimworld
             for (int index = 0; index < defsListForReading.Count; ++index)
             {
                 WorkGiverDef workGiverDef = defsListForReading[index];
-                WorkGiver_DoReligionActivity worker = workGiverDef.Worker as WorkGiver_DoReligionActivity;
+                WorkGiver_DoActivityTask worker = workGiverDef.Worker as WorkGiver_DoActivityTask;
                 if (worker != null)
                     return workGiverDef;
             }
-            Log.ErrorOnce(string.Format("Can't find a WorkGiver for a BillGiver {0}", (object)task.Facility.ToString()), 57348750, false);
+            Log.ErrorOnce(string.Format("Can't find a WorkGiver for a BillGiver {0}", (object)task.ParentFacility.ToString()), 57348750, false);
             return (WorkGiverDef)null;
         }
 
