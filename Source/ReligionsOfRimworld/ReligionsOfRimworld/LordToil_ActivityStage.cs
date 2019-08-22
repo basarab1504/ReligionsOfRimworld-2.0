@@ -26,7 +26,7 @@ namespace ReligionsOfRimworld
         {
             foreach (Pawn pawn in lord.ownedPawns)
             {
-                pawn.mindState.duty = new ActivityPawnDuty(MiscDefOf.ReligionActivityStageDuty)
+                pawn.mindState.duty = new PawnDuty(MiscDefOf.ReligionActivityStageDuty)
                 {
                     spectateRect = CellRect.SingleCell(activtityData.Facility.Position)
                 };
