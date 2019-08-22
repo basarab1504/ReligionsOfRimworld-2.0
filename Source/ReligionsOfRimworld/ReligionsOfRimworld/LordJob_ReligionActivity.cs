@@ -139,15 +139,13 @@ namespace ReligionsOfRimworld
                     job = new ActivityJob()
                     {
                         def = data.ActivityJobs.ElementAt(activityCurrentStage).OrganizerJob,
-                        targetA = duty.focus,
-                        targetC = duty.focusSecond,
+                        targetA = data.Facility,
                         activityTask = data.Task
                     };
-                    pawn.Reserve(duty.focus, job);
-                    pawn.Reserve(duty.focusSecond, job);
+                    OrganizerReserve(pawn, job);
                 }
                 else
-                    job = new Job(data.ActivityJobs.ElementAt(activityCurrentStage).CongregationJob, duty.focus);
+                    job = new Job(data.ActivityJobs.ElementAt(activityCurrentStage).CongregationJob, data.Facility);
             }
 
             return job;
@@ -167,7 +165,10 @@ namespace ReligionsOfRimworld
             ActivityUtility.TrySendStageEndedSignal(pawn);
 
             if (pawn == data.Organizer)
-                return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)data.Facility.Position, (LocalTargetInfo)data.Facility.Position);
+            {
+                Job job = new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)data.Facility.Position);
+                OrganizerReserve(pawn, job);
+            }
 
             if (!SpectatorCellFinder.TryFindSpectatorCellFor(pawn, duty.spectateRect, pawn.Map, out cell, duty.spectateRectAllowedSides, 1, (List<IntVec3>)null))
                 return (Job)null;
@@ -177,6 +178,19 @@ namespace ReligionsOfRimworld
             if (edifice != null && edifice.def.category == ThingCategory.Building && (edifice.def.building.isSittable && pawn.CanReserve((LocalTargetInfo)((Thing)edifice), 1, -1, (ReservationLayerDef)null, false)))
                 return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)((Thing)edifice), (LocalTargetInfo)centerCell);
             return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)cell, (LocalTargetInfo)centerCell);
+        }
+
+        private void OrganizerReserve(Pawn pawn, Job job)
+        {
+            job.targetQueueB = new List<LocalTargetInfo>();
+            job.countQueue = new List<int>();
+            foreach (Thing relic in data.Relics)
+            {
+                job.targetQueueB.Add((LocalTargetInfo)relic);
+                job.countQueue.Add(relic.stackCount);
+            }
+            pawn.Reserve(job.GetTarget(TargetIndex.A), job, 1, -1, (ReservationLayerDef)null, true);
+            pawn.ReserveAsManyAsPossible(job.GetTargetQueue(TargetIndex.B), job, 1, -1, (ReservationLayerDef)null);
         }
 
         private void ActivityEnd()

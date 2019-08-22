@@ -118,7 +118,5 @@ namespace ReligionsOfRimworld
                 Log.Error("Could not notify tasks: " + arg, false);
             }
         }
-
-
     }
 }

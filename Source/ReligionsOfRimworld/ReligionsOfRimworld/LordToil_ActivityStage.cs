@@ -26,23 +26,23 @@ namespace ReligionsOfRimworld
         {
             foreach (Pawn pawn in lord.ownedPawns)
             {
-                pawn.mindState.duty = new PawnDuty(MiscDefOf.ReligionActivityStageDuty, (LocalTargetInfo)activtityData.Facility)
+                pawn.mindState.duty = new ActivityPawnDuty(MiscDefOf.ReligionActivityStageDuty)
                 {
                     spectateRect = CellRect.SingleCell(activtityData.Facility.Position)
                 };
             }
         }
 
-        private LocalTargetInfo GetRandomRelic()
-        {
-            IEnumerable<LocalTargetInfo> relics = activtityData.Relics;
-            if (relics != null && relics.Count() != 0)
-            {
-                LocalTargetInfo tar = relics.RandomElement();
-                Log.Message(tar.Thing.Position + " " + tar.Thing + " " + tar.Thing.stackCount);
-                return tar;
-            }
-            return null;
-        }
+        //private LocalTargetInfo GetRandomRelic()
+        //{
+        //    IEnumerable<LocalTargetInfo> relics = activtityData.Relics;
+        //    if (relics != null && relics.Count() != 0)
+        //    {
+        //        LocalTargetInfo tar = relics.RandomElement();
+        //        Log.Message(tar.Thing.Position + " " + tar.Thing + " " + tar.Thing.stackCount);
+        //        return tar;
+        //    }
+        //    return null;
+        //}
     }
 }

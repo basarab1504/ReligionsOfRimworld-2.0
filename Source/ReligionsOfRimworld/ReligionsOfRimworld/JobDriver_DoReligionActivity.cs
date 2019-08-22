@@ -22,8 +22,6 @@ namespace ReligionsOfRimworld
 
         public const TargetIndex IngredientPlaceCellInd = TargetIndex.C;
 
-        private List<LocalTargetInfo> targetsCopy;
-
         public Building_ReligiousBuildingFacility TargetFacility
         {
             get
@@ -54,15 +52,9 @@ namespace ReligionsOfRimworld
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            Pawn pawn = this.pawn;
-            LocalTargetInfo target = this.job.GetTarget(TargetIndex.A);
-            Job job = this.job;
-            if (!pawn.Reserve(target, job, 1, -1, null, errorOnFailed))
-            {
+            if (!this.pawn.Reserve(this.job.GetTarget(TargetIndex.A), this.job, 1, -1, (ReservationLayerDef)null, errorOnFailed))
                 return false;
-            }
-            targetsCopy = new List<LocalTargetInfo>(this.job.GetTargetQueue(TargetIndex.B));
-            this.pawn.ReserveAsManyAsPossible(this.job.GetTargetQueue(TargetIndex.B), this.job, 1, -1, null);
+            this.pawn.ReserveAsManyAsPossible(this.job.GetTargetQueue(TargetIndex.B), this.job, 1, -1, (ReservationLayerDef)null);
             return true;
         }
 
@@ -105,7 +97,7 @@ namespace ReligionsOfRimworld
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnDestroyedOrNull(TargetIndex.B);
             Toil findPlaceTarget = Toils_JobTransforms.SetTargetToIngredientPlaceCell(TargetIndex.A, TargetIndex.B, TargetIndex.C);
             yield return findPlaceTarget;
-            yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.C, findPlaceTarget, false);
+            yield return PlaceHauledThingInCell(TargetIndex.C, findPlaceTarget, false);
             yield return Toils_Jump.JumpIfHaveTargetInQueue(TargetIndex.B, extract);
             yield return gotoBillGiver;
             yield return StartActivity();
@@ -139,7 +131,14 @@ namespace ReligionsOfRimworld
                 {
                     Religion religion = TargetFacility.AssignedReligion;
                     Pawn organizer = pawn;
-                    ActivityUtility.StartActivity(religion, organizer, ((ActivityJob)job).activityTask, targetsCopy);
+                    List<LocalTargetInfo> targets = new List<LocalTargetInfo>();
+                    if (job.placedThings != null)
+                        foreach (ThingCountClass tcc in job.placedThings)
+                        {
+                            Log.Message(tcc.thing + " " + tcc.thing.stackCount);
+                            targets.Add(tcc.thing);
+                        }
+                    ActivityUtility.StartActivity(religion, organizer, ((ActivityJob)job).activityTask, targets);
                 }
             };
         }
@@ -153,85 +152,77 @@ namespace ReligionsOfRimworld
             }.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
         }
 
-        //private Toil DoRecipeWork()
-        //{
-        //    Toil toil = new Toil();
-        //    toil.initAction = (Action)(() =>
-        //    {
-        //        Pawn actor = toil.actor;
-        //        Job curJob = actor.jobs.curJob;
-        //        JobDriver_DoReligionActivity curDriver = (JobDriver_DoReligionActivity)actor.jobs.curDriver;
-        //        UnfinishedThing thing = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
-        //        if (thing != null && thing.Initialized)
-        //        {
-        //            curDriver.workLeft = thing.workLeft;
-        //        }
-        //        else
-        //        {
-        //            curDriver.workLeft = curJob.bill.recipe.WorkAmountTotal(thing == null ? (ThingDef)null : thing.Stuff);
-        //            if (thing != null)
-        //                thing.workLeft = curDriver.workLeft;
-        //        }
-        //        curDriver.billStartTick = Find.TickManager.TicksGame;
-        //        curDriver.ticksSpentDoingRecipeWork = 0;
-        //        curJob.bill.Notify_DoBillStarted(actor);
-        //    });
-        //    toil.tickAction = (Action)(() =>
-        //    {
-        //        Pawn actor = toil.actor;
-        //        Job curJob = actor.jobs.curJob;
-        //        JobDriver_DoReligionActivity curDriver = (JobDriver_DoReligionActivity)actor.jobs.curDriver;
-        //        UnfinishedThing thing1 = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
-        //        if (thing1 != null && thing1.Destroyed)
-        //        {
-        //            actor.jobs.EndCurrentJob(JobCondition.Incompletable, true);
-        //        }
-        //        else
-        //        {
-        //            ++curDriver.ticksSpentDoingRecipeWork;
-        //            curJob.bill.Notify_PawnDidWork(actor);
-        //            IBillGiverWithTickAction thing2 = toil.actor.CurJob.GetTarget(TargetIndex.A).Thing as IBillGiverWithTickAction;
-        //            if (thing2 != null)
-        //                thing2.UsedThisTick();
-        //            if (curJob.RecipeDef.workSkill != null && curJob.RecipeDef.UsesUnfinishedThing)
-        //                actor.skills.Learn(curJob.RecipeDef.workSkill, 0.1f * curJob.RecipeDef.workSkillLearnFactor, false);
-        //            float num1 = curJob.RecipeDef.workSpeedStat != null ? actor.GetStatValue(curJob.RecipeDef.workSpeedStat, true) : 1f;
-        //            if (curJob.RecipeDef.workTableSpeedStat != null)
-        //            {
-        //                Building_ReligiousBuildingFacility facility = curDriver.TargetFacility as Building_ReligiousBuildingFacility;
-        //                if (facility != null)
-        //                    num1 *= facility.GetStatValue(curJob.RecipeDef.workTableSpeedStat, true);
-        //            }
-        //            if (DebugSettings.fastCrafting)
-        //                num1 *= 30f;
-        //            curDriver.workLeft -= num1;
-        //            if (thing1 != null)
-        //                thing1.workLeft = curDriver.workLeft;
-        //            actor.GainComfortFromCellIfPossible();
-        //            if ((double)curDriver.workLeft <= 0.0)
-        //                curDriver.ReadyForNextToil();
-        //            if (!curJob.bill.recipe.UsesUnfinishedThing)
-        //                return;
-        //            int num2 = Find.TickManager.TicksGame - curDriver.billStartTick;
-        //            if (num2 < 3000 || num2 % 1000 != 0)
-        //                return;
-        //            actor.jobs.CheckForJobOverride();
-        //        }
-        //    });
-        //    toil.defaultCompleteMode = ToilCompleteMode.Never;
-        //    toil.WithEffect((Func<EffecterDef>)(() => toil.actor.CurJob.bill.recipe.effectWorking), TargetIndex.A);
-        //    toil.PlaySustainerOrSound((Func<SoundDef>)(() => toil.actor.CurJob.bill.recipe.soundWorking));
-        //    toil.WithProgressBar(TargetIndex.A, (Func<float>)(() =>
-        //    {
-        //        Pawn actor = toil.actor;
-        //        Job curJob = actor.CurJob;
-        //        UnfinishedThing thing = curJob.GetTarget(TargetIndex.B).Thing as UnfinishedThing;
-        //        return (float)(1.0 - (double)((JobDriver_DoReligionActivity)actor.jobs.curDriver).workLeft / (double)curJob.bill.recipe.WorkAmountTotal(thing == null ? (ThingDef)null : thing.Stuff));
-        //    }), false, -0.5f);
-        //    toil.FailOn<Toil>((Func<bool>)(() => toil.actor.CurJob.bill.suspended));
-        //    toil.activeSkill = (Func<SkillDef>)(() => toil.actor.CurJob.bill.recipe.workSkill);
-        //    return toil;
-        //}
+        private static Toil PlaceHauledThingInCell(TargetIndex cellInd, Toil nextToilOnPlaceFailOrIncomplete, bool storageMode)
+        {
+            Toil toil = new Toil();
+            toil.initAction = (Action)(() =>
+            {
+                Pawn actor = toil.actor;
+                Job curJob = actor.jobs.curJob;
+                IntVec3 cell = curJob.GetTarget(cellInd).Cell;
+                if (actor.carryTracker.CarriedThing == null)
+                {
+                    Log.Error(actor.ToString() + " tried to place hauled thing in cell but is not hauling anything.", false);
+                }
+                else
+                {
+                    SlotGroup slotGroup = actor.Map.haulDestinationManager.SlotGroupAt(cell);
+                    if (slotGroup != null && slotGroup.Settings.AllowedToAccept(actor.carryTracker.CarriedThing))
+                        actor.Map.designationManager.TryRemoveDesignationOn(actor.carryTracker.CarriedThing, DesignationDefOf.Haul);
+                    Action<Thing, int> placedAction = (Action<Thing, int>)null;
+                        placedAction = (Action<Thing, int>)((th, added) =>
+                        {
+                            if (curJob.placedThings == null)
+                                curJob.placedThings = new List<ThingCountClass>();
+                            ThingCountClass thingCountClass = curJob.placedThings.Find((Predicate<ThingCountClass>)(x => x.thing == th));
+                            if (thingCountClass != null)
+                                thingCountClass.Count += added;
+                            else
+                                curJob.placedThings.Add(new ThingCountClass(th, added));
+                        });
+                    Thing resultingThing;
+                    if (actor.carryTracker.TryDropCarriedThing(cell, ThingPlaceMode.Direct, out resultingThing, placedAction))
+                        return;
+                    if (storageMode)
+                    {
+                        IntVec3 foundCell;
+                        if (nextToilOnPlaceFailOrIncomplete != null && StoreUtility.TryFindBestBetterStoreCellFor(actor.carryTracker.CarriedThing, actor, actor.Map, StoragePriority.Unstored, actor.Faction, out foundCell, true))
+                        {
+                            if (actor.CanReserve((LocalTargetInfo)foundCell, 1, -1, (ReservationLayerDef)null, false))
+                                actor.Reserve((LocalTargetInfo)foundCell, actor.CurJob, 1, -1, (ReservationLayerDef)null, true);
+                            actor.CurJob.SetTarget(cellInd, (LocalTargetInfo)foundCell);
+                            actor.jobs.curDriver.JumpToToil(nextToilOnPlaceFailOrIncomplete);
+                        }
+                        else
+                        {
+                            Job job = HaulAIUtility.HaulAsideJobFor(actor, actor.carryTracker.CarriedThing);
+                            if (job != null)
+                            {
+                                curJob.targetA = job.targetA;
+                                curJob.targetB = job.targetB;
+                                curJob.targetC = job.targetC;
+                                curJob.count = job.count;
+                                curJob.haulOpportunisticDuplicates = job.haulOpportunisticDuplicates;
+                                curJob.haulMode = job.haulMode;
+                                actor.jobs.curDriver.JumpToToil(nextToilOnPlaceFailOrIncomplete);
+                            }
+                            else
+                            {
+                                Log.Error("Incomplete haul for " + (object)actor + ": Could not find anywhere to put " + (object)actor.carryTracker.CarriedThing + " near " + (object)actor.Position + ". Destroying. This should never happen!", false);
+                                actor.carryTracker.CarriedThing.Destroy(DestroyMode.Vanish);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (nextToilOnPlaceFailOrIncomplete == null)
+                            return;
+                        actor.jobs.curDriver.JumpToToil(nextToilOnPlaceFailOrIncomplete);
+                    }
+                }
+            });
+            return toil;
+        }
 
         private static Toil JumpToCollectNextIntoHandsForBill(Toil gotoGetTargetToil, TargetIndex ind)
         {

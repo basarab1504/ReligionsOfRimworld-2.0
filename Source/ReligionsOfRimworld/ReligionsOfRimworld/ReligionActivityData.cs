@@ -19,12 +19,13 @@ namespace ReligionsOfRimworld
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
                 this.relics = new List<LocalTargetInfo>();
-                this.relics.AddRange(relics);
+                if (relics != null)
+                    this.relics.AddRange(relics);
                 this.activityJobNodes = new List<ActivityJobNode>();
                 this.activityJobNodes.Add(new ActivityJobNode(MiscDefOf.ReligionActivityPreparations, null));
                 this.activityJobNodes.AddRange(task.Property.ActivityQueue.ActivityNodes);
             }
-
+        
             this.religion = religion;
             this.organizer = organizer;
             this.task = task;
@@ -43,7 +44,7 @@ namespace ReligionsOfRimworld
         {
             Scribe_References.Look<Religion>(ref this.religion, "religion");
             Scribe_References.Look<Pawn>(ref this.organizer, "organizer");
-            Scribe_Collections.Look<LocalTargetInfo>(ref this.relics, "relicsTargets", LookMode.LocalTargetInfo);
+            Scribe_Collections.Look<LocalTargetInfo>(ref this.relics, "relics", LookMode.LocalTargetInfo);
             Scribe_References.Look<ActivityTask>(ref this.task, "task");
             Scribe_Collections.Look<ActivityJobNode>(ref activityJobNodes, "activityJobNodes", LookMode.Deep);
         }

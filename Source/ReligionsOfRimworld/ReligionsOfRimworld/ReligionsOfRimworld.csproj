@@ -57,6 +57,7 @@
     <Compile Include="ActivityJob.cs" />
     <Compile Include="ActivityJobNode.cs" />
     <Compile Include="ActivityJobQueueDef.cs" />
+    <Compile Include="ActivityPawnDuty.cs" />
     <Compile Include="ActivityTask.cs" />
     <Compile Include="ActivityTaskDef.cs" />
     <Compile Include="ActivityTaskSchedule.cs" />
