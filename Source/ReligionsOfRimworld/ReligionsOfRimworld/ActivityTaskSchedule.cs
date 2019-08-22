@@ -76,7 +76,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            Scribe_Collections.Look<ScheduledDay>(ref this.scheduledDays, false, "scheduledDays", LookMode.Deep, 0);
+            Scribe_Collections.Look<ScheduledDay>(ref this.scheduledDays, false, "scheduledDays", LookMode.Deep, this, 0);
         }
     }
 }

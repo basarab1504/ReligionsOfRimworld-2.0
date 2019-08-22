@@ -61,7 +61,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref dayNumber, "dayNumber");
-            Scribe_Collections.Look<ActivityTask>(ref tasks, "tasks", LookMode.Deep);
+            Scribe_Collections.Look<ActivityTask>(ref tasks, "tasks", LookMode.Deep, this, null);
         }
     }
 }

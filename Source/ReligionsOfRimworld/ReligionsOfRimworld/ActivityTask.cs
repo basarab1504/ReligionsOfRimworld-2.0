@@ -28,6 +28,7 @@ namespace ReligionsOfRimworld
             this.dayOfTask = dayOfTask;
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
+                this.loadID = Find.UniqueIDsManager.GetNextThingID();
                 startHour = 12;
                 this.property = def;
                 this.loadID = Find.UniqueIDsManager.GetNextBillID();
@@ -165,7 +166,7 @@ namespace ReligionsOfRimworld
             //private IngredientPawn humanlike;
             //private IngredientPawn animal;
             Scribe_Values.Look<int>(ref loadID, "loadID");
-            Scribe_Deep.Look<SimpleFilter>(ref this.filter, "filter", null, null);
+            Scribe_Deep.Look<SimpleFilter>(ref this.filter, "filter", Enumerable.Empty<ThingDef>());
             Scribe_Values.Look<float>(ref ingredientSearchRadius, "ingredientSearchRadius");
             Scribe_Values.Look<int>(ref lastIngredientSearchFailTicks, "lastIngredientSearchFailTicks");
             Scribe_Values.Look<bool>(ref suspended, "suspended");
