@@ -86,7 +86,7 @@ namespace ReligionsOfRimworld
             //    {
             //        list.Add(new FloatMenuOption(property.label, (Action)(() =>
             //        {
-            //            if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>((Func<Pawn, bool>)(col => ReligionActivityUtility.PawnSatisfiesSkillRequirements(col, property.skillRequirements))))
+            //            if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>((Func<Pawn, bool>)(col => ActivityUtility.PawnSatisfiesSkillRequirements(col, property.skillRequirements))))
             //                CreateNoPawnsWithSkillDialog(property);
             //            if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>(x => x.GetReligionComponent().Religion == SelFacility.AssignedReligion))
             //                CreateNoPawnsOfReligionDialog(SelFacility.AssignedReligion);
@@ -118,7 +118,7 @@ namespace ReligionsOfRimworld
 
         private void CreateNoPawnsWithSkillDialog(RecipeDef recipe)
         {
-            Find.WindowStack.Add((Window)new Dialog_MessageBox("ActivityRequiresSkills".Translate((NamedArgument)recipe.LabelCap) + "\n\n" + ReligionActivityUtility.MinSkillString(recipe.skillRequirements), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
+            Find.WindowStack.Add((Window)new Dialog_MessageBox("ActivityRequiresSkills".Translate((NamedArgument)recipe.LabelCap) + "\n\n" + ActivityUtility.MinSkillString(recipe.skillRequirements), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
         }
 
         private void CreateNoPawnsOfReligionDialog(Religion religion)

@@ -11,7 +11,7 @@
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
-				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
+				<propertyObject>ReligionOfOneGroup</propertyObject>
 				<subject>
 					<thought>ROR_ReligiousKilledSad</thought>
 				</subject>
@@ -21,7 +21,7 @@
 				</witness>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
-				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
+				<propertyObject>SecondReligionGroup</propertyObject>
 				<subject>
 					<thought>ROR_ReligiousKilledHappy</thought>
 				</subject>
@@ -31,7 +31,7 @@
 				</witness>				
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
-				<thingObject>Monkey</thingObject>
+				<propertyObject>Monkey</propertyObject>
 				<subject>
 					<thought>ROR_ReligiousKilledHappy</thought>
 				</subject>

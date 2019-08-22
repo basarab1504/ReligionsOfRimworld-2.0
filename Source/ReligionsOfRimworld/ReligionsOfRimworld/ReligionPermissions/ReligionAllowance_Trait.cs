@@ -9,13 +9,13 @@ namespace ReligionsOfRimworld
 {
     public class ReligionPermission_Trait : ReligionPermission
     {
-        public TraitDef trait;
+        public TraitDef permission;
 
-        public override string Reason => trait.degreeDatas[0].label.CapitalizeFirst();
+        public override string Reason => permission.degreeDatas[0].label.CapitalizeFirst();
 
         protected override bool IsFound(Pawn pawn)
         {
-            if (pawn.story.traits.allTraits.Any(x => x.def == trait))
+            if (pawn.story.traits.allTraits.Any(x => x.def == permission))
                 return true;
             else
                 return false;
@@ -23,7 +23,7 @@ namespace ReligionsOfRimworld
 
         public override void ExposeData()
         {
-            Scribe_Defs.Look<TraitDef>(ref trait, "trait");
+            Scribe_Defs.Look<TraitDef>(ref permission, "trait");
         }
     }
 }

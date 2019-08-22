@@ -26,7 +26,7 @@ namespace ReligionsOfRimworld
         {
             foreach (Pawn pawn in lord.ownedPawns)
             {
-                pawn.mindState.duty = new PawnDuty(MiscDefOf.ReligionActivityStageDuty, (LocalTargetInfo)activtityData.Facility, GetRandomRelic())
+                pawn.mindState.duty = new PawnDuty(MiscDefOf.ReligionActivityStageDuty, (LocalTargetInfo)activtityData.Facility)
                 {
                     spectateRect = CellRect.SingleCell(activtityData.Facility.Position)
                 };
@@ -37,7 +37,11 @@ namespace ReligionsOfRimworld
         {
             IEnumerable<LocalTargetInfo> relics = activtityData.Relics;
             if (relics != null && relics.Count() != 0)
-                return relics.RandomElement();
+            {
+                LocalTargetInfo tar = relics.RandomElement();
+                Log.Message(tar.Thing.Position + " " + tar.Thing + " " + tar.Thing.stackCount);
+                return tar;
+            }
             return null;
         }
     }

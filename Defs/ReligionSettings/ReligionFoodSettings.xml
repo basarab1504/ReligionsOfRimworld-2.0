@@ -11,7 +11,7 @@
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
-				<thingObject>Corpse_Panther</thingObject>
+				<propertyObject>Corpse_Panther</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodGood</thought>
 				</subject>
@@ -20,7 +20,7 @@
 				</witness>
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
-				<thingObject>Meat_Panther</thingObject>
+				<propertyObject>Meat_Panther</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodGood</thought>
 				</subject>
@@ -29,7 +29,7 @@
 				</witness>				
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
-				<thingObject>Corpse_Monkey</thingObject>
+				<propertyObject>Corpse_Monkey</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodBad</thought>
 				</subject>
@@ -38,7 +38,7 @@
 				</witness>
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
-				<thingObject>Meat_Monkey</thingObject>
+				<propertyObject>Meat_Monkey</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodBad</thought>
 				</subject>

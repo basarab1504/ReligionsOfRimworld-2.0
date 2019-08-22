@@ -22,6 +22,8 @@ namespace ReligionsOfRimworld
 
         public const TargetIndex IngredientPlaceCellInd = TargetIndex.C;
 
+        private List<LocalTargetInfo> targetsCopy;
+
         public Building_ReligiousBuildingFacility TargetFacility
         {
             get
@@ -59,6 +61,7 @@ namespace ReligionsOfRimworld
             {
                 return false;
             }
+            targetsCopy = new List<LocalTargetInfo>(this.job.GetTargetQueue(TargetIndex.B));
             this.pawn.ReserveAsManyAsPossible(this.job.GetTargetQueue(TargetIndex.B), this.job, 1, -1, null);
             return true;
         }
@@ -136,9 +139,7 @@ namespace ReligionsOfRimworld
                 {
                     Religion religion = TargetFacility.AssignedReligion;
                     Pawn organizer = pawn;
-                    IEnumerable<LocalTargetInfo> relics = this.job.GetTargetQueue(TargetIndex.B);
-
-                    ReligionActivityUtility.StartActivity(religion, organizer, ((ActivityJob)job).activityTask, relics);
+                    ActivityUtility.StartActivity(religion, organizer, ((ActivityJob)job).activityTask, targetsCopy);
                 }
             };
         }

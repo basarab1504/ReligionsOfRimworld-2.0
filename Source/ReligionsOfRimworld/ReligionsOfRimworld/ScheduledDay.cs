@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,20 @@ namespace ReligionsOfRimworld
         public int DayNumber => dayNumber;
         public IEnumerable<ActivityTask> Tasks => tasks;
 
-        public bool AnyShouldDoNow => tasks.Any(x => x.ShouldDoNow());
+        public bool AnyShouldDoNow()
+        {
+            if (GenLocalDate.DayOfSeason(Find.CurrentMap) == dayNumber)
+                return tasks.Any(x => x.ShouldDoNow());
+            return false;
+        }
+
+        public bool ShouldDoNow(ActivityTask task)
+        {
+            if (tasks.Contains(task))
+                if (GenLocalDate.DayOfSeason(Find.CurrentMap) == dayNumber && task.ShouldDoNow())
+                    return true;
+            return false;
+        }
 
         public void Add(ActivityTask task)
         {

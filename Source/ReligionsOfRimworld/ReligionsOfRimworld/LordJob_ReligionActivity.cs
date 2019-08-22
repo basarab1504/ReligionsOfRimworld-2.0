@@ -16,8 +16,8 @@ namespace ReligionsOfRimworld
         private Dictionary<Pawn, bool> signalsCounted;
 
         //for scribe only
-        List<Pawn> pawnsKeysWorkingList;
-        List<bool> signalsValuesWorkingList;
+        private List<Pawn> pawnsKeysWorkingList;
+        private List<bool> signalsValuesWorkingList;
 
         public LordJob_ReligionActivity()
         { }
@@ -144,6 +144,7 @@ namespace ReligionsOfRimworld
                         activityTask = data.Task
                     };
                     pawn.Reserve(duty.focus, job);
+                    pawn.Reserve(duty.focusSecond, job);
                 }
                 else
                     job = new Job(data.ActivityJobs.ElementAt(activityCurrentStage).CongregationJob, duty.focus);
@@ -163,7 +164,7 @@ namespace ReligionsOfRimworld
 
             IntVec3 cell;
 
-            ReligionActivityUtility.TrySendStageEndedSignal(pawn);
+            ActivityUtility.TrySendStageEndedSignal(pawn);
 
             if (pawn == data.Organizer)
                 return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)data.Facility.Position, (LocalTargetInfo)data.Facility.Position);

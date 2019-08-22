@@ -14,7 +14,7 @@ namespace ReligionsOfRimworld
         {
             return new Toil()
             {
-                initAction = (Action)(() => ReligionActivityUtility.TrySendStageEndedSignal(pawn))
+                initAction = (Action)(() => ActivityUtility.TrySendStageEndedSignal(pawn))
             };                
         }
     }

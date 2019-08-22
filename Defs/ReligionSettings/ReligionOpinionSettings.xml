@@ -11,13 +11,13 @@
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
-				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
+				<propertyObject>SecondReligionGroup</propertyObject>
 				<witness>
 					<opinionThought>ROR_ReligionGoodOpinionSocial</opinionThought>
 				</witness>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
-				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
+				<propertyObject>ReligionOfOneGroup</propertyObject>
 				<witness>
 					<opinionThought>ROR_ReligionBadOpinionSocial</opinionThought>
 				</witness>

@@ -39,12 +39,11 @@ namespace ReligionsOfRimworld
 
             if (recipientComp.ReligionRestrictions.MayConvertByTalking)
             {
-                float opinionFactor = settings.OpinionFactorCurve.Curve != null ? settings.OpinionFactorCurve.Curve.Evaluate((float)initiator.relations.OpinionOf(recipient)) : 1f;
+                float opinionFactor = settings.OpinionFactorCurve.Curve != null ? settings.OpinionFactorCurve.Curve.Evaluate((float)recipient.relations.OpinionOf(initiator)) : 1f;
                 float moodFactor = settings.MoodFactorCurve.Curve != null ? settings.MoodFactorCurve.Curve.Evaluate((float)recipient.needs.mood.CurLevel) : 1f;
-                float spouseRelationChanceFactor = settings.SpouseRelationChanceFactor;
                 float compabilityFactor = recipientComp.ReligionCompability.CompabilityFor(initiatorComp.Religion);
 
-                return 1f * opinionFactor * moodFactor * spouseRelationChanceFactor * compabilityFactor;
+                return 1f * opinionFactor * moodFactor * compabilityFactor;
             }
             else
                 return 0f;

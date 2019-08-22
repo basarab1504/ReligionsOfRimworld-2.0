@@ -41,42 +41,42 @@ namespace ReligionsOfRimworld
         {
             Building_ReligiousBuildingFacility giver = thing as Building_ReligiousBuildingFacility;
 
-            if ((!giver.TaskSchedule.AnyShouldDoNow && (!pawn.CanReserve((LocalTargetInfo)thing, 1, -1, (ReservationLayerDef)null, forced) || thing.IsBurning() || thing.IsForbidden(pawn))))
+            if ((!giver.TaskSchedule.AnyShouldDoNow() && (!pawn.CanReserve((LocalTargetInfo)thing, 1, -1, (ReservationLayerDef)null, forced) || thing.IsBurning() || thing.IsForbidden(pawn))))
                 return (Job)null;
-            //giver.BillStack.RemoveIncompletableBills();
             return this.StartOrResumeBillJob(pawn, giver);
         }
 
         private Job StartOrResumeBillJob(Pawn pawn, Building_ReligiousBuildingFacility giver)
         {
-            for(int day = 0; day < giver.TaskSchedule.ScheduledDays.Count(); ++day)
+            ActivityTaskSchedule schedule = giver.TaskSchedule;
+
+            foreach (ActivityTask task in schedule.AllTasks())
             {
-                for (int i = 0; i < giver.TaskSchedule.ScheduledDays.ElementAt(day).Tasks.Count(); ++i)
+                if ((Find.TickManager.TicksGame >= task.LastIngredientSearchFailTicks + ReCheckFailedBillTicksRange.RandomInRange || FloatMenuMakerMap.makingFor == pawn))
                 {
-                    ActivityTask task = giver.TaskSchedule.ScheduledDays.ElementAt(day).Tasks.ElementAt(i);
-                    if (/*(bill1.recipe.requiredGiverWorkType == null || bill1.recipe.requiredGiverWorkType == this.def.workType) && */ (Find.TickManager.TicksGame >= task.LastIngredientSearchFailTicks + ReCheckFailedBillTicksRange.RandomInRange || FloatMenuMakerMap.makingFor == pawn))
+                    task.LastIngredientSearchFailTicks = 0;
+                    if (/*schedule.ShouldDoNow(task) && */schedule.PawnAllowedToStartAnew(pawn, task))
                     {
-                        task.LastIngredientSearchFailTicks = 0;
-                        if(task.ShouldDoNow() && task.PawnAllowedToStartAnew(pawn))
+                        //TryFindRestrictedIngridients(task, pawn, giver, chosenIngThings);
+
+                        if (!TryFindBestTaskIngredients(task, pawn, giver, chosenIngThings))
                         {
-                            if (!TryFindBestBillIngredients(task, pawn, giver, chosenIngThings))
-                            {
-                                if (FloatMenuMakerMap.makingFor != pawn)
-                                    task.LastIngredientSearchFailTicks = Find.TickManager.TicksGame;
-                                else
-                                    JobFailReason.Is("MissingMaterials".Translate(), task.Label);
-                                this.chosenIngThings.Clear();
-                            }
+                            if (FloatMenuMakerMap.makingFor != pawn)
+                                task.LastIngredientSearchFailTicks = Find.TickManager.TicksGame;
                             else
-                            {
-                                Job job = this.TryStartNewDoBillJob(pawn, task, giver);
-                                this.chosenIngThings.Clear();
-                                return job;
-                            }
+                                JobFailReason.Is("MissingMaterials".Translate(), task.Label);
+                            this.chosenIngThings.Clear();
+                        }
+                        else
+                        {
+                            Job job = this.TryStartNewDoBillJob(pawn, task, giver);
+                            this.chosenIngThings.Clear();
+                            return job;
                         }
                     }
                 }
             }
+
             this.chosenIngThings.Clear();
             return (Job)null;
         }
@@ -103,7 +103,35 @@ namespace ReligionsOfRimworld
             return job2;
         }
 
-        private static bool TryFindBestBillIngredients(ActivityTask task, Pawn pawn, Thing giver, List<ThingCount> chosenIngThings)
+        private static bool TryFindRestrictedIngridients(ActivityTask task, Pawn pawn, Thing giver, List<ThingCount> chosenIngThings)
+        {
+            chosenIngThings.Clear();
+            newRelevantThings.Clear();
+
+            if (task.HumanlikeIngredient.ConcretePawn == null && task.AnimalIngredient.ConcretePawn == null)
+                return false;
+
+            Predicate<Thing> baseValidator = (Predicate<Thing>)(t =>
+            {
+                if (t.Spawned && !t.IsForbidden(pawn) && ((double)(t.Position - giver.Position).LengthHorizontalSquared < (double)task.IngredientSearchRadius * (double)task.IngredientSearchRadius && task.ThingFilter.Allows(t.def)))
+                    return pawn.CanReserve((LocalTargetInfo)t, 1, -1, (ReservationLayerDef)null, false);
+                return false;
+            });
+
+            if (baseValidator(task.HumanlikeIngredient.ConcretePawn))
+            {
+                ThingCountUtility.AddToList(chosenIngThings, task.HumanlikeIngredient.ConcretePawn, 1);
+                return true;
+            }
+            if (baseValidator(task.AnimalIngredient.ConcretePawn))
+            { 
+                ThingCountUtility.AddToList(chosenIngThings, task.AnimalIngredient.ConcretePawn, 1);
+                return true;
+            }
+            return false;
+        }
+
+        private static bool TryFindBestTaskIngredients(ActivityTask task, Pawn pawn, Thing giver, List<ThingCount> chosenIngThings)
         {
             chosenIngThings.Clear();
             newRelevantThings.Clear();

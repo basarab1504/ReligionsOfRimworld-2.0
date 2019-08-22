@@ -11,7 +11,7 @@
 		<settings Class="ReligionsOfRimworld.ReligionSettings_JoiningRestriction">
 			<permissions>
 				<li Class="ReligionsOfRimworld.ReligionPermission_Gender">
-					<gender>Male</gender>
+					<permission>Male</permission>
 					<importance>Important</importance>
 				</li>
 			</permissions>

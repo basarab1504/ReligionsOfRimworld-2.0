@@ -126,6 +126,8 @@ namespace ReligionsOfRimworld
             return job2;
         }
 
+        
+
         private static bool TryFindBestBillIngredients(Bill bill, Pawn pawn, Thing billGiver, List<ThingCount> chosen)
         {
             chosen.Clear();

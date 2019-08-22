@@ -8,17 +8,17 @@ namespace ReligionsOfRimworld
 {
     public class ReligionProperty_ReligionGroupObject : ReligionProperty
     {
-        private ReligionGroupTagDef religionGroupTagObject;
+        private ReligionGroupTagDef propertyObject;
 
         public override Def GetObject()
         {
-            return religionGroupTagObject;
+            return propertyObject;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look<ReligionGroupTagDef>(ref this.religionGroupTagObject, "religionGroupTagObject");
+            Scribe_Defs.Look<ReligionGroupTagDef>(ref this.propertyObject, "religionGroupTagObject");
         }
     }
 }

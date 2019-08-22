@@ -8,13 +8,13 @@ namespace ReligionsOfRimworld
 {
     public class ReligionPermission_Gender : ReligionPermission
     {
-        Gender gender;
+        Gender permission;
 
-        public override string Reason => gender.GetLabel().CapitalizeFirst();
+        public override string Reason => permission.GetLabel().CapitalizeFirst();
 
         protected override bool IsFound(Pawn pawn)
         {
-            if (pawn.gender == gender)
+            if (pawn.gender == permission)
                 return true;
             else
                 return false;
@@ -22,7 +22,7 @@ namespace ReligionsOfRimworld
 
         public override void ExposeData()
         {
-            Scribe_Values.Look<Gender>(ref gender, "gender");
+            Scribe_Values.Look<Gender>(ref permission, "gender");
         }
     }
 }

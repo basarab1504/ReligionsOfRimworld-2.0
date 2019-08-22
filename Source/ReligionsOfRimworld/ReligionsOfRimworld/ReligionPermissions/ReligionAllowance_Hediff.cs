@@ -8,13 +8,13 @@ namespace ReligionsOfRimworld
 {
     public class ReligionPermission_Hediff : ReligionPermission
     {
-        public HediffDef hediff;
+        public HediffDef permission;
 
-        public override string Reason => hediff.LabelCap.CapitalizeFirst();
+        public override string Reason => permission.LabelCap.CapitalizeFirst();
 
         protected override bool IsFound(Pawn pawn)
         {
-            if (pawn.health.hediffSet.hediffs.Any(x => x.def == hediff))
+            if (pawn.health.hediffSet.hediffs.Any(x => x.def == permission))
                 return true;
             else
                 return false;
@@ -22,7 +22,7 @@ namespace ReligionsOfRimworld
 
         public override void ExposeData()
         {
-            Scribe_Defs.Look<HediffDef>(ref hediff, "hediff");
+            Scribe_Defs.Look<HediffDef>(ref permission, "hediff");
         }
     }
 }

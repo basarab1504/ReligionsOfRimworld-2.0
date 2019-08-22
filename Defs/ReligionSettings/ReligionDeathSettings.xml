@@ -11,19 +11,19 @@
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
-				<religionGroupTagObject>SecondReligionGroup</religionGroupTagObject>
+				<propertyObject>SecondReligionGroup</propertyObject>
 				<witness>
 					<thought>ROR_ReligiousDeadSad</thought>
 				</witness>				
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
-				<religionGroupTagObject>ReligionOfOneGroup</religionGroupTagObject>
+				<propertyObject>ReligionOfOneGroup</propertyObject>
 				<witness>
 					<thought>ROR_ReligiousDeadHappy</thought>
 				</witness>
 			</li>	
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
-				<thingObject>Monkey</thingObject>
+				<propertyObject>Monkey</propertyObject>
 				<witness>
 					<thought>ROR_ReligiousDeadHappy</thought>
 				</witness>
