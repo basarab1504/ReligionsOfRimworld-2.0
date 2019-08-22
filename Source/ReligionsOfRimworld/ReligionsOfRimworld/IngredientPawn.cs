@@ -28,9 +28,9 @@ namespace ReligionsOfRimworld
             concretePawn = null;
         }
 
-        public void Notify_PawnUnavaliable(Pawn pawn)
+        public void ValidateSettings()
         {
-            if (pawn == concretePawn)
+            if (concretePawn != null && concretePawn.Dead)
                 concretePawn = null;
         }
 

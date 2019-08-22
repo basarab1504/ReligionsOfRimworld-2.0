@@ -65,6 +65,10 @@ namespace ReligionsOfRimworld
         {
             if (pawnRestriction != null && pawnRestriction.Dead)
                 pawnRestriction = null;
+            if (humanlike != null)
+                humanlike.ValidateSettings();
+            if(animal != null)
+                animal.ValidateSettings();
         }
 
         public bool ShouldDoNow()
