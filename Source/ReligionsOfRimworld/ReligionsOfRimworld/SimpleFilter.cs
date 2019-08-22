@@ -6,20 +6,23 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class SimpleFilter
+    public class SimpleFilter : IExposable
     {
         private HashSet<ThingDef> defaultThings;
         private HashSet<ThingDef> allowedThings;
 
         public SimpleFilter(IEnumerable<ThingDef> defs)
         {
-            defaultThings = new HashSet<ThingDef>();
-            allowedThings = new HashSet<ThingDef>();
+            if(Scribe.mode == LoadSaveMode.Inactive)
+            {
+                defaultThings = new HashSet<ThingDef>();
+                allowedThings = new HashSet<ThingDef>();
 
-            foreach (ThingDef def in defs)
-                defaultThings.Add(def);
+                foreach (ThingDef def in defs)
+                    defaultThings.Add(def);
 
-            AllowAll();
+                AllowAll();
+            }
         }
 
         public IEnumerator<ThingDef> GetEnumerator()
@@ -52,6 +55,12 @@ namespace ReligionsOfRimworld
         public bool Allows(ThingDef def)
         {
             return allowedThings.Contains(def);
+        }
+
+        public void ExposeData()
+        {
+            Scribe_Collections.Look<ThingDef>(ref this.defaultThings, "defaultThings", LookMode.Def);
+            Scribe_Collections.Look<ThingDef>(ref this.allowedThings, "allowedThings", LookMode.Def);
         }
     }
 }

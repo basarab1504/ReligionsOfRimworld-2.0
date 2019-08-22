@@ -14,7 +14,14 @@ namespace ReligionsOfRimworld
         public ActivityTaskSchedule(Building_ReligiousBuildingFacility facility)
         {
             this.facility = facility;
-            scheduledDays = new List<ScheduledDay>(15);
+            if (Scribe.mode == LoadSaveMode.Inactive)
+            {
+                scheduledDays = new List<ScheduledDay>();
+                {
+                    for (int i = 1; i < 16; ++i)
+                        Create(i);
+                }
+            }     
         }
 
         public Building_ReligiousBuildingFacility Facility => facility;
@@ -47,7 +54,7 @@ namespace ReligionsOfRimworld
         public void Create(int dayNumber)
         {
             if (!scheduledDays.Contains(scheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber)))
-                scheduledDays.Add(new ScheduledDay(dayNumber));
+                scheduledDays.Add(new ScheduledDay(this, dayNumber));
         }
 
         public void Delete(int dayNumber)
@@ -69,7 +76,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            Scribe_Collections.Look<ScheduledDay>(ref this.scheduledDays, "scheduledDays", LookMode.Deep, null, null);
+            Scribe_Collections.Look<ScheduledDay>(ref this.scheduledDays, false, "scheduledDays", LookMode.Deep, 0);
         }
     }
 }

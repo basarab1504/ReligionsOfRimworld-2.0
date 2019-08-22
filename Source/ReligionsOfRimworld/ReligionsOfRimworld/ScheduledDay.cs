@@ -11,16 +11,22 @@ namespace ReligionsOfRimworld
     public class ScheduledDay : IExposable
     {
         private int dayNumber;
+        private ActivityTaskSchedule schedule;
         private List<ActivityTask> tasks;
 
-        public ScheduledDay(int dayNumber)
+        public ScheduledDay(ActivityTaskSchedule schedule, int dayNumber)
         {
-            this.dayNumber = dayNumber;
-            tasks = new List<ActivityTask>();
+            this.schedule = schedule;
+            if(Scribe.mode == LoadSaveMode.Inactive)
+            {
+                this.dayNumber = dayNumber;
+                tasks = new List<ActivityTask>();
+            }
         }
 
         public int DayNumber => dayNumber;
         public IEnumerable<ActivityTask> Tasks => tasks;
+        public ActivityTaskSchedule ParentSchedule => schedule;
 
         public bool AnyShouldDoNow()
         {

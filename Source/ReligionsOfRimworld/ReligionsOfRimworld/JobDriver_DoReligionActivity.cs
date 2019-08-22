@@ -135,7 +135,6 @@ namespace ReligionsOfRimworld
                     if (job.placedThings != null)
                         foreach (ThingCountClass tcc in job.placedThings)
                         {
-                            Log.Message(tcc.thing + " " + tcc.thing.stackCount);
                             targets.Add(tcc.thing);
                         }
                     ActivityUtility.StartActivity(religion, organizer, ((ActivityJob)job).activityTask, targets);

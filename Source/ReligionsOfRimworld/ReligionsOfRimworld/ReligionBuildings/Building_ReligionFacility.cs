@@ -116,6 +116,7 @@ namespace ReligionsOfRimworld
             base.ExposeData();
             Scribe_References.Look<Building_ReligionBuilding>(ref this.parentBuilding, "parentBuilding");
             Scribe_Deep.Look<BillStack>(ref this.billStack, "billStack", (object)this);
+            Scribe_Deep.Look<ActivityTaskSchedule>(ref this.taskSchedule, "taskSchedule", this);
         }
     }
 }

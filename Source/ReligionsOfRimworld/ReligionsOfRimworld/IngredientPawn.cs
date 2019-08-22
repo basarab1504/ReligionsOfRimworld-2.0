@@ -36,7 +36,8 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-
+            Scribe_Values.Look<bool>(ref this.partOfColony, "partOfColony");
+            Scribe_References.Look<Pawn>(ref this.concretePawn, "concretePawn");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ReligionsOfRimworld
     public class ActivityTask : IExposable, ILoadReferenceable
     {
         private int loadID = -1;
-        private ActivityTaskSchedule manager;
+        private ScheduledDay dayOfTask;
         private SimpleFilter filter;
         private float ingredientSearchRadius = 999f;
         private int lastIngredientSearchFailTicks = -99999;
@@ -23,11 +23,11 @@ namespace ReligionsOfRimworld
         private IngredientPawn humanlike;
         private IngredientPawn animal;
 
-        public ActivityTask(ActivityTaskSchedule manager, ActivityTaskDef def)
+        public ActivityTask(ScheduledDay dayOfTask, ActivityTaskDef def)
         {
-            if(Scribe.mode == LoadSaveMode.Inactive)
+            this.dayOfTask = dayOfTask;
+            if (Scribe.mode == LoadSaveMode.Inactive)
             {
-                this.manager = manager;
                 startHour = 12;
                 this.property = def;
                 this.loadID = Find.UniqueIDsManager.GetNextBillID();
@@ -40,15 +40,16 @@ namespace ReligionsOfRimworld
             }
         }
 
-        public int StartHour {
+        public int StartHour
+        {
             get => startHour;
             set
             {
                 startHour = value;
-                manager.Reorder();
+                dayOfTask.Reorder();
             }
         }
-        public Building_ReligiousBuildingFacility ParentFacility => manager.Facility;
+        public Building_ReligiousBuildingFacility ParentFacility => dayOfTask.ParentSchedule.Facility;
         public bool Suspended { get => suspended; set => suspended = value; }
         public SimpleFilter ThingFilter => filter;
         public Pawn PawnRestriction { get => pawnRestriction; set => pawnRestriction = value; }
@@ -148,7 +149,26 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-
+            //private int loadID = -1;
+            //private ScheduledDay dayOfTask;
+            //private SimpleFilter filter;
+            //private float ingredientSearchRadius = 999f;
+            //private int lastIngredientSearchFailTicks = -99999;
+            //private bool suspended;
+            //private Pawn pawnRestriction;
+            //private ActivityTaskDef property;
+            //private int startHour;
+            //private IngredientPawn humanlike;
+            //private IngredientPawn animal;
+            Scribe_Values.Look<int>(ref loadID, "loadID");
+            Scribe_Deep.Look<SimpleFilter>(ref this.filter, "filter", null, null);
+            Scribe_Values.Look<float>(ref ingredientSearchRadius, "ingredientSearchRadius");
+            Scribe_Values.Look<int>(ref lastIngredientSearchFailTicks, "lastIngredientSearchFailTicks");
+            Scribe_Values.Look<bool>(ref suspended, "suspended");
+            Scribe_References.Look<Pawn>(ref this.pawnRestriction, "pawnRestriction");
+            Scribe_Values.Look<int>(ref startHour, "startHour");
+            Scribe_Deep.Look<IngredientPawn>(ref this.humanlike, "humanlikeIngredient");
+            Scribe_Deep.Look<IngredientPawn>(ref this.animal, "animalIngredient");
         }
     }
 }
