@@ -57,15 +57,16 @@ namespace ReligionsOfRimworld
                     task.LastIngredientSearchFailTicks = 0;
                     if (/*schedule.ShouldDoNow(task) && */schedule.PawnAllowedToStartAnew(pawn, task))
                     {
-                        //TryFindRestrictedIngridients(task, pawn, giver, chosenIngThings);
-
-                        if (!TryFindBestTaskIngredients(task, pawn, giver, chosenIngThings))
+                        if (!TryFindRestrictedIngridients(task, pawn, giver, chosenIngThings))
                         {
-                            if (FloatMenuMakerMap.makingFor != pawn)
-                                task.LastIngredientSearchFailTicks = Find.TickManager.TicksGame;
-                            else
-                                JobFailReason.Is("MissingMaterials".Translate(), task.Label);
-                            this.chosenIngThings.Clear();
+                            if (!TryFindBestTaskIngredients(task, pawn, giver, chosenIngThings))
+                            {
+                                if (FloatMenuMakerMap.makingFor != pawn)
+                                    task.LastIngredientSearchFailTicks = Find.TickManager.TicksGame;
+                                else
+                                    JobFailReason.Is("MissingMaterials".Translate(), task.Label);
+                                this.chosenIngThings.Clear();
+                            }
                         }
                         else
                         {
@@ -117,14 +118,13 @@ namespace ReligionsOfRimworld
                     return pawn.CanReserve((LocalTargetInfo)t, 1, -1, (ReservationLayerDef)null, false);
                 return false;
             });
-
             if (baseValidator(task.HumanlikeIngredient.ConcretePawn))
             {
                 ThingCountUtility.AddToList(chosenIngThings, task.HumanlikeIngredient.ConcretePawn, 1);
                 return true;
             }
             if (baseValidator(task.AnimalIngredient.ConcretePawn))
-            { 
+            {
                 ThingCountUtility.AddToList(chosenIngThings, task.AnimalIngredient.ConcretePawn, 1);
                 return true;
             }

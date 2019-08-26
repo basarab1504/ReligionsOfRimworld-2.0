@@ -98,6 +98,10 @@ namespace ReligionsOfRimworld
             Toil findPlaceTarget = Toils_JobTransforms.SetTargetToIngredientPlaceCell(TargetIndex.A, TargetIndex.B, TargetIndex.C);
             yield return findPlaceTarget;
             yield return PlaceHauledThingInCell(TargetIndex.C, findPlaceTarget, false);
+           
+            //Pawn target = (Pawn)this.job.GetTarget(TargetIndex.B).Thing;
+            //Log.Message(target.ToString());
+
             yield return Toils_Jump.JumpIfHaveTargetInQueue(TargetIndex.B, extract);
             yield return gotoBillGiver;
             yield return StartActivity();
