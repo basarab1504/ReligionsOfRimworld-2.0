@@ -110,7 +110,7 @@ namespace ReligionsOfRimworld
                             GenClamor.DoClamor(PawnRelic, 10f, ClamorDefOf.Harm);
                             if (!PawnRelic.CheckAcceptArrest(this.pawn))
                             {
-                                this.PawnRelic.jobs.EndCurrentJob(JobCondition.Incompletable, true);
+                                this.pawn.jobs.EndCurrentJob(JobCondition.Incompletable, true);
                             }
                         }
                     }
