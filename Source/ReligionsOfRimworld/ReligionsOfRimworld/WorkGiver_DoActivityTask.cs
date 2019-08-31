@@ -118,15 +118,21 @@ namespace ReligionsOfRimworld
                     return pawn.CanReserve((LocalTargetInfo)t, 1, -1, (ReservationLayerDef)null, false);
                 return false;
             });
-            if (baseValidator(task.HumanlikeIngredient.ConcretePawn))
+            if(task.HumanlikeIngredient.ConcretePawn != null)
             {
-                ThingCountUtility.AddToList(chosenIngThings, task.HumanlikeIngredient.ConcretePawn, 1);
-                return true;
+                if (baseValidator(task.HumanlikeIngredient.ConcretePawn))
+                {
+                    ThingCountUtility.AddToList(chosenIngThings, task.HumanlikeIngredient.ConcretePawn, 1);
+                    return true;
+                }
             }
-            if (baseValidator(task.AnimalIngredient.ConcretePawn))
+            if (task.AnimalIngredient.ConcretePawn != null)
             {
-                ThingCountUtility.AddToList(chosenIngThings, task.AnimalIngredient.ConcretePawn, 1);
-                return true;
+                if (baseValidator(task.AnimalIngredient.ConcretePawn))
+                {
+                    ThingCountUtility.AddToList(chosenIngThings, task.AnimalIngredient.ConcretePawn, 1);
+                    return true;
+                }
             }
             return false;
         }

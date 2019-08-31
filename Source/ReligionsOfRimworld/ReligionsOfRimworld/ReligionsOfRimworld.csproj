@@ -71,6 +71,8 @@
     <Compile Include="IngredientPawn.cs" />
     <Compile Include="ITab_ActivityTasks.cs" />
     <Compile Include="JobDriver_Pray.cs" />
+    <Compile Include="JobDriver_TiedDown.cs" />
+    <Compile Include="JobDriver_Untie.cs" />
     <Compile Include="JobGiver_Pray.cs" />
     <Compile Include="Dialog_AssignReligion.cs" />
     <Compile Include="JobDriver_ActivityPreparations.cs" />
@@ -163,6 +165,7 @@
     <Compile Include="Toils_ReligionActivity.cs" />
     <Compile Include="WorkGiver_DoActivityTask.cs" />
     <Compile Include="WorkGiver_DoReligionActivity.cs" />
+    <Compile Include="WorkGiver_UntiePawn.cs" />
     <Compile Include="WorldGenStep_Religions.cs" />
   </ItemGroup>
   <ItemGroup>

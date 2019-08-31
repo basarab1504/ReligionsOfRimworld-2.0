@@ -15,4 +15,17 @@
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
+  <WorkGiverDef>
+    <defName>DoUntiePawns</defName>
+    <label>untie</label>
+    <giverClass>ReligionsOfRimworld.WorkGiver_UntiePawn</giverClass>
+    <workType>Handling</workType>
+    <priorityInType>40</priorityInType>
+    <verb>untie</verb>
+    <gerund>untying</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
 </Defs>

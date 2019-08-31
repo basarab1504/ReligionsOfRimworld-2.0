@@ -86,6 +86,8 @@ namespace ReligionsOfRimworld
 
         public bool PawnAllowedToStartAnew(Pawn p)
         {
+            if (humanlike.ConcretePawn == p)
+                return false;
             if (this.pawnRestriction != null)
                 return this.pawnRestriction == p;
             return p.GetReligionComponent().Religion == ParentFacility.AssignedReligion;

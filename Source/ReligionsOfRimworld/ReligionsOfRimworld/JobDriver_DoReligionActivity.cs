@@ -22,6 +22,8 @@ namespace ReligionsOfRimworld
 
         public const TargetIndex IngredientPlaceCellInd = TargetIndex.C;
 
+        private Pawn PawnRelic => (Pawn)TargetB;
+
         public Building_ReligiousBuildingFacility TargetFacility
         {
             get
@@ -92,16 +94,49 @@ namespace ReligionsOfRimworld
             yield return extract;
             Toil getToHaulTarget = Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
             yield return getToHaulTarget;
+            yield return new Toil()
+            {
+                initAction = delegate
+                {
+                    if (PawnRelic != null)
+                    {
+                        if (this.job.def.makeTargetPrisoner)
+                        {
+                            Lord lord = PawnRelic.GetLord();
+                            if (lord != null)
+                            {
+                                lord.Notify_PawnAttemptArrested(PawnRelic);
+                            }
+                            GenClamor.DoClamor(PawnRelic, 10f, ClamorDefOf.Harm);
+                            if (!PawnRelic.CheckAcceptArrest(this.pawn))
+                            {
+                                this.PawnRelic.jobs.EndCurrentJob(JobCondition.Incompletable, true);
+                            }
+                        }
+                    }
+                }
+            };
             yield return Toils_Haul.StartCarryThing(TargetIndex.B, true, false, true);
             yield return JumpToCollectNextIntoHandsForBill(getToHaulTarget, TargetIndex.B);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnDestroyedOrNull(TargetIndex.B);
             Toil findPlaceTarget = Toils_JobTransforms.SetTargetToIngredientPlaceCell(TargetIndex.A, TargetIndex.B, TargetIndex.C);
             yield return findPlaceTarget;
             yield return PlaceHauledThingInCell(TargetIndex.C, findPlaceTarget, false);
-           
-            //Pawn target = (Pawn)this.job.GetTarget(TargetIndex.B).Thing;
-            //Log.Message(target.ToString());
-
+            yield return new Toil
+            {
+                
+                initAction = delegate
+                {
+                    if (PawnRelic != null)
+                    {
+                        IntVec3 position = this.job.GetTarget(TargetIndex.B).Cell;
+                        this.pawn.Notify_Teleported(false, true);
+                        this.pawn.stances.CancelBusyStanceHard();
+                        PawnRelic.jobs.StartJob(new Job(MiscDefOf.TiedDown, (LocalTargetInfo)position), JobCondition.InterruptForced, (ThinkNode)null, false, true, (ThinkTreeDef)null, new JobTag?(JobTag.Idle), false);
+                    }
+                },
+                defaultCompleteMode = ToilCompleteMode.Instant
+            };
             yield return Toils_Jump.JumpIfHaveTargetInQueue(TargetIndex.B, extract);
             yield return gotoBillGiver;
             yield return StartActivity();
@@ -282,5 +317,29 @@ namespace ReligionsOfRimworld
             };
             return toil;
         }
+
+        //private void CheckMakeTakeePrisoner()
+        //{
+        //    if (this.job.def.makeTargetPrisoner)
+        //    {
+        //        if (this.PawnRelic.guest.Released)
+        //        {
+        //            this.PawnRelic.guest.Released = false;
+        //            this.PawnRelic.guest.interactionMode = PrisonerInteractionModeDefOf.NoInteraction;
+        //        }
+        //        if (!this.PawnRelic.IsPrisonerOfColony)
+        //        {
+        //            this.PawnRelic.guest.CapturedBy(Faction.OfPlayer, this.pawn);
+        //        }
+        //    }
+        //}
+
+        //private void CheckMakeTakeeGuest()
+        //{
+        //    if (!this.job.def.makeTargetPrisoner && this.PawnRelic.Faction != Faction.OfPlayer && this.PawnRelic.HostFaction != Faction.OfPlayer && this.PawnRelic.guest != null && !this.PawnRelic.IsWildMan())
+        //    {
+        //        this.PawnRelic.guest.SetGuestStatus(Faction.OfPlayer, false);
+        //    }
+        //}
     }
 }
