@@ -19,7 +19,7 @@
 	    <defName>UwU</defName>
 		<activityNodes>
 	    	<li>
-	    		<organizerJob>ReadPrayers</organizerJob>
+	    		<organizerJob>Sacrifice</organizerJob>
 	        	<congregationJob>ListenPrayers</congregationJob>
 	    	</li>
 		</activityNodes>

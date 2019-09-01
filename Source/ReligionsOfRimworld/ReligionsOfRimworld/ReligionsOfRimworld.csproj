@@ -71,6 +71,7 @@
     <Compile Include="IngredientPawn.cs" />
     <Compile Include="ITab_ActivityTasks.cs" />
     <Compile Include="JobDriver_Pray.cs" />
+    <Compile Include="JobDriver_Sacrifice.cs" />
     <Compile Include="JobDriver_TiedDown.cs" />
     <Compile Include="JobDriver_Untie.cs" />
     <Compile Include="JobGiver_Pray.cs" />

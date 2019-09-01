@@ -17,6 +17,14 @@
   </JobDef>
 
   <JobDef>
+    <defName>Sacrifice</defName>
+    <driverClass>ReligionsOfRimworld.JobDriver_Sacrifice</driverClass>
+    <reportString>sacrifice</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
     <defName>ReadPrayers</defName>
     <driverClass>ReligionsOfRimworld.JobDriver_ReadPrayers</driverClass>
     <reportString>read</reportString>

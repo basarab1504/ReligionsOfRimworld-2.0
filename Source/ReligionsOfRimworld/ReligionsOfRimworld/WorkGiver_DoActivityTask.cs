@@ -57,16 +57,13 @@ namespace ReligionsOfRimworld
                     task.LastIngredientSearchFailTicks = 0;
                     if (/*schedule.ShouldDoNow(task) && */schedule.PawnAllowedToStartAnew(pawn, task))
                     {
-                        if (!TryFindRestrictedIngridients(task, pawn, giver, chosenIngThings))
+                        if (!TryFindRestrictedIngridients(task, pawn, giver, chosenIngThings) && !TryFindBestTaskIngredients(task, pawn, giver, chosenIngThings))
                         {
-                            if (!TryFindBestTaskIngredients(task, pawn, giver, chosenIngThings))
-                            {
-                                if (FloatMenuMakerMap.makingFor != pawn)
-                                    task.LastIngredientSearchFailTicks = Find.TickManager.TicksGame;
-                                else
-                                    JobFailReason.Is("MissingMaterials".Translate(), task.Label);
-                                this.chosenIngThings.Clear();
-                            }
+                            if (FloatMenuMakerMap.makingFor != pawn)
+                                task.LastIngredientSearchFailTicks = Find.TickManager.TicksGame;
+                            else
+                                JobFailReason.Is("MissingMaterials".Translate(), task.Label);
+                            this.chosenIngThings.Clear();
                         }
                         else
                         {
