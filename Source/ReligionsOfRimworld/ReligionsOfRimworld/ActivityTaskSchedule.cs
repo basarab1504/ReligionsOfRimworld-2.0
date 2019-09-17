@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,15 @@ namespace ReligionsOfRimworld
         public Building_ReligiousBuildingFacility Facility => facility;
         public IEnumerable<ScheduledDay> ScheduledDays => scheduledDays;
 
+        public IEnumerable<ActivityTask> TodayTasks
+        {
+            get
+            {
+                ScheduledDay today = scheduledDays[GenLocalDate.DayOfQuadrum(Find.CurrentMap)];
+                return today.Tasks;
+            }
+        }
+
         public IEnumerable<ActivityTask> AllTasks()
         {
             foreach (ScheduledDay day in scheduledDays)
@@ -34,22 +44,24 @@ namespace ReligionsOfRimworld
                     yield return task;
         }
 
-        public bool AnyShouldDoNow()
-        {
-            return scheduledDays.Any(x => x.AnyShouldDoNow());
-        }
+        //public bool AnyShouldDoNow()
+        //{
+        //    ScheduledDay today = scheduledDays[GenLocalDate.DayOfQuadrum(Find.CurrentMap)];
+        //    return today.AnyShouldDoNow();
+        //}
 
-        public bool ShouldDoNow(ActivityTask task)
-        {
-            if (scheduledDays.Any(x => x.ShouldDoNow(task)))
-                return true;
-            return false;
-        }
+        //public bool ShouldDoNow(ActivityTask task)
+        //{
 
-        public bool PawnAllowedToStartAnew(Pawn p, ActivityTask task)
-        {
-            return task.PawnAllowedToStartAnew(p);
-        }
+        //    if (scheduledDays.Any(x => x.ShouldDoNow(task)))
+        //        return true;
+        //    return false;
+        //}
+
+        //public bool PawnAllowedToStartAnew(Pawn p, ActivityTask task)
+        //{
+        //    return task.PawnAllowedToStartAnew(p);
+        //}
 
         public void Create(int dayNumber)
         {

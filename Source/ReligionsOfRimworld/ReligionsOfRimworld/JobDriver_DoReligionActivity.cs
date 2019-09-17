@@ -12,7 +12,7 @@ namespace ReligionsOfRimworld
 {
     public class JobDriver_DoReligionActivity : JobDriver
     {
-        public int billStartTick;
+        public int activityStartTick;
 
         public const PathEndMode GotoIngredientPathEndMode = PathEndMode.ClosestTouch;
 
@@ -22,7 +22,15 @@ namespace ReligionsOfRimworld
 
         public const TargetIndex IngredientPlaceCellInd = TargetIndex.C;
 
-        private Pawn PawnRelic => (Pawn)TargetB;
+        private Pawn PawnRelic
+        {
+            get
+            {
+                if (TargetB.HasThing && TargetB.Thing is Pawn)
+                    return (Pawn)TargetB;
+                return null;
+            }
+        }
 
         public Building_ReligiousBuildingFacility TargetFacility
         {
@@ -31,7 +39,7 @@ namespace ReligionsOfRimworld
                 Building_ReligiousBuildingFacility targetFacility = this.job.GetTarget(TargetIndex.A).Thing as Building_ReligiousBuildingFacility;
                 if (targetFacility == null)
                 {
-                    throw new InvalidOperationException("DoBill on non-Facility.");
+                    throw new InvalidOperationException("DoActivity on non-Facility.");
                 }
                 return targetFacility;
             }
@@ -49,7 +57,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<int>(ref this.billStartTick, "billStartTick", 0, false);
+            Scribe_Values.Look<int>(ref this.activityStartTick, "activityStartTick", 0, false);
         }
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)

@@ -49,7 +49,5 @@ namespace ReligionsOfRimworld
                 PietyUtility.TryApplyOnPawn(pawn.GetReligionComponent().Religion.PrayingSettings.PrayProperty, pawn);
             });
         }
-
-        private ReligionPropertyData Data => pawn.GetReligionComponent().Religion.PrayingSettings.PrayProperty;
     }
 }

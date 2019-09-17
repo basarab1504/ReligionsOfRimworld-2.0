@@ -41,7 +41,7 @@ namespace ReligionsOfRimworld
         {
             Building_ReligiousBuildingFacility giver = thing as Building_ReligiousBuildingFacility;
 
-            if ((!giver.TaskSchedule.AnyShouldDoNow() && (!pawn.CanReserve((LocalTargetInfo)thing, 1, -1, (ReservationLayerDef)null, forced) || thing.IsBurning() || thing.IsForbidden(pawn))))
+            if ((giver.TaskSchedule.TodayTasks.Count() == 0 || (!pawn.CanReserve((LocalTargetInfo)thing, 1, -1, (ReservationLayerDef)null, forced) || thing.IsBurning() || thing.IsForbidden(pawn))))
                 return (Job)null;
             return this.StartOrResumeBillJob(pawn, giver);
         }
@@ -50,12 +50,12 @@ namespace ReligionsOfRimworld
         {
             ActivityTaskSchedule schedule = giver.TaskSchedule;
 
-            foreach (ActivityTask task in schedule.AllTasks())
+            foreach (ActivityTask task in schedule.TodayTasks)
             {
                 if ((Find.TickManager.TicksGame >= task.LastIngredientSearchFailTicks + ReCheckFailedBillTicksRange.RandomInRange || FloatMenuMakerMap.makingFor == pawn))
                 {
                     task.LastIngredientSearchFailTicks = 0;
-                    if (/*schedule.ShouldDoNow(task) && */schedule.PawnAllowedToStartAnew(pawn, task))
+                    if (task.ShouldDoNow() && task.PawnAllowedToStartAnew(pawn))
                     {
                         if (!TryFindRestrictedIngridients(task, pawn, giver, chosenIngThings) && !TryFindBestTaskIngredients(task, pawn, giver, chosenIngThings))
                         {

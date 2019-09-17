@@ -22,6 +22,7 @@ namespace ReligionsOfRimworld
         private int startHour;
         private IngredientPawn humanlike;
         private IngredientPawn animal;
+        private int lastCompletedTick;
 
         public ActivityTask(ScheduledDay dayOfTask, ActivityTaskDef def)
         {
@@ -75,13 +76,23 @@ namespace ReligionsOfRimworld
         public bool ShouldDoNow()
         {
             if (!suspended)
-                return true;
+            {
+                Log.Message("t " + Find.TickManager.TicksGame.ToString());
+                Log.Message("l " + (lastCompletedTick + 7500).ToString());
+
+                if(Find.TickManager.TicksGame >= lastCompletedTick + 7500)
+                {
+                    Log.Message("TI");
+                    int currentHour = GenLocalDate.HourOfDay(Find.CurrentMap);
+                    return Math.Abs(startHour - currentHour) <= 1;
+                }
+            }
             return false;
         }
 
         public void Notify_IterationCompleted(Pawn pawn)
         {
-            suspended = true;
+            lastCompletedTick = Find.TickManager.TicksGame;
         }
 
         public bool PawnAllowedToStartAnew(Pawn p)
@@ -156,17 +167,6 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            //private int loadID = -1;
-            //private ScheduledDay dayOfTask;
-            //private SimpleFilter filter;
-            //private float ingredientSearchRadius = 999f;
-            //private int lastIngredientSearchFailTicks = -99999;
-            //private bool suspended;
-            //private Pawn pawnRestriction;
-            //private ActivityTaskDef property;
-            //private int startHour;
-            //private IngredientPawn humanlike;
-            //private IngredientPawn animal;
             Scribe_Values.Look<int>(ref loadID, "loadID");
             Scribe_Deep.Look<SimpleFilter>(ref this.filter, "filter", Enumerable.Empty<ThingDef>());
             Scribe_Values.Look<float>(ref ingredientSearchRadius, "ingredientSearchRadius");
@@ -176,6 +176,7 @@ namespace ReligionsOfRimworld
             Scribe_Values.Look<int>(ref startHour, "startHour");
             Scribe_Deep.Look<IngredientPawn>(ref this.humanlike, "humanlikeIngredient");
             Scribe_Deep.Look<IngredientPawn>(ref this.animal, "animalIngredient");
+            Scribe_Values.Look<int>(ref this.lastCompletedTick, "lastCompletedTick");
         }
     }
 }
