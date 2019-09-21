@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionPermission_Hediff : ReligionPermission
+    public class ReligionPermission_Hediff : JoiningCriteria
     {
         public HediffDef permission;
 

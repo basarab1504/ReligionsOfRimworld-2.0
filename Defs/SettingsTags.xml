@@ -7,8 +7,8 @@
 	</ReligionsOfRimworld.SettingsTagDef>
 
 	<ReligionsOfRimworld.SettingsTagDef>
-		<defName>JoiningRestrictionsTag</defName>
-		<label>JoiningRestrictionsTag</label>
+		<defName>JoiningCriteriaTag</defName>
+		<label>JoiningCriteriaTag</label>
 		<description>suu</description>		
 	</ReligionsOfRimworld.SettingsTagDef>
 

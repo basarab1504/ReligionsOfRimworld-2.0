@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionPermission_Gender : ReligionPermission
+    public class ReligionPermission_Gender : JoiningCriteria
     {
         Gender permission;
 

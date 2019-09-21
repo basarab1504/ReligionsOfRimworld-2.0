@@ -6,10 +6,10 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public abstract class ReligionPermission : IExposable
+    public abstract class JoiningCriteria : IExposable
     {
         protected bool shouldHave = true;
-        protected ReligionPermissionImportance importance = ReligionPermissionImportance.Regular;
+        protected ReligionCriteriaImportance importance = ReligionCriteriaImportance.Regular;
 
         public abstract string Reason
         {
@@ -17,7 +17,7 @@ namespace ReligionsOfRimworld
         }
 
         public bool ShouldHave => shouldHave;
-        public ReligionPermissionImportance Importance => importance;
+        public ReligionCriteriaImportance Importance => importance;
 
         public float PermissionRate(Pawn pawn)
         {
@@ -25,13 +25,13 @@ namespace ReligionsOfRimworld
             {
                 switch (importance)
                 {
-                    case ReligionPermissionImportance.Low:
+                    case ReligionCriteriaImportance.Low:
                         return .25f;
-                    case ReligionPermissionImportance.Regular:
+                    case ReligionCriteriaImportance.Regular:
                         return .5f;
-                    case ReligionPermissionImportance.Important:
+                    case ReligionCriteriaImportance.Important:
                         return .75f;
-                    case ReligionPermissionImportance.Critical:
+                    case ReligionCriteriaImportance.Critical:
                         return 1f;
                     default:
                         return 0f;

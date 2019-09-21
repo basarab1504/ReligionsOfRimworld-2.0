@@ -35,11 +35,11 @@ namespace ReligionsOfRimworld
             return compabilities.RandomElementByWeight(x => x.Value).Key;
         }
 
-        private float CalculateCompabilityForReligion(ReligionSettings_JoiningRestriction settings)
+        private float CalculateCompabilityForReligion(ReligionSettings_JoiningCriteria settings)
         {
             float currentCompability = 1f;
 
-            foreach (ReligionPermission permission in settings.Permissions)
+            foreach (JoiningCriteria permission in settings.Permissions)
             {
                 currentCompability *= (1 - permission.PermissionRate(pawn));
             }

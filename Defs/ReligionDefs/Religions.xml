@@ -12,7 +12,7 @@
 		<groupTag>ReligionOfOneGroup</groupTag>
 		<settingsDefs>
 			<li>RoRNeedSettingsPiety</li>
-			<li>RoRJoiningRestrictionTest</li>
+			<li>RoRJoiningCriteriaTest</li>
 			<li>RoRTalksSettingsDefault</li>
 			<li>RoRIncidentsTest</li>
 			<li>RoRMentalBreaksTest</li>
@@ -38,7 +38,7 @@
 		<groupTag>SecondReligionGroup</groupTag>		
 		<settingsDefs>
 			<li>RoRNeedSettingsPiety</li>
-			<li>RoRJoiningRestrictionTest</li>
+			<li>RoRJoiningCriteriaTest</li>
 			<li>RoRTalksSettingsDefault</li>
 			<li>RoROpinionSettingsTest</li>
 			<li>RoRIncidentsTest</li>

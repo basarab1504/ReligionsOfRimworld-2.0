@@ -77,12 +77,8 @@ namespace ReligionsOfRimworld
         {
             if (!suspended)
             {
-                Log.Message("t " + Find.TickManager.TicksGame.ToString());
-                Log.Message("l " + (lastCompletedTick + 7500).ToString());
-
                 if(Find.TickManager.TicksGame >= lastCompletedTick + 7500)
                 {
-                    Log.Message("TI");
                     int currentHour = GenLocalDate.HourOfDay(Find.CurrentMap);
                     return Math.Abs(startHour - currentHour) <= 1;
                 }

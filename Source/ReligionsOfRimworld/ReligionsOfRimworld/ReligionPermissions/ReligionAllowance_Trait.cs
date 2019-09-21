@@ -7,7 +7,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionPermission_Trait : ReligionPermission
+    public class ReligionPermission_Trait : JoiningCriteria
     {
         public TraitDef permission;
 

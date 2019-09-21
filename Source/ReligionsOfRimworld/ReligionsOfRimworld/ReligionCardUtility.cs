@@ -71,8 +71,10 @@ namespace ReligionsOfRimworld
                     Piety.DrawOnGUI(rect2, int.MaxValue, -1f, true, true);
 
                 Rect prayNeedRect = new Rect(rect.x, rect2.y + 40, 225f, 70);
-                if (CompReligion.PrayTracker.PrayNeed != null)
-                    CompReligion.PrayTracker.PrayNeed.DrawOnGUI(prayNeedRect);
+
+                if(Prefs.DevMode)
+                    if (CompReligion.PrayTracker.PrayNeed != null)
+                        CompReligion.PrayTracker.PrayNeed.DrawOnGUI(prayNeedRect);
 
                 Rect rect3 = new Rect(rect.x, prayNeedRect.y + 80, rect.width, 20f);
                 if (Mouse.IsOver(rect3))

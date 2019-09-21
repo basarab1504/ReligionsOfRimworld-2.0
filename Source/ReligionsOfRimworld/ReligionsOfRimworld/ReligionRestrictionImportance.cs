@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ReligionsOfRimworld
 {
-    public enum ReligionPermissionImportance
+    public enum ReligionCriteriaImportance
     {
         Low,
         Regular,

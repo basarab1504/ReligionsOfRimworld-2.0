@@ -12,7 +12,7 @@ namespace ReligionsOfRimworld
         private ReligionDef religionDef;
         private ReligionConfiguration configuration;
         private ReligionSettings_PietyNeed needSettings;
-        private ReligionSettings_JoiningRestriction joiningRestrictionsSettings;
+        private ReligionSettings_JoiningCriteria joiningRestrictionsSettings;
         private ReligionSettings_ReligionTalks religionTalksSettings;
         private ReligionSettings_Incidents incidentsSettings;
         private ReligionSettings_MentalBreaks mentalBreaksSettings;
@@ -50,7 +50,7 @@ namespace ReligionsOfRimworld
         public ReligionGroupTagDef GroupTag => configuration.GroupTag;
         public IEnumerable<ReligionSettings> AllSettings => configuration.Settings;
         public ReligionSettings_PietyNeed NeedSettings => needSettings;
-        public ReligionSettings_JoiningRestriction JoiningRestrictionsSettings => joiningRestrictionsSettings;
+        public ReligionSettings_JoiningCriteria JoiningRestrictionsSettings => joiningRestrictionsSettings;
         public ReligionSettings_ReligionTalks ReligionTalksSettings => religionTalksSettings;
         public ReligionSettings_Incidents IncidentsSettings => incidentsSettings;
         public ReligionSettings_MentalBreaks MentalBreaksSettings => mentalBreaksSettings;
@@ -80,7 +80,7 @@ namespace ReligionsOfRimworld
         private void InitializeReligion()
         {
             needSettings = configuration.FindByTag<ReligionSettings_PietyNeed>(SettingsTagDefOf.NeedTag);
-            joiningRestrictionsSettings = configuration.FindByTag<ReligionSettings_JoiningRestriction>(SettingsTagDefOf.JoiningRestrictionsTag);
+            joiningRestrictionsSettings = configuration.FindByTag<ReligionSettings_JoiningCriteria>(SettingsTagDefOf.JoiningCriteriaTag);
             religionTalksSettings = configuration.FindByTag<ReligionSettings_ReligionTalks>(SettingsTagDefOf.TalksTag);
             incidentsSettings = configuration.FindByTag<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag);
             mentalBreaksSettings = configuration.FindByTag<ReligionSettings_MentalBreaks>(SettingsTagDefOf.MentalBreaksTag);

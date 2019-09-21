@@ -6,28 +6,36 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionSettings_JoiningRestriction : ReligionSettings
+    public class ReligionSettings_JoiningCriteria : ReligionSettings
     {
-        private List<ReligionPermission> permissions;
+        private List<JoiningCriteria> criteria;
 
-        public ReligionSettings_JoiningRestriction()
+        public ReligionSettings_JoiningCriteria()
         {
             if(Scribe.mode == LoadSaveMode.Inactive)
-            permissions = new List<ReligionPermission>();
+            criteria = new List<JoiningCriteria>();
         }
 
-        public IEnumerable<ReligionPermission> Permissions => permissions;
+        public IEnumerable<JoiningCriteria> Permissions => criteria;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        {      
+            foreach(JoiningCriteria joiningCriteria in criteria)
+                yield return new ReligionInfoEntry("ReligionInfo_Permission".Translate(), CriteriaExplanation(joiningCriteria));
+        }
+
+        private string CriteriaExplanation(JoiningCriteria criteria)
         {
-            foreach(ReligionPermission permission in permissions)
-                yield return new ReligionInfoEntry("ReligionInfo_Permission".Translate(), permission.Reason);
+            if (criteria.ShouldHave)
+                return $"lack of \"{criteria.Reason}\" required";
+            else
+                return $"\"{criteria.Reason}\" required";
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.Look<ReligionPermission>(ref this.permissions, "permissions", LookMode.Deep);
+            Scribe_Collections.Look<JoiningCriteria>(ref this.criteria, "criteria", LookMode.Deep);
         }
     }
 }

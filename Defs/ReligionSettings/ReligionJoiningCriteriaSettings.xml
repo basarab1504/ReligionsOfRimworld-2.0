@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionSettingsDef Name="RoRJoiningCriteriaBase" Abstract="true">
+		<settings Class="ReligionsOfRimworld.ReligionSettings_JoiningCriteria">
+			<tag>JoiningCriteriaTag</tag>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRJoiningCriteriaBase">
+		<defName>RoRJoiningCriteriaTest</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_JoiningCriteria">
+			<criteria>
+				<li Class="ReligionsOfRimworld.ReligionPermission_Gender">
+					<permission>Male</permission>
+					<importance>Important</importance>
+				</li>
+			</criteria>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>
