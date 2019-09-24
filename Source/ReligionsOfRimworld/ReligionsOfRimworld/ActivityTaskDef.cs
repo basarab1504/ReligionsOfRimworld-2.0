@@ -31,9 +31,10 @@ namespace ReligionsOfRimworld
             }
         }
 
-
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
+            yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), label);
+
             if (organizerProperty != null)
                 foreach (ReligionInfoEntry entry in organizerProperty.GetInfoEntries())
                     yield return entry;

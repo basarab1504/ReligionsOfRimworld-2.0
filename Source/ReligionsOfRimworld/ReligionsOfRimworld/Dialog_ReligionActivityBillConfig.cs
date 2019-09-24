@@ -436,7 +436,7 @@ namespace ReligionsOfRimworld
                     {
                         yield return new Widgets.DropdownMenuElement<Pawn>
                         {
-                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "Religion_WrongReligion".Translate(pawn.GetReligionComponent().Religion.Label)), null, MenuOptionPriority.Default, null, null, 0f, null, null),
+                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "ReligionInfo_WrongReligion".Translate(pawn.GetReligionComponent().Religion.Label)), null, MenuOptionPriority.Default, null, null, 0f, null, null),
                             payload = pawn
                         };
                         continue;

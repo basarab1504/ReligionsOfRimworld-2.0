@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<ReligionInfo_Description>Description</ReligionInfo_Description>
+<ReligionInfo_Criteria>Criteria</ReligionInfo_Criteria>
+<ReligionInfo_SeekerFallPerHour>Fall per hour</ReligionInfo_SeekerFallPerHour>
+<ReligionInfo_PrayJob>Pray job</ReligionInfo_PrayJob>
+<ReligionInfo_Building>Building</ReligionInfo_Building>
+<ReligionInfo_GroupTag>Group tag</ReligionInfo_GroupTag>
+<ReligionInfo_Object>Object</ReligionInfo_Object>
+<ReligionInfo_IndividualThought>Individual thought</ReligionInfo_IndividualThought>
+<ReligionInfo_SocialThought>Social thought</ReligionInfo_SocialThought>
+<ReligionInfo_IndividualPiety>Individual piety</ReligionInfo_IndividualPiety>
+<ReligionInfo_PietySituational>Piety situational</ReligionInfo_PietySituational>
+<ReligionInfo_DurationDays>Duration days</ReligionInfo_DurationDays>
+<ReligionInfo_Stages>Stages</ReligionInfo_Stages>
+<ReligionInfo_Stage>Stage</ReligionInfo_Stage>
+<ReligionInfo_PietyOffset>Piety effect</ReligionInfo_PietyOffset>
+<ReligionInfo_BaseMoodEffect>Mood effect</ReligionInfo_BaseMoodEffect>
+<ReligionInfo_BaseOpinionOffset>Opinion effect</ReligionInfo_BaseOpinionOffset>
+<ReligionInfo_BaseChanceOfConversation>Base chance of converstaion</ReligionInfo_BaseChanceOfConversation>
+<ReligionInfo_MoodFactorCurve>Mood factor curve</ReligionInfo_MoodFactorCurve>
+<ReligionInfo_OpinionFactorCurve>Opinion factor curve</ReligionInfo_OpinionFactorCurve>
+<ReligionInfo_ActivityStartHour>Start hour</ReligionInfo_ActivityStartHour>
+<ReligionInfo_ActivityPawnRestriction>Pawn restriction</ReligionInfo_ActivityPawnRestriction>
+<ReligionInfo_Unavaliable>Unavaliable</ReligionInfo_Unavaliable>
+<ReligionInfo_WrongReligion>Wrong religion: {0}</ReligionInfo_WrongReligion>
+<ReligionInfo_ActivityPawnHumanlike>Activity pawn</ReligionInfo_ActivityPawnHumanlike>
+<ReligionInfo_IsPrisonerOfColony>Is prisoner of colony</ReligionInfo_IsPrisonerOfColony>
+<ReligionInfo_ActivityPawnAnimal>Activity animal</ReligionInfo_ActivityPawnAnimal>
+<ReligionInfo_IsTamed>Is tamed</ReligionInfo_IsTamed>
+<ReligionInfo_Day>Day</ReligionInfo_Day>
+<ReligionInfo_AddTask>Add task</ReligionInfo_AddTask>
+<ReligionInfo_NowBelieveIn>Now believe in</ReligionInfo_NowBelieveIn>
+<ReligionInfo_IsNowReligious>Is now religious</ReligionInfo_IsNowReligious>
+<ReligionInfo_Tasks>Tasks</ReligionInfo_Tasks>
+<ReligionInfo_CriteriaImportance>Criteria importance</ReligionInfo_CriteriaImportance>
+<ReligionInfo_BuildingIsNotAvaliable>Building is not avaliable</ReligionInfo_BuildingIsNotAvaliable>
+<ReligionInfo_NoPawnsOfReligion>No pawns of {0}</ReligionInfo_NoPawnsOfReligion>
+<ReligionInfo_Activity>Activity</ReligionInfo_Activity>
+<ReligionInfo_NoAssignedReligion>No assigned religion</ReligionInfo_NoAssignedReligion>
+<ReligiousBuilgingAssigner_SelectABuilding>Select a building</ReligiousBuilgingAssigner_SelectABuilding>
+<ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign>Building is not complete to assign</ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign>
+<ReligiousBuilgingAssigner_BuildingWasUnassigned>Building was unassigned</ReligiousBuilgingAssigner_BuildingWasUnassigned>
+<ReligiousBuilgingAssigner_AssigningIsNotAllowed>Assigning is not allowed</ReligiousBuilgingAssigner_AssigningIsNotAllowed>
+<ReligiousBuilgingAssigner_AssignBuildings>Assign building</ReligiousBuilgingAssigner_AssignBuildings>
+<ReligiousBuilgingAssigner_AssignBuildingsDesc>description</ReligiousBuilgingAssigner_AssignBuildingsDesc>
+<ReligionInfo_AssignReligion>Assign religion</ReligionInfo_AssignReligion>
+<ReligionInfo_AssignReligionDesc>desc</ReligionInfo_AssignReligionDesc>
+<ReligionInfo_Overall>Overall</ReligionInfo_Overall>
+<ReligionInfo_PietyOverall>Piety overall</ReligionInfo_PietyOverall>
+<ReligionInfo_Restrictions>Restrictions</ReligionInfo_Restrictions>
+<ReligionInfo_RestrictAttend>Restrict attend</ReligionInfo_RestrictAttend>
+<ReligionInfo_MayDoReligionActivities>May do activities</ReligionInfo_MayDoReligionActivities>
+<ReligionInfo_RestrictConvert>Restrict religion convert</ReligionInfo_RestrictConvert>
+<ReligionInfo_Compabilities>Compabilities</ReligionInfo_Compabilities>
+<ReligionInfo_Incident>Incident</ReligionInfo_Incident>
+<ReligionInfo_MentalBreak>Mental break</ReligionInfo_MentalBreak>
+<ReligionTab>Religion tab</ReligionTab>
+<ReligionTutorTag>Religion</ReligionTutorTag>
+</LanguageData>

@@ -79,7 +79,7 @@ namespace ReligionsOfRimworld
                 Rect rect3 = new Rect(rect.x, prayNeedRect.y + 80, rect.width, 20f);
                 if (Mouse.IsOver(rect3))
                     Widgets.DrawHighlight(rect3);
-                Widgets.Label(rect3, "PietyOverall".Translate() + " " + Piety.CurInstantLevel);
+                Widgets.Label(rect3, "ReligionInfo_PietyOverall".Translate() + " " + Piety.CurInstantLevel);
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append(Religion.Label);
                 TooltipHandler.TipRegion(rect3, new TipSignal(stringBuilder.ToString(), 7773));
@@ -128,26 +128,26 @@ namespace ReligionsOfRimworld
         {
             GUI.BeginGroup(rect);
             float y = 0.0f;
-            Widgets.ListSeparator(ref y, rect.width, "Restrictions".Translate());
+            Widgets.ListSeparator(ref y, rect.width, "ReligionInfo_Restrictions".Translate());
             Rect rect2 = new Rect(rect.x, y, rect.width, 24f);
             y += 24f;
 
             bool mayConvertByTalking = pawn.GetReligionComponent().ReligionRestrictions.MayConvertByTalking;
-            Widgets.CheckboxLabeled(rect2, "restrict_attend", ref mayConvertByTalking);
+            Widgets.CheckboxLabeled(rect2, "ReligionInfo_RestrictAttend".Translate(), ref mayConvertByTalking);
             pawn.GetReligionComponent().ReligionRestrictions.MayConvertByTalking = mayConvertByTalking;
 
             Rect rect3 = new Rect(rect.x, y, rect2.width, 24f);
             y += 24f;
 
             bool mayDoReligionActivities = pawn.GetReligionComponent().ReligionRestrictions.MayDoReligionActivities;
-            Widgets.CheckboxLabeled(rect3, "restrict_convert", ref mayDoReligionActivities);
+            Widgets.CheckboxLabeled(rect3, "ReligionInfo_MayDoReligionActivities".Translate(), ref mayDoReligionActivities);
             pawn.GetReligionComponent().ReligionRestrictions.MayDoReligionActivities = mayDoReligionActivities;
 
             Rect rect4 = new Rect(rect.x, y, rect2.width, 24f);
             y += 24f;
 
             bool mayPray = pawn.GetReligionComponent().ReligionRestrictions.MayPray;
-            Widgets.CheckboxLabeled(rect4, "restrict_convert", ref mayDoReligionActivities);
+            Widgets.CheckboxLabeled(rect4, "ReligionInfo_RestrictConvert".Translate(), ref mayPray);
             pawn.GetReligionComponent().ReligionRestrictions.MayPray = mayPray;
 
             curY += y;
@@ -158,7 +158,7 @@ namespace ReligionsOfRimworld
         {
             GUI.BeginGroup(rect);
             float y = 0.0f;
-            Widgets.ListSeparator(ref y, rect.width, "Compabilities".Translate());
+            Widgets.ListSeparator(ref y, rect.width, "ReligionInfo_Compabilities".Translate());
             float height = CompReligion.ReligionCompability.Compabilities.Count() * 24f;
             Widgets.BeginScrollView(new Rect(0.0f, y, rect.width, rect.height), ref scrollPosition, new Rect(0.0f, y, rect.width, height), true);
             foreach (KeyValuePair<Religion, float> kvp in CompReligion.ReligionCompability.Compabilities)

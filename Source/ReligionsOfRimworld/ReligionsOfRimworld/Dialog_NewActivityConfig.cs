@@ -38,7 +38,7 @@ namespace ReligionsOfRimworld
         {
             Text.Font = GameFont.Medium;
             Rect rect = new Rect(0f, 0f, 400f, 50f);
-            Widgets.Label(rect, "Day".Translate() + " " + day.DayNumber);
+            Widgets.Label(rect, "ReligionInfo_Day".Translate() + " " + day.DayNumber);
             Text.Font = GameFont.Small;
             Rect rect2 = new Rect(0f, 50f, inRect.width, inRect.height - 50f - this.CloseButSize.y);
             DoListing(rect2);
@@ -49,7 +49,7 @@ namespace ReligionsOfRimworld
             GUI.BeginGroup(rect);
             Text.Font = GameFont.Small;
             WidgetRow widgetRow = new WidgetRow(0.0f, 0.0f, UIDirection.RightThenDown, 99999f, 4f);
-            if (widgetRow.ButtonText("AddTask".Translate()))
+            if (widgetRow.ButtonText("ReligionInfo_AddTask".Translate()))
                 Find.WindowStack.Add((Window)new FloatMenu(menuOptions));
             Text.Anchor = TextAnchor.UpperLeft;
             GUI.color = Color.white;

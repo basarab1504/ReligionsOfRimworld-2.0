@@ -23,7 +23,7 @@ namespace ReligionsOfRimworld
         public ITab_ActivityTasks()
         {
             this.size = ITab_ActivityTasks.WinSize;
-            this.labelKey = "Religion_Tasks".Translate();
+            this.labelKey = "ReligionInfo_Tasks".Translate();
         }
 
         protected Building_ReligiousBuildingFacility SelFacility => (Building_ReligiousBuildingFacility)this.SelThing;
@@ -33,7 +33,7 @@ namespace ReligionsOfRimworld
         {
             if (!SelFacility.IsComplete)
             {
-                Widgets.Label(new Rect(0.0f, 0.0f, ITab_ActivityTasks.WinSize.x, ITab_ActivityTasks.WinSize.y).ContractedBy(25f), "Religion_BuildingIsNotAvaliable".Translate());
+                Widgets.Label(new Rect(0.0f, 0.0f, ITab_ActivityTasks.WinSize.x, ITab_ActivityTasks.WinSize.y).ContractedBy(25f), "ReligionInfo_BuildingIsNotAvaliable".Translate());
                 return;
             }
             else
@@ -101,14 +101,14 @@ namespace ReligionsOfRimworld
             }
             if(day.Tasks.Count() > 3)
             {
-                Widgets.Label(new Rect(rect.x, curY, rect.width, height), "AndXTasksMore".Translate((NamedArgument)(day.Tasks.Count() - 3).ToString()));
+                Widgets.Label(new Rect(rect.x, curY, rect.width, height), "ReligionInfo_AndXTasksMore".Translate((NamedArgument)(day.Tasks.Count() - 3).ToString()));
             }
             Text.Font = GameFont.Small;
         }
 
         private void CreateNoPawnsOfReligionDialog(Religion religion)
         {
-            Find.WindowStack.Add((Window)new Dialog_MessageBox("ReligionActivity_NoPawnsOfReligion".Translate((NamedArgument)religion.Label), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
+            Find.WindowStack.Add((Window)new Dialog_MessageBox("ReligionInfo_NoPawnsOfReligion".Translate((NamedArgument)religion.Label), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
         }
 
         private List<FloatMenuOption> GetFloatMenuOptions(ScheduledDay day)

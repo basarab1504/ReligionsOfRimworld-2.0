@@ -110,7 +110,7 @@ namespace ReligionsOfRimworld
         {
             Listing_Standard listing_Standard = holder.BeginSection(40f);
             int value = task.StartHour;
-            listing_Standard.TextFieldNumericLabeled("ActivityStartHour".Translate(), ref value, ref buffer, 0, 23);
+            listing_Standard.TextFieldNumericLabeled("ReligionInfo_ActivityStartHour".Translate(), ref value, ref buffer, 0, 23);
             task.StartHour = value;
             holder.EndSection(listing_Standard);
         }
@@ -119,7 +119,7 @@ namespace ReligionsOfRimworld
         private void PawnRestriction(Listing_Standard holder)
         {
             Listing_Standard listing_Standard = holder.BeginSection(100f);
-            listing_Standard.Label("RoR_ActivityPawnRestriction".Translate());
+            listing_Standard.Label("ReligionInfo_ActivityPawnRestriction".Translate());
             Widgets.Dropdown<ActivityTask, Pawn>(listing_Standard.GetRect(30f), this.task, (ActivityTask b) => b.PawnRestriction, (ActivityTask b) => this.GeneratePawnRestrictionOptions(), (this.task.PawnRestriction != null) ? this.task.PawnRestriction.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
         }
@@ -164,7 +164,7 @@ namespace ReligionsOfRimworld
                     {
                         yield return new Widgets.DropdownMenuElement<Pawn>
                         {
-                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "Religion_Unavaliable".Translate()), null, MenuOptionPriority.Default, null, null, 0f, null, null),
+                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "ReligionInfo_Unavaliable".Translate()), null, MenuOptionPriority.Default, null, null, 0f, null, null),
                             payload = pawn
                         };
                     }
@@ -172,7 +172,7 @@ namespace ReligionsOfRimworld
                     {
                         yield return new Widgets.DropdownMenuElement<Pawn>
                         {
-                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "Religion_WrongReligion".Translate(pawn.GetReligionComponent().Religion.Label)), null, MenuOptionPriority.Default, null, null, 0f, null, null),
+                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "ReligionInfo_WrongReligion".Translate(pawn.GetReligionComponent().Religion.Label)), null, MenuOptionPriority.Default, null, null, 0f, null, null),
                             payload = pawn
                         };
                         continue;
@@ -237,15 +237,15 @@ namespace ReligionsOfRimworld
 
             if (isHumanlike)
             {
-                label = "RoR_ActivityPawnHumanlike".Translate();
-                context = label = "RoR_IsPrisonerOfColony".Translate();
+                label = "ReligionInfo_ActivityPawnHumanlike".Translate();
+                context = label = "ReligionInfo_IsPrisonerOfColony".Translate();
             }               
             else
             {
-                label = "RoR_ActivityPawnAnimal".Translate();
-                context = "RoR_IsTamed".Translate();
+                label = "ReligionInfo_ActivityPawnAnimal".Translate();
+                context = "ReligionInfo_IsTamed".Translate();
             }
-            listing_Standard.Label(label.Translate());
+            listing_Standard.Label(label);
             Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), context + " " + ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
             Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
@@ -296,7 +296,7 @@ namespace ReligionsOfRimworld
                     if (pawn == task.PawnRestriction)
                         yield return new Widgets.DropdownMenuElement<Pawn>
                         {
-                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "Religion_Unavaliable".Translate()), null, MenuOptionPriority.Default, null, null, 0f, null, null),
+                            option = new FloatMenuOption(string.Format("{0} ({1})", pawn.LabelShortCap, "ReligionInfo_Unavaliable".Translate()), null, MenuOptionPriority.Default, null, null, 0f, null, null),
                             payload = pawn
                         };
                     else

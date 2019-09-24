@@ -61,7 +61,7 @@ namespace ReligionsOfRimworld
                         Religion religion = ((Building_ReligiousBuildingFacility)giver).AssignedReligion;
                         if (pawn.GetReligionComponent().Religion != religion)
                         {
-                            JobFailReason.Is("Religion_WrongReligion".Translate(pawn.GetReligionComponent().Religion.Label));
+                            JobFailReason.Is("ReligionInfo_WrongReligion".Translate(pawn.GetReligionComponent().Religion.Label));
                         }
                         else
                         {

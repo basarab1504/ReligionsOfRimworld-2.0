@@ -26,7 +26,7 @@ namespace ReligionsOfRimworld
         public ITab_ReligionActivity()
         {
             this.size = ITab_ReligionActivity.WinSize;
-            this.labelKey = "Religion_Tasks".Translate();
+            this.labelKey = "ReligionInfo_Tasks".Translate();
         }
 
         protected Building_ReligiousBuildingFacility SelFacility
@@ -43,7 +43,7 @@ namespace ReligionsOfRimworld
 
             if (!SelFacility.IsComplete)
             {
-                Widgets.Label(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), "Religion_BuildingIsNotAvaliable".Translate());
+                Widgets.Label(new Rect(0.0f, 0.0f, ITab_ReligionActivity.WinSize.x, ITab_ReligionActivity.WinSize.y).ContractedBy(10f), "ReligionInfo_BuildingIsNotAvaliable".Translate());
                 return;
             }
 
@@ -113,17 +113,17 @@ namespace ReligionsOfRimworld
 
         private void CreateNoAssignedReligionDialog()
         {
-            Find.WindowStack.Add((Window)new Dialog_MessageBox("Religion_NoAssignedReligion".Translate(), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
+            Find.WindowStack.Add((Window)new Dialog_MessageBox("ReligionInfo_NoAssignedReligion".Translate(), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
         }
 
         private void CreateNoPawnsWithSkillDialog(RecipeDef recipe)
         {
-            Find.WindowStack.Add((Window)new Dialog_MessageBox("ActivityRequiresSkills".Translate((NamedArgument)recipe.LabelCap) + "\n\n" + ActivityUtility.MinSkillString(recipe.skillRequirements), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
+            Find.WindowStack.Add((Window)new Dialog_MessageBox("ReligionInfo_ActivityRequiresSkills".Translate((NamedArgument)recipe.LabelCap) + "\n\n" + ActivityUtility.MinSkillString(recipe.skillRequirements), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
         }
 
         private void CreateNoPawnsOfReligionDialog(Religion religion)
         {
-            Find.WindowStack.Add((Window)new Dialog_MessageBox("ReligionActivity_NoPawnsOfReligion".Translate((NamedArgument)religion.Label), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
+            Find.WindowStack.Add((Window)new Dialog_MessageBox("ReligionInfo_NoPawnsOfReligion".Translate((NamedArgument)religion.Label), (string)null, (Action)null, (string)null, (Action)null, (string)null, false, (Action)null, (Action)null));
         }
     }
 }

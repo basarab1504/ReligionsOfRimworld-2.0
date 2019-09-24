@@ -2,69 +2,276 @@
 <Defs>  
   <ThoughtDef>
     <defName>ROR_ReligionBadApparel</defName>
-    <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionApparel</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>-3</baseOpinionOffset>
+        <description>1</description>
+        <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>        
-        <baseOpinionOffset>-5</baseOpinionOffset>
+        <description>1</description>        
+        <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>-7</baseOpinionOffset>
+        <description>1</description>
+        <baseMoodEffect>-7</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>-10</baseOpinionOffset>
+        <description>1</description>
+        <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>-15</baseOpinionOffset>
-      </li>      
+        <description>1</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li> 
+
+      <li>
+        <label>don't like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>2</description>        
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+
+      <li>
+        <label>don't like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>3</description>        
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+
+      <li>
+        <label>don't like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>4</description>        
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+
+      <li>
+        <label>don't like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>5</description>        
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+
     </stages>
   </ThoughtDef>
 
   <ThoughtDef>
     <defName>ROR_ReligionGoodApparel</defName>
-    <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionApparel</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>3</baseOpinionOffset>
+        <description>1</description>
+        <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>5</baseOpinionOffset>
+        <description>1</description>
+        <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>7</baseOpinionOffset>
+        <description>1</description>
+        <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>10</baseOpinionOffset>
+        <description>1</description>
+        <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
-        <baseOpinionOffset>15</baseOpinionOffset>
-      </li>      
+        <description>1</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>     
+
+      <li>
+        <label>like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>2</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>   
+
+      <li>
+        <label>like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>3</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>   
+
+      <li>
+        <label>like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>4</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>   
+
+      <li>
+        <label>like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>5</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>          
     </stages>
   </ThoughtDef>
 </Defs>

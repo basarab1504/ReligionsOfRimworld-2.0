@@ -97,9 +97,9 @@ namespace ReligionsOfRimworld
             {
                 yield return new Command_Action
                 {
-                    defaultLabel = "ReligionsOfRimworld_AssignReligion".Translate(),
+                    defaultLabel = "ReligionInfo_AssignReligion".Translate(),
                     icon = ContentFinder<Texture2D>.Get("Things/Symbols/AssignReligion", true),
-                    defaultDesc = "ReligionsOfRimworld_AssignReligionDesc".Translate(),
+                    defaultDesc = "ReligionInfo_AssignReligionDesc".Translate(),
                     action = delegate
                     {
                         Find.WindowStack.Add(new Dialog_AssignReligion(this));
