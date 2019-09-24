@@ -195,12 +195,12 @@ namespace ReligionsOfRimworld
 
         private static bool TryFindBestBillIngredientsInSet(List<Thing> availableThings, ActivityTask task, List<ThingCount> chosenIngThings)
         {
-            IEnumerable<KeyValuePair<ThingDef, int>> thingDefsCount = task.Property.ThingDefsCount;
+            IEnumerable< ThingDefsCount> thingDefsCount = task.Property.ThingDefsCount;
             chosenIngThings.Clear();
 
             for (int index1 = 0; index1 < thingDefsCount.Count(); ++index1)
             {
-                float baseCount = thingDefsCount.ElementAt(index1).Value;
+                float baseCount = thingDefsCount.ElementAt(index1).Count;
                 for (int index2 = 0; index2 < availableThings.Count; ++index2)
                 {
                     Thing availableThing = availableThings[index2];

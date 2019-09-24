@@ -30,65 +30,62 @@
 		<label>gay</label>
 		<description>notgay</description>
 		<ingredientValueGetterClass>IngredientValueGetter_Volume</ingredientValueGetterClass>
-		<things>
-			<li>Meat_Panther</li>
-		</things>
 		<thingDefsCount>
 			<li>
-				<key>Apparel_CowboyHat</key>
-				<value>1</value>
+				<thing>Meat_Panther</thing>
+				<count>14</count>
 			</li>
 			<li>
-				<key>WoodLog</key>
-				<value>15</value>
+				<thing>WoodLog</thing>
+				<count>15</count>
 			</li>		
 			<li>
-				<key>Human</key>
-				<value>1</value>
+				<thing>Human</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>Chicken</key>
-				<value>1</value>
+				<thing>Chicken</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>YorkshireTerrier</key>
-				<value>1</value>
+				<thing>YorkshireTerrier</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>Husky</key>
-				<value>1</value>
+				<thing>Husky</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>LabradorRetriever</key>
-				<value>1</value>
+				<thing>LabradorRetriever</thing>
+				<count>1</count>
 			</li>	
 			<li>
-				<key>Cat</key>
-				<value>1</value>
+				<thing>Cat</thing>
+				<count>1</count>
 			</li>	
 			<li>
-				<key>Rhinoceros</key>
-				<value>1</value>
+				<thing>Rhinoceros</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>Deer</key>
-				<value>1</value>
+				<thing>Deer</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>Ibex</key>
-				<value>1</value>
+				<thing>Ibex</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>Caribou</key>
-				<value>1</value>
+				<thing>Caribou</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>WildBoar</key>
-				<value>1</value>
+				<thing>WildBoar</thing>
+				<count>1</count>
 			</li>
 			<li>
-				<key>Elk</key>
-				<value>1</value>
+				<thing>Elk</thing>
+				<count>1</count>
 			</li>				
 		</thingDefsCount>
 		<activityJobQueue>UwU</activityJobQueue>

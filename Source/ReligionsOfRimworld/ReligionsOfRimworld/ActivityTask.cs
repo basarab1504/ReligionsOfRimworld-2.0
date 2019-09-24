@@ -36,8 +36,8 @@ namespace ReligionsOfRimworld
                 humanlike = new IngredientPawn();
                 animal = new IngredientPawn();
                 List<ThingDef> defs = new List<ThingDef>();
-                foreach (KeyValuePair<ThingDef, int> kvp in def.ThingDefsCount)
-                    defs.Add(kvp.Key);
+                foreach (ThingDefsCount tcd in def.ThingDefsCount)
+                    defs.Add(tcd.Thing);
                 filter = new SimpleFilter(defs);
             }
         }

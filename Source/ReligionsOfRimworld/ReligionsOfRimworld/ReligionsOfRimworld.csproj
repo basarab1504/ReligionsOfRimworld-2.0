@@ -164,6 +164,7 @@
     <Compile Include="SimpleCurveDef.cs" />
     <Compile Include="JobGiver_SpectateReligionActivity.cs" />
     <Compile Include="SimpleFilter.cs" />
+    <Compile Include="ThingCountDef.cs" />
     <Compile Include="Toils_ReligionActivity.cs" />
     <Compile Include="WorkGiver_DoActivityTask.cs" />
     <Compile Include="WorkGiver_DoReligionActivity.cs" />
