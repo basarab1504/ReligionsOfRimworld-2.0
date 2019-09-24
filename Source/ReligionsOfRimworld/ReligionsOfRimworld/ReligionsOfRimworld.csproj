@@ -64,6 +64,7 @@
     <Compile Include="Bill_ReligionActivity.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionApparel.cs" />
     <Compile Include="Dialog_ActivitySchedule.cs" />
     <Compile Include="Dialog_ActivityTaskConfig.cs" />
     <Compile Include="Dialog_NewActivityConfig.cs" />
@@ -151,7 +152,7 @@
     <Compile Include="DefaultReligionSettings\ReligionSettings_MentalBreaks.cs" />
     <Compile Include="ReligionsOfRimworldModBase.cs" />
     <Compile Include="ReligionsTabUtility.cs" />
-    <Compile Include="DefaultReligionSettings\ReligionSettings_JoiningRestriction.cs" />
+    <Compile Include="DefaultReligionSettings\ReligionSettings_JoiningCriteria.cs" />
     <Compile Include="ReligionProperty.cs" />
     <Compile Include="Religion_IngestingUtility.cs" />
     <Compile Include="Religion_PawnDiedOrDownedUtility.cs" />

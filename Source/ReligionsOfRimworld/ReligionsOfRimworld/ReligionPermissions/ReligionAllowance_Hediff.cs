@@ -10,7 +10,7 @@ namespace ReligionsOfRimworld
     {
         public HediffDef permission;
 
-        public override string Reason => permission.LabelCap.CapitalizeFirst();
+        public override string Reason => permission.LabelCap;
 
         protected override bool IsFound(Pawn pawn)
         {

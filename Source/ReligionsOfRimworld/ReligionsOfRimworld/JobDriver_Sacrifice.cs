@@ -34,7 +34,7 @@ namespace ReligionsOfRimworld
             yield return getToTarget;
             yield return Sacrifce(TargetIndex.B);
             yield return Toils_Jump.JumpIfHaveTargetInQueue(TargetIndex.B, extract);
-            yield return Waiting();
+            //yield return Waiting();
             yield return stageEnded;
         }
 

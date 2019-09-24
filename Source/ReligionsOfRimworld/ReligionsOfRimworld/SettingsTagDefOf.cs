@@ -15,6 +15,7 @@ namespace ReligionsOfRimworld
         public static SettingsTagDef KillTag;
         public static SettingsTagDef WeaponTag;
         public static SettingsTagDef FoodTag;
+        public static SettingsTagDef ApparelTag;
         public static SettingsTagDef AllowedBuildingsTag;
         public static SettingsTagDef ActivityTag;
         public static SettingsTagDef PrayingsTag;

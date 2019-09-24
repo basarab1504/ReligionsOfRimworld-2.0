@@ -30,7 +30,14 @@
 		<label>gay</label>
 		<description>notgay</description>
 		<ingredientValueGetterClass>IngredientValueGetter_Volume</ingredientValueGetterClass>
+		<things>
+			<li>Meat_Panther</li>
+		</things>
 		<thingDefsCount>
+			<li>
+				<key>Apparel_CowboyHat</key>
+				<value>1</value>
+			</li>
 			<li>
 				<key>WoodLog</key>
 				<value>15</value>

@@ -186,8 +186,17 @@ namespace ReligionsOfRimworld
             job.countQueue = new List<int>();
             foreach (Thing relic in data.Relics)
             {
-                job.targetQueueB.Add((LocalTargetInfo)relic);
-                job.countQueue.Add(relic.stackCount);
+                if(relic != null)
+                {
+                    Pawn pawnRelic = relic as Pawn;
+                    if (pawnRelic != null && pawnRelic.Dead)
+                    {
+                        job.targetQueueB.Add((LocalTargetInfo)pawnRelic);
+                        job.countQueue.Add(pawnRelic.stackCount);
+                    }
+                    job.targetQueueB.Add((LocalTargetInfo)relic);
+                    job.countQueue.Add(relic.stackCount);
+                }
             }
             pawn.Reserve(job.GetTarget(TargetIndex.A), job, 1, -1, (ReservationLayerDef)null, true);
             pawn.ReserveAsManyAsPossible(job.GetTargetQueue(TargetIndex.B), job, 1, -1, (ReservationLayerDef)null);

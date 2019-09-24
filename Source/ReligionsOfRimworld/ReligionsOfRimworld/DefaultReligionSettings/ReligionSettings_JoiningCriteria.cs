@@ -21,10 +21,10 @@ namespace ReligionsOfRimworld
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {      
             foreach(JoiningCriteria joiningCriteria in criteria)
-                yield return new ReligionInfoEntry("ReligionInfo_Permission".Translate(), CriteriaExplanation(joiningCriteria));
+                yield return new ReligionInfoEntry("ReligionInfo_Criteria".Translate(), CriteriaTitle(joiningCriteria), "ReligionInfo_CriteriaImportance" + ": " + joiningCriteria.Importance);
         }
 
-        private string CriteriaExplanation(JoiningCriteria criteria)
+        private string CriteriaTitle(JoiningCriteria criteria)
         {
             if (criteria.ShouldHave)
                 return $"lack of \"{criteria.Reason}\" required";
