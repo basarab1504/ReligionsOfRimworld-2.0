@@ -2,6 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>ROR_ReligiousKilledSad</defName>
+    <label>label</label>
+    <description>desc</description>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>
@@ -36,6 +38,8 @@
 
   <ThoughtDef>
     <defName>ROR_ReligiousKilledHappy</defName>
+    <label>label</label>
+    <description>desc</description>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>
@@ -70,6 +74,8 @@
 
   <ThoughtDef>
     <defName>ROR_ReligiousKilledWitnessSad</defName>
+    <label>label</label>
+    <description>desc</description>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>
@@ -104,6 +110,8 @@
 
   <ThoughtDef>
     <defName>ROR_ReligiousKilledWitnessHappy</defName>
+    <label>label</label>
+    <description>desc</description>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>

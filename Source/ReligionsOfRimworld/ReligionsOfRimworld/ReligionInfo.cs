@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionInfo
+    public class ReligionInfo: IDescribable
     {
         public string Label { get; }
         private List<ReligionInfoEntry> infoEntries;

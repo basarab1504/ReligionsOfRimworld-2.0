@@ -2,6 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>ROR_ReligiousKilledSadSocial</defName>
+    <label>label</label>
+    <description>desc</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>10</durationDays>
@@ -38,6 +40,8 @@
 
   <ThoughtDef>
     <defName>ROR_ReligiousKilledHappySocial</defName>
+    <label>label</label>
+    <description>desc</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>10</durationDays>

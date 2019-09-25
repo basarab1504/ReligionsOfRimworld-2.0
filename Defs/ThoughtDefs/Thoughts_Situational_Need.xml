@@ -2,6 +2,8 @@
 <Defs>  
   <ThoughtDef>
     <defName>ROR_NeedPiety</defName>
+    <label>label</label>
+    <description>desc</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_NeedPiety</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>

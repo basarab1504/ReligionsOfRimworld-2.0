@@ -2,6 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>ROR_WeaponKillSad</defName>
+    <label>label</label>
+    <description>desc</description>
     <durationDays>1</durationDays>
     <stackLimit>5</stackLimit>
     <stages>
@@ -35,6 +37,8 @@
 
   <ThoughtDef>
     <defName>ROR_WeaponKillHappy</defName>
+    <label>label</label>
+    <description>desc</description>
     <durationDays>1</durationDays>
     <stackLimit>5</stackLimit>
     <stages>

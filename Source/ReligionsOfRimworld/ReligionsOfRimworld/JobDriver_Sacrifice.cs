@@ -34,7 +34,7 @@ namespace ReligionsOfRimworld
             yield return getToTarget;
             yield return Sacrifce(TargetIndex.B);
             yield return Toils_Jump.JumpIfHaveTargetInQueue(TargetIndex.B, extract);
-            //yield return Waiting();
+            yield return Waiting();
             yield return stageEnded;
         }
 
@@ -47,8 +47,12 @@ namespace ReligionsOfRimworld
                     Thing sacrificableThing = pawn.CurJob.GetTarget(sacrificable).Thing;
                     if (sacrificableThing != null)
                     {
-                        if (sacrificableThing is Pawn)
-                            ExecutionUtility.DoExecutionByCut(pawn, (Pawn)sacrificableThing);
+                        Pawn sacrificablePawn = sacrificableThing as Pawn;
+                        if (sacrificablePawn != null)
+                        {
+                            ExecutionUtility.DoExecutionByCut(pawn, sacrificablePawn);
+                            pawn.Reserve(sacrificablePawn.Corpse, this.job);
+                        }
                         else
                             sacrificableThing.Destroy(DestroyMode.Vanish);
                     }
@@ -61,7 +65,7 @@ namespace ReligionsOfRimworld
             return new Toil()
             {
                 defaultCompleteMode = ToilCompleteMode.Delay,
-                defaultDuration = 350,
+                defaultDuration = 400,
             }.WithProgressBarToilDelay(TargetIndex.A, false, .5f);
         }
     }

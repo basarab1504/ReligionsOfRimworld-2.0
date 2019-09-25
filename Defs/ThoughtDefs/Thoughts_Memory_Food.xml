@@ -2,6 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>ROR_IngestHolyFoodBad</defName>
+    <label>label</label>
+    <description>desc</description>
     <showBubble>true</showBubble>
     <durationDays>1</durationDays>
     <stackLimit>5</stackLimit>
@@ -36,6 +38,8 @@
 
   <ThoughtDef>
     <defName>ROR_IngestHolyFoodGood</defName>
+    <label>label</label>
+    <description>desc</description>
     <showBubble>true</showBubble>
     <durationDays>1</durationDays>
     <stackLimit>5</stackLimit>

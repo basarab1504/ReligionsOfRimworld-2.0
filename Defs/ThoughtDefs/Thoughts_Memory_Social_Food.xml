@@ -2,6 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>ROR_IngestHolyFoodBadSocial</defName>
+    <label>label</label>
+    <description>desc</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>2</durationDays>
@@ -38,6 +40,8 @@
 
   <ThoughtDef>
     <defName>ROR_IngestHolyFoodGoodSocial</defName>
+    <label>label</label>
+    <description>desc</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>2</durationDays>

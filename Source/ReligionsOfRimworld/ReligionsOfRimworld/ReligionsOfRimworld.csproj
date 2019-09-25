@@ -64,6 +64,7 @@
     <Compile Include="Bill_ReligionActivity.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="IDescribable.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionApparel.cs" />
     <Compile Include="Dialog_ActivitySchedule.cs" />
     <Compile Include="Dialog_ActivityTaskConfig.cs" />

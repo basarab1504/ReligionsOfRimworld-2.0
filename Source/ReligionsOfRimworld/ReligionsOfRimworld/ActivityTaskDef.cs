@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ActivityTaskDef : Def
+    public class ActivityTaskDef : Def, IDescribable
     {
         private List<ThingDefsCount> thingDefsCount = new List<ThingDefsCount>();
         private ActivityJobQueueDef activityJobQueue;
@@ -33,7 +33,7 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), label);
+            yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), label.CapitalizeFirst(), description);
 
             if (organizerProperty != null)
                 foreach (ReligionInfoEntry entry in organizerProperty.GetInfoEntries())

@@ -7,7 +7,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionSettings_Incidents : ReligionSettings
+    public class ReligionSettings_Incidents : ReligionSettings, IDescribable
     {
         private List<IncidentDef> incidents;
 
@@ -22,7 +22,7 @@ namespace ReligionsOfRimworld
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
             foreach (IncidentDef incident in incidents)
-                yield return new ReligionInfoEntry("ReligionInfo_Incident", incident.LabelCap);
+                yield return new ReligionInfoEntry("ReligionInfo_Incident".Translate(), incident.LabelCap, incident.description);
         }
 
         public override void ExposeData()

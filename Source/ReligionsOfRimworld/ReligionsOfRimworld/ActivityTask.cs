@@ -80,9 +80,9 @@ namespace ReligionsOfRimworld
                 int currentHour = GenLocalDate.HourOfDay(Find.CurrentMap);
                 if(Math.Abs(startHour - currentHour) <= 1)
                 {
-                    if (lastCompletedTick == 0)
-                        return true;
-                    else
+                    //if (lastCompletedTick == 0)
+                    //    return true;
+                    //else
                         return Find.TickManager.TicksGame >= lastCompletedTick + 7500;
                 }
             }

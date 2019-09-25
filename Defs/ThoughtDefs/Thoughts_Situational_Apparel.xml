@@ -2,6 +2,8 @@
 <Defs>  
   <ThoughtDef>
     <defName>ROR_ReligionBadApparel</defName>
+    <label>label</label>
+    <description>desc</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionApparel</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
@@ -140,6 +142,8 @@
 
   <ThoughtDef>
     <defName>ROR_ReligionGoodApparel</defName>
+    <label>label</label>
+    <description>desc</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionApparel</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>

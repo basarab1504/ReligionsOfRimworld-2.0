@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public abstract class ReligionSettings : IExposable
+    public abstract class ReligionSettings : IExposable, IDescribable
     { 
         protected SettingsTagDef tag;
 

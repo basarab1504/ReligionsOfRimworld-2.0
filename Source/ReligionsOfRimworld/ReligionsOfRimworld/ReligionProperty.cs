@@ -7,7 +7,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public abstract class ReligionProperty : IExposable
+    public abstract class ReligionProperty : IExposable, IDescribable
     {
         protected ReligionPropertyData subject;
         protected ReligionPropertyData witness;
@@ -31,6 +31,13 @@ namespace ReligionsOfRimworld
                 foreach (ReligionInfoEntry entry in witness.GetInfoEntries())
                     yield return entry;
         }
+
+        //private string GetDescription()
+        //{
+        //    StringBuilder stringBuilder = new StringBuilder();
+        //    stringBuilder.AppendLine(GetObject().description);
+        //    stringBuilder.AppendLine()
+        //}
 
         public virtual void ExposeData()
         {

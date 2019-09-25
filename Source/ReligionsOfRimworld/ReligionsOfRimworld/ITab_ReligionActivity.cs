@@ -26,7 +26,7 @@ namespace ReligionsOfRimworld
         public ITab_ReligionActivity()
         {
             this.size = ITab_ReligionActivity.WinSize;
-            this.labelKey = "ReligionInfo_Tasks".Translate();
+            this.labelKey = "Tasks";
         }
 
         protected Building_ReligiousBuildingFacility SelFacility

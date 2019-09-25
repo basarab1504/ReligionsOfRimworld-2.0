@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionActivityDef : RecipeDef
+    public class ReligionActivityDef : RecipeDef, IDescribable
     {
         private ActivityJobQueueDef activityJobQueue;
         private ReligionPropertyData organizerProperty;

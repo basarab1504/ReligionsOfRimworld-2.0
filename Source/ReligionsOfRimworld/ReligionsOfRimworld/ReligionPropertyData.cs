@@ -7,7 +7,7 @@ using RimWorld;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionPropertyData : IExposable
+    public class ReligionPropertyData : IExposable, IDescribable
     {
         private PropertyPawnCategory pawnCategory = PropertyPawnCategory.Everyone;
         private ThoughtDef thought;
@@ -22,11 +22,11 @@ namespace ReligionsOfRimworld
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
             if (thought != null)
-                yield return new ReligionInfoEntry("ReligionInfo_IndividualThought".Translate(), "", ThoughtDefExplanation(thought));
+                yield return new ReligionInfoEntry("ReligionInfo_IndividualThought".Translate(), thought.LabelCap, thought.description);
             if (opinionThought != null)
-                yield return new ReligionInfoEntry("ReligionInfo_SocialThought".Translate(), "", ThoughtDefExplanation(opinionThought));
+                yield return new ReligionInfoEntry("ReligionInfo_SocialThought".Translate(), opinionThought.LabelCap, opinionThought.description);
             if (piety != null)
-                yield return new ReligionInfoEntry("ReligionInfo_IndividualPiety".Translate(), "", PietyDefExplanation(piety));
+                yield return new ReligionInfoEntry("ReligionInfo_IndividualPiety".Translate(), piety.LabelCap, piety.description);
         }
 
         private string PietyDefExplanation(PietyDef def)
@@ -54,31 +54,31 @@ namespace ReligionsOfRimworld
             return stringBuilder.ToString();
         }
 
-        private string ThoughtDefExplanation(ThoughtDef def)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            if (def.IsSituational)
-                stringBuilder.AppendLine("ReligionInfo_PietySituational".Translate());
-            if (def.durationDays != 0)
-                stringBuilder.AppendLine("ReligionInfo_DurationDays".Translate() + ": " + def.durationDays);
-            if (def.stages.Count != 0)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("ReligionInfo_Stages".Translate() + ":");
-            }
-            int i = 1;
-            foreach (ThoughtStage stage in def.stages)
-            {
-                stringBuilder.AppendLine("ReligionInfo_Stage".Translate() + ": " + i.ToString());
-                stringBuilder.AppendLine(stage.label);
-                //stringBuilder.AppendLine(stage.description);
-                stringBuilder.AppendLine("ReligionInfo_BaseMoodEffect".Translate() + " " + stage.baseMoodEffect.ToString());
-                stringBuilder.AppendLine("ReligionInfo_BaseOpinionOffset".Translate() + " " + stage.baseOpinionOffset.ToString());
-                stringBuilder.AppendLine();
-                i++;
-            }
-            return stringBuilder.ToString();
-        }
+        //private string ThoughtDefExplanation(ThoughtDef def)
+        //{
+        //    StringBuilder stringBuilder = new StringBuilder();
+        //    if (def.IsSituational)
+        //        stringBuilder.AppendLine("ReligionInfo_PietySituational".Translate());
+        //    if (def.durationDays != 0)
+        //        stringBuilder.AppendLine("ReligionInfo_DurationDays".Translate() + ": " + def.durationDays);
+        //    if (def.stages.Count != 0)
+        //    {
+        //        stringBuilder.AppendLine();
+        //        stringBuilder.AppendLine("ReligionInfo_Stages".Translate() + ":");
+        //    }
+        //    int i = 1;
+        //    foreach (ThoughtStage stage in def.stages)
+        //    {
+        //        stringBuilder.AppendLine("ReligionInfo_Stage".Translate() + ": " + i.ToString());
+        //        stringBuilder.AppendLine(stage.label);
+        //        //stringBuilder.AppendLine(stage.description);
+        //        stringBuilder.AppendLine("ReligionInfo_BaseMoodEffect".Translate() + " " + stage.baseMoodEffect.ToString());
+        //        stringBuilder.AppendLine("ReligionInfo_BaseOpinionOffset".Translate() + " " + stage.baseOpinionOffset.ToString());
+        //        stringBuilder.AppendLine();
+        //        i++;
+        //    }
+        //    return stringBuilder.ToString();
+        //}
 
         public void ExposeData()
         {

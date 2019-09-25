@@ -17,11 +17,12 @@
 <ReligionInfo_PietyOffset>Piety effect</ReligionInfo_PietyOffset>
 <ReligionInfo_BaseMoodEffect>Mood effect</ReligionInfo_BaseMoodEffect>
 <ReligionInfo_BaseOpinionOffset>Opinion effect</ReligionInfo_BaseOpinionOffset>
-<ReligionInfo_BaseChanceOfConversation>Base chance of converstaion</ReligionInfo_BaseChanceOfConversation>
+<ReligionInfo_BaseChanceOfConversation>Base chance of conversation</ReligionInfo_BaseChanceOfConversation>
 <ReligionInfo_MoodFactorCurve>Mood factor curve</ReligionInfo_MoodFactorCurve>
 <ReligionInfo_OpinionFactorCurve>Opinion factor curve</ReligionInfo_OpinionFactorCurve>
 <ReligionInfo_ActivityStartHour>Start hour</ReligionInfo_ActivityStartHour>
 <ReligionInfo_ActivityPawnRestriction>Pawn restriction</ReligionInfo_ActivityPawnRestriction>
+<ReligionInfo_PietyNeed>Piety</ReligionInfo_PietyNeed>
 <ReligionInfo_Unavaliable>Unavaliable</ReligionInfo_Unavaliable>
 <ReligionInfo_WrongReligion>Wrong religion: {0}</ReligionInfo_WrongReligion>
 <ReligionInfo_ActivityPawnHumanlike>Activity pawn</ReligionInfo_ActivityPawnHumanlike>
@@ -32,7 +33,6 @@
 <ReligionInfo_AddTask>Add task</ReligionInfo_AddTask>
 <ReligionInfo_NowBelieveIn>Now believe in</ReligionInfo_NowBelieveIn>
 <ReligionInfo_IsNowReligious>Is now religious</ReligionInfo_IsNowReligious>
-<ReligionInfo_Tasks>Tasks</ReligionInfo_Tasks>
 <ReligionInfo_CriteriaImportance>Criteria importance</ReligionInfo_CriteriaImportance>
 <ReligionInfo_BuildingIsNotAvaliable>Building is not avaliable</ReligionInfo_BuildingIsNotAvaliable>
 <ReligionInfo_NoPawnsOfReligion>No pawns of {0}</ReligionInfo_NoPawnsOfReligion>
@@ -46,15 +46,16 @@
 <ReligiousBuilgingAssigner_AssignBuildingsDesc>description</ReligiousBuilgingAssigner_AssignBuildingsDesc>
 <ReligionInfo_AssignReligion>Assign religion</ReligionInfo_AssignReligion>
 <ReligionInfo_AssignReligionDesc>desc</ReligionInfo_AssignReligionDesc>
-<ReligionInfo_Overall>Overall</ReligionInfo_Overall>
 <ReligionInfo_PietyOverall>Piety overall</ReligionInfo_PietyOverall>
+<ReligionInfo_Overall>Overall</ReligionInfo_Overall>
 <ReligionInfo_Restrictions>Restrictions</ReligionInfo_Restrictions>
-<ReligionInfo_RestrictAttend>Restrict attend</ReligionInfo_RestrictAttend>
-<ReligionInfo_MayDoReligionActivities>May do activities</ReligionInfo_MayDoReligionActivities>
-<ReligionInfo_RestrictConvert>Restrict religion convert</ReligionInfo_RestrictConvert>
+<ReligionInfo_RestrictAttend>Attend</ReligionInfo_RestrictAttend>
+<ReligionInfo_DoReligionActivities>Activites</ReligionInfo_DoReligionActivities>
+<ReligionInfo_DoPrayings>Prayings</ReligionInfo_DoPrayings>
 <ReligionInfo_Compabilities>Compabilities</ReligionInfo_Compabilities>
 <ReligionInfo_Incident>Incident</ReligionInfo_Incident>
 <ReligionInfo_MentalBreak>Mental break</ReligionInfo_MentalBreak>
 <ReligionTab>Religion tab</ReligionTab>
 <ReligionTutorTag>Religion</ReligionTutorTag>
+<ReligionInfo_AndXTasksMore>And {0} tasks more</ReligionInfo_AndXTasksMore>
 </LanguageData>

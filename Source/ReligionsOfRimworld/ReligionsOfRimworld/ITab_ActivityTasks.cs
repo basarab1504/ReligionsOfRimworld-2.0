@@ -23,7 +23,7 @@ namespace ReligionsOfRimworld
         public ITab_ActivityTasks()
         {
             this.size = ITab_ActivityTasks.WinSize;
-            this.labelKey = "ReligionInfo_Tasks".Translate();
+            this.labelKey = "Tasks";
         }
 
         protected Building_ReligiousBuildingFacility SelFacility => (Building_ReligiousBuildingFacility)this.SelThing;
@@ -87,7 +87,7 @@ namespace ReligionsOfRimworld
         private void DrawDayInterFace(Rect rect, ScheduledDay day)
         {
             float curY = rect.y;
-            float height = rect.height / 4;
+            float height = rect.height / 5;
 
             Text.Font = GameFont.Tiny;
             for (int i = 0; i < 3; ++i)

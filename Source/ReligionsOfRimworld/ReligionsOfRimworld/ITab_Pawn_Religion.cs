@@ -9,8 +9,8 @@ namespace ReligionsOfRimworld
         public ITab_Pawn_Religion()
         {
             this.size = new Vector2(500f, 400f);
-            this.labelKey = "ReligionTab".Translate();
-            this.tutorTag = "ReligionTutorTag".Translate();
+            this.labelKey = "Religion";
+            this.tutorTag = "ReligionTutorTag";
         }
 
         protected override void FillTab()
