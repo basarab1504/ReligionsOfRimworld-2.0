@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Verse;
+using RimWorld;
+using UnityEngine;
 
 namespace ReligionsOfRimworld
 {
@@ -83,6 +86,28 @@ namespace ReligionsOfRimworld
                     }
                 default:
                     return false;
+            }
+        }
+
+        [DebuggerHidden]
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo gizmo in base.GetGizmos())
+                yield return gizmo;
+
+            if (Faction == Faction.OfPlayer)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "ReligiousBuilgingAssigner_AssignBuildings".Translate(),
+                    icon = ContentFinder<Texture2D>.Get("Things/Symbols/AssignReligion", true),
+                    defaultDesc = "ReligiousBuilgingAssigner_AssignBuildingsDesc".Translate(),
+                    action = delegate
+                    {
+                        ReligiousBuildingAssignerUtility.SelectChild(this);
+                    },
+                    hotKey = KeyBindingDefOf.Misc4
+                };
             }
         }
     }

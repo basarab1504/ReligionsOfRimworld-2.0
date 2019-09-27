@@ -62,4 +62,5 @@
 <ReligionInfo_AsWitness>As witness</ReligionInfo_AsWitness>
 <ReligionInfo_OrganizerProperty>Organizer property</ReligionInfo_OrganizerProperty>
 <ReligionInfo_CongregationProperty>Congregation property</ReligionInfo_CongregationProperty>
+<ReligionInfo_PawnCategory>The category of characters to which these properties will belong: {0}</ReligionInfo_PawnCategory>
 </LanguageData>

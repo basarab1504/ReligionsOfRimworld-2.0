@@ -24,6 +24,7 @@ namespace ReligionsOfRimworld
             this.Label = label;
             descriptionEntry = new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description);
             infoEntries = new List<ReligionInfoEntry>();
+            infoEntries.Add(descriptionEntry);
             infoEntries.AddRange(entries);
         }
 

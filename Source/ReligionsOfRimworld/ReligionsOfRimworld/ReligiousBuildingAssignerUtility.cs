@@ -30,7 +30,7 @@ namespace ReligionsOfRimworld
             }));
         }
 
-        private static void SelectChild(Building_ReligionBuilding parent)
+        public static void SelectChild(Building_ReligionBuilding parent)
         {
             DebugTools.curTool = new DebugTool("ReligiousBuilgingAssigner_SelectABuilding".Translate(), (Action)(() =>
             {
@@ -64,7 +64,7 @@ namespace ReligionsOfRimworld
             }));
         }
 
-        private static void TryToUnassignAllBuildings(Building_ReligionBuilding parent)
+        public static void TryToUnassignAllBuildings(Building_ReligionBuilding parent)
         {
             if (parent.AssignedBuildings.Count() != 0)
             {
@@ -73,7 +73,7 @@ namespace ReligionsOfRimworld
             }
         }
 
-        private static void TryToAssignBuilding(Building_ReligionBuilding parent, Building_ReligionBuilding child)
+        public static void TryToAssignBuilding(Building_ReligionBuilding parent, Building_ReligionBuilding child)
         {
             if (parent.MayAssignBuilding(child) && child.MayAssignBuilding(parent))
             {

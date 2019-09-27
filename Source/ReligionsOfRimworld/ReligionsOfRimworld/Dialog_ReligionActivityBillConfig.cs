@@ -330,25 +330,25 @@ namespace ReligionsOfRimworld
             //}
         }
 
-        private IEnumerable<Widgets.DropdownMenuElement<bool>> GenerateBoolOptions(IngredientPawn ingredientPawn)
-        {
-            yield return new Widgets.DropdownMenuElement<bool>()
-            {
-                option = new FloatMenuOption("True".Translate(), delegate
-                {
-                    ingredientPawn.PartOfColony = true;
-                }, MenuOptionPriority.Default, null, null, 0f, null, null),
-                payload = false
-            };
-            yield return new Widgets.DropdownMenuElement<bool>()
-            {
-                option = new FloatMenuOption("False".Translate(), delegate
-                {
-                    ingredientPawn.PartOfColony = false;
-                }, MenuOptionPriority.Default, null, null, 0f, null, null),
-                payload = false
-            };
-        }
+        //private IEnumerable<Widgets.DropdownMenuElement<bool>> GenerateBoolOptions(IngredientPawn ingredientPawn)
+        //{
+        //    yield return new Widgets.DropdownMenuElement<bool>()
+        //    {
+        //        option = new FloatMenuOption("True".Translate(), delegate
+        //        {
+        //            ingredientPawn.PartOfColony = true;
+        //        }, MenuOptionPriority.Default, null, null, 0f, null, null),
+        //        payload = false
+        //    };
+        //    yield return new Widgets.DropdownMenuElement<bool>()
+        //    {
+        //        option = new FloatMenuOption("False".Translate(), delegate
+        //        {
+        //            ingredientPawn.PartOfColony = false;
+        //        }, MenuOptionPriority.Default, null, null, 0f, null, null),
+        //        payload = false
+        //    };
+        //}
 
         //private IEnumerable<Widgets.DropdownMenuElement<Pawn>> GenerateIngredientPawnOptions(IngredientPawn ingredientPawn)
         //{

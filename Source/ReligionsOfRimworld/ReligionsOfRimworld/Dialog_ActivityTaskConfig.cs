@@ -238,7 +238,7 @@ namespace ReligionsOfRimworld
             if (isHumanlike)
             {
                 label = "ReligionInfo_ActivityPawnHumanlike".Translate();
-                context = label = "ReligionInfo_IsPrisonerOfColony".Translate();
+                context = "ReligionInfo_IsPrisonerOfColony".Translate();
             }               
             else
             {
@@ -246,30 +246,30 @@ namespace ReligionsOfRimworld
                 context = "ReligionInfo_IsTamed".Translate();
             }
             listing_Standard.Label(label);
-            Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), context + " " + ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
-            Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
+            //Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), context + " " + ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
+            Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "None".Translate(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
         }
 
-        private IEnumerable<Widgets.DropdownMenuElement<bool>> GenerateBoolOptions(IngredientPawn ingredientPawn)
-        {
-            yield return new Widgets.DropdownMenuElement<bool>
-            {
-                option = new FloatMenuOption("True".Translate(), delegate
-                {
-                    ingredientPawn.PartOfColony = true;
-                }, MenuOptionPriority.Default, null, null, 0f, null, null),
-                payload = true
-            };
-            yield return new Widgets.DropdownMenuElement<bool>
-            {
-                option = new FloatMenuOption("False".Translate(), delegate
-                {
-                    ingredientPawn.PartOfColony = false;
-                }, MenuOptionPriority.Default, null, null, 0f, null, null),
-                payload = false
-            };
-        }
+        //private IEnumerable<Widgets.DropdownMenuElement<bool>> GenerateBoolOptions(IngredientPawn ingredientPawn)
+        //{
+        //    yield return new Widgets.DropdownMenuElement<bool>
+        //    {
+        //        option = new FloatMenuOption("True".Translate(), delegate
+        //        {
+        //            ingredientPawn.PartOfColony = true;
+        //        }, MenuOptionPriority.Default, null, null, 0f, null, null),
+        //        payload = true
+        //    };
+        //    yield return new Widgets.DropdownMenuElement<bool>
+        //    {
+        //        option = new FloatMenuOption("False".Translate(), delegate
+        //        {
+        //            ingredientPawn.PartOfColony = false;
+        //        }, MenuOptionPriority.Default, null, null, 0f, null, null),
+        //        payload = false
+        //    };
+        //}
 
         private IEnumerable<Widgets.DropdownMenuElement<Pawn>> GenerateIngredientPawnRestrictionOptions(IngredientPawn ingredientPawn, bool isHumanlike)
         {
@@ -290,8 +290,7 @@ namespace ReligionsOfRimworld
 
             foreach (Pawn pawn in pawns)
             {
-                if (task.ThingFilter.Allows(pawn.def) && (!ingredientPawn.PartOfColony || ingredientPawn.PartOfColony &&
-                    ((pawn.RaceProps.Humanlike && pawn.IsPrisonerOfColony) || (pawn.RaceProps.Animal && pawn.Faction == Faction.OfPlayer))))
+                if (task.ThingFilter.Allows(pawn.def))
                 {
                     if (pawn == task.PawnRestriction)
                         yield return new Widgets.DropdownMenuElement<Pawn>

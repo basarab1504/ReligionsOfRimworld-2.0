@@ -23,6 +23,9 @@ namespace ReligionsOfRimworld
         {
             StringBuilder stringBuilder = new StringBuilder();
 
+            stringBuilder.AppendLine("ReligionInfo_PawnCategory".Translate((NamedArgument)PawnCategory.ToString()));
+            stringBuilder.AppendLine();
+
             if (thought != null)
                 stringBuilder.Append(GetDefInfo("ReligionInfo_IndividualThought".Translate(), thought));
             if (opinionThought != null)

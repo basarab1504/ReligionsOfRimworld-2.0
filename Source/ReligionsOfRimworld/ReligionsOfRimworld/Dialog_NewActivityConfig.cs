@@ -54,7 +54,7 @@ namespace ReligionsOfRimworld
             Text.Anchor = TextAnchor.UpperLeft;
             GUI.color = Color.white;
             Rect outRect = new Rect(0.0f, 35f, rect.width, rect.height - 35f);
-            Rect viewRect = new Rect(0.0f, 0.0f, outRect.width - 16f, 1000f);
+            Rect viewRect = new Rect(0.0f, 0.0f, outRect.width - 16f, 1300f);
             Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect, true);
             float y = 0.0f;
             for (int index = 0; index < day.Tasks.Count(); ++index)

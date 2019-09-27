@@ -106,18 +106,6 @@ namespace ReligionsOfRimworld
                     },
                     hotKey = KeyBindingDefOf.Misc4
                 };
-
-                yield return new Command_Action
-                {
-                    defaultLabel = "ReligiousBuilgingAssigner_AssignBuildings".Translate(),
-                    icon = ContentFinder<Texture2D>.Get("Things/Symbols/AssignReligion", true),
-                    defaultDesc = "ReligiousBuilgingAssigner_AssignBuildingsDesc".Translate(),
-                    action = delegate
-                    {
-                        ReligiousBuildingAssignerUtility.SelectParent();
-                    },
-                    hotKey = KeyBindingDefOf.Misc4
-                };
             }
         }
 

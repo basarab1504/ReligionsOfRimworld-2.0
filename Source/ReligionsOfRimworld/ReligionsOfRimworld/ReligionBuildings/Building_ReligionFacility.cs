@@ -89,28 +89,6 @@ namespace ReligionsOfRimworld
             parentBuilding = null;
         }
 
-        [DebuggerHidden]
-        public override IEnumerable<Gizmo> GetGizmos()
-        {
-            foreach (Gizmo gizmo in base.GetGizmos())
-                yield return gizmo;
-
-            if (Faction == Faction.OfPlayer)
-            {
-                yield return new Command_Action
-                {
-                    defaultLabel = "ReligiousBuilgingAssigner_AssignBuildings".Translate(),
-                    icon = ContentFinder<Texture2D>.Get("Things/Symbols/AssignReligion", true),
-                    defaultDesc = "ReligiousBuilgingAssigner_AssignBuildingsDesc".Translate(),
-                    action = delegate
-                    {
-                        ReligiousBuildingAssignerUtility.SelectParent();
-                    },
-                    hotKey = KeyBindingDefOf.Misc4
-                };
-            }
-        }
-
         public override void ExposeData()
         {
             base.ExposeData();
