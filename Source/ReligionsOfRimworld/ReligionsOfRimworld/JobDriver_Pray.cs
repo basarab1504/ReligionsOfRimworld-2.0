@@ -83,7 +83,7 @@ namespace ReligionsOfRimworld
 
             this.AddFinishAction(() =>
             {
-                PietyUtility.TryApplyOnPawn(pawn.GetReligionComponent().Religion.PrayingSettings.PrayProperty, pawn);
+                PietyUtility.TryApplyOnPawn(pawn.GetReligionComponent().Religion.PrayingSettings.Property.Subject, pawn);
             });
         }
     }

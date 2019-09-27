@@ -138,7 +138,7 @@ namespace ReligionsOfRimworld
         {
             chosenIngThings.Clear();
             newRelevantThings.Clear();
-            if (task.Property.ThingDefsCount.Count() == 0)
+            if (task.ActivityTaskDef.ThingDefsCount.Count() == 0)
                 return true;
             IntVec3 rootCell = GetBillGiverRootCell(giver, pawn);
             Region rootReg = rootCell.GetRegion(pawn.Map, RegionType.Set_Passable);
@@ -195,7 +195,7 @@ namespace ReligionsOfRimworld
 
         private static bool TryFindBestBillIngredientsInSet(List<Thing> availableThings, ActivityTask task, List<ThingCount> chosenIngThings)
         {
-            IEnumerable< ThingDefsCount> thingDefsCount = task.Property.ThingDefsCount;
+            IEnumerable< ThingDefsCount> thingDefsCount = task.ActivityTaskDef.ThingDefsCount;
             chosenIngThings.Clear();
 
             for (int index1 = 0; index1 < thingDefsCount.Count(); ++index1)
@@ -206,7 +206,7 @@ namespace ReligionsOfRimworld
                     Thing availableThing = availableThings[index2];
                     if (task.ThingFilter.Allows(availableThing.def))
                     {
-                        float num = task.Property.IngredientValueGetter.ValuePerUnitOf(availableThing.def);
+                        float num = task.ActivityTaskDef.IngredientValueGetter.ValuePerUnitOf(availableThing.def);
                         int countToAdd = Mathf.Min(Mathf.CeilToInt(baseCount / num), availableThing.stackCount);
                         ThingCountUtility.AddToList(chosenIngThings, availableThing, countToAdd);
                         baseCount -= (float)countToAdd * num;

@@ -23,7 +23,7 @@ namespace ReligionsOfRimworld
                     this.relics.AddRange(relics);
                 this.activityJobNodes = new List<ActivityJobNode>();
                 this.activityJobNodes.Add(new ActivityJobNode(MiscDefOf.ReligionActivityPreparations, null));
-                this.activityJobNodes.AddRange(task.Property.ActivityQueue.ActivityNodes);
+                this.activityJobNodes.AddRange(task.ActivityTaskDef.ActivityQueue.ActivityNodes);
             }
         
             this.religion = religion;
@@ -36,8 +36,8 @@ namespace ReligionsOfRimworld
         public Building_ReligiousBuildingFacility Facility => (Building_ReligiousBuildingFacility)task.ParentFacility;
         public IEnumerable<LocalTargetInfo> Relics => relics;
         public IEnumerable<ActivityJobNode> ActivityJobs => activityJobNodes;
-        public ReligionPropertyData OrganizerProperty => task.Property.OrganizerProperty;
-        public ReligionPropertyData СongregationProperty => task.Property.CongregationProperty;
+        public ReligionPropertyData OrganizerProperty => task.Property.Subject;
+        public ReligionPropertyData СongregationProperty => task.Property.Witness;
         public ActivityTask Task => task;
 
         public void ExposeData()

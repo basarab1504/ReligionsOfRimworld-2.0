@@ -114,15 +114,16 @@ namespace ReligionsOfRimworld
         private List<FloatMenuOption> GetFloatMenuOptions(ScheduledDay day)
         {
             List<FloatMenuOption> list = new List<FloatMenuOption>();
-            foreach (ActivityTaskDef property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.ActivityTag).Properties)
+            foreach (ReligionProperty property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.ActivityTag).Properties)
             {
-                list.Add(new FloatMenuOption(property.label, (Action)(() =>
+                ActivityTaskDef taskDef = property.GetObject<ActivityTaskDef>();
+                list.Add(new FloatMenuOption(taskDef.label, (Action)(() =>
                 {
                     if (!this.SelFacility.Map.mapPawns.FreeColonists.Any<Pawn>(x => x.GetReligionComponent().Religion == SelFacility.AssignedReligion))
                         CreateNoPawnsOfReligionDialog(SelFacility.AssignedReligion);
                     day.Add(new ActivityTask(day, property));
                     day.Reorder();
-                }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), property)), (WorldObject)null));
+                }), MenuOptionPriority.Default, (Action)null, (Thing)null, 29f, (Func<Rect, bool>)(rect => Widgets.InfoCardButton(rect.x + 5f, rect.y + (float)(((double)rect.height - 24.0) / 2.0), taskDef)), (WorldObject)null));
             }
             if (!list.Any<FloatMenuOption>())
                 list.Add(new FloatMenuOption("NoneBrackets".Translate(), (Action)null, MenuOptionPriority.Default, (Action)null, (Thing)null, 0.0f, (Func<Rect, bool>)null, (WorldObject)null));

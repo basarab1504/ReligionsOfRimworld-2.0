@@ -31,12 +31,10 @@ namespace ReligionsOfRimworld
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
             if (defaultPropety != null)
-                foreach (ReligionInfoEntry entry in defaultPropety.GetInfoEntries())
-                    yield return entry;
+                yield return defaultPropety.GetReligionInfoEntry();
 
             foreach (ReligionProperty property in properties)
-                foreach (ReligionInfoEntry entry in property.GetInfoEntries())
-                    yield return entry;
+                    yield return property.GetReligionInfoEntry();
         }
 
         public override void ExposeData()

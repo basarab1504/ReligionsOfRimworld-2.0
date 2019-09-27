@@ -6,20 +6,20 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ActivityTaskDef : Def, IDescribable
+    public class ActivityTaskDef : Def
     {
         private List<ThingDefsCount> thingDefsCount = new List<ThingDefsCount>();
         private ActivityJobQueueDef activityJobQueue;
-        private ReligionPropertyData organizerProperty;
-        private ReligionPropertyData congregationProperty;
+        //private ReligionPropertyData organizerProperty;
+        //private ReligionPropertyData congregationProperty;
         [Unsaved]
         private IngredientValueGetter ingredientValueGetterInt;
         private Type ingredientValueGetterClass = typeof(IngredientValueGetter_Volume);
 
         public IEnumerable<ThingDefsCount> ThingDefsCount => thingDefsCount;
         public ActivityJobQueueDef ActivityQueue => activityJobQueue;
-        public ReligionPropertyData OrganizerProperty => organizerProperty;
-        public ReligionPropertyData CongregationProperty => congregationProperty;
+        //public ReligionPropertyData OrganizerProperty => organizerProperty;
+        //public ReligionPropertyData CongregationProperty => congregationProperty;
 
         public IngredientValueGetter IngredientValueGetter
         {
@@ -31,29 +31,29 @@ namespace ReligionsOfRimworld
             }
         }
 
-        public IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), label.CapitalizeFirst(), GetDescription());
-        }
+        //public IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), label.CapitalizeFirst(), GetDescription());
+        //}
 
-        private string GetDescription()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
+        //private string GetDescription()
+        //{
+        //    StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.AppendLine(description);
-            stringBuilder.AppendLine();
-            if (organizerProperty != null)
-            {
-                stringBuilder.AppendLine("ReligionInfo_OrganizerProperty".Translate());
-                stringBuilder.Append(organizerProperty.GetInfo());
-            }
-            if (congregationProperty != null)
-            {
-                stringBuilder.AppendLine("ReligionInfo_CongregationProperty".Translate());
-                stringBuilder.Append(congregationProperty.GetInfo());
-            }
-            return stringBuilder.ToString();
-        }
+        //    stringBuilder.AppendLine(description);
+        //    stringBuilder.AppendLine();
+        //    if (organizerProperty != null)
+        //    {
+        //        stringBuilder.AppendLine("ReligionInfo_OrganizerProperty".Translate());
+        //        stringBuilder.Append(organizerProperty.GetInfo());
+        //    }
+        //    if (congregationProperty != null)
+        //    {
+        //        stringBuilder.AppendLine("ReligionInfo_CongregationProperty".Translate());
+        //        stringBuilder.Append(congregationProperty.GetInfo());
+        //    }
+        //    return stringBuilder.ToString();
+        //}
     }
 
 

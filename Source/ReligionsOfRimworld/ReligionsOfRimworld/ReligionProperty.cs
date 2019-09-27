@@ -13,14 +13,21 @@ namespace ReligionsOfRimworld
         protected ReligionPropertyData witness;
 
         public abstract Def GetObject();
+        protected abstract string ObjectLabel { get; }
+
+        public T GetObject<T>() where T: Def
+        {
+            return (T)GetObject();
+        }
 
         public ReligionPropertyData Subject => subject;
         public ReligionPropertyData Witness => witness;
 
-        public IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        public ReligionInfoEntry GetReligionInfoEntry()
         {
             if (GetObject() != null)
-                yield return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetDescription());
+                return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetDescription());
+            return null;
         }
 
         private string GetDescription()

@@ -15,6 +15,8 @@ namespace ReligionsOfRimworld
             return propertyObject;
         }
 
+        protected override string ObjectLabel => propertyObject.LabelCap;
+
         public override void ExposeData()
         {
             base.ExposeData();

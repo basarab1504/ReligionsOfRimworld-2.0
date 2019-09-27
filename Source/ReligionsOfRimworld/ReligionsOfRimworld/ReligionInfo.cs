@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionInfoCategory: IDescribable
+    public class ReligionInfoCategory
     {
         public string Label { get; }
         private ReligionInfoEntry descriptionEntry;

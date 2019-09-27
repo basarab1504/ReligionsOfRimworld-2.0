@@ -10,7 +10,9 @@
 		<defName>RoRWorshipSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionActivity">	
 			<properties>
-				<li>TaskGay</li>
+				<li Class="ReligionsOfRimworld.ReligionProperty_ActivityTaskDef">
+					<propertyObject>TaskGay</propertyObject>
+				</li>
 			</properties>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>

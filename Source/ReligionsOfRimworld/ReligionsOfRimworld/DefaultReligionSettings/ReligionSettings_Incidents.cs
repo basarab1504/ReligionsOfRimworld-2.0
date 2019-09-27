@@ -7,7 +7,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionSettings_Incidents : ReligionSettings, IDescribable
+    public class ReligionSettings_Incidents : ReligionSettings
     {
         private List<IncidentDef> incidents;
 

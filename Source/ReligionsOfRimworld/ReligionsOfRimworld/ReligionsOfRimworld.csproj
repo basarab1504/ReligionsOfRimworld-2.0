@@ -64,8 +64,6 @@
     <Compile Include="Bill_ReligionActivity.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
-    <Compile Include="DefaultReligionSettings\InfoUtility.cs" />
-    <Compile Include="IDescribable.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionApparel.cs" />
     <Compile Include="Dialog_ActivitySchedule.cs" />
     <Compile Include="Dialog_ActivityTaskConfig.cs" />
@@ -104,6 +102,8 @@
     <Compile Include="DefaultReligionSettings\ReligionSettings_ReligionBuildings.cs" />
     <Compile Include="DefaultReligionSettings\ReligionSettings_ReligionActivity.cs" />
     <Compile Include="DefaultReligionSettings\ReligionSettings_Prayings.cs" />
+    <Compile Include="ReligionProperty_ActivityTaskDef.cs" />
+    <Compile Include="ReligionProperty_JobDef.cs" />
     <Compile Include="ReligiousBuildingAssignerUtility.cs" />
     <Compile Include="ReligionExtensions.cs" />
     <Compile Include="ReligionCardUtility.cs" />

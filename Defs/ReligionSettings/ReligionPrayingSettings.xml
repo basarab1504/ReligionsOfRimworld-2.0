@@ -10,10 +10,12 @@
 		<defName>RoRPrayingSettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Prayings">
 			<prayNeed>Pray</prayNeed>
-			<prayJob>TestPray</prayJob>
-			<prayProperty>
-				<piety>PrayPietyTest</piety>
-			</prayProperty>
+			<property Class="ReligionsOfRimworld.ReligionProperty_JobDef">
+				<propertyObject>TestPray</propertyObject>
+				<subject>
+					<piety>PrayPietyTest</piety>
+				</subject>
+			</property>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 

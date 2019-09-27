@@ -18,25 +18,25 @@ namespace ReligionsOfRimworld
         private int lastIngredientSearchFailTicks = -99999;
         private bool suspended;
         private Pawn pawnRestriction;
-        private ActivityTaskDef property;
+        private ReligionProperty property;
         private int startHour;
         private IngredientPawn humanlike;
         private IngredientPawn animal;
         private int lastCompletedTick;
 
-        public ActivityTask(ScheduledDay dayOfTask, ActivityTaskDef def)
+        public ActivityTask(ScheduledDay dayOfTask, ReligionProperty property)
         {
             this.dayOfTask = dayOfTask;
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
                 this.loadID = Find.UniqueIDsManager.GetNextThingID();
                 startHour = 12;
-                this.property = def;
+                this.property = property;
                 this.loadID = Find.UniqueIDsManager.GetNextBillID();
                 humanlike = new IngredientPawn();
                 animal = new IngredientPawn();
                 List<ThingDef> defs = new List<ThingDef>();
-                foreach (ThingDefsCount tcd in def.ThingDefsCount)
+                foreach (ThingDefsCount tcd in ActivityTaskDef.ThingDefsCount)
                     defs.Add(tcd.Thing);
                 filter = new SimpleFilter(defs);
             }
@@ -59,9 +59,10 @@ namespace ReligionsOfRimworld
         public int LastIngredientSearchFailTicks { get => lastIngredientSearchFailTicks; set => lastIngredientSearchFailTicks = value; }
         public IngredientPawn HumanlikeIngredient => humanlike;
         public IngredientPawn AnimalIngredient => animal;
-        public ActivityTaskDef Property => property;
-        public string Label => property.LabelCap;
-        public string Description => property.description;
+        public ReligionProperty Property => property;
+        public ActivityTaskDef ActivityTaskDef => property.GetObject<ActivityTaskDef>();
+        public string Label => ActivityTaskDef.LabelCap;
+        public string Description => ActivityTaskDef.description;
 
         public void ValidateSettings()
         {
@@ -115,7 +116,7 @@ namespace ReligionsOfRimworld
                 Widgets.DrawAltRect(rect1);
             GUI.BeginGroup(rect1);
             Widgets.Label(new Rect(20, 0.0f, (float)((double)rect1.width - 48.0 - 20.0), rect1.height + 5f), this.startHour.ToString());
-            Widgets.Label(new Rect(50f, 0.0f, (float)((double)rect1.width - 48.0 - 20.0), rect1.height + 5f), this.property.LabelCap);
+            Widgets.Label(new Rect(50f, 0.0f, (float)((double)rect1.width - 48.0 - 20.0), rect1.height + 5f), this.ActivityTaskDef.LabelCap);
             this.DoConfigInterface(rect1.AtZero(), baseColor);
             Rect rect5 = new Rect(rect1.width - 24f, 0.0f, 24f, 24f);
             rect5.x -= rect5.width + 4f;

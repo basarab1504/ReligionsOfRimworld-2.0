@@ -6,9 +6,9 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionProperty_ReligionGroupObject : ReligionProperty
+    public class ReligionProperty_ActivityTaskDef : ReligionProperty
     {
-        private ReligionGroupTagDef propertyObject;
+        private ActivityTaskDef propertyObject;
 
         public override Def GetObject()
         {
@@ -20,7 +20,7 @@ namespace ReligionsOfRimworld
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look<ReligionGroupTagDef>(ref this.propertyObject, "religionGroupTagObject");
+            Scribe_Defs.Look<ActivityTaskDef>(ref this.propertyObject, "activityTaskDef");
         }
     }
 }
