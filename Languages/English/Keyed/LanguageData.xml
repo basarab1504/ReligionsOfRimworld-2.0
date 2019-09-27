@@ -58,4 +58,8 @@
 <ReligionTab>Religion tab</ReligionTab>
 <ReligionTutorTag>Religion</ReligionTutorTag>
 <ReligionInfo_AndXTasksMore>And {0} tasks more</ReligionInfo_AndXTasksMore>
+<ReligionInfo_AsSubject>As subject</ReligionInfo_AsSubject>
+<ReligionInfo_AsWitness>As witness</ReligionInfo_AsWitness>
+<ReligionInfo_OrganizerProperty>Organizer property</ReligionInfo_OrganizerProperty>
+<ReligionInfo_CongregationProperty>Congregation property</ReligionInfo_CongregationProperty>
 </LanguageData>

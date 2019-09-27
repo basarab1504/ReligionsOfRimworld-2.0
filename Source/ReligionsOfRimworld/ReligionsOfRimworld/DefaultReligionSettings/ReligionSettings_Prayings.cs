@@ -19,10 +19,23 @@ namespace ReligionsOfRimworld
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            yield return new ReligionInfoEntry("ReligionInfo_PrayJob".Translate(), prayJob.LabelCap, prayJob.description);
+            yield return new ReligionInfoEntry("ReligionInfo_PrayNeed".Translate(), prayNeed.LabelCap, prayNeed.description);
+            yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), prayNeed.seekerFallPerHour.ToString());
+            yield return new ReligionInfoEntry("ReligionInfo_PrayJob".Translate(), prayJob.LabelCap, GetDescription());
+        }
 
-            foreach (ReligionInfoEntry entry in prayProperty.GetInfoEntries())
-                yield return entry;
+        private string GetDescription()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine(prayJob.description);
+            stringBuilder.AppendLine();
+            if (prayProperty != null)
+            {
+                stringBuilder.AppendLine("ReligionInfo_OrganizerProperty".Translate());
+                stringBuilder.Append(prayProperty.GetInfo());
+            }
+            return stringBuilder.ToString();
         }
 
         public override void ExposeData()

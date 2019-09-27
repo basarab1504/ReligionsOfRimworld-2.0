@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionInfo: IDescribable
+    public class ReligionInfoCategory: IDescribable
     {
         public string Label { get; }
+        private ReligionInfoEntry descriptionEntry;
         private List<ReligionInfoEntry> infoEntries;
 
-        public ReligionInfo(string label)
+        public ReligionInfoCategory(string label, string description)
         {
             this.Label = label;
+            descriptionEntry = new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description);
             infoEntries = new List<ReligionInfoEntry>();
+        }
+
+        public ReligionInfoCategory(string label, string description, IEnumerable<ReligionInfoEntry> entries)
+        {
+            this.Label = label;
+            descriptionEntry = new ReligionInfoEntry("ReligionInfo_Description".Translate(), "", description);
+            infoEntries = new List<ReligionInfoEntry>();
+            infoEntries.AddRange(entries);
         }
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries() => infoEntries;

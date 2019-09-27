@@ -74,7 +74,7 @@ namespace ReligionsOfRimworld
         private void DrawCategories(Rect rect, ref float y)
         {
             GUI.BeginGroup(rect);
-            foreach(ReligionInfo info in religion.GetInfo())
+            foreach(ReligionInfoCategory info in religion.GetInfo())
             {
                 Widgets.ListSeparator(ref y, rect.width, info.Label);
                 DrawEntries(rect, ref y, info.GetInfoEntries());

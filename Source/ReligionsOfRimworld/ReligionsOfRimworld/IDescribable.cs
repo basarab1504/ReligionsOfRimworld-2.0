@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ReligionsOfRimworld
 {
-    public interface IDescribable
+    interface IDescribable
     {
-        IEnumerable<ReligionInfoEntry> GetInfoEntries();
+        ReligionInfoEntry GetReligionInfoEntry();
     }
 }

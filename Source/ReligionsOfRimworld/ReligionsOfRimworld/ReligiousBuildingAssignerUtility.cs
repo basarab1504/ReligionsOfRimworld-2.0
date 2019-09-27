@@ -26,12 +26,7 @@ namespace ReligionsOfRimworld
             }), (Action)(() =>
             {
                 foreach (Building_ReligionBuilding building in Find.CurrentMap.listerBuildings.AllBuildingsColonistOfClass<Building_ReligionBuilding>())
-                {
-                    if (building.AvaliableToAssign)
-                        Widgets.DrawTextureFitted(new Rect(building.Position.ToUIPosition() - new Vector2(10, 10), new Vector2(20, 20)), GraphicsCache.CheckboxOnTex, 1);
-                    else
-                        Widgets.DrawTextureFitted(new Rect(building.Position.ToUIPosition() - new Vector2(10, 10), new Vector2(20, 20)), GraphicsCache.CheckboxOffTex, 1);
-                }                   
+                    Widgets.DrawTextureFitted(new Rect(building.Position.ToUIPosition() - new Vector2(10, 10), new Vector2(20, 20)), GraphicsCache.Faith, 1);
             }));
         }
 

@@ -33,15 +33,26 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), label.CapitalizeFirst(), description);
+            yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), label.CapitalizeFirst(), GetDescription());
+        }
 
+        private string GetDescription()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine(description);
+            stringBuilder.AppendLine();
             if (organizerProperty != null)
-                foreach (ReligionInfoEntry entry in organizerProperty.GetInfoEntries())
-                    yield return entry;
-
+            {
+                stringBuilder.AppendLine("ReligionInfo_OrganizerProperty".Translate());
+                stringBuilder.Append(organizerProperty.GetInfo());
+            }
             if (congregationProperty != null)
-                foreach (ReligionInfoEntry entry in congregationProperty.GetInfoEntries())
-                    yield return entry;
+            {
+                stringBuilder.AppendLine("ReligionInfo_CongregationProperty".Translate());
+                stringBuilder.Append(congregationProperty.GetInfo());
+            }
+            return stringBuilder.ToString();
         }
     }
 

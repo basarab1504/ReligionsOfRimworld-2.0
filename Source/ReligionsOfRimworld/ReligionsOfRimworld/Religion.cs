@@ -102,7 +102,7 @@ namespace ReligionsOfRimworld
         }
 
 
-        public IEnumerable<ReligionInfo> GetInfo()
+        public IEnumerable<ReligionInfoCategory> GetInfo()
         {
             return configuration.GetInfo();
         }

@@ -7,7 +7,7 @@ using RimWorld;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionPropertyData : IExposable, IDescribable
+    public class ReligionPropertyData : IExposable
     {
         private PropertyPawnCategory pawnCategory = PropertyPawnCategory.Everyone;
         private ThoughtDef thought;
@@ -19,66 +19,30 @@ namespace ReligionsOfRimworld
         public ThoughtDef OpinionThought => opinionThought;
         public PietyDef Piety => piety;
 
-        public IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            if (thought != null)
-                yield return new ReligionInfoEntry("ReligionInfo_IndividualThought".Translate(), thought.LabelCap, thought.description);
-            if (opinionThought != null)
-                yield return new ReligionInfoEntry("ReligionInfo_SocialThought".Translate(), opinionThought.LabelCap, opinionThought.description);
-            if (piety != null)
-                yield return new ReligionInfoEntry("ReligionInfo_IndividualPiety".Translate(), piety.LabelCap, piety.description);
-        }
-
-        private string PietyDefExplanation(PietyDef def)
+        public string GetInfo()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            if (def.IsSituational)
-                stringBuilder.AppendLine("ReligionInfo_PietySituational".Translate());
-            if (def.DurationDays != 0)
-                stringBuilder.AppendLine("ReligionInfo_DurationDays".Translate() + ": " + def.DurationDays);
-            if (def.Stages.Count() != 0)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("ReligionInfo_Stages".Translate() + ":");
-            }
-            int i = 1;
-            foreach (PietyStage stage in def.Stages)
-            {
-                stringBuilder.AppendLine("ReligionInfo_Stage".Translate() + ": " + i.ToString());
-                stringBuilder.AppendLine(stage.Label);
-                //stringBuilder.AppendLine(stage.Description); 
-                stringBuilder.AppendLine("ReligionInfo_PietyOffset".Translate() + " " + stage.PietyOffset.ToString());
-                stringBuilder.AppendLine();
-                i++;
-            }
+
+            if (thought != null)
+                stringBuilder.Append(GetDefInfo("ReligionInfo_IndividualThought".Translate(), thought));
+            if (opinionThought != null)
+                stringBuilder.Append(GetDefInfo("ReligionInfo_SocialThought".Translate(), opinionThought));
+            if (piety != null)
+                stringBuilder.Append(GetDefInfo("ReligionInfo_IndividualPiety".Translate(), piety));
+
             return stringBuilder.ToString();
         }
 
-        //private string ThoughtDefExplanation(ThoughtDef def)
-        //{
-        //    StringBuilder stringBuilder = new StringBuilder();
-        //    if (def.IsSituational)
-        //        stringBuilder.AppendLine("ReligionInfo_PietySituational".Translate());
-        //    if (def.durationDays != 0)
-        //        stringBuilder.AppendLine("ReligionInfo_DurationDays".Translate() + ": " + def.durationDays);
-        //    if (def.stages.Count != 0)
-        //    {
-        //        stringBuilder.AppendLine();
-        //        stringBuilder.AppendLine("ReligionInfo_Stages".Translate() + ":");
-        //    }
-        //    int i = 1;
-        //    foreach (ThoughtStage stage in def.stages)
-        //    {
-        //        stringBuilder.AppendLine("ReligionInfo_Stage".Translate() + ": " + i.ToString());
-        //        stringBuilder.AppendLine(stage.label);
-        //        //stringBuilder.AppendLine(stage.description);
-        //        stringBuilder.AppendLine("ReligionInfo_BaseMoodEffect".Translate() + " " + stage.baseMoodEffect.ToString());
-        //        stringBuilder.AppendLine("ReligionInfo_BaseOpinionOffset".Translate() + " " + stage.baseOpinionOffset.ToString());
-        //        stringBuilder.AppendLine();
-        //        i++;
-        //    }
-        //    return stringBuilder.ToString();
-        //}
+        private string GetDefInfo(string defType, Def def)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(defType + ":");
+            stringBuilder.AppendLine(def.LabelCap);
+            stringBuilder.AppendLine(def.description);
+            stringBuilder.AppendLine();
+
+            return stringBuilder.ToString();
+        }
 
         public void ExposeData()
         {

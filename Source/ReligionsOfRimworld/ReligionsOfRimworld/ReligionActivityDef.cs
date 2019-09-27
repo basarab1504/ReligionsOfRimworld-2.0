@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionActivityDef : RecipeDef, IDescribable
+    public class ReligionActivityDef : RecipeDef /*IDescribable*/
     {
         private ActivityJobQueueDef activityJobQueue;
         private ReligionPropertyData organizerProperty;
@@ -20,19 +20,19 @@ namespace ReligionsOfRimworld
         public ThingFilter IngredientHumanlike => ingredientHumanlike;
         public ThingFilter IngredientAnimal => ingredientAnimal;
 
-        public IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            //yield return new ReligionInfoEntry("");
-            //if (recipe != null)
-            //    yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), recipe.LabelCap, recipe.description);
+        //public IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    //yield return new ReligionInfoEntry("");
+        //    //if (recipe != null)
+        //    //    yield return new ReligionInfoEntry("ReligionInfo_Activity".Translate(), recipe.LabelCap, recipe.description);
 
-            if (organizerProperty != null)
-                foreach (ReligionInfoEntry entry in organizerProperty.GetInfoEntries())
-                    yield return entry;
+        //    //if (organizerProperty != null)
+        //    //    foreach (ReligionInfoEntry entry in organizerProperty.GetInfoEntries())
+        //    //        yield return entry;
 
-            if (congregationProperty != null)
-                foreach (ReligionInfoEntry entry in congregationProperty.GetInfoEntries())
-                    yield return entry;
-        }
+        //    //if (congregationProperty != null)
+        //    //    foreach (ReligionInfoEntry entry in congregationProperty.GetInfoEntries())
+        //    //        yield return entry;
+        //}
     }
 }

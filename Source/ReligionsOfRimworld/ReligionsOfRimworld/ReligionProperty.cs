@@ -7,7 +7,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public abstract class ReligionProperty : IExposable, IDescribable
+    public abstract class ReligionProperty : IExposable
     {
         protected ReligionPropertyData subject;
         protected ReligionPropertyData witness;
@@ -19,25 +19,30 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            //yield return new ReligionInfoEntry("");
             if (GetObject() != null)
-                yield return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetObject().description);
-
-            if (subject != null)
-                foreach(ReligionInfoEntry entry in subject.GetInfoEntries())
-                yield return entry;
-
-            if (witness != null)
-                foreach (ReligionInfoEntry entry in witness.GetInfoEntries())
-                    yield return entry;
+                yield return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetDescription());
         }
 
-        //private string GetDescription()
-        //{
-        //    StringBuilder stringBuilder = new StringBuilder();
-        //    stringBuilder.AppendLine(GetObject().description);
-        //    stringBuilder.AppendLine()
-        //}
+        private string GetDescription()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine(GetObject().description);
+            stringBuilder.AppendLine();
+
+            if (subject != null)
+            {
+                stringBuilder.AppendLine("ReligionInfo_AsSubject".Translate());
+                stringBuilder.Append(subject.GetInfo());
+            }
+                
+            if (witness != null)
+            {
+                stringBuilder.AppendLine("ReligionInfo_AsWitness".Translate());
+                stringBuilder.Append(witness.GetInfo());
+            }
+            return stringBuilder.ToString();
+        }
 
         public virtual void ExposeData()
         {
