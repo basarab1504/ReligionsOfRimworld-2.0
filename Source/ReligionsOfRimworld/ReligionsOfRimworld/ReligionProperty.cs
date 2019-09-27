@@ -34,8 +34,11 @@ namespace ReligionsOfRimworld
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.AppendLine(GetObject().description);
-            stringBuilder.AppendLine();
+            if(GetObject().description != null)
+            {
+                stringBuilder.AppendLine(GetObject().description);
+                stringBuilder.AppendLine();
+            }
 
             if (subject != null)
             {
