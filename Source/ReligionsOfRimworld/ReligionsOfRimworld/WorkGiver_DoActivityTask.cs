@@ -81,7 +81,7 @@ namespace ReligionsOfRimworld
 
         private Job TryStartNewDoBillJob(Pawn pawn, ActivityTask task, Building_ReligiousBuildingFacility giver)
         {
-            Job job1 = WorkGiverUtility.HaulStuffOffBillGiverJob(pawn, giver, (Thing)null);
+            Job job1 = HaulStuffOffBillGiverJob(pawn, giver, (Thing)null);
             if (job1 != null)
                 return job1;
             ActivityJob job2 = new ActivityJob()
@@ -140,7 +140,7 @@ namespace ReligionsOfRimworld
             newRelevantThings.Clear();
             if (task.ActivityTaskDef.ThingDefsCount.Count() == 0)
                 return true;
-            IntVec3 rootCell = GetBillGiverRootCell(giver, pawn);
+            IntVec3 rootCell = GetGiverRootCell(giver, pawn);
             Region rootReg = rootCell.GetRegion(pawn.Map, RegionType.Set_Passable);
             if (rootReg == null)
                 return false;
@@ -220,7 +220,7 @@ namespace ReligionsOfRimworld
             return true;
         }
 
-        private static IntVec3 GetBillGiverRootCell(Thing giver, Pawn forPawn)
+        private static IntVec3 GetGiverRootCell(Thing giver, Pawn forPawn)
         {
             Building building = giver as Building;
             if (building == null)
@@ -229,6 +229,17 @@ namespace ReligionsOfRimworld
                 return building.InteractionCell;
             Log.Error("Tried to find task ingredients for " + (object)giver + " which has no interaction cell.", false);
             return forPawn.Position;
+        }
+
+        private static Job HaulStuffOffBillGiverJob(Pawn pawn, Building_ReligiousBuildingFacility giver, Thing thingToIgnore)
+        {
+            foreach (IntVec3 ingredientStackCell in giver.IngredientStackCells)
+            {
+                Thing t = pawn.Map.thingGrid.ThingAt(ingredientStackCell, ThingCategory.Item);
+                if (t != null && t != thingToIgnore)
+                    return HaulAIUtility.HaulAsideJobFor(pawn, t);
+            }
+            return (Job)null;
         }
     }
 }

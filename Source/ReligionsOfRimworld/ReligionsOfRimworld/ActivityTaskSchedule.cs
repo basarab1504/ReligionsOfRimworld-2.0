@@ -17,11 +17,7 @@ namespace ReligionsOfRimworld
             this.facility = facility;
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
-                scheduledDays = new List<ScheduledDay>();
-                {
-                    for (int i = 1; i < 16; ++i)
-                        Create(i);
-                }
+                CreateSchedule();
             }     
         }
 
@@ -44,32 +40,13 @@ namespace ReligionsOfRimworld
                     yield return task;
         }
 
-        //public bool AnyShouldDoNow()
-        //{
-        //    ScheduledDay today = scheduledDays[GenLocalDate.DayOfQuadrum(Find.CurrentMap)];
-        //    return today.AnyShouldDoNow();
-        //}
-
-        //public bool ShouldDoNow(ActivityTask task)
-        //{
-
-        //    if (scheduledDays.Any(x => x.ShouldDoNow(task)))
-        //        return true;
-        //    return false;
-        //}
-
-        //public bool PawnAllowedToStartAnew(Pawn p, ActivityTask task)
-        //{
-        //    return task.PawnAllowedToStartAnew(p);
-        //}
-
-        public void Create(int dayNumber)
+        public void AddDay(int dayNumber)
         {
             if (!scheduledDays.Contains(scheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber)))
                 scheduledDays.Add(new ScheduledDay(this, dayNumber));
         }
 
-        public void Delete(int dayNumber)
+        public void RemoveDay(int dayNumber)
         {
             scheduledDays.Remove(scheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber));
         }
@@ -83,6 +60,20 @@ namespace ReligionsOfRimworld
                 if (day.Tasks.Count() == 0)
                     scheduledDays.Remove(day);
                 day.Reorder();
+            }
+        }
+
+        public void Clear()
+        {
+            CreateSchedule();
+        }
+
+        private void CreateSchedule()
+        {
+            scheduledDays = new List<ScheduledDay>();
+            {
+                for (int i = 1; i < 16; ++i)
+                    AddDay(i);
             }
         }
 

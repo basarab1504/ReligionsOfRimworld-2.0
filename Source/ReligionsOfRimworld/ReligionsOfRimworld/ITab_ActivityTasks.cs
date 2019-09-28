@@ -78,7 +78,7 @@ namespace ReligionsOfRimworld
                 if (Input.GetMouseButtonDown(0))
                 {                 
                     if (day == null)
-                        TaskManager.Create(dayNumber);                       
+                        TaskManager.AddDay(dayNumber);                       
                     Find.WindowStack.Add((Window)new Dialog_ScheduleDayConfig(day, GetFloatMenuOptions(day)));
                 }   
             }
