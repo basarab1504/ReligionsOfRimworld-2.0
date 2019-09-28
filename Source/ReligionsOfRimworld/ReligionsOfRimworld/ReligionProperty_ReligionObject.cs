@@ -6,7 +6,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionProperty_ReligionGroupObject : ReligionProperty
+    public class ReligionProperty_ReligionGroupDef : ReligionProperty
     {
         private ReligionGroupTagDef propertyObject;
 

@@ -10,13 +10,13 @@
 		<defName>RoROpinionSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
 				<propertyObject>SecondReligionGroup</propertyObject>
 				<witness>
 					<opinionThought>ROR_ReligionGoodOpinionSocial</opinionThought>
 				</witness>
 			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
 				<propertyObject>ReligionOfOneGroup</propertyObject>
 				<witness>
 					<opinionThought>ROR_ReligionBadOpinionSocial</opinionThought>

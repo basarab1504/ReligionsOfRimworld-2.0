@@ -10,19 +10,19 @@
 		<defName>RoRDeathSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
 				<propertyObject>SecondReligionGroup</propertyObject>
 				<witness>
 					<thought>ROR_ReligiousDeadSad</thought>
 				</witness>				
 			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
 				<propertyObject>ReligionOfOneGroup</propertyObject>
 				<witness>
 					<thought>ROR_ReligiousDeadHappy</thought>
 				</witness>
 			</li>	
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Monkey</propertyObject>
 				<witness>
 					<thought>ROR_ReligiousDeadHappy</thought>

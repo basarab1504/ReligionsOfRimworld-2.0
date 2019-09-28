@@ -10,7 +10,7 @@
 		<defName>RoRWeaponSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Gun_PumpShotgun</propertyObject>
 				<subject>
 					<thought>ROR_WeaponKillHappy</thought>

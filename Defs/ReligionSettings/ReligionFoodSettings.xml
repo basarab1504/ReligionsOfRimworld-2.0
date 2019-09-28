@@ -10,7 +10,7 @@
 		<defName>RoRFoodSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Corpse_Panther</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodGood</thought>
@@ -19,7 +19,7 @@
 					<opinionThought>ROR_IngestHolyFoodGoodSocial</opinionThought>
 				</witness>
 			</li>	
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Meat_Panther</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodGood</thought>
@@ -28,7 +28,7 @@
 					<opinionThought>ROR_IngestHolyFoodGoodSocial</opinionThought>
 				</witness>				
 			</li>	
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Corpse_Monkey</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodBad</thought>
@@ -37,7 +37,7 @@
 					<opinionThought>ROR_IngestHolyFoodBadSocial</opinionThought>
 				</witness>
 			</li>	
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Meat_Monkey</propertyObject>
 				<subject>
 					<thought>ROR_IngestHolyFoodBad</thought>

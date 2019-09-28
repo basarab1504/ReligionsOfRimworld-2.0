@@ -10,7 +10,7 @@
 		<defName>RoRKillSettingsTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
 				<propertyObject>ReligionOfOneGroup</propertyObject>
 				<subject>
 					<thought>ROR_ReligiousKilledSad</thought>
@@ -20,7 +20,7 @@
 					<opinionThought>ROR_ReligiousKilledSadSocial</opinionThought>
 				</witness>
 			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
 				<propertyObject>SecondReligionGroup</propertyObject>
 				<subject>
 					<thought>ROR_ReligiousKilledHappy</thought>
@@ -30,7 +30,7 @@
 					<opinionThought>ROR_ReligiousKilledHappySocial</opinionThought>
 				</witness>				
 			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingObject">
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Monkey</propertyObject>
 				<subject>
 					<thought>ROR_ReligiousKilledHappy</thought>

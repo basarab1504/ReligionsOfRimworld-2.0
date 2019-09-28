@@ -246,6 +246,7 @@ namespace ReligionsOfRimworld
                 context = "ReligionInfo_IsTamed".Translate();
             }
             listing_Standard.Label(label);
+            listing_Standard.Label("ReligionInfo_PawnIngredientWarning".Translate());
             //Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), context + " " + ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
             Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "None".Translate(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
