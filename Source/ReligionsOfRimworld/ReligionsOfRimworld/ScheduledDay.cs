@@ -58,6 +58,12 @@ namespace ReligionsOfRimworld
             tasks.Sort((x, y) => x.StartHour.CompareTo(y.StartHour));
         }
 
+        public void ValidateSettings()
+        {
+            foreach (ActivityTask task in tasks)
+                task.ValidateSettings();
+        }
+
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref dayNumber, "dayNumber");

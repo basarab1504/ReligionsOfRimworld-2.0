@@ -14,9 +14,6 @@
         <roomStat>Impressiveness</roomStat>        
       </li>
     </comps> 
-    <placeWorkers>
-      <li>PlaceWorker_WatchArea</li>
-    </placeWorkers>  
     <!--<researchPrerequisites>
       <li>ReligionStuff</li>
     </researchPrerequisites>-->

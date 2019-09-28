@@ -11,6 +11,7 @@ namespace ReligionsOfRimworld
     {
         private Building_ReligiousBuildingFacility facility;
         private List<ScheduledDay> scheduledDays;
+        private Pawn defaultPawn;
 
         public ActivityTaskSchedule(Building_ReligiousBuildingFacility facility)
         {
@@ -23,6 +24,7 @@ namespace ReligionsOfRimworld
 
         public Building_ReligiousBuildingFacility Facility => facility;
         public IEnumerable<ScheduledDay> ScheduledDays => scheduledDays;
+        public Pawn DefaultPawn { get => defaultPawn; set => defaultPawn = value; }
 
         public IEnumerable<ActivityTask> TodayTasks
         {
@@ -68,6 +70,15 @@ namespace ReligionsOfRimworld
             CreateSchedule();
         }
 
+        public void ValidateSettings()
+        {
+            if (defaultPawn != null && defaultPawn.Dead)
+                defaultPawn = null;
+
+            foreach (ScheduledDay day in scheduledDays)
+                day.ValidateSettings();
+        }
+
         private void CreateSchedule()
         {
             scheduledDays = new List<ScheduledDay>();
@@ -80,6 +91,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Collections.Look<ScheduledDay>(ref this.scheduledDays, false, "scheduledDays", LookMode.Deep, this, 0);
+            Scribe_References.Look<Pawn>(ref this.defaultPawn, "defaultPawn");
         }
     }
 }

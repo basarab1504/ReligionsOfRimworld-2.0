@@ -95,20 +95,20 @@ namespace ReligionsOfRimworld
 			}
 		}
 
-		public static IEnumerable<ActivityTask> GlobalActivityTasks()
-		{
-			foreach (Building_ReligiousBuildingFacility giver in GlobalActivityGivers())
-            {
-                foreach (ActivityTask task in giver.TaskSchedule.AllTasks())
-                    yield return task;
-			}
-		}
+		//public static IEnumerable<ActivityTask> GlobalActivityTasks()
+		//{
+		//	foreach (Building_ReligiousBuildingFacility giver in GlobalActivityGivers())
+  //          {
+  //              foreach (ActivityTask task in giver.TaskSchedule.AllTasks())
+  //                  yield return task;
+		//	}
+		//}
 
         public static void Notify_ColonistUnavailable(Pawn pawn)
         {
             try
             {
-                foreach (ActivityTask current in GlobalActivityTasks())
+                foreach (Building_ReligiousBuildingFacility current in GlobalActivityGivers())
                 {
                     current.ValidateSettings();
                 }

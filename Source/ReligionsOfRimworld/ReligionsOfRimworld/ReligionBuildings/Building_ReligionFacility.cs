@@ -91,5 +91,10 @@ namespace ReligionsOfRimworld
             Scribe_References.Look<Building_ReligionBuilding>(ref this.parentBuilding, "parentBuilding");
             Scribe_Deep.Look<ActivityTaskSchedule>(ref this.taskSchedule, "taskSchedule", this);
         }
+
+        public void ValidateSettings()
+        {
+            taskSchedule.ValidateSettings();
+        }
     }
 }
