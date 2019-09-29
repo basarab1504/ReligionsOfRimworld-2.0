@@ -71,4 +71,76 @@
       </li>      
     </stages>
   </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>ROR_ReligionGroupBadOpinionSocial</defName>
+    <label>label</label>
+    <description>desc</description>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionGroupOpinion</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>don't like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>-3</baseOpinionOffset>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>fasf</description>        
+        <baseOpinionOffset>-5</baseOpinionOffset>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>-7</baseOpinionOffset>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+      <li>
+        <label>don't like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>-15</baseOpinionOffset>
+      </li>      
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>ROR_ReligionGroupGoodOpinionSocial</defName>
+    <label>label</label>
+    <description>desc</description>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionGroupOpinion</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>3</baseOpinionOffset>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>5</baseOpinionOffset>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>7</baseOpinionOffset>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>10</baseOpinionOffset>
+      </li>
+      <li>
+        <label>like {0}</label>
+        <description>fasf</description>
+        <baseOpinionOffset>15</baseOpinionOffset>
+      </li>      
+    </stages>
+  </ThoughtDef>
 </Defs>

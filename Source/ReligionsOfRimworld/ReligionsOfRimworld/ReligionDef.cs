@@ -16,7 +16,7 @@ namespace ReligionsOfRimworld
             settingsDefs = new List<ReligionSettingsDef>();
         }
 
-        public IEnumerable<ReligionSettingsDef> SettingsDefs => settingsDefs;
+        public IEnumerable<ReligionSettingsDef> Settings => settingsDefs;
         public ReligionGroupTagDef GroupTag => groupTag;
     }
 }

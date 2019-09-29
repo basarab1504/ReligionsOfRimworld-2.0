@@ -8,6 +8,7 @@ namespace ReligionsOfRimworld
 {
     public class ReligionConfiguration : IExposable
     {
+        private ReligionDef religionDef;
         private string label;
         private string description;
         private ReligionGroupTagDef groupTag;
@@ -29,15 +30,17 @@ namespace ReligionsOfRimworld
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
+                this.religionDef = def;
                 this.label = def.LabelCap;
                 this.description = def.description;
                 this.groupTag = def.GroupTag;
                 this.allSettings = new List<ReligionSettings>();
-                foreach (ReligionSettingsDef settingsDef in def.SettingsDefs)
+                foreach (ReligionSettingsDef settingsDef in def.Settings)
                     allSettings.Add(settingsDef.Settings);
             }
         }
 
+        public ReligionDef Def => religionDef;
         public string Label => label;
         public string Description => description;
         public ReligionGroupTagDef GroupTag => groupTag;
@@ -88,6 +91,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
+            Scribe_Defs.Look<ReligionDef>(ref this.religionDef, "religionDef");
             Scribe_Values.Look<string>(ref this.label, "label");
             Scribe_Values.Look<string>(ref this.description, "descrtiption");
             Scribe_Defs.Look<ReligionGroupTagDef>(ref this.groupTag, "groupTag");

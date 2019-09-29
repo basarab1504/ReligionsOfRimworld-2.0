@@ -9,7 +9,6 @@ namespace ReligionsOfRimworld
     public class Religion : IExposable, ILoadReferenceable
     {
         private int loadID;
-        private ReligionDef religionDef;
         private ReligionConfiguration configuration;
         private ReligionSettings_PietyNeed needSettings;
         private ReligionSettings_JoiningCriteria joiningRestrictionsSettings;
@@ -39,7 +38,6 @@ namespace ReligionsOfRimworld
         {
             if (Scribe.mode == LoadSaveMode.Inactive)
             {
-                this.religionDef = def;
                 loadID = Find.UniqueIDsManager.GetNextThingID();
                 this.configuration = new ReligionConfiguration(def);
                 InitializeReligion();
@@ -48,6 +46,7 @@ namespace ReligionsOfRimworld
 
         public string Label => configuration.Label;
         public string Description => configuration.Description;
+        public ReligionDef Def => configuration.Def;
         public ReligionGroupTagDef GroupTag => configuration.GroupTag;
         public IEnumerable<ReligionSettings> AllSettings => configuration.Settings;
         public ReligionSettings_PietyNeed NeedSettings => needSettings;
@@ -116,12 +115,12 @@ namespace ReligionsOfRimworld
         {
             Scribe_Values.Look<int>(ref this.loadID, "loadID");
             Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", null, null, null, null);
-            if (Scribe.mode == LoadSaveMode.LoadingVars)
-                Scribe_Defs.Look<ReligionDef>(ref this.religionDef, "religionDef");
-            if (religionDef != null)
-                Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", new object[4]);
-            else
-                Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", religionDef);
+            //if (Scribe.mode == LoadSaveMode.LoadingVars)
+            //    Scribe_Defs.Look<ReligionDef>(ref this.religionDef, "religionDef");
+            //if (religionDef != null)
+            //    Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", new object[4]);
+            //else
+            //    Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", religionDef);
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
                 InitializeReligion();
