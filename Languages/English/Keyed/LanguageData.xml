@@ -65,4 +65,6 @@
 <ReligionInfo_PawnCategory>The category of characters to which these properties will belong: {0}</ReligionInfo_PawnCategory>
 <ReligionInfo_PawnIngredientWarning>Pawns will not take any other pawn before you choose it</ReligionInfo_PawnIngredientWarning>
 <ReligionInfo_DefaultPreacher>Default preacher</ReligionInfo_DefaultPreacher>
+<TabTasks>Tasks</TabTasks>
+<TabReligion>Religion</TabReligion>
 </LanguageData>

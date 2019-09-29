@@ -170,14 +170,9 @@ namespace ReligionsOfRimworld
                 OrganizerReserve(pawn, job);
             }
 
-            if (!SpectatorCellFinder.TryFindSpectatorCellFor(pawn, duty.spectateRect, pawn.Map, out cell, duty.spectateRectAllowedSides, 1, (List<IntVec3>)null))
-                return (Job)null;
-            IntVec3 centerCell = duty.spectateRect.CenterCell;
-            Building edifice = cell.GetEdifice(pawn.Map);
-
-            if (edifice != null && edifice.def.category == ThingCategory.Building && (edifice.def.building.isSittable && pawn.CanReserve((LocalTargetInfo)((Thing)edifice), 1, -1, (ReservationLayerDef)null, false)))
-                return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)((Thing)edifice), (LocalTargetInfo)centerCell);
-            return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)cell, (LocalTargetInfo)centerCell);
+            if (!WatchBuildingUtility.TryFindBestWatchCell(data.Facility, pawn, true, out IntVec3 result, out Building chair))
+                WatchBuildingUtility.TryFindBestWatchCell(data.Facility, pawn, false, out result, out chair);
+            return new Job(JobDefOf.SpectateCeremony, (LocalTargetInfo)result, (LocalTargetInfo)data.Facility);
         }
 
         private void OrganizerReserve(Pawn pawn, Job job)

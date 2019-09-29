@@ -276,7 +276,7 @@ namespace ReligionsOfRimworld
         {
             yield return new Widgets.DropdownMenuElement<Pawn>
             {
-                option = new FloatMenuOption("AnyWorker".Translate(), delegate
+                option = new FloatMenuOption("None".Translate(), delegate
                 {
                     ingredientPawn.ConcretePawn = null;
                 }, MenuOptionPriority.Default, null, null, 0f, null, null),

@@ -23,12 +23,12 @@ namespace ReligionsOfRimworld
             }
         }
 
-        [HarmonyPatch(typeof(FoodUtility), "ThoughtsFromIngesting")]
-        private static class Patch_ThoughtsFromIngesting
+        [HarmonyPatch(typeof(Thing), "Ingested")]
+        private static class Patch_Ingested
         {
-            private static void Postfix(Pawn ingester, Thing foodSource, ThingDef foodDef)
+            private static void Postfix(Pawn ingester, Thing __instance)
             {
-                Religion_IngestingUtility.FoodIngested(ingester, foodSource, foodDef);
+                Religion_IngestingUtility.FoodIngested(ingester, __instance, __instance.def);
             }
         }
 

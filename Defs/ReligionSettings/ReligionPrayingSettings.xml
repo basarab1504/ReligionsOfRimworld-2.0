@@ -11,7 +11,7 @@
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Prayings">
 			<prayNeed>Pray</prayNeed>
 			<property Class="ReligionsOfRimworld.ReligionProperty_JobDef">
-				<propertyObject>TestPray</propertyObject>
+				<propertyObject>Pray</propertyObject>
 				<subject>
 					<piety>PrayPietyTest</piety>
 				</subject>

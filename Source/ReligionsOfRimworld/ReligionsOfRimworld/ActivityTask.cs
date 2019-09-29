@@ -168,6 +168,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref loadID, "loadID");
+            Scribe_Deep.Look<ReligionProperty>(ref this.property, "property");
             Scribe_Deep.Look<SimpleFilter>(ref this.filter, "filter", Enumerable.Empty<ThingDef>());
             Scribe_Values.Look<float>(ref ingredientSearchRadius, "ingredientSearchRadius");
             Scribe_Values.Look<int>(ref lastIngredientSearchFailTicks, "lastIngredientSearchFailTicks");

@@ -2,13 +2,13 @@
 <Defs>
 
   <WorkGiverDef>
-    <defName>DoBillsReligionActivity</defName>
-    <label>do cremation bills</label>
+    <defName>DoReligionActivities</defName>
+    <label>do religion activities</label>
     <giverClass>ReligionsOfRimworld.WorkGiver_DoActivityTask</giverClass>
     <workType>Hauling</workType>
     <priorityInType>40</priorityInType>
-    <verb>cremate</verb>
-    <gerund>cremating at</gerund>
+    <verb>worship</verb>
+    <gerund>worshipping at</gerund>
     <requiredCapacities>
       <li>Manipulation</li>
     </requiredCapacities>

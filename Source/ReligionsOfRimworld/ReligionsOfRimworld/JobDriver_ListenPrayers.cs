@@ -25,7 +25,7 @@ namespace ReligionsOfRimworld
             {
                 defaultCompleteMode = ToilCompleteMode.Delay,
                 defaultDuration = 700,
-            }.WithProgressBarToilDelay(TargetIndex.A, false, .5f);
+            };
         }
     }
 }

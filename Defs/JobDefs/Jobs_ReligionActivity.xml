@@ -2,8 +2,9 @@
 <Defs>
   <JobDef>
     <defName>DoReligionActivity</defName>
+    <label>worship</label>
     <driverClass>ReligionsOfRimworld.JobDriver_DoReligionActivity</driverClass>
-    <reportString>doing bill at TargetA.</reportString>
+    <reportString>doing worship at TargetA.</reportString>
     <suspendable>false</suspendable>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
@@ -27,7 +28,7 @@
   <JobDef>
     <defName>ReadPrayers</defName>
     <driverClass>ReligionsOfRimworld.JobDriver_ReadPrayers</driverClass>
-    <reportString>read</reportString>
+    <reportString>read a prayers</reportString>
     <suspendable>false</suspendable>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
@@ -35,7 +36,7 @@
   <JobDef>
     <defName>ListenPrayers</defName>
     <driverClass>ReligionsOfRimworld.JobDriver_ListenPrayers</driverClass>
-    <reportString>listen</reportString>
+    <reportString>listen a prayings</reportString>
     <suspendable>false</suspendable>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>

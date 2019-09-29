@@ -95,7 +95,6 @@
     <Compile Include="Dialog_ReligionInfo.cs" />
     <Compile Include="ReligionBuildings\Building_ReligiousBuildingMain.cs" />
     <Compile Include="ReligionPropertyData.cs" />
-    <Compile Include="ITab_ReligionActivity.cs" />
     <Compile Include="DefaultReligionSettings\ReligionSettings_ReligionBuildings.cs" />
     <Compile Include="DefaultReligionSettings\ReligionSettings_ReligionActivity.cs" />
     <Compile Include="DefaultReligionSettings\ReligionSettings_Prayings.cs" />

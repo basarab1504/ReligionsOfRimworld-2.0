@@ -23,7 +23,7 @@ namespace ReligionsOfRimworld
         public ITab_ActivityTasks()
         {
             this.size = ITab_ActivityTasks.WinSize;
-            this.labelKey = "Tasks";
+            this.labelKey = "TabTasks";
         }
 
         protected Building_ReligiousBuildingFacility SelFacility => (Building_ReligiousBuildingFacility)this.SelThing;

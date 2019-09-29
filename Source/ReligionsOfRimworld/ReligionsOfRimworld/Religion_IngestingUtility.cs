@@ -14,17 +14,23 @@ namespace ReligionsOfRimworld
         public static void FoodIngested(Pawn ingester, Thing foodSource, ThingDef foodDef)
         {
             properties.Clear();
+
+            if (ingester.RaceProps.Animal)
+                return;
+
             ReligionSettings_Social settings = ingester.GetReligionComponent().Religion.FoodSettings;
             if(settings != null)
             {
+
                 properties.Add(settings.GetPropertyByObject(foodDef));
 
                 CompIngredients comp = foodSource.TryGetComp<CompIngredients>();
                 if(comp != null)
                 {
-                    foreach (ThingDef ingridient in comp.ingredients)
-                        properties.Add(settings.GetPropertyByObject(ingridient));
+                    foreach (ThingDef ingredient in comp.ingredients)
+                        properties.Add(settings.GetPropertyByObject(ingredient));
                 }
+
                 foreach(ReligionProperty property in properties)
                     if(property != null)
                         PietyUtility.TryApplyOnPawn(property.Subject, ingester);
