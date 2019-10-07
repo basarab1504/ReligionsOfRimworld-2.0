@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef Name="BaseHolyBuilding" ParentName="BuildingBase" Abstract="True">
+  	<thingClass>ReligionsOfRimworld.Building_ReligiousBuildingMain</thingClass>
+    <designationCategory>ReligionBuildings</designationCategory> 
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>true</rotatable>
+    <socialPropernessMatters>true</socialPropernessMatters>    
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_RoomIdentifier">
+        <roomStat>Impressiveness</roomStat>        
+      </li>
+    </comps> 
+    <!--<researchPrerequisites>
+      <li>ReligionStuff</li>
+    </researchPrerequisites>-->
+  </ThingDef>  
+</Defs>

@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ThingDef Name="BaseHolyBuilding" ParentName="BuildingBase" Abstract="True">
-  	<thingClass>ReligionsOfRimworld.Building_ReligiousBuildingMain</thingClass>
-    <designationCategory>ReligionBuildings</designationCategory> 
-    <altitudeLayer>Building</altitudeLayer>
-    <rotatable>true</rotatable>
-    <socialPropernessMatters>true</socialPropernessMatters>    
-    <comps>
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_RoomIdentifier">
-        <roomStat>Impressiveness</roomStat>        
-      </li>
-    </comps> 
-    <!--<researchPrerequisites>
-      <li>ReligionStuff</li>
-    </researchPrerequisites>-->
-  </ThingDef>  
-
-<ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="BuildingBase">
     <defName>LinkableBench</defName>
     <label>linkable bench</label>
   <thingClass>Building</thingClass>
@@ -64,7 +45,8 @@
     </building>
   </ThingDef>
 
-  <!--<ThingDef ParentName="BuildingBase">
+
+  <ThingDef ParentName="BuildingBase">
     <defName>Candelabra</defName>
     <label>сandelabra</label>
     <description>Candle holder with multiple arms. Can be automatically refueled with wood. Produces a small amount of heat.</description>
@@ -134,5 +116,5 @@
     </comps>
     <designationCategory>ReligionBuildings</designationCategory>
     <designationHotKey>Misc10</designationHotKey>
-  </ThingDef>  -->
+  </ThingDef>
 </Defs>

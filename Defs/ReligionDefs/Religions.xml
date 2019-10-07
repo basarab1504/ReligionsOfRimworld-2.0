@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<ReligionsOfRimworld.ReligionGroupTagDef>
+		<defName>NonbelieverGroup</defName>
+		<label>Nonbeliever group</label>
+		<description>A person who does not believe or has no faith</description>
+	</ReligionsOfRimworld.ReligionGroupTagDef>
+
+	<ReligionsOfRimworld.ReligionDef>
+		<defName>NonBeliever</defName>
+		<label>Nonbeliever</label>
+		<description>A person who does not believe or has no faith</description>
+		<groupTag>NonbelieverGroup</groupTag>
+	</ReligionsOfRimworld.ReligionDef>
+
+	<ReligionsOfRimworld.ReligionGroupTagDef>
 		<defName>ReligionOfOneGroup</defName>
 		<label>ReligionOfOneGroup</label>
 		<description>ReligionOfOneGroupDesc</description>

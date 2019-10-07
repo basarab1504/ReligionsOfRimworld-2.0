@@ -39,10 +39,9 @@ namespace ReligionsOfRimworld
         {
             float currentCompability = 1f;
 
-            foreach (JoiningCriteria permission in settings.Permissions)
-            {
-                currentCompability *= (1 - permission.PermissionRate(pawn));
-            }
+            if (settings != null)
+                foreach (JoiningCriteria permission in settings.Permissions)
+                    currentCompability *= (1 - permission.PermissionRate(pawn));
             return currentCompability;
         }
 
