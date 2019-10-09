@@ -21,6 +21,8 @@ namespace ReligionsOfRimworld
                     return !pawn.HostileTo(subject);
                 case PropertyPawnCategory.SameFaction:
                     return (pawn.Faction == subject.Faction);
+                case PropertyPawnCategory.SameReligion:
+                    return pawn.GetReligionComponent().Religion == subject.GetReligionComponent().Religion;
                 case PropertyPawnCategory.SameReligionGroup:
                     return pawn.GetReligionComponent().Religion.GroupTag == subject.GetReligionComponent().Religion.GroupTag;
                 default:

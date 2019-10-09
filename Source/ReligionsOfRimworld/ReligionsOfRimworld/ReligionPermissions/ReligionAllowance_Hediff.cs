@@ -6,15 +6,15 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionPermission_Hediff : JoiningCriteria
+    public class JoiningCriteria_Hediff : JoiningCriteria
     {
-        public HediffDef permission;
+        public HediffDef criteria;
 
-        public override string Reason => permission.LabelCap;
+        public override string Reason => criteria.LabelCap;
 
         protected override bool IsFound(Pawn pawn)
         {
-            if (pawn.health.hediffSet.hediffs.Any(x => x.def == permission))
+            if (pawn.health.hediffSet.hediffs.Any(x => x.def == criteria))
                 return true;
             else
                 return false;
@@ -22,7 +22,7 @@ namespace ReligionsOfRimworld
 
         public override void ExposeData()
         {
-            Scribe_Defs.Look<HediffDef>(ref permission, "hediff");
+            Scribe_Defs.Look<HediffDef>(ref criteria, "hediff");
         }
     }
 }

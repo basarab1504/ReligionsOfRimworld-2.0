@@ -15,7 +15,8 @@ namespace ReligionsOfRimworld
             return propertyObject;
         }
 
-        protected override string ObjectLabel => "ReligionInfo_Job".Translate();
+        protected override string ObjectLabel => propertyObject.LabelCap;
+        protected override string Description => propertyObject.description;
 
         public override void ExposeData()
         {

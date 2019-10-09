@@ -9,7 +9,7 @@ namespace ReligionsOfRimworld
     public abstract class JoiningCriteria : IExposable
     {
         protected bool shouldHave = true;
-        protected ReligionCriteriaImportance importance = ReligionCriteriaImportance.Regular;
+        protected ReligionCriteriaImportance importance = ReligionCriteriaImportance.Low;
 
         public abstract string Reason
         {

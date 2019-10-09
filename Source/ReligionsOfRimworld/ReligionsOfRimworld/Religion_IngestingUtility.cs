@@ -22,13 +22,13 @@ namespace ReligionsOfRimworld
             if(settings != null)
             {
 
-                properties.Add(settings.GetPropertyByObject(foodDef));
+                properties.Add(settings.GetPropertyByObject(ingester, foodDef));
 
                 CompIngredients comp = foodSource.TryGetComp<CompIngredients>();
                 if(comp != null)
                 {
                     foreach (ThingDef ingredient in comp.ingredients)
-                        properties.Add(settings.GetPropertyByObject(ingredient));
+                        properties.Add(settings.GetPropertyByObject(ingester, ingredient));
                 }
 
                 foreach(ReligionProperty property in properties)

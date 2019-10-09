@@ -27,9 +27,9 @@ namespace ReligionsOfRimworld
         private string CriteriaTitle(JoiningCriteria criteria)
         {
             if (criteria.ShouldHave)
-                return $"lack of \"{criteria.Reason}\" required";
-            else
                 return $"\"{criteria.Reason}\" required";
+            else
+                return $"lack of \"{criteria.Reason}\" required";
         }
 
         public override void ExposeData()

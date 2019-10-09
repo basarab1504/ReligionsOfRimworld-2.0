@@ -34,15 +34,15 @@ namespace ReligionsOfRimworld
             }
         }
 
-        public Religion(ReligionDef def)
-        {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-            {
-                loadID = Find.UniqueIDsManager.GetNextThingID();
-                this.configuration = new ReligionConfiguration(def);
-                InitializeReligion();
-            }
-        }
+        //public Religion(ReligionDef def)
+        //{
+        //    if (Scribe.mode == LoadSaveMode.Inactive)
+        //    {
+        //        loadID = Find.UniqueIDsManager.GetNextThingID();
+        //        this.configuration = new ReligionConfiguration(def);
+        //        InitializeReligion();
+        //    }
+        //}
 
         public string Label => configuration.Label;
         public string Description => configuration.Description;
@@ -114,7 +114,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.loadID, "loadID");
-            Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", null, null, null, null);
+            Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", (ReligionDef)null);
             //if (Scribe.mode == LoadSaveMode.LoadingVars)
             //    Scribe_Defs.Look<ReligionDef>(ref this.religionDef, "religionDef");
             //if (religionDef != null)

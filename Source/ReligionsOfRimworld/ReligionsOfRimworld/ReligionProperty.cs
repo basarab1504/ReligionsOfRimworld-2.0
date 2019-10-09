@@ -11,9 +11,13 @@ namespace ReligionsOfRimworld
     {
         protected ReligionPropertyData subject;
         protected ReligionPropertyData witness;
+        protected PropertyPawnCategory pawnCategory = PropertyPawnCategory.Everyone;
 
         public abstract Def GetObject();
+        public PropertyPawnCategory PawnCategory => pawnCategory;
+
         protected abstract string ObjectLabel { get; }
+        protected abstract string Description { get; }
 
         public T GetObject<T>() where T: Def
         {
@@ -26,7 +30,8 @@ namespace ReligionsOfRimworld
         public ReligionInfoEntry GetReligionInfoEntry()
         {
             if (GetObject() != null)
-                return new ReligionInfoEntry("ReligionInfo_Object".Translate(), GetObject().LabelCap, GetDescription());
+                return new ReligionInfoEntry("ReligionInfo_Object".Translate(), ObjectLabel, GetDescription());
+
             return null;
         }
 
@@ -34,9 +39,12 @@ namespace ReligionsOfRimworld
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            if(GetObject().description != null)
+            stringBuilder.AppendLine("ReligionInfo_PawnCategory".Translate((NamedArgument)pawnCategory.ToString()));
+            stringBuilder.AppendLine();
+
+            if (Description != null)
             {
-                stringBuilder.AppendLine(GetObject().description);
+                stringBuilder.AppendLine(Description);
                 stringBuilder.AppendLine();
             }
 
@@ -58,6 +66,7 @@ namespace ReligionsOfRimworld
         {
             Scribe_Deep.Look<ReligionPropertyData>(ref this.subject, "subject");
             Scribe_Deep.Look<ReligionPropertyData>(ref this.witness, "witness");
+            Scribe_Values.Look<PropertyPawnCategory>(ref this.pawnCategory, "pawnCategory");
         }
     }
 }

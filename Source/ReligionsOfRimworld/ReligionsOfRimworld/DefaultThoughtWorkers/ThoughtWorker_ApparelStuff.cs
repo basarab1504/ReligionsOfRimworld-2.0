@@ -1,14 +1,13 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Verse;
 
-namespace ReligionsOfRimworld
+namespace ReligionsOfRimworld.DefaultThoughtWorkers
 {
-    class ThoughtWorker_ReligionApparel : ThoughtWorker
+    public class ThoughtWorker_ApparelStuff : ThoughtWorker
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
@@ -27,7 +26,7 @@ namespace ReligionsOfRimworld
 
             for (int index = 0; index < wornApparel.Count; ++index)
             {
-                ReligionProperty property = settings.GetPropertyByObject(p, wornApparel[index].def);
+                ReligionProperty property = settings.GetPropertyByObject(p, wornApparel[index].Stuff);
                 if (property != null && property.Subject.Thought == this.def)
                 {
                     if (reason == null)

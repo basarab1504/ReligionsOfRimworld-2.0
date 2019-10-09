@@ -27,7 +27,6 @@ namespace ReligionsOfRimworld
 
             if (instigator != null && instigator.RaceProps.Humanlike)
             {
-                //AppendThoughtsByCriteria(instigator, SettingsTagDefOf.KillTag, criteria);
                 AppendThoughtsForPawn(instigator, SettingsTagDefOf.WeaponTag, weapon);
 
                 foreach (Pawn pawn in GetWitnesses(victim))
@@ -85,11 +84,11 @@ namespace ReligionsOfRimworld
             return victim.Spawned && pawn.Spawned && (pawn.Position.InHorDistOf(victim.Position, 12f) && GenSight.LineOfSight(victim.Position, pawn.Position, victim.Map, false, (Func<IntVec3, bool>)null, 0, 0));
         }
 
-        private static ReligionProperty GetProperty(Pawn pawn, Def objectDef, SettingsTagDef tagDef)
+        private static ReligionProperty GetProperty(Pawn pawn, Def objectDef, SettingsTagDef tagDef, Pawn otherPawn = null)
         {
             ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tagDef);
             if (settings != null)
-                return settings.GetPropertyByObject(objectDef);
+                return settings.GetPropertyByObject(pawn, objectDef, otherPawn);
             return null;
         }
     }

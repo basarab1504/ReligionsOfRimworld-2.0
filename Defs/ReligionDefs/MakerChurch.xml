@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.ReligionDef>
+		<defName>MakerChurch</defName>
+		<label>Maker Church</label>
+		<description>Ancient monoteistic religion's. The god is almighty Maker, creator of all being in the world. History says, Maker created all from nothing,
+made energy from himself, made planets from his bones, his breath burned suns, his tears filled up seas and oceans. And from his flesh he made all the creatures alive.</description>
+		<settingsDefs>
+			<li>RoRNeedSettingsPiety</li>
+			<li>RoRTalksSettingsDefault</li>
+			<li>RoRIncidentsTest</li>
+			<li>RoRMentalBreaksTest</li>
+			<li>RoRWorshipSettingsTest</li>
+			<li>RoRAllowedBuildingsSettingsTest</li>
+			<li>MC_WeaponSettings</li>
+			<li>MC_KillSettings</li>
+			<li>MC_JoiningCriteriaSettings</li>
+			<li>MC_FoodSettings</li>
+			<li>MC_OpinionSettings</li>
+		</settingsDefs>
+	</ReligionsOfRimworld.ReligionDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRWeaponSettingsBase">
+		<defName>MC_WeaponSettings</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>MeleeWeapon_Club</propertyObject>
+				<subject>
+					<piety>ROR_PietyWeaponKillGood</piety>
+				</subject>	
+			</li>		
+		</properties>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRKillSettingsBase">
+		<defName>MC_KillSettings</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Human</propertyObject>
+				<pawnCategory>Hostile</pawnCategory>
+				<subject>
+					<piety>ROR_PietyKillGood</piety>
+				</subject>
+			</li>		
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Human</propertyObject>
+				<pawnCategory>SameFaction</pawnCategory>
+				<subject>
+					<piety>ROR_PietyKillBad</piety>
+				</subject>
+			</li>
+		</properties>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRJoiningCriteriaBase">
+		<defName>MC_JoiningCriteriaSettings</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_JoiningCriteria">
+			<criteria>
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Trait">
+					<criteria>Kind</criteria>
+				</li>
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Trait">
+					<criteria>Ascetic</criteria>
+				</li>		
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Trait">
+					<criteria>BodyPurist</criteria>
+				</li>
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Trait">
+					<shouldHave>false</shouldHave>
+					<criteria>Gay</criteria>
+					<importance>Important</importance>
+				</li>
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Trait">
+					<shouldHave>false</shouldHave>
+					<criteria>Transhumanist</criteria>
+					<importance>Important</importance>
+				</li>
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Trait">
+					<shouldHave>false</shouldHave>
+					<criteria>Psychopath</criteria>
+					<importance>Critical</importance>
+				</li>		
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Trait">
+					<shouldHave>false</shouldHave>
+					<criteria>Cannibal</criteria>
+					<importance>Critical</importance>
+				</li>			
+			</criteria>
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>	
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRFoodSettingsBase">
+		<defName>MC_FoodSettings</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Corpse_YorkshireTerrier</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Meat_YorkshireTerrier</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Corpse_Husky</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Meat_Husky</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>	
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Corpse_LabradorRetriever</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Meat_LabradorRetriever</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>	
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Corpse_Cat</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
+				<propertyObject>Meat_Cat</propertyObject>
+				<subject>
+					<piety>ROR_PietyFoodBad</piety>
+				</subject>
+			</li>				
+		</properties>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoROpinionSettingsBase">
+		<defName>MC_OpinionSettings</defName>
+		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
+		<defaultPropety>
+			<witness>
+				<opinionThought>ROR_ReligionBadOpinionSocial</opinionThought>
+			</witness>			
+		</defaultPropety>
+		<properties>
+			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionDef">
+				<propertyObject>MakerChurch</propertyObject>
+			</li>
+		</properties>		
+		</settings>
+	</ReligionsOfRimworld.ReligionSettingsDef>
+</Defs>

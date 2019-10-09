@@ -25,12 +25,12 @@ namespace ReligionsOfRimworld
             if (opinionSettings == null)
                 return (ThoughtState)false;
 
-            ReligionProperty property = opinionSettings.GetPropertyByObject(otherPawnReligion.GroupTag);
-
-            if (property == null || property.Witness == null || property.Witness.OpinionThought == null || property.Witness.OpinionThought != this.def)
+            if(otherPawnReligion.GroupTag == null)
                 return (ThoughtState)false;
 
-            if (!PropertyPawnCategoryUtility.IsSubjectFromRightCategory(p, other, property.Witness.PawnCategory))
+            ReligionProperty property = opinionSettings.GetPropertyByObject(p, otherPawnReligion.GroupTag, other);
+
+            if (property == null || property.Witness == null || property.Witness.OpinionThought == null || property.Witness.OpinionThought != this.def)
                 return (ThoughtState)false;
 
             return ThoughtState.ActiveAtStage(p.GetReligionComponent().PietyTracker.PietyNeed.CurCategoryInt, otherPawnReligion.GroupTag.LabelCap);

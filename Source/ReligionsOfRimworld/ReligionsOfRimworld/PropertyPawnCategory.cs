@@ -11,6 +11,7 @@ namespace ReligionsOfRimworld
         Peaceful,
         Hostile,
         SameFaction,
+        SameReligion,
         SameReligionGroup,
     }
 }

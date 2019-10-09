@@ -13,8 +13,11 @@ namespace ReligionsOfRimworld
 
         public Piety(Pawn pawn, PietyDef def)
         {
-            this.pawn = pawn;
-            this.def = def;
+            if(Scribe.mode == LoadSaveMode.Inactive)
+            {
+                this.pawn = pawn;
+                this.def = def;
+            }
         }
 
         public PietyDef Def
@@ -39,6 +42,7 @@ namespace ReligionsOfRimworld
 
         public virtual void ExposeData()
         {
+            Scribe_References.Look<Pawn>(ref this.pawn, "pawn");
             Scribe_Defs.Look<PietyDef>(ref this.def, "def");
         }
     }

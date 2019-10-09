@@ -27,9 +27,6 @@ namespace ReligionsOfRimworld
         {
             if (propertyData != null)
             {
-                if (subjectPawn != null && !PropertyPawnCategoryUtility.IsSubjectFromRightCategory(pawn, subjectPawn, propertyData.PawnCategory))
-                    return;
-
                 int curPietyStage = pawn.GetReligionComponent().PietyTracker.PietyNeed.CurCategoryInt;
 
                 if (propertyData.Thought != null)

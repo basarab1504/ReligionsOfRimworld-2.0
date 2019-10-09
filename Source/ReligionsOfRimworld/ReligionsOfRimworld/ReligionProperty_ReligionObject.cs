@@ -16,6 +16,7 @@ namespace ReligionsOfRimworld
         }
 
         protected override string ObjectLabel => propertyObject.LabelCap;
+        protected override string Description => propertyObject.description;
 
         public override void ExposeData()
         {

@@ -10,8 +10,8 @@
 		<defName>RoRJoiningCriteriaTest</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_JoiningCriteria">
 			<criteria>
-				<li Class="ReligionsOfRimworld.ReligionPermission_Gender">
-					<permission>Male</permission>
+				<li Class="ReligionsOfRimworld.JoiningCriteria_Gender">
+					<criteria>Male</criteria>
 					<importance>Important</importance>
 				</li>
 			</criteria>

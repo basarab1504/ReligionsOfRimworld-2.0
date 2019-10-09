@@ -14,17 +14,17 @@ namespace ReligionsOfRimworld
         private ReligionGroupTagDef groupTag;
         private List<ReligionSettings> allSettings;
 
-        public ReligionConfiguration(string label, string description, ReligionGroupTagDef groupTag, IEnumerable<ReligionSettings> settings)
-        {
-            if(Scribe.mode == LoadSaveMode.Inactive)
-            {
-                this.label = label;
-                this.description = description;
-                this.allSettings = new List<ReligionSettings>();
-                this.allSettings.AddRange(settings);
-                this.groupTag = groupTag;
-            }
-        }
+        //public ReligionConfiguration(string label, string description, ReligionGroupTagDef groupTag, IEnumerable<ReligionSettings> settings)
+        //{
+        //    if(Scribe.mode == LoadSaveMode.Inactive)
+        //    {
+        //        this.label = label;
+        //        this.description = description;
+        //        this.allSettings = new List<ReligionSettings>();
+        //        this.allSettings.AddRange(settings);
+        //        this.groupTag = groupTag;
+        //    }
+        //}
 
         public ReligionConfiguration(ReligionDef def)
         {
@@ -83,8 +83,13 @@ namespace ReligionsOfRimworld
         public IEnumerable<ReligionInfoCategory> GetInfo()
         {
             ReligionInfoCategory category = new ReligionInfoCategory("ReligionInfo_Overall".Translate(), description);
-            category.Add(new ReligionInfoEntry("ReligionInfo_GroupTag".Translate(), groupTag.LabelCap, groupTag.description));
-            yield return category;
+
+            if(groupTag != null)
+            {
+                category.Add(new ReligionInfoEntry("ReligionInfo_GroupTag".Translate(), groupTag.LabelCap, groupTag.description));
+                yield return category;
+            }
+
             foreach (ReligionSettings setting in allSettings)
                 yield return setting.GetInfoCategory();
         }

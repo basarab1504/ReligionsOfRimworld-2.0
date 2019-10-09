@@ -90,6 +90,9 @@ namespace ReligionsOfRimworld
 
         private void DrawEntry(Rect rect, ref float curY, ReligionInfoEntry entry)
         {
+            if (entry == null)
+                return;
+
             Rect rect1 = new Rect(0.0f, curY, rect.width, Verse.Text.CalcHeight(entry.Value, rect.width));
             Widgets.Label(rect1, entry.Label);
             Widgets.Label(new Rect(0.0f + 240f, curY, rect.width, rect1.height), entry.Value);

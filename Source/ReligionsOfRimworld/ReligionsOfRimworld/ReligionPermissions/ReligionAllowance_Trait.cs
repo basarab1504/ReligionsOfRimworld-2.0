@@ -7,15 +7,15 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionPermission_Trait : JoiningCriteria
+    public class JoiningCriteria_Trait : JoiningCriteria
     {
-        public TraitDef permission;
+        public TraitDef criteria;
 
-        public override string Reason => permission.degreeDatas[0].label.CapitalizeFirst();
+        public override string Reason => criteria.degreeDatas[0].label.CapitalizeFirst();
 
         protected override bool IsFound(Pawn pawn)
         {
-            if (pawn.story.traits.allTraits.Any(x => x.def == permission))
+            if (pawn.story != null && pawn.story.traits.allTraits.Any(x => x.def == criteria))
                 return true;
             else
                 return false;
@@ -23,7 +23,7 @@ namespace ReligionsOfRimworld
 
         public override void ExposeData()
         {
-            Scribe_Defs.Look<TraitDef>(ref permission, "trait");
+            Scribe_Defs.Look<TraitDef>(ref criteria, "trait");
         }
     }
 }
