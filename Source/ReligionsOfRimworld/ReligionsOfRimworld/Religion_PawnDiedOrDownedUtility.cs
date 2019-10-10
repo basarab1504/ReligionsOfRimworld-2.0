@@ -10,85 +10,115 @@ namespace ReligionsOfRimworld
 {
     public static class Religion_PawnDiedOrDownedUtility
     {
-        public static void AppendThoughts_Religious(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
+        private class Info
+        {
+            public Pawn victim;
+            public Pawn instigator;
+            public ThingDef weapon;
+            public IEnumerable<Def> criteria;
+            public IEnumerable<Pawn> witnesses;
+
+            public Info(Pawn victim, DamageInfo? dinfo)
+            {
+                this.victim = victim;
+                criteria = GetVictimThoughtsCriteria();
+                witnesses = GetWitnesses();
+
+                if (dinfo.HasValue)
+                {
+                    if (dinfo.Value.Instigator is Pawn)
+                        instigator = (Pawn)dinfo.Value.Instigator;
+                    if (dinfo.Value.Weapon != null)
+                        weapon = dinfo.Value.Weapon;
+                }
+            }
+
+            private IEnumerable<Pawn> GetWitnesses()
+            {
+                foreach (Pawn pawn in ReligionExtensions.AllMapsCaravansAndTravelingTransportPods_Alive_Religious)
+                {
+                    if (pawn != instigator && (Witnessed(pawn, victim) || pawn.Faction == victim.Faction))
+                        yield return pawn;
+                }
+            }
+
+            private bool Witnessed(Pawn pawn, Pawn victim)
+            {
+                if (!pawn.Awake() || !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
+                    return false;
+                if (victim.IsCaravanMember())
+                    return victim.GetCaravan() == pawn.GetCaravan();
+                return victim.Spawned && pawn.Spawned && (pawn.Position.InHorDistOf(victim.Position, 12f) && GenSight.LineOfSight(victim.Position, pawn.Position, victim.Map, false, (Func<IntVec3, bool>)null, 0, 0));
+            }
+
+            private IEnumerable<Def> GetVictimThoughtsCriteria()
+            {
+                yield return victim.def;
+
+                CompReligion comp = victim.GetReligionComponent();
+                if (comp != null)
+                {
+                    yield return comp.Religion.Def;
+                    yield return comp.Religion.GroupTag;
+                }
+            }
+        }
+
+        public static void AppendReligious(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
         {
             if (thoughtsKind != PawnDiedOrDownedThoughtsKind.Died)
                 return;
 
-            if (dinfo.HasValue && dinfo.Value.Instigator is Pawn)
-                AppendThoughtsForPawns(victim, (Pawn)dinfo.Value.Instigator, dinfo.Value.Weapon);
-            else
-                AppendThoughtsForPawns(victim);
+            AppendByInfo(new Info(victim, dinfo));
         }
 
-        private static void AppendThoughtsForPawns(Pawn victim, Pawn instigator = null, ThingDef weapon = null)
+        private static void AppendByInfo(Info info)
         {
-            IEnumerable<Def> criteria = GetVictimThoughtsCriteria(victim);
+            ReligionProperty weaponProperty = GetProperty(info.instigator, info.victim, SettingsTagDefOf.WeaponTag, info.weapon);
+            AppendForPawn(info.instigator, info.victim, weaponProperty, true);
 
-            if (instigator != null && instigator.RaceProps.Humanlike)
+            foreach (ReligionProperty prop in GetProperties(info.instigator, info.victim, SettingsTagDefOf.KillTag, info.criteria))
+                AppendForPawn(info.instigator, info.victim, prop, true);
+
+            foreach(Pawn pawn in info.witnesses)
             {
-                AppendThoughtsForPawn(instigator, SettingsTagDefOf.WeaponTag, weapon);
-
-                foreach (Pawn pawn in GetWitnesses(victim))
-                    AppendThoughtsByCriteria(pawn, SettingsTagDefOf.KillTag, criteria, instigator);
-            }
-            foreach (Pawn pawn in GetWitnesses(victim))
-                AppendThoughtsByCriteria(pawn, SettingsTagDefOf.DeathTag, criteria, victim);
-        }
-
-        private static IEnumerable<Def> GetVictimThoughtsCriteria(Pawn victim)
-        {
-            yield return victim.def;
-
-            CompReligion comp = victim.GetReligionComponent();
-            if (comp != null)
-            {
-                yield return comp.Religion.Def;
-                yield return comp.Religion.GroupTag;
-            }
-        }
-
-        private static void AppendThoughtsByCriteria(Pawn pawn, SettingsTagDef tag, IEnumerable<Def> criteria, Pawn otherPawn = null)
-        {
-            foreach (Def def in criteria)
-                AppendThoughtsForPawn(pawn, tag, def, otherPawn);
-        }
-
-        private static IEnumerable<Pawn> GetWitnesses(Pawn victim)
-        {
-            foreach (Pawn pawn in ReligionExtensions.AllMapsCaravansAndTravelingTransportPods_Alive_Religious)
-            {
-                if (Witnessed(pawn, victim) || pawn.Faction == victim.Faction)
-                    yield return pawn;
-            }
-        }
-
-        private static void AppendThoughtsForPawn(Pawn pawn, SettingsTagDef tag, Def def, Pawn otherPawn = null)
-        {
-            ReligionProperty property = GetProperty(pawn, def, tag);
-            if (property != null)
-            {
-                if(otherPawn == null || pawn == otherPawn)
-                    PietyUtility.TryApplyOnPawn(property.Subject, pawn, otherPawn);
+                if(info.instigator != null)
+                {
+                    foreach (ReligionProperty prop in GetProperties(pawn, info.instigator, SettingsTagDefOf.KillTag, info.criteria))
+                        AppendForPawn(pawn, info.instigator, prop, false);
+                }
                 else
-                    PietyUtility.TryApplyOnPawn(property.Witness, pawn, otherPawn);
+                {
+                    foreach (ReligionProperty prop in GetProperties(pawn, info.victim, SettingsTagDefOf.DeathTag, info.criteria))
+                        AppendForPawn(pawn, info.victim, prop, false);
+                }
             }
         }
 
-        private static bool Witnessed(Pawn pawn, Pawn victim)
+        private static void AppendForPawn(Pawn pawn, Pawn otherPawm, ReligionProperty property, bool isSubject)
         {
-            if (!pawn.Awake() || !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
-                return false;
-            if (victim.IsCaravanMember())
-                return victim.GetCaravan() == pawn.GetCaravan();
-            return victim.Spawned && pawn.Spawned && (pawn.Position.InHorDistOf(victim.Position, 12f) && GenSight.LineOfSight(victim.Position, pawn.Position, victim.Map, false, (Func<IntVec3, bool>)null, 0, 0));
+            if(property != null)
+            {
+                if(isSubject)
+                {
+                    PietyUtility.TryApplyOnPawn(property.Subject, pawn, otherPawm);
+                }
+                else
+                    PietyUtility.TryApplyOnPawn(property.Witness, pawn, otherPawm);
+            }
         }
 
-        private static ReligionProperty GetProperty(Pawn pawn, Def objectDef, SettingsTagDef tagDef, Pawn otherPawn = null)
+        private static IEnumerable<ReligionProperty> GetProperties(Pawn pawn, Pawn otherPawn, SettingsTagDef tag, IEnumerable<Def> defs)
         {
-            ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tagDef);
+            foreach (Def def in defs)
+                yield return GetProperty(pawn, otherPawn, tag, def);
+        }
+
+        private static ReligionProperty GetProperty(Pawn pawn, Pawn otherPawn, SettingsTagDef tag, Def def)
+        {
+            ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tag);
             if (settings != null)
-                return settings.GetPropertyByObject(pawn, objectDef, otherPawn);
+                return settings.GetPropertyByObject(pawn, def, otherPawn);
             return null;
         }
     }

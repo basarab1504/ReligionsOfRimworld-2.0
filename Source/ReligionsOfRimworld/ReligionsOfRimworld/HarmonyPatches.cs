@@ -59,7 +59,7 @@ namespace ReligionsOfRimworld
         {
             private static void Postfix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind)
             {
-                Religion_PawnDiedOrDownedUtility.AppendThoughts_Religious(victim, dinfo, thoughtsKind);
+                Religion_PawnDiedOrDownedUtility.AppendReligious(victim, dinfo, thoughtsKind);
             }
         }
     }

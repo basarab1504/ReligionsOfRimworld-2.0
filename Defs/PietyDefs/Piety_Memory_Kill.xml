@@ -2,7 +2,7 @@
 <Defs>
   <ReligionsOfRimworld.PietyDef>
     <defName>ROR_PietyKillBad</defName>
-    <label>label</label>
+    <label>kill bad</label>
     <description>desc</description>
     <durationDays>1</durationDays>
     <stages>
@@ -36,7 +36,7 @@
 
   <ReligionsOfRimworld.PietyDef>
     <defName>ROR_PietyKillGood</defName>
-    <label>label</label>
+    <label>kill good</label>
     <description>desc</description>
     <durationDays>1</durationDays>
     <stages>
