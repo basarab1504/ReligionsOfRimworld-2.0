@@ -26,7 +26,7 @@ namespace ReligionsOfRimworld
 
                 if (dinfo.HasValue)
                 {
-                    if (dinfo.Value.Instigator is Pawn)
+                    if (dinfo.Value.Instigator != null && dinfo.Value.Instigator is Pawn)
                         instigator = (Pawn)dinfo.Value.Instigator;
                     if (dinfo.Value.Weapon != null)
                         weapon = dinfo.Value.Weapon;
@@ -74,7 +74,7 @@ namespace ReligionsOfRimworld
 
         private static void AppendByInfo(Info info)
         {
-            ReligionProperty weaponProperty = GetProperty(info.instigator, info.victim, SettingsTagDefOf.WeaponTag, info.weapon);
+                ReligionProperty weaponProperty = GetProperty(info.instigator, info.victim, SettingsTagDefOf.WeaponTag, info.weapon);
             AppendForPawn(info.instigator, info.victim, weaponProperty, true);
 
             foreach (ReligionProperty prop in GetProperties(info.instigator, info.victim, SettingsTagDefOf.KillTag, info.criteria))
@@ -100,9 +100,7 @@ namespace ReligionsOfRimworld
             if(property != null)
             {
                 if(isSubject)
-                {
                     PietyUtility.TryApplyOnPawn(property.Subject, pawn, otherPawm);
-                }
                 else
                     PietyUtility.TryApplyOnPawn(property.Witness, pawn, otherPawm);
             }
@@ -116,9 +114,12 @@ namespace ReligionsOfRimworld
 
         private static ReligionProperty GetProperty(Pawn pawn, Pawn otherPawn, SettingsTagDef tag, Def def)
         {
-            ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tag);
-            if (settings != null)
-                return settings.GetPropertyByObject(pawn, def, otherPawn);
+            if(pawn != null && pawn.GetReligionComponent() != null)
+            {
+                ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tag);
+                if (settings != null)
+                    return settings.GetPropertyByObject(pawn, def, otherPawn);
+            }
             return null;
         }
     }

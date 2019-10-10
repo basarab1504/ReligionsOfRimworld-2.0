@@ -22,17 +22,13 @@ namespace ReligionsOfRimworld
 
         public ReligionProperty GetPropertyByObject(Pawn pawn, Def def, Pawn otherPawn = null)
         {
-            //Log.Message($"{pawn}, {def}, {otherPawn}");
-
             IEnumerable<ReligionProperty> props = properties.FindAll(x => x.GetObject() == def);
 
             if (otherPawn != null)
             {
                 foreach (ReligionProperty prop in props)
                     if (PropertyPawnCategoryUtility.IsSubjectFromRightCategory(pawn, otherPawn, prop.PawnCategory))
-                    {                    
                         return prop;
-                    }
             }
             else
                 return props.FirstOrDefault();
