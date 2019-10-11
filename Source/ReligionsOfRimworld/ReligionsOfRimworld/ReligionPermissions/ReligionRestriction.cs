@@ -21,7 +21,7 @@ namespace ReligionsOfRimworld
 
         public float PermissionRate(Pawn pawn)
         {
-            if (!IsPermitted(pawn))
+            if (IsPermitted(pawn))
             {
                 switch (importance)
                 {

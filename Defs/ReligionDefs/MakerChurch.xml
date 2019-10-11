@@ -27,7 +27,7 @@ made energy from himself, made planets from his bones, his breath burned suns, h
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
-				<propertyObject>MeleeWeapon_Club</propertyObject>
+				<propertyObject>MeleeWeapon_Mace</propertyObject>
 				<subject>
 					<piety>RoR_PietyWeaponKillGood</piety>
 				</subject>	
@@ -174,15 +174,9 @@ made energy from himself, made planets from his bones, his breath burned suns, h
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Leather_Human</propertyObject>
 				<subject>
-					<piety>RoR_PietyApparelBadStuff</piety>
+					<piety>RoR_PietyApparelStuffBad</piety>
 				</subject>
-			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
-				<propertyObject>Apparel_Jacket</propertyObject>
-				<subject>
-					<piety>RoR_PietyApparelGood</piety>
-				</subject>
-			</li>			
+			</li>	
 		</properties>		
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>

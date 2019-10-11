@@ -111,16 +111,16 @@ namespace ReligionsOfRimworld
             return "Religion_" + this.loadID;
         }
 
+        public bool TryToRecache()
+        {
+            return configuration.TryToRecache();
+        }
+
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.loadID, "loadID");
             Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", (ReligionDef)null);
-            //if (Scribe.mode == LoadSaveMode.LoadingVars)
-            //    Scribe_Defs.Look<ReligionDef>(ref this.religionDef, "religionDef");
-            //if (religionDef != null)
-            //    Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", new object[4]);
-            //else
-            //    Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", religionDef);
+
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
                 InitializeReligion();

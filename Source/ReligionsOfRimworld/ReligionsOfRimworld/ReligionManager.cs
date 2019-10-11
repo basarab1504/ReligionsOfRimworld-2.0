@@ -55,9 +55,22 @@ namespace ReligionsOfRimworld
                 pawn.GetReligionComponent().Refresh();
         }
 
+        private void RecacheList()
+        {
+            foreach (Religion religion in allReligions)
+                if (!religion.TryToRecache())
+                    foreach (Pawn pawn in Find.World.worldPawns.AllPawnsAlive)
+                        pawn.GetReligionComponent().TryChangeReligion(allReligions.FirstOrDefault(x => x.Def == MiscDefOf.NonBeliever));
+
+            RecacheReligions();
+        }
+
         public void ExposeData()
         {
             Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep, (ReligionConfiguration)null);
+
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+                RecacheList();
         }
     }
 }

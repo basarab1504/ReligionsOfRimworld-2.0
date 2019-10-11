@@ -94,6 +94,19 @@ namespace ReligionsOfRimworld
                 yield return setting.GetInfoCategory();
         }
 
+        public bool TryToRecache()
+        {
+            if (religionDef != null)
+            {
+                this.allSettings = new List<ReligionSettings>();
+                foreach (ReligionSettingsDef settingsDef in religionDef.Settings)
+                    allSettings.Add(settingsDef.Settings);
+                return true;
+            }
+            else
+                return false;
+        }
+
         public void ExposeData()
         {
             Scribe_Defs.Look<ReligionDef>(ref this.religionDef, "religionDef");

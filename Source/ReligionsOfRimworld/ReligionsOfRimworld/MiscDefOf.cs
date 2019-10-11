@@ -11,6 +11,7 @@ namespace ReligionsOfRimworld
     [DefOf]
     public static class MiscDefOf
     {
+        public static ReligionDef NonBeliever;
         public static WorkGiverDef DoReligionActivities;
         public static JobDef DoReligionActivity;
         public static JobDef ReligionActivityPreparations;
