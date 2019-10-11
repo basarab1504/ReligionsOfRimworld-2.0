@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThoughtDef>
-    <defName>ROR_ReligiousDeadSad</defName>
+    <defName>RoR_ThoughtDeathBad</defName>
     <label>label</label>
     <description>desc</description>
     <showBubble>true</showBubble>
@@ -37,7 +37,7 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>ROR_ReligiousDeadHappy</defName>
+    <defName>RoR_ThoughtDeathGood</defName>
     <label>label</label>
     <description>desc</description>
     <showBubble>true</showBubble>

@@ -47,6 +47,7 @@ namespace ReligionsOfRimworld
                 {
                     if (!this.tmpCachedPiety.Contains(situationalPietyList[index1]))
                     {
+                        //Log.Message($"{situationalPietyList[index1].defName} is active for {pawn} - {situationalPietyList[index1].Worker.CurrentState(pawn).StageIndex}");
                         if (situationalPietyList[index1].Worker.CurrentState(pawn).ActiveFor(situationalPietyList[index1]))
                         {
                             Piety_Situational piety = TryCreatePiety(situationalPietyList[index1]);

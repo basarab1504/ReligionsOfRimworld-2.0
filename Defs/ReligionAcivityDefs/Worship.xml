@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  	<ReligionsOfRimworld.ActivityJobQueueDef>
+  		<defName>RoR_WorshipQueue</defName>
+  		<activityNodes>
+  			<li>
+  				<organizerJob>ReadPrayers</organizerJob>
+  				<congregationJob>ListenPrayers</congregationJob>
+  			</li>
+  		</activityNodes>
+  	</ReligionsOfRimworld.ActivityJobQueueDef>
+
+	<ReligionsOfRimworld.ActivityTaskDef>
+		<defName>RoR_TaskWorship</defName>
+		<label>worship</label>
+		<description>Worship is an act of religious devotion usually directed towards a deity. An act of worship may be performed individually, in an informal or formal group, or by a designated leader. Such acts may involve honoring.</description>
+		<ingredientValueGetterClass>IngredientValueGetter_Volume</ingredientValueGetterClass>
+		<activityJobQueue>RoR_WorshipQueue</activityJobQueue>
+	</ReligionsOfRimworld.ActivityTaskDef>
+</Defs>

@@ -8,7 +8,7 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    class ThoughtWorker_ReligionApparel : ThoughtWorker
+    class ThoughtWorker_Apparel : ThoughtWorker
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
@@ -28,6 +28,10 @@ namespace ReligionsOfRimworld
             for (int index = 0; index < wornApparel.Count; ++index)
             {
                 ReligionProperty property = settings.GetPropertyByObject(p, wornApparel[index].def);
+
+                if (property == null)
+                    property = settings.GetPropertyByObject(p, wornApparel[index].Stuff);
+
                 if (property != null && property.Subject.Thought == this.def)
                 {
                     if (reason == null)

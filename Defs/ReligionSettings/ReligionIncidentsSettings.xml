@@ -7,11 +7,11 @@
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRIncidentsBase">
-		<defName>RoRIncidentsTest</defName>
+		<defName>RoR_IncidentsSettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Incidents">	
-		<incidents>
-			<li>ReligiousProvidence</li>
-		</incidents>		
+			<incidents>
+				<li>ReligiousProvidence</li>
+			</incidents>		
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

@@ -5,30 +5,4 @@
 			<tag>OpinionTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
-
-	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoROpinionSettingsBase">
-		<defName>RoROpinionSettingsTest</defName>
-		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
-		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
-				<propertyObject>SecondReligionGroup</propertyObject>
-				<witness>
-					<opinionThought>ROR_ReligionGroupGoodOpinionSocial</opinionThought>
-				</witness>
-			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionDef">
-				<propertyObject>ReligionOfOne</propertyObject>
-				<witness>
-					<opinionThought>ROR_ReligionBadOpinionSocial</opinionThought>
-				</witness>
-			</li>	
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
-				<propertyObject>ReligionOfOneGroup</propertyObject>
-				<witness>
-					<opinionThought>ROR_ReligionGroupBadOpinionSocial</opinionThought>
-				</witness>
-			</li>			
-		</properties>		
-		</settings>
-	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

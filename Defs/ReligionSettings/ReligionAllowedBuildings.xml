@@ -5,14 +5,4 @@
 			<tag>AllowedBuildingsTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
-
-	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRAllowedBuildingsSettingsBase">
-		<defName>RoRAllowedBuildingsSettingsTest</defName>
-		<settings Class="ReligionsOfRimworld.ReligionSettings_AllowedBuildings">	
-		<allowedBuildings>
-			<li>Totem</li>
-			<li>WorshipSpot</li>
-		</allowedBuildings>	
-		</settings>
-	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

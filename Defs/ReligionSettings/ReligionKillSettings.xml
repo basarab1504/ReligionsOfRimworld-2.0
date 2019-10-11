@@ -5,41 +5,4 @@
 			<tag>KillTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
-
-	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRKillSettingsBase">
-		<defName>RoRKillSettingsTest</defName>
-		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
-		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
-				<propertyObject>ReligionOfOneGroup</propertyObject>
-				<subject>
-					<thought>ROR_ReligiousKilledSad</thought>
-				</subject>
-				<witness>
-					<thought>ROR_ReligiousKilledWitnessSad</thought>
-					<opinionThought>ROR_ReligiousKilledSadSocial</opinionThought>
-				</witness>
-			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ReligionGroupDef">
-				<propertyObject>SecondReligionGroup</propertyObject>
-				<subject>
-					<thought>ROR_ReligiousKilledHappy</thought>
-				</subject>
-				<witness>
-					<thought>ROR_ReligiousKilledWitnessHappy</thought>
-					<opinionThought>ROR_ReligiousKilledHappySocial</opinionThought>
-				</witness>				
-			</li>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
-				<propertyObject>Monkey</propertyObject>
-				<subject>
-					<thought>ROR_ReligiousKilledHappy</thought>
-				</subject>
-				<witness>
-					<opinionThought>ROR_ReligiousKilledHappySocial</opinionThought>
-				</witness>
-			</li>			
-		</properties>		
-		</settings>
-	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

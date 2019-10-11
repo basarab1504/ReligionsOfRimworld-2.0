@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThoughtDef>
-    <defName>ROR_IngestHolyFoodBad</defName>
+    <defName>RoR_ThoughtFoodBad</defName>
     <label>label</label>
     <description>desc</description>
     <showBubble>true</showBubble>
@@ -37,7 +37,7 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>ROR_IngestHolyFoodGood</defName>
+    <defName>RoR_ThoughtFoodGood</defName>
     <label>label</label>
     <description>desc</description>
     <showBubble>true</showBubble>

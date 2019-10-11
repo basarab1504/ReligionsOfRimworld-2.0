@@ -7,11 +7,11 @@
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRMentalBreaksBase">
-		<defName>RoRMentalBreaksTest</defName>
+		<defName>RoR_MentalBreaksSettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_MentalBreaks">	
-		<mentalBreaks>
-			<li>ReligiousBreakpoint</li>
-		</mentalBreaks>		
+			<mentalBreaks>
+				<li>ReligiousBreakpoint</li>
+			</mentalBreaks>		
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

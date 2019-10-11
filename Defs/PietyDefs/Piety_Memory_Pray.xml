@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ReligionsOfRimworld.PietyDef>
-    <defName>RoR_PietyWeaponKillBad</defName>
+    <defName>RoR_PietyPraySmall</defName>
     <label>label</label>
     <description>desc</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>-5</pietyOffset>
       </li>
@@ -35,33 +35,67 @@
   </ReligionsOfRimworld.PietyDef>
 
   <ReligionsOfRimworld.PietyDef>
-    <defName>RoR_PietyWeaponKillGood</defName>
+    <defName>RoR_PietyPrayAverage</defName>
     <label>label</label>
     <description>desc</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>food</label>
+        <description>sad</description>
+        <pietyOffset>5</pietyOffset>
+      </li>
+    </stages>
+  </ReligionsOfRimworld.PietyDef>
+
+  <ReligionsOfRimworld.PietyDef>
+    <defName>RoR_PietyPrayGreat</defName>
+    <label>label</label>
+    <description>desc</description>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>food</label>
+        <description>sad</description>
+        <pietyOffset>3</pietyOffset>
+      </li>
+      <li>
+        <label>food</label>
+        <description>sad</description>
+        <pietyOffset>5</pietyOffset>
+      </li>
+      <li>
+        <label>food</label>
+        <description>sad</description>
+        <pietyOffset>7</pietyOffset>
+      </li>
+      <li>
+        <label>food</label>
+        <description>sad</description>
+        <pietyOffset>10</pietyOffset>
+      </li>
+      <li>
+        <label>food</label>
         <description>sad</description>
         <pietyOffset>5</pietyOffset>
       </li>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThoughtDef>
-    <defName>ROR_IngestHolyFoodBadSocial</defName>
+    <defName>RoR_ThoughtFoodGoodOpinion</defName>
     <label>label</label>
     <description>desc</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
@@ -39,7 +39,7 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>ROR_IngestHolyFoodGoodSocial</defName>
+    <defName>RoR_ThoughtFoodBadOpinion</defName>
     <label>label</label>
     <description>desc</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>

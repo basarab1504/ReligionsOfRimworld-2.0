@@ -22,7 +22,7 @@ namespace ReligionsOfRimworld
 
         public ReligionProperty GetPropertyByObject(Pawn pawn, Def def, Pawn otherPawn = null)
         {
-            IEnumerable<ReligionProperty> props = properties.FindAll(x => x.GetObject() == def);
+            IEnumerable<ReligionProperty> props = properties.FindAll(x => x.Contains(def));
 
             if (otherPawn != null)
             {

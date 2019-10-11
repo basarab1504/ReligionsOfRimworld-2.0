@@ -7,11 +7,11 @@
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRTalksSettingsBase">
-		<defName>RoRTalksSettingsDefault</defName>
+		<defName>RoR_TalksSettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_ReligionTalks">
 			<interaction>ReligionTalkDefault</interaction>
 			<moodFactorCurve>BadMoodHighChanceFactor</moodFactorCurve>
-			<opinionFactorCurve>GoodOpinionFactor</opinionFactorCurve>
+			<opinionFactorCurve>GoodOpinionHighChanceFactor</opinionFactorCurve>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

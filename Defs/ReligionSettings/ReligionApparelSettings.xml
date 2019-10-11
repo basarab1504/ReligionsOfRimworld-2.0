@@ -5,24 +5,4 @@
 			<tag>ApparelTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
-
-	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRApparelSettingsBase">
-		<defName>RoRApparelSettingsTest</defName>
-		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
-		<properties>
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
-				<propertyObject>Apparel_CowboyHat</propertyObject>
-				<subject>
-					<thought>ROR_ReligionGoodApparel</thought>
-				</subject>
-			</li>	
-			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
-				<propertyObject>Apparel_SimpleHelmet</propertyObject>
-				<subject>
-					<thought>ROR_ReligionBadApparel</thought>
-				</subject>
-			</li>		
-		</properties>		
-		</settings>
-	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

@@ -63,6 +63,8 @@
     <Compile Include="ActivityUtility.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="DefaultPietyWorkers\PietyWorker_Apparel.cs" />
+    <Compile Include="DefaultPietyWorkers\PietyWorker_ApparelStuff.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ApparelStuff.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionApparel.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionGroupOpinion.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="ReligionProperty_Default.cs" />
     <Compile Include="ReligionProperty_JobDef.cs" />
     <Compile Include="ReligionProperty_ReligionDef.cs" />
+    <Compile Include="ReligionProperty_ThingCategoryDef.cs" />
     <Compile Include="ReligiousBuildingAssignerUtility.cs" />
     <Compile Include="ReligionExtensions.cs" />
     <Compile Include="ReligionCardUtility.cs" />
@@ -172,8 +175,6 @@
     <Compile Include="WorkGiver_UntiePawn.cs" />
     <Compile Include="WorldGenStep_Religions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DefaultPietyWorkers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

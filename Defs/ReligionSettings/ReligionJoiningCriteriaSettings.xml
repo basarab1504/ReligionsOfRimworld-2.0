@@ -5,16 +5,4 @@
 			<tag>JoiningCriteriaTag</tag>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
-
-	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRJoiningCriteriaBase">
-		<defName>RoRJoiningCriteriaTest</defName>
-		<settings Class="ReligionsOfRimworld.ReligionSettings_JoiningCriteria">
-			<criteria>
-				<li Class="ReligionsOfRimworld.JoiningCriteria_Gender">
-					<criteria>Male</criteria>
-					<importance>Important</importance>
-				</li>
-			</criteria>
-		</settings>
-	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

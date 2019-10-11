@@ -7,10 +7,10 @@
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
 	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRNeedSettingsBase">
-		<defName>RoRNeedSettingsPiety</defName>
+		<defName>RoR_NeedPietySettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_PietyNeed">
 			<pietyNeed>Piety</pietyNeed>
-			<needThought>ROR_NeedPiety</needThought>
+			<needThought>RoR_ThoughtNeedPiety</needThought>
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 </Defs>

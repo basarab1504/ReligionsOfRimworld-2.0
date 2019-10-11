@@ -1,281 +1,279 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Defs>  
-  <ThoughtDef>
-    <defName>RoR_ThoughtApparelBad</defName>
+<Defs>
+  <ReligionsOfRimworld.PietyDef>
+    <defName>RoR_PietyApparelStuffBad</defName>
     <label>label</label>
     <description>desc</description>
-    <workerClass>ReligionsOfRimworld.ThoughtWorker_Apparel</workerClass>
-    <validWhileDespawned>true</validWhileDespawned>
+    <workerClass>ReligionsOfRimworld.PietyWorker_ApparelStuff</workerClass>
     <stages>
       <li>
         <label>don't like {0}</label>
         <description>1</description>
-        <baseMoodEffect>-3</baseMoodEffect>
+        <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>1</description>        
-        <baseMoodEffect>-5</baseMoodEffect>
+        <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>1</description>
-        <baseMoodEffect>-7</baseMoodEffect>
+        <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>1</description>
-        <baseMoodEffect>-10</baseMoodEffect>
+        <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>1</description>
-        <baseMoodEffect>-15</baseMoodEffect>
+        <pietyOffset>-15</pietyOffset>
       </li> 
 
       <li>
         <label>don't like {0}</label>
         <description>2</description>
-        <baseMoodEffect>-3</baseMoodEffect>
+        <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>2</description>        
-        <baseMoodEffect>-5</baseMoodEffect>
+        <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>2</description>
-        <baseMoodEffect>-7</baseMoodEffect>
+        <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>2</description>
-        <baseMoodEffect>-10</baseMoodEffect>
+        <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>2</description>
-        <baseMoodEffect>-15</baseMoodEffect>
+        <pietyOffset>-15</pietyOffset>
       </li>
 
       <li>
         <label>don't like {0}</label>
         <description>3</description>
-        <baseMoodEffect>-3</baseMoodEffect>
+        <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>3</description>        
-        <baseMoodEffect>-5</baseMoodEffect>
+        <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>3</description>
-        <baseMoodEffect>-7</baseMoodEffect>
+        <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>3</description>
-        <baseMoodEffect>-10</baseMoodEffect>
+        <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>3</description>
-        <baseMoodEffect>-15</baseMoodEffect>
+        <pietyOffset>-15</pietyOffset>
       </li>
 
       <li>
         <label>don't like {0}</label>
         <description>4</description>
-        <baseMoodEffect>-3</baseMoodEffect>
+        <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>4</description>        
-        <baseMoodEffect>-5</baseMoodEffect>
+        <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>4</description>
-        <baseMoodEffect>-7</baseMoodEffect>
+        <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>4</description>
-        <baseMoodEffect>-10</baseMoodEffect>
+        <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>4</description>
-        <baseMoodEffect>-15</baseMoodEffect>
+        <pietyOffset>-15</pietyOffset>
       </li>
 
       <li>
         <label>don't like {0}</label>
         <description>5</description>
-        <baseMoodEffect>-3</baseMoodEffect>
+        <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>5</description>        
-        <baseMoodEffect>-5</baseMoodEffect>
+        <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>5</description>
-        <baseMoodEffect>-7</baseMoodEffect>
+        <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>5</description>
-        <baseMoodEffect>-10</baseMoodEffect>
+        <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
         <description>5</description>
-        <baseMoodEffect>-15</baseMoodEffect>
+        <pietyOffset>-15</pietyOffset>
       </li>
 
     </stages>
-  </ThoughtDef>
+  </ReligionsOfRimworld.PietyDef>
 
-  <ThoughtDef>
-    <defName>RoR_ThoughtApparelGood</defName>
+  <ReligionsOfRimworld.PietyDef>
+    <defName>RoR_PietyApparelStuffGood</defName>
     <label>label</label>
     <description>desc</description>
-    <workerClass>ReligionsOfRimworld.ThoughtWorker_Apparel</workerClass>
-    <validWhileDespawned>true</validWhileDespawned>
-    <stages>
+    <workerClass>ReligionsOfRimworld.PietyWorker_ApparelStuff</workerClass>
+   <stages>
       <li>
         <label>like {0}</label>
         <description>1</description>
-        <baseMoodEffect>3</baseMoodEffect>
+        <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>1</description>
-        <baseMoodEffect>5</baseMoodEffect>
+        <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>1</description>
-        <baseMoodEffect>7</baseMoodEffect>
+        <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>1</description>
-        <baseMoodEffect>10</baseMoodEffect>
+        <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>1</description>
-        <baseMoodEffect>15</baseMoodEffect>
+        <pietyOffset>15</pietyOffset>
       </li>     
 
       <li>
         <label>like {0}</label>
         <description>2</description>
-        <baseMoodEffect>3</baseMoodEffect>
+        <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>2</description>
-        <baseMoodEffect>5</baseMoodEffect>
+        <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>2</description>
-        <baseMoodEffect>7</baseMoodEffect>
+        <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>2</description>
-        <baseMoodEffect>10</baseMoodEffect>
+        <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>2</description>
-        <baseMoodEffect>15</baseMoodEffect>
+        <pietyOffset>15</pietyOffset>
       </li>   
 
       <li>
         <label>like {0}</label>
         <description>3</description>
-        <baseMoodEffect>3</baseMoodEffect>
+        <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>3</description>
-        <baseMoodEffect>5</baseMoodEffect>
+        <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>3</description>
-        <baseMoodEffect>7</baseMoodEffect>
+        <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>3</description>
-        <baseMoodEffect>10</baseMoodEffect>
+        <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>3</description>
-        <baseMoodEffect>15</baseMoodEffect>
+        <pietyOffset>15</pietyOffset>
       </li>   
 
       <li>
         <label>like {0}</label>
         <description>4</description>
-        <baseMoodEffect>3</baseMoodEffect>
+        <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>4</description>
-        <baseMoodEffect>5</baseMoodEffect>
+        <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>4</description>
-        <baseMoodEffect>7</baseMoodEffect>
+        <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>4</description>
-        <baseMoodEffect>10</baseMoodEffect>
+        <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>4</description>
-        <baseMoodEffect>15</baseMoodEffect>
+        <pietyOffset>15</pietyOffset>
       </li>   
 
       <li>
         <label>like {0}</label>
         <description>5</description>
-        <baseMoodEffect>3</baseMoodEffect>
+        <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>5</description>
-        <baseMoodEffect>5</baseMoodEffect>
+        <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>5</description>
-        <baseMoodEffect>7</baseMoodEffect>
+        <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>5</description>
-        <baseMoodEffect>10</baseMoodEffect>
+        <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
         <description>5</description>
-        <baseMoodEffect>15</baseMoodEffect>
+        <pietyOffset>15</pietyOffset>
       </li>          
     </stages>
-  </ThoughtDef>
+  </ReligionsOfRimworld.PietyDef>
 </Defs>

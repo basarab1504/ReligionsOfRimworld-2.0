@@ -19,6 +19,11 @@ namespace ReligionsOfRimworld
         protected abstract string ObjectLabel { get; }
         protected abstract string Description { get; }
 
+        public virtual bool Contains(Def def)
+        {
+            return GetObject() == def;
+        }
+
         public T GetObject<T>() where T: Def
         {
             return (T)GetObject();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ReligionsOfRimworld.PietyDef>
-    <defName>ROR_PietyKillBad</defName>
+    <defName>RoR_PietyKillBad</defName>
     <label>kill bad</label>
     <description>desc</description>
     <durationDays>1</durationDays>
@@ -35,7 +35,7 @@
   </ReligionsOfRimworld.PietyDef>
 
   <ReligionsOfRimworld.PietyDef>
-    <defName>ROR_PietyKillGood</defName>
+    <defName>RoR_PietyKillGood</defName>
     <label>kill good</label>
     <description>desc</description>
     <durationDays>1</durationDays>

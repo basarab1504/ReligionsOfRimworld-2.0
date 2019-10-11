@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>  
   <ThoughtDef>
-    <defName>RoR_ThoughtApparelBad</defName>
+    <defName>RoR_ThoughtWorker_ApparelStuffBad</defName>
     <label>label</label>
     <description>desc</description>
-    <workerClass>ReligionsOfRimworld.ThoughtWorker_Apparel</workerClass>
+    <workerClass>ReligionsOfRimworld.ThoughtWorker_ApparelStuff</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
@@ -141,10 +141,10 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>RoR_ThoughtApparelGood</defName>
+    <defName>RoR_ThoughtWorker_ApparelStuffGood</defName>
     <label>label</label>
     <description>desc</description>
-    <workerClass>ReligionsOfRimworld.ThoughtWorker_Apparel</workerClass>
+    <workerClass>ReligionsOfRimworld.ThoughtWorker_ApparelStuff</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
