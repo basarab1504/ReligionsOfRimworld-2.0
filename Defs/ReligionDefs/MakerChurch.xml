@@ -174,7 +174,7 @@ made energy from himself, made planets from his bones, his breath burned suns, h
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">
 				<propertyObject>Leather_Human</propertyObject>
 				<subject>
-					<piety>RoR_PietyApparelBad</piety>
+					<piety>RoR_PietyApparelBadStuff</piety>
 				</subject>
 			</li>
 			<li Class="ReligionsOfRimworld.ReligionProperty_ThingDef">

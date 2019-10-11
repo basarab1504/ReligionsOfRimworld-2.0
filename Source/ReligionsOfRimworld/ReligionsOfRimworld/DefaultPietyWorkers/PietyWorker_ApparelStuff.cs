@@ -26,10 +26,7 @@ namespace ReligionsOfRimworld
 
             for (int index = 0; index < wornApparel.Count; ++index)
             {
-                ReligionProperty property = settings.GetPropertyByObject(p, wornApparel[index].def);
-
-                if (property == null)
-                    property = settings.GetPropertyByObject(p, wornApparel[index].Stuff);
+                ReligionProperty property = settings.GetPropertyByObject(p, wornApparel[index].Stuff);
 
                 if (property != null && property.Subject.Piety == this.def)
                 {
