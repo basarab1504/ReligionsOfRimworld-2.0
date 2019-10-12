@@ -73,7 +73,7 @@ made energy from himself, made planets from his bones, his breath burned suns, h
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>
 
-	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRKillSettingsBase">
+	<ReligionsOfRimworld.ReligionSettingsDef ParentName="RoRDeathSettingsBase">
 		<defName>SC_DeathSettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_Social">	
 		<properties>
