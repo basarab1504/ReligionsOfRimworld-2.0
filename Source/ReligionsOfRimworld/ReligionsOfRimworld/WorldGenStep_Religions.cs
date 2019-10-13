@@ -18,7 +18,15 @@ namespace ReligionsOfRimworld
 
         public override void GenerateFresh(string seed)
         {
-            ReligionManager.GetReligionManager();
+            Log.Message("FRESH");
+            ReligionManager.GetReligionManager().Initialize();
         }
+
+        //public override void GenerateFromScribe(string seed)
+        //{
+        //    base.GenerateFromScribe(seed);
+        //    Log.Message("SC");
+        //    ReligionManager.GetReligionManager().ExposeData();
+        //}
     }
 }

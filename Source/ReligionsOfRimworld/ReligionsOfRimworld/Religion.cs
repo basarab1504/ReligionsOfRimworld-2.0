@@ -24,14 +24,14 @@ namespace ReligionsOfRimworld
         private ReligionSettings_AllowedBuildings allowedBuildingsSettings;
         private ReligionSettings_Prayings prayingSettings;
 
+        public Religion()
+        { }
+
         public Religion(ReligionConfiguration configuration)
         {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-            {
-                loadID = Find.UniqueIDsManager.GetNextThingID();
-                this.configuration = configuration;
-                InitializeReligion();
-            }
+            loadID = Find.UniqueIDsManager.GetNextThingID();
+            this.configuration = configuration;
+            InitializeReligion();
         }
 
         //public Religion(ReligionDef def)
@@ -119,7 +119,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.loadID, "loadID");
-            Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration", (ReligionDef)null);
+            Scribe_Deep.Look<ReligionConfiguration>(ref configuration, "configuration");
 
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {

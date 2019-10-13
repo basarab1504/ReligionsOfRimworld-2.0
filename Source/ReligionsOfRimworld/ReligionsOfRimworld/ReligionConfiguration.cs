@@ -26,18 +26,19 @@ namespace ReligionsOfRimworld
         //    }
         //}
 
+        public ReligionConfiguration()
+        { }
+
         public ReligionConfiguration(ReligionDef def)
         {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-            {
-                this.religionDef = def;
-                this.label = def.LabelCap;
-                this.description = def.description;
-                this.groupTag = def.GroupTag;
-                this.allSettings = new List<ReligionSettings>();
-                foreach (ReligionSettingsDef settingsDef in def.Settings)
-                    allSettings.Add(settingsDef.Settings);
-            }
+            this.religionDef = def;
+            this.label = def.LabelCap;
+            this.description = def.description;
+            this.groupTag = def.GroupTag;
+            this.allSettings = new List<ReligionSettings>();
+
+            foreach (ReligionSettingsDef settingsDef in def.Settings)
+                allSettings.Add(settingsDef.Settings);
         }
 
         public ReligionDef Def => religionDef;

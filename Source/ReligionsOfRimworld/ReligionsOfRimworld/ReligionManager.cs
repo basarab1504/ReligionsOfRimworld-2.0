@@ -14,18 +14,27 @@ namespace ReligionsOfRimworld
 
         public ReligionManager()
         {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-            {
-                allReligions = new List<Religion>();
-                CreateReligions();
-            }
+            allReligions = new List<Religion>();
         }
 
         public static ReligionManager GetReligionManager()
         {
             if (instance == null)
+            {
                 instance = new ReligionManager();
+            }
             return instance;
+        }
+
+        public void Initialize()
+        {
+            if (allReligions == null)
+                allReligions = new List<Religion>();
+
+            if (allReligions.Count == 0)
+                CreateReligions();
+            else
+                RecacheList();
         }
 
         public IEnumerable<Religion> AllReligions => allReligions;
@@ -49,12 +58,6 @@ namespace ReligionsOfRimworld
                 allReligions.Add(new Religion(new ReligionConfiguration(def)));
         }
 
-        public void RecacheReligions()
-        {
-            foreach (Pawn pawn in Find.World.worldPawns.AllPawnsAlive)
-                pawn.GetReligionComponent().Refresh();
-        }
-
         private void RecacheList()
         {
             foreach (Religion religion in allReligions)
@@ -65,12 +68,16 @@ namespace ReligionsOfRimworld
             RecacheReligions();
         }
 
+        public void RecacheReligions()
+        {
+            foreach (Pawn pawn in Find.World.worldPawns.AllPawnsAlive)
+                pawn.GetReligionComponent().Refresh();
+        }
+
         public void ExposeData()
         {
-            Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep, (ReligionConfiguration)null);
-
-            if (Scribe.mode == LoadSaveMode.LoadingVars)
-                RecacheList();
+            Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep);
+            Initialize();
         }
     }
 }

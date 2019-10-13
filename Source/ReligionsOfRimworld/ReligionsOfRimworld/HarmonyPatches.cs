@@ -32,18 +32,18 @@ namespace ReligionsOfRimworld
             }
         }
 
-        [HarmonyPatch(typeof(PawnGenerator), "TryGenerateNewPawnInternal")]
-        private static class Patch_TryGenerateNewPawnInternal
-        {
-            private static void Postfix(Pawn __result)
-            {
-                if (__result != null && __result.RaceProps.Humanlike)
-                {
-                    CompReligion religionComp = __result.GetReligionComponent();
-                    religionComp.TryChangeReligion(religionComp.ReligionCompability.MostSuitableReligion());
-                }
-            }
-        }
+        //[HarmonyPatch(typeof(PawnGenerator), "TryGenerateNewPawnInternal")]
+        //private static class Patch_TryGenerateNewPawnInternal
+        //{
+        //    private static void Postfix(Pawn __result)
+        //    {
+        //        if (__result != null && __result.RaceProps.Humanlike)
+        //        {
+        //            CompReligion religionComp = __result.GetReligionComponent();
+        //            religionComp.TryChangeReligion(religionComp.ReligionCompability.MostSuitableReligion());
+        //        }
+        //    }
+        //}
 
         [HarmonyPatch(typeof(Pawn), "Kill")]
         private static class Patch_PawnKill

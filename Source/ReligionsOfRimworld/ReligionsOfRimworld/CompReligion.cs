@@ -46,6 +46,7 @@ namespace ReligionsOfRimworld
             base.Initialize(props);
             religionCompability = new Pawn_ReligionCompability((Pawn)parent);
             religionRestrictions = new Pawn_ReligionRestrictions();
+            ChangeReligion(religionCompability.MostSuitableReligion());
         }
 
         public void Refresh()
@@ -67,6 +68,8 @@ namespace ReligionsOfRimworld
             Scribe_Deep.Look<Pawn_PietyTracker>(ref this.pietyTracker, "pietyTracker", (Pawn)parent, religion);
             Scribe_Deep.Look<Pawn_ReligionRestrictions>(ref this.religionRestrictions, "religionRestrictions");
             Scribe_Deep.Look<Pawn_PrayTracker>(ref prayTracker, "prayTracker", (Pawn)parent, religion);
+            if (religion == null)
+                Initialize(null);
         }
     }
 }
