@@ -90,9 +90,6 @@ namespace ReligionsOfRimworld
         [DebuggerHidden]
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            foreach (Gizmo gizmo in base.GetGizmos())
-                yield return gizmo;
-
             if (Faction == Faction.OfPlayer)
             {
                 yield return new Command_Action
@@ -106,6 +103,9 @@ namespace ReligionsOfRimworld
                     },
                     hotKey = KeyBindingDefOf.Misc4
                 };
+
+                foreach (Gizmo gizmo in base.GetGizmos())
+                    yield return gizmo;
             }
         }
 
