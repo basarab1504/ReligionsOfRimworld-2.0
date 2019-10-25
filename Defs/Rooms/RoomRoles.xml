@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs> 
+  <RoomRoleDef>
+    <defName>Temple</defName>
+    <label>temple</label>
+    <workerClass>ReligionsOfRimworld.RoomRoleWorker_Temple</workerClass>
+    <relatedStats>
+      <li>Beauty</li>
+      <li>Cleanliness</li>
+      <li>Wealth</li>
+      <li>Impressiveness</li>
+    </relatedStats>
+  </RoomRoleDef>  
+</Defs>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef Name="BaseHolyBuildingTotem" ParentName="BaseHolyBuilding" Abstract="true">
-	  <thingClass>ReligionsOfRimworld.Building_ReligiousBuildingMain</thingClass>
-	</ThingDef>
-
-  <ThingDef ParentName="BaseHolyBuildingTotem">
+  <ThingDef ParentName="BaseHolyBuildingMain">
     <defName>Totem</defName>
     <label>Totem</label>
     <description>A totem is a spirit being, sacred object, or symbol that serves as an emblem of a group of people, such as a family, clan, lineage, or tribe.</description>   
@@ -40,7 +36,7 @@
     <uiIconScale>0.6</uiIconScale>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHolyBuildingTotem">
+  <ThingDef ParentName="BaseHolyBuildingMain">
     <defName>Idol</defName>
     <label>Idol</label>
     <description>A statue representing a deity to which religious worship is addressed.</description>   
@@ -76,7 +72,7 @@
     <uiIconScale>0.6</uiIconScale>
   </ThingDef>
 
-  <ThingDef ParentName="BaseHolyBuildingTotem">
+  <ThingDef ParentName="BaseHolyBuildingMain">
     <defName>AltarWithBook</defName>
     <label>Altar with a book</label>
     <description>An altar is a structure upon which offerings such as sacrifices are made for religious purposes.</description>   

@@ -163,6 +163,7 @@
     <Compile Include="Religion_PawnDiedOrDownedUtility.cs" />
     <Compile Include="DefaultReligionSettings\ReligionSettings_Social.cs" />
     <Compile Include="RequestType.cs" />
+    <Compile Include="RoomRoleWorker_Temple.cs" />
     <Compile Include="ScheduledDay.cs" />
     <Compile Include="SettingsTagDef.cs" />
     <Compile Include="SettingsTagDefOf.cs" />

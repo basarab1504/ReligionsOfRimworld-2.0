@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="FacilityBase">
+    <defName>SacrificeAltar</defName>
+    <label>Sacrifice altar</label>
+    <description>An altar is a structure upon which offerings such as sacrifices are made for religious purposes.</description>   
+    <graphicData>
+      <texPath>Things/Religion/Altar</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <shaderType>CutoutComplex</shaderType>      
+      <damageData>
+        <rectN>(0.25,0.234375,0.5,0.28125)</rectN>
+        <rectS>(0.25,0.234375,0.5,0.28125)</rectS>
+        <rectE>(0.28125,0.25,0.453125,0.25)</rectE>
+        <rectW>(0.28125,0.25,0.453125,0.25)</rectW>
+      </damageData>
+      <shadowData>
+        <volume>(0.23, 0.26, 0.23)</volume>
+      </shadowData>
+    </graphicData> 
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>1400</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>18</Mass>
+      <Flammability>1.0</Flammability>
+      <JoyGainFactor>1.2</JoyGainFactor>
+    </statBases>    
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>65</costStuffCount>    
+    <building>
+      <watchBuildingStandDistanceRange>
+        <min>1</min>
+        <max>8</max>
+      </watchBuildingStandDistanceRange>
+      <watchBuildingStandRectWidth>7</watchBuildingStandRectWidth>
+    </building>  
+    <uiIconScale>0.6</uiIconScale>
+  </ThingDef>
+</Defs>

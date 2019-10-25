@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ThingDef ParentName="BuildingBase">
+	<ThingDef Name="FacilityBase" ParentName="BuildingBase" Abstract="True">
+		<thingClass>ReligionsOfRimworld.Building_ReligiousBuildingFacility</thingClass>
+		<inspectorTabs>
+			<li>ReligionsOfRimworld.ITab_ActivityTasks</li>
+		</inspectorTabs>
+		<designationCategory>ReligionBuildings</designationCategory>
+	</ThingDef>
+
+  <ThingDef ParentName="FacilityBase">
     <defName>WorshipSpot</defName>
     <thingClass>ReligionsOfRimworld.Building_ReligiousBuildingFacility</thingClass>
     <label>worship spot</label>
-    <description>Designates a spot for throwing parties.</description>
+    <description>Designates a spot for religion activities.</description>
     <graphicData>
       <texPath>Things/Building/Misc/PartySpot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    
+    </graphicData> 
     <altitudeLayer>FloorEmplacement</altitudeLayer>
     <statBases>
       <WorkToBuild>0</WorkToBuild>
@@ -19,10 +26,6 @@
     <passability>Standable</passability>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <interactionCellIcon>DiningChair</interactionCellIcon>     
-    <inspectorTabs>
-      <li>ReligionsOfRimworld.ITab_ActivityTasks</li>
-    </inspectorTabs>
-    <designationCategory>ReligionBuildings</designationCategory>
     <!--<inspectorTabs>
       <li>Religion.ITab_Worship</li>
     </inspectorTabs>
@@ -44,4 +47,53 @@
     <designationHotKey>Misc11</designationHotKey>
     <tickerType>Rare</tickerType>
   </ThingDef>	
+
+  <ThingDef ParentName="FacilityBase">
+    <defName>Lectern</defName>
+    <label>Lectern</label>
+    <description>Lectern to read from liturgical books during the divine services.</description>
+    <graphicData>
+      <texPath>Things/Religion/Lectern</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.10</staticSunShadowHeight>
+    <costStuffCount>45</costStuffCount>
+    <costList>
+      <WoodLog>20</WoodLog>
+    </costList>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>1000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>12</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <building>
+      <watchBuildingStandDistanceRange>
+        <min>1</min>
+        <max>8</max>
+      </watchBuildingStandDistanceRange>
+      <watchBuildingStandRectWidth>7</watchBuildingStandRectWidth>
+    </building> 
+  </ThingDef>
 </Defs>

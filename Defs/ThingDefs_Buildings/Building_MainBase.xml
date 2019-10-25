@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ThingDef Name="BaseHolyBuilding" ParentName="BuildingBase" Abstract="True">
+  <ThingDef Name="BaseHolyBuildingMain" ParentName="BuildingBase" Abstract="True">
   	<thingClass>ReligionsOfRimworld.Building_ReligiousBuildingMain</thingClass>
     <designationCategory>ReligionBuildings</designationCategory> 
     <altitudeLayer>Building</altitudeLayer>
-    <rotatable>true</rotatable>
     <socialPropernessMatters>true</socialPropernessMatters>    
     <comps>
       <li>
