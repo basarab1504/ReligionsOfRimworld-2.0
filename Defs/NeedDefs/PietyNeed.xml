@@ -4,7 +4,7 @@
     <defName>Piety</defName>
     <label>piety</label>
     <needClass>ReligionsOfRimworld.Need_Piety</needClass>
-    <description>Mood represents how happy or stressed someone is. If mood gets too low, the person may suffer a mental break. Depending on how low his mood is, someone who has a mental break may hide in his room for a day, or may go on a murder spree.</description>
+    <description>Piety represents how devout someone is. A religious character with low piety will be unhappy.</description>
     <minIntelligence>Humanlike</minIntelligence>
     <seekerRisePerHour>0.0027</seekerRisePerHour>
     <seekerFallPerHour>0.0027</seekerFallPerHour>

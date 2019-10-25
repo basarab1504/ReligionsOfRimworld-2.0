@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <JobDef>
-    <defName>Pray</defName>
+    <defName>PrayJob</defName>
     <driverClass>ReligionsOfRimworld.JobDriver_Pray</driverClass>
     <reportString>praying</reportString>
     <suspendable>false</suspendable>

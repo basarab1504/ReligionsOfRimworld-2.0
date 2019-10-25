@@ -99,10 +99,10 @@ namespace ReligionsOfRimworld
         {
             if(property != null)
             {
-                if(isSubject)
-                    PietyUtility.TryApplyOnPawn(property.Subject, pawn, otherPawm);
+                if (isSubject)
+                    PietyUtility.TryApplyOnPawn(property.Subject, pawn, property.GetObject().LabelCap, otherPawm);
                 else
-                    PietyUtility.TryApplyOnPawn(property.Witness, pawn, otherPawm);
+                    PietyUtility.TryApplyOnPawn(property.Witness, pawn, property.GetObject().LabelCap, otherPawm);
             }
         }
 

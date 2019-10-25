@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>  
   <ThoughtDef>
-    <defName>RoR_ThoughtWorker_ApparelStuffBad</defName>
+    <defName>RoR_ThoughtApparelStuffBad</defName>
     <label>label</label>
     <description>desc</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ApparelStuff</workerClass>
@@ -141,7 +141,7 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>RoR_ThoughtWorker_ApparelStuffGood</defName>
+    <defName>RoR_ThoughtApparelStuffGood</defName>
     <label>label</label>
     <description>desc</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ApparelStuff</workerClass>

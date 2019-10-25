@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThoughtDef>
-    <defName>RoR_ThoughtWeaponBad</defName>
+    <defName>RoR_ThoughtWeaponKillBad</defName>
     <label>label</label>
     <description>desc</description>
     <durationDays>1</durationDays>
@@ -36,7 +36,7 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>RoR_ThoughtWeaponGood</defName>
+    <defName>RoR_ThoughtWeaponKillGood</defName>
     <label>label</label>
     <description>desc</description>
     <durationDays>1</durationDays>

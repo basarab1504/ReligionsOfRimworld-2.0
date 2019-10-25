@@ -10,8 +10,10 @@ namespace ReligionsOfRimworld
     {
         private int age = 0;
 
-        public Piety_Memory(Pawn pawn, PietyDef def) : base(pawn, def)
-        { }
+        public Piety_Memory(Pawn pawn, PietyDef def, string reason = "") : base(pawn, def)
+        {
+            this.reason = reason;
+        }
 
         public override int CurStageIndex
         {
@@ -25,7 +27,7 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                return string.Format(this.CurStage.Label, (object)CurStage.Description).CapitalizeFirst();
+                return string.Format(this.CurStage.Label, reason, (object)CurStage.Description).CapitalizeFirst();
             }
         }
 
@@ -51,6 +53,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_Values.Look<int>(ref this.age, "age");
+            Scribe_Values.Look<string>(ref this.reason, "reason");
         }
     }
 }

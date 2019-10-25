@@ -9,7 +9,6 @@ namespace ReligionsOfRimworld
     public class Piety_Situational : Piety
     {
         protected int curStageIndex = -1;
-        protected string reason;
 
         public Piety_Situational(Pawn pawn, PietyDef def) : base(pawn, def)
         { }

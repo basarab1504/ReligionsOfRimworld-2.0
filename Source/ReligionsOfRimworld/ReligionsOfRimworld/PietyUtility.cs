@@ -11,19 +11,19 @@ namespace ReligionsOfRimworld
     {
         public static List<PietyDef> situationalPietyList = DefDatabase<PietyDef>.AllDefs.Where(x => x.IsSituational).ToList<PietyDef>();
 
-        public static void TryApplyOnPawns(ReligionPropertyData propertyData, IEnumerable<Pawn> pawns, Pawn subjectPawn = null)
-        {
-            foreach (Pawn pawn in pawns)
-                TryApplyOnPawn(propertyData, pawn, subjectPawn);
-        }
+        //public static void TryApplyOnPawns(ReligionPropertyData propertyData, IEnumerable<Pawn> pawns, Pawn subjectPawn = null)
+        //{
+        //    foreach (Pawn pawn in pawns)
+        //        TryApplyOnPawn(propertyData, pawn, subjectPawn);
+        //}
 
-        public static void TryApplyOnPawn(IEnumerable<ReligionPropertyData> propertyData, Pawn pawn, Pawn subjectPawn = null)
-        {
-            foreach (ReligionPropertyData property in propertyData)
-                TryApplyOnPawn(property, pawn, subjectPawn);
-        }
+        //public static void TryApplyOnPawn(IEnumerable<ReligionPropertyData> propertyData, Pawn pawn, Pawn subjectPawn = null)
+        //{
+        //    foreach (ReligionPropertyData property in propertyData)
+        //        TryApplyOnPawn(property, pawn, subjectPawn);
+        //}
 
-        public static void TryApplyOnPawn(ReligionPropertyData propertyData, Pawn pawn, Pawn subjectPawn = null)
+        public static void TryApplyOnPawn(ReligionPropertyData propertyData, Pawn pawn, string reason = "", Pawn subjectPawn = null)
         {
             if (propertyData != null)
             {
@@ -36,14 +36,14 @@ namespace ReligionsOfRimworld
                     AddThought(pawn, curPietyStage, propertyData.OpinionThought, subjectPawn);
 
                 if (propertyData.Piety != null)
-                    AddPiety(pawn, propertyData.Piety);
+                    AddPiety(pawn, propertyData.Piety, reason);
             }
         }
 
-        private static void AddPiety(Pawn pawn, PietyDef pietyDef)
+        private static void AddPiety(Pawn pawn, PietyDef pietyDef, string reason = "")
         {
             if (pietyDef != null)
-                pawn.GetReligionComponent().PietyTracker.PietyNeed.Add(new Piety_Memory(pawn, pietyDef));
+                pawn.GetReligionComponent().PietyTracker.PietyNeed.Add(new Piety_Memory(pawn, pietyDef, reason));
         }
 
         private static void AddThought(Pawn pawn, int curPietyStage, ThoughtDef thoughtDef, Pawn otherPawn = null)

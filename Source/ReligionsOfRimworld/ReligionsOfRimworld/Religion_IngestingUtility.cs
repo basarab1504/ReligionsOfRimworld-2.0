@@ -33,7 +33,7 @@ namespace ReligionsOfRimworld
 
                 foreach(ReligionProperty property in properties)
                     if(property != null)
-                        PietyUtility.TryApplyOnPawn(property.Subject, ingester);
+                        PietyUtility.TryApplyOnPawn(property.Subject, ingester, property.GetObject().LabelCap);
             }
         }
     }

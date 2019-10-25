@@ -7,9 +7,81 @@
   <ThingDef ParentName="BaseHolyBuildingTotem">
     <defName>Totem</defName>
     <label>Totem</label>
-    <description>A desk for a relic which makes the temple completed.</description>   
+    <description>A totem is a spirit being, sacred object, or symbol that serves as an emblem of a group of people, such as a family, clan, lineage, or tribe.</description>   
     <graphicData>
       <texPath>Things/Religion/Totem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,2)</drawSize>
+      <damageData>
+        <rect>(0.05,0.05,0.95,0.95)</rect>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>1400</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>18</Mass>
+      <Flammability>1.0</Flammability>
+      <JoyGainFactor>1.2</JoyGainFactor>
+    </statBases>    
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <building>
+      <watchBuildingStandDistanceRange>
+        <min>1</min>
+        <max>8</max>
+      </watchBuildingStandDistanceRange>
+      <watchBuildingStandRectWidth>7</watchBuildingStandRectWidth>
+    </building>      
+    <costStuffCount>65</costStuffCount>    
+    <uiIconScale>0.6</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHolyBuildingTotem">
+    <defName>Idol</defName>
+    <label>Idol</label>
+    <description>A statue representing a deity to which religious worship is addressed.</description>   
+    <graphicData>
+      <texPath>Things/Religion/Idol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,2)</drawSize>
+      <damageData>
+        <rect>(0.05,0.05,0.95,0.95)</rect>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>1400</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>18</Mass>
+      <Flammability>1.0</Flammability>
+      <JoyGainFactor>1.2</JoyGainFactor>
+    </statBases>    
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <building>
+      <watchBuildingStandDistanceRange>
+        <min>1</min>
+        <max>8</max>
+      </watchBuildingStandDistanceRange>
+      <watchBuildingStandRectWidth>7</watchBuildingStandRectWidth>
+    </building>      
+    <costStuffCount>65</costStuffCount>    
+    <uiIconScale>0.6</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHolyBuildingTotem">
+    <defName>AltarWithBook</defName>
+    <label>Altar with a book</label>
+    <description>An altar is a structure upon which offerings such as sacrifices are made for religious purposes.</description>   
+    <graphicData>
+      <texPath>Things/Religion/AltarWithBook</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,2)</drawSize>
       <damageData>

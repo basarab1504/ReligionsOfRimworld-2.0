@@ -4,7 +4,7 @@
     <defName>Pray</defName>
     <label>pray</label>
     <needClass>ReligionsOfRimworld.Need_Pray</needClass>
-    <description>Mood represents how happy or stressed someone is. If mood gets too low, the person may suffer a mental break. Depending on how low his mood is, someone who has a mental break may hide in his room for a day, or may go on a murder spree.</description>
+    <description>Prayers increase godliness. For the characters to pray, there must be a holy building in the colony.</description>
     <minIntelligence>Humanlike</minIntelligence>
     <seekerFallPerHour>0.125</seekerFallPerHour>
     <listPriority>455</listPriority>

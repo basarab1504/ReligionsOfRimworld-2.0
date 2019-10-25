@@ -10,6 +10,7 @@ namespace ReligionsOfRimworld
     {
         protected Pawn pawn;
         protected PietyDef def;
+        protected string reason;
 
         public Piety(Pawn pawn, PietyDef def)
         {

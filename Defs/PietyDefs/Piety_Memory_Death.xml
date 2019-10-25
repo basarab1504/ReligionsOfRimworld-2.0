@@ -2,27 +2,27 @@
 <Defs>
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyDeathGood</defName>
-    <label>label</label>
+    <label>death</label>
     <description>desc</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
@@ -36,32 +36,32 @@
 
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyDeathBad</defName>
-    <label>label</label>
+    <label>death</label>
     <description>desc</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
-        <label>food</label>
+        <label>death of {0}</label>
         <description>sad</description>
         <pietyOffset>5</pietyOffset>
       </li>
