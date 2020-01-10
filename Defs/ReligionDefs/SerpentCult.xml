@@ -141,6 +141,7 @@ made energy from himself, made planets from his bones, his breath burned suns, h
 		<allowedBuildings>
 			<li>Totem</li>
 			<li>WorshipSpot</li>
+			<li>SacrificeAltar</li>
 		</allowedBuildings>	
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>

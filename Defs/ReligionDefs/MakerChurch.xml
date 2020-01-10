@@ -202,8 +202,9 @@ made energy from himself, made planets from his bones, his breath burned suns, h
 		<defName>MC_AllowedBuildingsSettings</defName>
 		<settings Class="ReligionsOfRimworld.ReligionSettings_AllowedBuildings">	
 		<allowedBuildings>
-			<li>Totem</li>
+			<li>AltarWithBook</li>
 			<li>WorshipSpot</li>
+			<li>Lectern</li>
 		</allowedBuildings>	
 		</settings>
 	</ReligionsOfRimworld.ReligionSettingsDef>

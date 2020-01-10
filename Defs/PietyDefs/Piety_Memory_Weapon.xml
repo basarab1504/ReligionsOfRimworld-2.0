@@ -7,27 +7,27 @@
     <durationDays>1</durationDays>
     <stages>
       <li>
-        <label>weapon kill</label>
+        <label>kill with a {0}</label>
         <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>kill with a {0}</label>
         <description>sad</description>
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>kill with a {0}</label>
         <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>kill with a {0}</label>
         <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
+        <label>kill with a {0}</label>
         <description>sad</description>
         <pietyOffset>-5</pietyOffset>
       </li>
@@ -41,28 +41,28 @@
     <durationDays>1</durationDays>
     <stages>
       <li>
-        <label>weapon kill</label>
-        <description>sad</description>
+        <label>kill with a {0}</label>
+        <description>feels good</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
-        <description>sad</description>
+        <label>kill with a {0}</label>
+        <description>feels good</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
-        <description>sad</description>
+        <label>kill with a {0}</label>
+        <description>feels good</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
-        <description>sad</description>
+        <label>kill with a {0}</label>
+        <description>feels good</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
-        <label>weapon kill</label>
-        <description>sad</description>
+        <label>kill with a {0}</label>
+        <description>feels good</description>
         <pietyOffset>5</pietyOffset>
       </li>
     </stages>

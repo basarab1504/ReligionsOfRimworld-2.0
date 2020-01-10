@@ -201,9 +201,9 @@ namespace ReligionsOfRimworld
         {
             foreach (Pawn pawn in lord.ownedPawns)
                 if (pawn == data.Organizer)
-                    PietyUtility.TryApplyOnPawn(data.OrganizerProperty, pawn);
+                    PietyUtility.TryApplyOnPawn(data.OrganizerProperty, pawn, data.Task.Label);
                 else
-                    PietyUtility.TryApplyOnPawn(data.СongregationProperty, pawn);
+                    PietyUtility.TryApplyOnPawn(data.СongregationProperty, pawn, data.Task.Label);
 
             data.Task.Notify_IterationCompleted(data.Organizer);
         }

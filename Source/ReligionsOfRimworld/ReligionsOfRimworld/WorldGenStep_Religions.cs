@@ -18,7 +18,6 @@ namespace ReligionsOfRimworld
 
         public override void GenerateFresh(string seed)
         {
-            Log.Message("FRESH");
             ReligionManager.GetReligionManager().Initialize();
         }
 

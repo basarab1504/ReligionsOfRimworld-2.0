@@ -8,131 +8,131 @@
     <stages>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>        
+        <description>sad</description>    
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <pietyOffset>-15</pietyOffset>
       </li> 
 
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>        
+        <description>sad</description>       
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <pietyOffset>-15</pietyOffset>
       </li>
 
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>        
+        <description>sad</description>      
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <pietyOffset>-15</pietyOffset>
       </li>
 
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>        
+        <description>sad</description>    
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <pietyOffset>-15</pietyOffset>
       </li>
 
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <pietyOffset>-3</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>        
+        <description>sad</description>       
         <pietyOffset>-5</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <pietyOffset>-7</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <pietyOffset>-10</pietyOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <pietyOffset>-15</pietyOffset>
       </li>
 
@@ -147,131 +147,131 @@
    <stages>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>feels good</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>feels good</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>feels good</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>feels good</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>feels good</description>
         <pietyOffset>15</pietyOffset>
       </li>     
 
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>feels good</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>feels good</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>feels good</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>feels good</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>feels good</description>
         <pietyOffset>15</pietyOffset>
       </li>   
 
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>feels good</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>feels good</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>feels good</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>feels good</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>feels good</description>
         <pietyOffset>15</pietyOffset>
       </li>   
 
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>feels good</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>feels good</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>feels good</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>feels good</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>feels good</description>
         <pietyOffset>15</pietyOffset>
       </li>   
 
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>feels good</description>
         <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>feels good</description>
         <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>feels good</description>
         <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>feels good</description>
         <pietyOffset>10</pietyOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>feels good</description>
         <pietyOffset>15</pietyOffset>
       </li>          
     </stages>

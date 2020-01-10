@@ -99,6 +99,7 @@ namespace ReligionsOfRimworld
         {
             if (religionDef != null)
             {
+                Log.Message("OK");
                 this.allSettings = new List<ReligionSettings>();
                 foreach (ReligionSettingsDef settingsDef in religionDef.Settings)
                     allSettings.Add(settingsDef.Settings);

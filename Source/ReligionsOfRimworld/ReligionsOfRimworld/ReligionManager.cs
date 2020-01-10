@@ -77,7 +77,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep);
-            Initialize();
+            RecacheList();
         }
     }
 }

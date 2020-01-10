@@ -193,11 +193,14 @@ namespace ReligionsOfRimworld
             {
                 Widgets.DrawBox(rect, 3);
                 if (Input.GetMouseButtonDown(0))
-                {                 
+                {
                     if (day == null)
-                        TaskManager.AddDay(dayNumber);                       
-                    Find.WindowStack.Add((Window)new Dialog_ScheduleDayConfig(day, GetFloatMenuOptions(day)));
-                }   
+                        TaskManager.AddDay(dayNumber);
+
+                    var options = GetFloatMenuOptions(day);
+                    if (!options.NullOrEmpty())
+                        Find.WindowStack.Add((Window)new Dialog_ScheduleDayConfig(day, GetFloatMenuOptions(day)));
+                }
             }
         }
 

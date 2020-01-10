@@ -34,6 +34,8 @@ namespace ReligionsOfRimworld
             InitializeReligion();
         }
 
+        public int ID => loadID;
+
         //public Religion(ReligionDef def)
         //{
         //    if (Scribe.mode == LoadSaveMode.Inactive)
