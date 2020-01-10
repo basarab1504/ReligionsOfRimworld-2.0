@@ -234,7 +234,7 @@ namespace ReligionsOfRimworld
         private List<FloatMenuOption> GetFloatMenuOptions(ScheduledDay day)
         {
             List<FloatMenuOption> list = new List<FloatMenuOption>();
-            foreach (ReligionProperty property in SelFacility.AssignedReligion.FindByTag<ReligionSettings_ReligionActivity>(SettingsTagDefOf.ActivityTag).Properties)
+            foreach (ReligionProperty property in SelFacility.AssignedReligion.GetSettings<ReligionSettings_ReligionActivity>(SettingsTagDefOf.ActivityTag).Properties)
             {
                 ActivityTaskDef taskDef = property.GetObject<ActivityTaskDef>();
                 list.Add(new FloatMenuOption(taskDef.label, (Action)(() =>

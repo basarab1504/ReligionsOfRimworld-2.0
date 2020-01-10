@@ -14,9 +14,9 @@ namespace ReligionsOfRimworld
         {
             Religion religion = ReligionManager.GetReligionManager().AllReligions.RandomElement();
             Log.Message(religion.Label);
-            if(religion.MentalBreaksSettings != null)
+            if(religion.GetSettings<ReligionSettings_MentalBreaks>(SettingsTagDefOf.MentalBreaksTag) != null)
             {
-                ReligionSettings_MentalBreaks settings = religion.MentalBreaksSettings;
+                ReligionSettings_MentalBreaks settings = religion.GetSettings<ReligionSettings_MentalBreaks>(SettingsTagDefOf.MentalBreaksTag);
                 if (settings.MentalBreaks.Any(x => x == this.def))
                 {
                     if (!pawn.GetReligionComponent().TryChangeReligion(religion))

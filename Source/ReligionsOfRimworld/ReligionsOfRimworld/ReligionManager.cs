@@ -55,13 +55,13 @@ namespace ReligionsOfRimworld
         private void CreateReligions()
         {
             foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                allReligions.Add(new Religion(new ReligionConfiguration(def)));
+                allReligions.Add(new Religion(def));
         }
 
         private void RecacheList()
         {
             foreach (Religion religion in allReligions)
-                if (!religion.TryToRecache())
+                if (religion.Def == null)
                     foreach (Pawn pawn in Find.World.worldPawns.AllPawnsAlive)
                         pawn.GetReligionComponent().TryChangeReligion(allReligions.FirstOrDefault(x => x.Def == MiscDefOf.NonBeliever));
 
@@ -77,7 +77,7 @@ namespace ReligionsOfRimworld
         public void ExposeData()
         {
             Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep);
-            RecacheList();
+            Initialize();
         }
     }
 }

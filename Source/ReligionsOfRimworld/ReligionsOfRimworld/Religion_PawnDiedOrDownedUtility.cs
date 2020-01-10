@@ -116,7 +116,7 @@ namespace ReligionsOfRimworld
         {
             if(pawn != null && pawn.GetReligionComponent() != null)
             {
-                ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.FindByTag<ReligionSettings_Social>(tag);
+                ReligionSettings_Social settings = pawn.GetReligionComponent().Religion.GetSettings<ReligionSettings_Social>(tag);
                 if (settings != null)
                     return settings.GetPropertyByObject(pawn, def, otherPawn);
             }

@@ -19,7 +19,7 @@ namespace ReligionsOfRimworld
             if (comp == null)
                 return PietyState.Inactive;
 
-            ReligionSettings_Social settings = comp.Religion.ApparelSettings;
+            ReligionSettings_Social settings = comp.Religion.GetSettings<ReligionSettings_Social>(SettingsTagDefOf.ApparelTag);
 
             if (settings == null)
                 return PietyState.Inactive;

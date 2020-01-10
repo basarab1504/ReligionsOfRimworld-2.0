@@ -18,7 +18,7 @@ namespace ReligionsOfRimworld
             if (ingester.RaceProps.Animal)
                 return;
 
-            ReligionSettings_Social settings = ingester.GetReligionComponent().Religion.FoodSettings;
+            ReligionSettings_Social settings = ingester.GetReligionComponent().Religion.GetSettings<ReligionSettings_Social>(SettingsTagDefOf.FoodTag);
             if(settings != null)
             {
 

@@ -71,8 +71,8 @@ namespace ReligionsOfRimworld
 
         private bool DoReligionAllowsBuildings(Building_ReligionBuilding building)
         {
-            if (assignedReligion != null && assignedReligion.AllowedBuildingsSettings != null)
-                if (assignedReligion.AllowedBuildingsSettings.AllowedBuildings.Any(x => x == building.def))
+            if (assignedReligion != null && assignedReligion.GetSettings<ReligionSettings_AllowedBuildings>(SettingsTagDefOf.AllowedBuildingsTag) != null)
+                if (assignedReligion.GetSettings<ReligionSettings_AllowedBuildings>(SettingsTagDefOf.AllowedBuildingsTag).AllowedBuildings.Any(x => x == building.def))
                     return true;
             return false;
         }

@@ -11,7 +11,7 @@ namespace ReligionsOfRimworld
     {
         public override float RandomSelectionWeight(Pawn initiator, Pawn recipient)
         {
-            ReligionSettings_ReligionTalks settings = initiator.GetReligionComponent().Religion.ReligionTalksSettings;
+            ReligionSettings_ReligionTalks settings = initiator.GetReligionComponent().Religion.GetSettings<ReligionSettings_ReligionTalks>(SettingsTagDefOf.TalksTag);
             if (settings != null && settings.Interaction == this.interaction)
                 return settings.BaseChanceOfConversation;
             return 0f;
@@ -35,7 +35,7 @@ namespace ReligionsOfRimworld
         {
             CompReligion initiatorComp = initiator.GetReligionComponent();
             CompReligion recipientComp = recipient.GetReligionComponent();
-            ReligionSettings_ReligionTalks settings = initiatorComp.Religion.ReligionTalksSettings;
+            ReligionSettings_ReligionTalks settings = initiatorComp.Religion.GetSettings<ReligionSettings_ReligionTalks>(SettingsTagDefOf.TalksTag);
 
             if (recipientComp.ReligionRestrictions.MayConvertByTalking)
             {

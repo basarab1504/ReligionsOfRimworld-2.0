@@ -20,7 +20,7 @@ namespace ReligionsOfRimworld
             Religion thisPawnReligion = p.GetReligionComponent().Religion;
             Religion otherPawnReligion = other.GetReligionComponent().Religion;
 
-            ReligionSettings_Social opinionSettings = thisPawnReligion.OpinionSettings;
+            ReligionSettings_Social opinionSettings = thisPawnReligion.GetSettings<ReligionSettings_Social>(SettingsTagDefOf.OpinionTag);
 
             if(opinionSettings == null)
                 return (ThoughtState)false;

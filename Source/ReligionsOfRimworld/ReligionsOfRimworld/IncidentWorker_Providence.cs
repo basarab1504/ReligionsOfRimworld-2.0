@@ -36,9 +36,9 @@ namespace ReligionsOfRimworld
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Religion religion = ReligionManager.GetReligionManager().AllReligions.RandomElement();          
-            if (religion.IncidentsSettings != null)
+            if (religion.GetSettings<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag) != null)
             {
-                ReligionSettings_Incidents settings = religion.IncidentsSettings;
+                ReligionSettings_Incidents settings = religion.GetSettings<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag);
                 if (settings.Incidents.Any(x => x == this.def))
                 {
                     Pawn pawn = PotentialVictimCandidates(parms.target).RandomElement();

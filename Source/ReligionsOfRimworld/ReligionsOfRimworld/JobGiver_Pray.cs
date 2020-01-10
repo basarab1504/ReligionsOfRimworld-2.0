@@ -39,7 +39,7 @@ namespace ReligionsOfRimworld
                 if (!WatchBuildingUtility.TryFindBestWatchCell(placeToPray, pawn, true, out IntVec3 result, out Building chair))
                     WatchBuildingUtility.TryFindBestWatchCell(placeToPray, pawn, false, out result, out chair);
 
-                return new Job(comp.Religion.PrayingSettings.Property.GetObject<JobDef>(), placeToPray, (LocalTargetInfo)result, (LocalTargetInfo)((Thing)chair));
+                return new Job(comp.Religion.GetSettings<ReligionSettings_Prayings>(SettingsTagDefOf.PrayingsTag).Property.GetObject<JobDef>(), placeToPray, (LocalTargetInfo)result, (LocalTargetInfo)((Thing)chair));
             }
             return (Job)null;
         }
