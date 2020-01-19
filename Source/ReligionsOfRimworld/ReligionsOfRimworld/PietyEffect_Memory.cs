@@ -10,6 +10,11 @@ namespace ReligionsOfRimworld
     {
         private int age = 0;
 
+        public Piety_Memory()
+        {
+
+        }
+
         public Piety_Memory(Pawn pawn, PietyDef def, string reason = "") : base(pawn, def)
         {
             this.reason = reason;

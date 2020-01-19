@@ -64,7 +64,6 @@
       </damageData>
     </graphicData>
     <castEdgeShadows>true</castEdgeShadows>
-    <staticSunShadowHeight>0.10</staticSunShadowHeight>
     <costStuffCount>45</costStuffCount>
     <costList>
       <WoodLog>20</WoodLog>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+<ReligionInfo_Religion>Religion</ReligionInfo_Religion>
 <ReligionInfo_Description>Description</ReligionInfo_Description>
 <ReligionInfo_Criteria>Criteria</ReligionInfo_Criteria>
 <ReligionInfo_SeekerFallPerHour>Fall per hour</ReligionInfo_SeekerFallPerHour>
 <ReligionInfo_PrayJob>Pray job</ReligionInfo_PrayJob>
+<ReligionInfo_PrayNeed>Pray need</ReligionInfo_PrayNeed>
 <ReligionInfo_Building>Building</ReligionInfo_Building>
 <ReligionInfo_GroupTag>Group tag</ReligionInfo_GroupTag>
 <ReligionInfo_Object>Object</ReligionInfo_Object>

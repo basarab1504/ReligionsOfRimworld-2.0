@@ -2,86 +2,86 @@
 <Defs>
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>NeedTag</defName>
-		<label>NeedTag</label>
-		<description>suu</description>
+		<label>Need settings</label>
+		<description>Religion describes what is good and what is bad for your character and so depends on piety level character will be more or less religious. character with high piety would be more affected by sins and virtues.</description>
 	</ReligionsOfRimworld.SettingsTagDef>
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>JoiningCriteriaTag</defName>
-		<label>JoiningCriteriaTag</label>
-		<description>suu</description>		
+		<label>Joining criteria settings</label>
+		<description>Religion may have some criteria about the character. A character must have, or vice versa, not have these criteria in order to fit a particular religion.</description>	
 	</ReligionsOfRimworld.SettingsTagDef>
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>TalksTag</defName>
-		<label>TalksTag</label>
-		<description>suu</description>
+		<label>Talks settings</label>
+		<description>Religion talk is a recruiting ability of a follower of your religion to convert any other characters.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>IncidentsTag</defName>
-		<label>IncidentsTag</label>
-		<description>fasfsa</description>
+		<label>Incidents settings</label>
+		<description>Incidents are events happens sometimes.</description>
 	</ReligionsOfRimworld.SettingsTagDef>		
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>MentalBreaksTag</defName>
-		<label>MentalBreaksTag</label>
-		<description>faf</description>
+		<label>Mental breaks settings</label>
+		<description>Character will lose his religion after this one.</description>
 	</ReligionsOfRimworld.SettingsTagDef>		
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>OpinionTag</defName>
-		<label>OpinionTag</label>
-		<description>aafs</description>
+		<label>Opinion settings</label>
+		<description>Characters have an opinion about each other.</description>
 	</ReligionsOfRimworld.SettingsTagDef>
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>DeathTag</defName>
-		<label>DeathTag</label>
-		<description>fasf</description>
+		<label>Death settings</label>
+		<description>People dies and that may affect on religion characters.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>KillTag</defName>
-		<label>KillTag</label>
-		<description>fasf</description>
+		<label>Kill settings</label>
+		<description>Religious violence is violence that is motivated by, or in reaction to, religious precepts, texts, or doctrines of a target or attacker.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>WeaponTag</defName>
-		<label>WeaponTag</label>
-		<description>fasf</description>
+		<label>Weapon settings</label>
+		<description>Some weapon may be a sacred or banned to kill someone with.</description>
 	</ReligionsOfRimworld.SettingsTagDef>		
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>FoodTag</defName>
-		<label>FoodTag</label>
-		<description>fasf</description>
+		<label>Food settings</label>
+		<description>There is food that will bring pleasure to your religious characters. And there may also be food that upsets them.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>ApparelTag</defName>
-		<label>ApparelTag</label>
-		<description>fasf</description>
+		<label>Apparel settings</label>
+		<description>Apparel is holy or banned. Wearing certain robes can affect your character.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>AllowedBuildingsTag</defName>
-		<label>AllowedBuildingsTag</label>
-		<description>fasf</description>
+		<label>Allowed buildings settings</label>
+		<description>Sacred buildings are the foundation of any temple in your colony.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>ActivityTag</defName>
-		<label>ActivityTag</label>
-		<description>fasf</description>
+		<label>Activity settings</label>
+		<description>Worship is an act of religious devotion usually directed towards a deity.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 
 	<ReligionsOfRimworld.SettingsTagDef>
 		<defName>PrayingsTag</defName>
-		<label>PrayingsTag</label>
-		<description>PrayingsTag</description>
+		<label>Prayings settings</label>
+		<description>Prayer is an invocation or act that seeks to activate a rapport with an object of worship through deliberate communication.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
 	
 </Defs>

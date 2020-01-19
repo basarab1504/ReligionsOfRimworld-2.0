@@ -46,7 +46,7 @@ namespace ReligionsOfRimworld
 
         public void ExposeData()
         {
-            Scribe_Collections.Look<Piety_Memory>(ref this.pietyEffects, "pietyMemories", LookMode.Deep, (Pawn)null, (PietyDef)null);
+            Scribe_Collections.Look<Piety_Memory>(ref this.pietyEffects, "pietyMemories", LookMode.Deep);
         }
     }
 }

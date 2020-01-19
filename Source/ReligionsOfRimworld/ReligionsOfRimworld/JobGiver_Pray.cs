@@ -46,7 +46,11 @@ namespace ReligionsOfRimworld
 
         private Building GetRightPlaceToPray(Pawn pawn)
         {
-            return pawn.Map.listerBuildings.AllBuildingsColonistOfClass<Building_ReligiousBuildingMain>().Where(x => x.IsComplete && x.AssignedReligion == pawn.GetReligionComponent().Religion && pawn.CanReach(x, PathEndMode.ClosestTouch, Danger.None)).RandomElement();
+            IEnumerable<Building_ReligiousBuildingMain> buildings = pawn.Map.listerBuildings.AllBuildingsColonistOfClass<Building_ReligiousBuildingMain>().Where(x => x.IsComplete && x.AssignedReligion == pawn.GetReligionComponent().Religion && pawn.CanReach(x, PathEndMode.ClosestTouch, Danger.None));
+            if (buildings.Count() > 0)
+                return buildings.RandomElement();
+            else
+                return null;
         }
     }
 }

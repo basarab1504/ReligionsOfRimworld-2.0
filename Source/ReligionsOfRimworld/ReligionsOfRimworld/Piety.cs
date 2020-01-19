@@ -12,6 +12,9 @@ namespace ReligionsOfRimworld
         protected PietyDef def;
         protected string reason;
 
+        public Piety()
+        { }
+
         public Piety(Pawn pawn, PietyDef def)
         {
             if(Scribe.mode == LoadSaveMode.Inactive)
