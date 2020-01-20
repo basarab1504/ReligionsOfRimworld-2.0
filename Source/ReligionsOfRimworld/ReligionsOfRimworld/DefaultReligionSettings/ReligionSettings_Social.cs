@@ -8,7 +8,7 @@ namespace ReligionsOfRimworld
 {
     public class ReligionSettings_Social : ReligionSettings
     {
-        private ReligionProperty_Default defaultPropety;
+        private ReligionProperty_Default defaultProperty;
         private List<ReligionProperty> properties;
 
         public ReligionSettings_Social()
@@ -17,7 +17,7 @@ namespace ReligionsOfRimworld
                 properties = new List<ReligionProperty>();
         }
 
-        public ReligionProperty DefaultPropety => defaultPropety;
+        public ReligionProperty DefaultPropety => defaultProperty;
         public IEnumerable<ReligionProperty> Properties => properties;
 
         public ReligionProperty GetPropertyByObject(Pawn pawn, Def def, Pawn otherPawn = null)
@@ -33,13 +33,13 @@ namespace ReligionsOfRimworld
             else
                 return props.FirstOrDefault();
 
-            return defaultPropety;
+            return defaultProperty;
         }
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {
-            if (defaultPropety != null)
-                yield return defaultPropety.GetReligionInfoEntry();
+            if (defaultProperty != null)
+                yield return defaultProperty.GetReligionInfoEntry();
 
             foreach (ReligionProperty property in properties)
                     yield return property.GetReligionInfoEntry();
@@ -49,7 +49,7 @@ namespace ReligionsOfRimworld
         {
             base.ExposeData();
             Scribe_Collections.Look<ReligionProperty>(ref this.properties, "properties", LookMode.Deep);
-            Scribe_Deep.Look<ReligionProperty_Default>(ref this.defaultPropety, "defaultProperty");
+            Scribe_Deep.Look<ReligionProperty_Default>(ref this.defaultProperty, "defaultProperty");
         }
     }
 }
