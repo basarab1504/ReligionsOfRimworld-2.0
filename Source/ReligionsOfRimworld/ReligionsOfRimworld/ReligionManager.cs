@@ -34,7 +34,10 @@ namespace ReligionsOfRimworld
             if (allReligions.Count == 0)
                 CreateReligions();
             else
+            {
+                CreateReligions();
                 RecacheList();
+            }
         }
 
         public IEnumerable<Religion> AllReligions => allReligions;
@@ -55,7 +58,8 @@ namespace ReligionsOfRimworld
         private void CreateReligions()
         {
             foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                allReligions.Add(new Religion(def));
+                if (!allReligions.Any(x => x.Def == def))
+                    allReligions.Add(new Religion(def));
         }
 
         private void RecacheList()
