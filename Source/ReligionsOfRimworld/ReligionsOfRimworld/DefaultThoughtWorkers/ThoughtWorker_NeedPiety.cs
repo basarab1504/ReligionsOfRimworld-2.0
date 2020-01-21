@@ -16,7 +16,7 @@ namespace ReligionsOfRimworld
                 return ThoughtState.Inactive;
 
             ReligionSettings_PietyNeed settings = comp.Religion.GetSettings<ReligionSettings_PietyNeed>(SettingsTagDefOf.NeedTag);
-            if(settings == null)
+            if (settings == null)
                 return ThoughtState.Inactive;
 
             if (settings.NeedThought != null && settings.NeedThought == this.def)

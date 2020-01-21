@@ -12,8 +12,7 @@ namespace ReligionsOfRimworld
 
         public PietyMemoryHandler()
         {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-                pietyEffects = new List<Piety_Memory>();
+            pietyEffects = new List<Piety_Memory>();
         }
 
         public IEnumerable<Piety_Memory> Piety => pietyEffects;

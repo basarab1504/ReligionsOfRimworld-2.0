@@ -2,138 +2,138 @@
 <Defs>  
   <ThoughtDef>
     <defName>RoR_ThoughtApparelStuffBad</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>apparel stuff</label>
+    <description>decrease mood</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ApparelStuff</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>        
+        <description>sad</description>        
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <baseMoodEffect>-7</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>1</description>
+        <description>sad</description>
         <baseMoodEffect>-15</baseMoodEffect>
       </li> 
 
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>        
+        <description>sad</description>        
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <baseMoodEffect>-7</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>2</description>
+        <description>sad</description>
         <baseMoodEffect>-15</baseMoodEffect>
       </li>
 
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>        
+        <description>sad</description>        
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <baseMoodEffect>-7</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>3</description>
+        <description>sad</description>
         <baseMoodEffect>-15</baseMoodEffect>
       </li>
 
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>        
+        <description>sad</description>        
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <baseMoodEffect>-7</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>4</description>
+        <description>sad</description>
         <baseMoodEffect>-15</baseMoodEffect>
       </li>
 
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>        
+        <description>sad</description>        
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <baseMoodEffect>-7</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>5</description>
+        <description>sad</description>
         <baseMoodEffect>-15</baseMoodEffect>
       </li>
 
@@ -142,138 +142,138 @@
 
   <ThoughtDef>
     <defName>RoR_ThoughtApparelStuffGood</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>apparel stuff</label>
+    <description>increase mood</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ApparelStuff</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>happy</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>happy</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>happy</description>
         <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>happy</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>1</description>
+        <description>happy</description>
         <baseMoodEffect>15</baseMoodEffect>
       </li>     
 
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>happy</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>happy</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>happy</description>
         <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>happy</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>2</description>
+        <description>happy</description>
         <baseMoodEffect>15</baseMoodEffect>
       </li>   
 
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>happy</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>happy</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>happy</description>
         <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>happy</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>3</description>
+        <description>happy</description>
         <baseMoodEffect>15</baseMoodEffect>
       </li>   
 
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>happy</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>happy</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>happy</description>
         <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>happy</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>4</description>
+        <description>happy</description>
         <baseMoodEffect>15</baseMoodEffect>
       </li>   
 
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>happy</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>happy</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>happy</description>
         <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>happy</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
         <label>like {0}</label>
-        <description>5</description>
+        <description>happy</description>
         <baseMoodEffect>15</baseMoodEffect>
       </li>          
     </stages>

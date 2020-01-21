@@ -2,35 +2,35 @@
 <Defs>  
   <ThoughtDef>
     <defName>RoR_ThoughtNeedPiety</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>piety</label>
+    <description>regular piety thought</description>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_NeedPiety</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>very low</label>
-        <description>fasf</description>        
+        <label>very low piety</label>
+        <description>I feel myself very depressed</description>        
         <baseMoodEffect>-10</baseMoodEffect>
       </li>
       <li>
-        <label>low</label>
-        <description>fasf</description>
+        <label>low piety</label>
+        <description>I feel myself depressed</description>
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
       <li>
-        <label>satisfied</label>
-        <description>fasf</description>
+        <label>satisfied piety</label>
+        <description>I'm okay</description>
         <baseMoodEffect>0</baseMoodEffect>
         <visible>false</visible>
       </li>
       <li>
-        <label>high</label>
-        <description>fasf</description>
+        <label>high piety</label>
+        <description>I feel myself happy</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
-        <label>very high</label>
-        <description>fasf</description>
+        <label>very high piety</label>
+        <description>I feel myself very happy</description>
         <baseMoodEffect>20</baseMoodEffect>
       </li>          
     </stages>

@@ -14,9 +14,9 @@ namespace ReligionsOfRimworld
         public Pawn_PietyTracker(Pawn pawn, Religion religion)
         {
             this.pawn = pawn;
-            if (Scribe.mode == LoadSaveMode.Inactive)
+
+            if (religion.GetSettings<ReligionSettings_PietyNeed>(SettingsTagDefOf.NeedTag) != null)
             {
-                if(religion.GetSettings<ReligionSettings_PietyNeed>(SettingsTagDefOf.NeedTag) != null)
                 this.piety = new Need_Piety(pawn)
                 {
                     def = religion.GetSettings<ReligionSettings_PietyNeed>(SettingsTagDefOf.NeedTag).PietyNeed

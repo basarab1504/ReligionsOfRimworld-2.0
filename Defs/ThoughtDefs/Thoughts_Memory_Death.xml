@@ -2,8 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>RoR_ThoughtDeathBad</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>death</label>
+    <description>decrease mood</description>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>
@@ -31,43 +31,43 @@
       <li>
         <label>death of good religion fella</label>
         <description>sad</description>
-        <baseMoodEffect>-5</baseMoodEffect>
+        <baseMoodEffect>-15</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>
 
   <ThoughtDef>
     <defName>RoR_ThoughtDeathGood</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>death</label>
+    <description>increase mood</description>
     <showBubble>true</showBubble>
     <durationDays>6</durationDays>
     <stackLimit>5</stackLimit>
     <stages>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseMoodEffect>7</baseMoodEffect>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseMoodEffect>10</baseMoodEffect>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
-        <baseMoodEffect>5</baseMoodEffect>
+        <description>happy</description>
+        <baseMoodEffect>15</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>

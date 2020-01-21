@@ -2,8 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>RoR_ThoughtKillBadOpinion</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>opinion</label>
+    <description>bad opinion</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>10</durationDays>
@@ -33,15 +33,15 @@
       <li>
         <label>death of good religion fella</label>
         <description>sad</description>
-        <baseOpinionOffset>-5</baseOpinionOffset>
+        <baseOpinionOffset>-15</baseOpinionOffset>
       </li>
     </stages>
   </ThoughtDef>
 
   <ThoughtDef>
     <defName>RoR_ThoughtKillGoodOpinion</defName>
-    <label>label</label>
-    <description>desc</description>    
+    <label>opinion</label>
+    <description>good opinion</description>    
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>10</durationDays>
@@ -50,28 +50,28 @@
     <stages>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>3</baseOpinionOffset>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>5</baseOpinionOffset>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>7</baseOpinionOffset>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>10</baseOpinionOffset>
       </li>
       <li>
         <label>death of bad religion fella</label>
-        <description>sad</description>
-        <baseOpinionOffset>5</baseOpinionOffset>
+        <description>happy</description>
+        <baseOpinionOffset>15</baseOpinionOffset>
       </li>
     </stages>
   </ThoughtDef>

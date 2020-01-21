@@ -15,8 +15,8 @@ namespace ReligionsOfRimworld
         public Need_Piety(Pawn pawn)
         : base(pawn)
         {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-                pietyEffectHandler = new PietyHandler(pawn);
+            pietyEffectHandler = new PietyHandler(pawn);
+
             this.threshPercents = new List<float>
             {
                 0.16f,

@@ -13,8 +13,7 @@ namespace ReligionsOfRimworld
 
         public ReligionSettings_Social()
         {
-            if (Scribe.mode == LoadSaveMode.Inactive)
-                properties = new List<ReligionProperty>();
+            properties = new List<ReligionProperty>();
         }
 
         public ReligionProperty DefaultPropety => defaultProperty;

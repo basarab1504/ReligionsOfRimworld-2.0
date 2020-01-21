@@ -2,35 +2,35 @@
 <Defs>  
   <ThoughtDef>
     <defName>RoR_ThoughtOpinionBad</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>opinion</label>
+    <description>bad opinion</description>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-3</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>        
+        <description>sad</description>        
         <baseOpinionOffset>-5</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-7</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-10</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-15</baseOpinionOffset>
       </li>      
     </stages>
@@ -38,35 +38,35 @@
 
   <ThoughtDef>
     <defName>RoR_ThoughtOpinionGood</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>opinion</label>
+    <description>good opinion</description>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>3</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>5</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>7</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>10</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>15</baseOpinionOffset>
       </li>      
     </stages>
@@ -74,35 +74,35 @@
 
   <ThoughtDef>
     <defName>RoR_ReligionGroupBadOpinionSocial</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>opinion</label>
+    <description>bad opinion</description>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionGroupOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-3</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>        
+        <description>sad</description>        
         <baseOpinionOffset>-5</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-7</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-10</baseOpinionOffset>
       </li>
       <li>
         <label>don't like {0}</label>
-        <description>fasf</description>
+        <description>sad</description>
         <baseOpinionOffset>-15</baseOpinionOffset>
       </li>      
     </stages>
@@ -110,35 +110,35 @@
 
   <ThoughtDef>
     <defName>RoR_ReligionGroupGoodOpinionSocial</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>opinion</label>
+    <description>good opinion</description>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_ReligionGroupOpinion</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>3</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>5</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>7</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>10</baseOpinionOffset>
       </li>
       <li>
         <label>like {0}</label>
-        <description>fasf</description>
+        <description>happy</description>
         <baseOpinionOffset>15</baseOpinionOffset>
       </li>      
     </stages>

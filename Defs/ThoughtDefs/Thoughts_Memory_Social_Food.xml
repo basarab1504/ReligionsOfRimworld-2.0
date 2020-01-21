@@ -2,8 +2,8 @@
 <Defs>
   <ThoughtDef>
     <defName>RoR_ThoughtFoodGoodOpinion</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>opinion</label>
+    <description>good opinion</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>2</durationDays>
@@ -33,15 +33,15 @@
       <li>
         <label>ingest holy food</label>
         <description>sad</description>
-        <baseOpinionOffset>-5</baseOpinionOffset>
+        <baseOpinionOffset>-15</baseOpinionOffset>
       </li>
     </stages>
   </ThoughtDef>
 
   <ThoughtDef>
     <defName>RoR_ThoughtFoodBadOpinion</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>opinion</label>
+    <description>bad opinion</description>
     <thoughtClass>Thought_MemorySocial</thoughtClass>
     <showBubble>true</showBubble>
     <durationDays>2</durationDays>
@@ -50,28 +50,28 @@
     <stages>
       <li>
         <label>ingest holy food</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>3</baseOpinionOffset>
       </li>
       <li>
         <label>ingest holy food</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>5</baseOpinionOffset>
       </li>
       <li>
         <label>ingest holy food</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>7</baseOpinionOffset>
       </li>
       <li>
         <label>ingest holy food</label>
-        <description>sad</description>
+        <description>happy</description>
         <baseOpinionOffset>10</baseOpinionOffset>
       </li>
       <li>
         <label>ingest holy food</label>
-        <description>sad</description>
-        <baseOpinionOffset>5</baseOpinionOffset>
+        <description>happy</description>
+        <baseOpinionOffset>15</baseOpinionOffset>
       </li>
     </stages>
   </ThoughtDef>

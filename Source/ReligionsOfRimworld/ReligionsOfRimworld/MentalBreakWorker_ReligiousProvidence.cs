@@ -13,7 +13,6 @@ namespace ReligionsOfRimworld
         public override bool TryStart(Pawn pawn, string reason, bool causedByMood)
         {
             Religion religion = ReligionManager.GetReligionManager().AllReligions.RandomElement();
-            Log.Message(religion.Label);
             if(religion.GetSettings<ReligionSettings_MentalBreaks>(SettingsTagDefOf.MentalBreaksTag) != null)
             {
                 ReligionSettings_MentalBreaks settings = religion.GetSettings<ReligionSettings_MentalBreaks>(SettingsTagDefOf.MentalBreaksTag);
