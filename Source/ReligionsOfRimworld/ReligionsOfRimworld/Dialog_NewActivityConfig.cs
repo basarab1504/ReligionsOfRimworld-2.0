@@ -38,7 +38,7 @@ namespace ReligionsOfRimworld
         {
             Text.Font = GameFont.Medium;
             Rect rect = new Rect(0f, 0f, 400f, 50f);
-            Widgets.Label(rect, "ReligionInfo_Day".Translate() + " " + day.DayNumber);
+            Widgets.Label(rect, "ReligionInfo_Day".Translate(day.DayNumber));
             Text.Font = GameFont.Small;
             Rect rect2 = new Rect(0f, 50f, inRect.width, inRect.height - 50f - this.CloseButSize.y);
             DoListing(rect2);

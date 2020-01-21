@@ -3,7 +3,7 @@
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyDeathGood</defName>
     <label>death</label>
-    <description>desc</description>
+    <description>increase piety</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
@@ -29,7 +29,7 @@
       <li>
         <label>death of {0}</label>
         <description>feels good</description>
-        <pietyOffset>-5</pietyOffset>
+        <pietyOffset>-15</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>
@@ -37,7 +37,7 @@
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyDeathBad</defName>
     <label>death</label>
-    <description>desc</description>
+    <description>decrease piety</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
@@ -63,7 +63,7 @@
       <li>
         <label>death of {0}</label>
         <description>sad</description>
-        <pietyOffset>5</pietyOffset>
+        <pietyOffset>15</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>

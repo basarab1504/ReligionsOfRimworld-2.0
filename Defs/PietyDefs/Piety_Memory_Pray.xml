@@ -2,42 +2,42 @@
 <Defs>
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyPraySmall</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>pray</label>
+    <description>small piety increasing</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>-3</pietyOffset>
+        <pietyOffset>1</pietyOffset>
       </li>
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>-5</pietyOffset>
+        <pietyOffset>3</pietyOffset>
       </li>
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>-7</pietyOffset>
+        <pietyOffset>5</pietyOffset>
       </li>
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>-10</pietyOffset>
+        <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>-5</pietyOffset>
+        <pietyOffset>15</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>
 
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyPrayAverage</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>pray</label>
+    <description>average piety increasing</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
@@ -63,22 +63,17 @@
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>5</pietyOffset>
+        <pietyOffset>15</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>
 
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyPrayGreat</defName>
-    <label>label</label>
-    <description>desc</description>
+    <label>pray</label>
+    <description>large piety increasing</description>
     <durationDays>1</durationDays>
     <stages>
-      <li>
-        <label>prayed</label>
-        <description>feels good</description>
-        <pietyOffset>3</pietyOffset>
-      </li>
       <li>
         <label>prayed</label>
         <description>feels good</description>
@@ -92,12 +87,17 @@
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>10</pietyOffset>
+        <pietyOffset>15</pietyOffset>
       </li>
       <li>
         <label>prayed</label>
         <description>feels good</description>
-        <pietyOffset>5</pietyOffset>
+        <pietyOffset>15</pietyOffset>
+      </li>
+      <li>
+        <label>prayed</label>
+        <description>feels good</description>
+        <pietyOffset>20</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>

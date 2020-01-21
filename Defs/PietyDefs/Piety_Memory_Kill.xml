@@ -2,8 +2,8 @@
 <Defs>
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyKillBad</defName>
-    <label>kill bad</label>
-    <description>desc</description>
+    <label>kill</label>
+    <description>decrease piety</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
@@ -29,15 +29,15 @@
       <li>
         <label>{0} killed</label>
         <description>sad</description>
-        <pietyOffset>-5</pietyOffset>
+        <pietyOffset>-15</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>
 
   <ReligionsOfRimworld.PietyDef>
     <defName>RoR_PietyKillGood</defName>
-    <label>kill good</label>
-    <description>desc</description>
+    <label>kill</label>
+    <description>increase piety</description>
     <durationDays>1</durationDays>
     <stages>
       <li>
@@ -63,7 +63,7 @@
       <li>
         <label>{0} killed</label>
         <description>feels good</description>
-        <pietyOffset>5</pietyOffset>
+        <pietyOffset>15</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>

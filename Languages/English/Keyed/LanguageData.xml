@@ -31,7 +31,7 @@
 <ReligionInfo_IsPrisonerOfColony>Is prisoner of colony</ReligionInfo_IsPrisonerOfColony>
 <ReligionInfo_ActivityPawnAnimal>Activity animal</ReligionInfo_ActivityPawnAnimal>
 <ReligionInfo_IsTamed>Is tamed</ReligionInfo_IsTamed>
-<ReligionInfo_Day>Day</ReligionInfo_Day>
+<ReligionInfo_Day>Day {0}</ReligionInfo_Day>
 <ReligionInfo_AddTask>Add task</ReligionInfo_AddTask>
 <ReligionInfo_NowBelieveIn>Now believe in</ReligionInfo_NowBelieveIn>
 <ReligionInfo_IsNowReligious>Is now religious</ReligionInfo_IsNowReligious>
@@ -68,6 +68,7 @@
 <ReligionInfo_PawnIngredientWarning>Pawns will not take any other pawn before you choose it</ReligionInfo_PawnIngredientWarning>
 <ReligionInfo_DefaultPreacher>Default preacher</ReligionInfo_DefaultPreacher>
 <ReligionInfo_DefaultProperty>Default property</ReligionInfo_DefaultProperty>
+<ReligionInfo_DefaultPropertyDesc>Default property description</ReligionInfo_DefaultPropertyDesc>
 <TabTasks>Tasks</TabTasks>
 <TabReligion>Religion</TabReligion>
 </LanguageData>
