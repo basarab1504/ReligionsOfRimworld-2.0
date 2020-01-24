@@ -24,7 +24,7 @@ namespace ReligionsOfRimworld
             IEnumerable<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefs.Where<ThingDef>((Func<ThingDef, bool>)(def =>
             {
                 RaceProperties race = def.race;
-                if ((race != null ? (race.intelligence == Intelligence.Humanlike ? 1 : 0) : 0) == 0 || def.defName.Contains("AIPawn") || (def.defName.Contains("Android") || def.defName.Contains("Robot")))
+                if ((race != null ? (race.intelligence == Intelligence.Humanlike ? 1 : 0) : 0) == 0)
                     return false;
                 return true;
             }));

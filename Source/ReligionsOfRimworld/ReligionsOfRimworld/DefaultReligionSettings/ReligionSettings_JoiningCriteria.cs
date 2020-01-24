@@ -16,7 +16,7 @@ namespace ReligionsOfRimworld
             criteria = new List<JoiningCriteria>();
         }
 
-        public IEnumerable<JoiningCriteria> Permissions => criteria;
+        public IEnumerable<JoiningCriteria> Criteria => criteria;
 
         public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
         {      
