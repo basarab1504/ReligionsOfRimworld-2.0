@@ -67,7 +67,7 @@ namespace ReligionsOfRimworld
             Scribe_References.Look<Religion>(ref this.religion, "religionOfPawn");
             Scribe_Deep.Look<Pawn_PietyTracker>(ref this.pietyTracker, "pietyTracker", (Pawn)parent, religion);
             Scribe_Deep.Look<Pawn_ReligionRestrictions>(ref this.religionRestrictions, "religionRestrictions");
-            Scribe_Deep.Look<Pawn_PrayTracker>(ref prayTracker, "prayTracker", (Pawn)parent, religion);
+            Scribe_Deep.Look<Pawn_PrayTracker>(ref this.prayTracker, "prayTracker", (Pawn)parent, religion);
             if (religion == null)
                 Initialize(null);
         }

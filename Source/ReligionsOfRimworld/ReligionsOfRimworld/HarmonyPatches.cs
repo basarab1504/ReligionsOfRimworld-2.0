@@ -14,14 +14,14 @@ namespace ReligionsOfRimworld
     {
         private static HarmonyInstance harmony = HarmonyInstance.Create("ReligionMod");
 
-        [HarmonyPatch(typeof(World), "ExposeComponents")]
-        private static class Patch_ExposeComponents
-        {
-            private static void Prefix(World __instance)
-            {
-                ReligionManager.GetReligionManager().ExposeData();
-            }
-        }
+        //[HarmonyPatch(typeof(World), "ExposeComponents")]
+        //private static class Patch_ExposeComponents
+        //{
+        //    private static void Prefix(World __instance)
+        //    {
+        //        ReligionExtensions.GetReligionManager().ExposeData();
+        //    }
+        //}
 
         [HarmonyPatch(typeof(Thing), "Ingested")]
         private static class Patch_Ingested

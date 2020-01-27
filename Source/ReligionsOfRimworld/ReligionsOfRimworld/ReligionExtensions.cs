@@ -9,6 +9,11 @@ namespace ReligionsOfRimworld
 {
     public static class ReligionExtensions
     {
+        public static ReligionManager GetReligionManager()
+        {
+            return Find.World.GetComponent<ReligionManager>();
+        }
+
         public static CompReligion GetReligionComponent(this Pawn pawn)
         {
             return pawn.TryGetComp<CompReligion>();
