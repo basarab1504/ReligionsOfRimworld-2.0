@@ -120,7 +120,7 @@ namespace ReligionsOfRimworld
         {
             Listing_Standard listing_Standard = holder.BeginSection(100f);
             listing_Standard.Label("ReligionInfo_ActivityPawnRestriction".Translate());
-            Widgets.Dropdown<ActivityTask, Pawn>(listing_Standard.GetRect(30f), this.task, (ActivityTask b) => b.PawnRestriction, (ActivityTask b) => this.GeneratePawnRestrictionOptions(), (this.task.PawnRestriction != null) ? this.task.PawnRestriction.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
+            Widgets.Dropdown<ActivityTask, Pawn>(listing_Standard.GetRect(30f), this.task, (ActivityTask b) => b.PawnRestriction, (ActivityTask b) => this.GeneratePawnRestrictionOptions(), (this.task.PawnRestriction != null) ? this.task.PawnRestriction.LabelShortCap : "AnyWorker".Translate().ToString(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
         }
 
@@ -156,7 +156,7 @@ namespace ReligionsOfRimworld
                         orderby pawn.workSettings.WorkIsActive(workGiver.workType) descending
                         select pawn;
                 pawns = from pawn in pawns
-                        orderby pawn.story.WorkTypeIsDisabled(workGiver.workType)
+                        orderby pawn.WorkTypeIsDisabled(workGiver.workType)
                         select pawn;
                 foreach (Pawn pawn in pawns)
                 {
@@ -177,7 +177,7 @@ namespace ReligionsOfRimworld
                         };
                         continue;
                     }
-                    if (pawn.story.WorkTypeIsDisabled(workGiver.workType))
+                    if (pawn.WorkTypeIsDisabled(workGiver.workType))
                     {
                         yield return new Widgets.DropdownMenuElement<Pawn>
                         {
@@ -248,7 +248,7 @@ namespace ReligionsOfRimworld
             listing_Standard.Label(label);
             listing_Standard.Label("ReligionInfo_PawnIngredientWarning".Translate());
             //Widgets.Dropdown<IngredientPawn, bool>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.PartOfColony, (IngredientPawn b) => this.GenerateBoolOptions(ingredientPawn), context + " " + ingredientPawn.PartOfColony.ToString().Translate(), null, null, null, null, false);
-            Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "None".Translate(), null, null, null, null, false);
+            Widgets.Dropdown<IngredientPawn, Pawn>(listing_Standard.GetRect(30f), ingredientPawn, (IngredientPawn b) => b.ConcretePawn, (IngredientPawn b) => this.GenerateIngredientPawnRestrictionOptions(ingredientPawn, isHumanlike), (ingredientPawn.ConcretePawn != null) ? ingredientPawn.ConcretePawn.LabelShortCap : "None".Translate().ToString(), null, null, null, null, false);
             holder.EndSection(listing_Standard);
         }
 
@@ -367,7 +367,7 @@ namespace ReligionsOfRimworld
         {
             Listing_Standard listingStandard = holder.BeginSection(70f);
             string str1 = "IngredientSearchRadius".Translate();
-            string str2 = (double)this.task.IngredientSearchRadius != 999.0 ? this.task.IngredientSearchRadius.ToString("F0") : "Unlimited".Translate();
+            string str2 = (double)this.task.IngredientSearchRadius != 999.0 ? this.task.IngredientSearchRadius.ToString("F0") : "Unlimited".Translate().ToString();
             listingStandard.Label(str1 + ": " + str2, -1f, (string)null);
             this.task.IngredientSearchRadius = listingStandard.Slider(this.task.IngredientSearchRadius, 3f, 100f);
             if ((double)this.task.IngredientSearchRadius >= 100.0)

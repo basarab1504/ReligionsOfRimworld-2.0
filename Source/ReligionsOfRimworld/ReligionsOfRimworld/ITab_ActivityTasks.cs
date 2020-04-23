@@ -46,7 +46,7 @@ namespace ReligionsOfRimworld
 
         private void DrawPawnSelector(Rect rect)
         {
-            Widgets.Dropdown<ActivityTaskSchedule, Pawn>(rect, this.TaskManager, (ActivityTaskSchedule b) => b.DefaultPawn, (ActivityTaskSchedule b) => this.GeneratePawnRestrictionOptions(), (this.TaskManager.DefaultPawn != null) ? this.TaskManager.DefaultPawn.LabelShortCap : "AnyWorker".Translate(), null, null, null, null, false);
+            Widgets.Dropdown<ActivityTaskSchedule, Pawn>(rect, this.TaskManager, (ActivityTaskSchedule b) => b.DefaultPawn, (ActivityTaskSchedule b) => this.GeneratePawnRestrictionOptions(), (this.TaskManager.DefaultPawn != null) ? this.TaskManager.DefaultPawn.LabelShortCap : "AnyWorker".Translate().ToString(), null, null, null, null, false);
         }
 
         private IEnumerable<Widgets.DropdownMenuElement<Pawn>> GeneratePawnRestrictionOptions()
@@ -81,7 +81,7 @@ namespace ReligionsOfRimworld
                         orderby pawn.workSettings.WorkIsActive(workGiver.workType) descending
                         select pawn;
                 pawns = from pawn in pawns
-                        orderby pawn.story.WorkTypeIsDisabled(workGiver.workType)
+                        orderby pawn.WorkTypeIsDisabled(workGiver.workType)
                         select pawn;
                 foreach (Pawn pawn in pawns)
                 {
@@ -94,7 +94,7 @@ namespace ReligionsOfRimworld
                         };
                         continue;
                     }
-                    if (pawn.story.WorkTypeIsDisabled(workGiver.workType))
+                    if (pawn.WorkTypeIsDisabled(workGiver.workType))
                     {
                         yield return new Widgets.DropdownMenuElement<Pawn>
                         {

@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
 using System;
@@ -12,8 +12,6 @@ namespace ReligionsOfRimworld
     [StaticConstructorOnStartup]
     internal static class HarmonyPatches
     {
-        private static HarmonyInstance harmony = HarmonyInstance.Create("ReligionMod");
-
         //[HarmonyPatch(typeof(World), "ExposeComponents")]
         //private static class Patch_ExposeComponents
         //{

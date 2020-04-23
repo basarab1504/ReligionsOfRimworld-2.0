@@ -46,7 +46,7 @@ namespace ReligionsOfRimworld
                         return false;
                     if (!pawn.GetReligionComponent().TryChangeReligion(religion))
                         return false;
-                    Find.LetterStack.ReceiveLetter(this.def.letterLabel, pawn.LabelCap + " " + def.letterText + " " + religion.Label, this.def.letterDef, (LookTargets)pawn, (Faction)null, (string)null);
+                    Find.LetterStack.ReceiveLetter(this.def.letterLabel, pawn.LabelCap + " " + def.letterText + " " + religion.Label, this.def.letterDef, (LookTargets)pawn, (Faction)null, null, null);
                     return true;
                 }
             } 

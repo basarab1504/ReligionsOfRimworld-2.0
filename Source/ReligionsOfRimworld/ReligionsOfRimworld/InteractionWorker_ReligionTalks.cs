@@ -17,12 +17,12 @@ namespace ReligionsOfRimworld
             return 0f;
         }
 
-        public override void Interacted(Pawn initiator, Pawn recipient, List<RulePackDef> extraSentencePacks, out string letterText, out string letterLabel, out LetterDef letterDef)
+        public override void Interacted(Pawn initiator, Pawn recipient, List<RulePackDef> extraSentencePacks, out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets)
         {
-            base.Interacted(initiator, recipient, extraSentencePacks, out letterText, out letterLabel, out letterDef);
+            base.Interacted(initiator, recipient, extraSentencePacks, out letterText, out letterLabel, out letterDef, out lookTargets);
             CompReligion compReligion = initiator.GetReligionComponent();
             float successChance = ChanceToConvert(initiator, recipient);
-            if((float)new Random().NextDouble() <= successChance)
+            if ((float)new Random().NextDouble() <= successChance)
             {
                 letterText = recipient.ToString() + " " + "ReligionInfo_NowBelieveIn".Translate() + " " + compReligion.Religion.Label;
                 letterLabel = "ReligionInfo_IsNowReligious".Translate();
