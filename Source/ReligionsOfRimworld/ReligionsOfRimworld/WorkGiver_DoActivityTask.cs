@@ -37,6 +37,25 @@ namespace ReligionsOfRimworld
             return pawn.Map.listerThings.AllThings.Where(x => x is Building_ReligiousBuildingFacility);
         }
 
+        public override float GetPriority(Pawn pawn, TargetInfo t)
+        {
+            switch(pawn.GetReligionComponent().PietyTracker.PietyNeed.CurCategory)
+            {
+                case PietyCategory.VeryLow:
+                    return 5;
+                case PietyCategory.Low:
+                    return 6;
+                case PietyCategory.Satisfied:
+                    return 7;
+                case PietyCategory.High:
+                    return 8;
+                case PietyCategory.Extreme:
+                    return 9;
+                default:
+                    return base.GetPriority(pawn, t);
+            }
+        }
+
         public override Job JobOnThing(Pawn pawn, Thing thing, bool forced = false)
         {
             Building_ReligiousBuildingFacility giver = thing as Building_ReligiousBuildingFacility;
