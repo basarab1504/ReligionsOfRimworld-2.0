@@ -20,6 +20,13 @@ namespace ReligionsOfRimworld
                 assignedBuildings = new List<Building_ReligionBuilding>();
         }
 
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.MainHolyBuilding, OpportunityType.GoodToKnow);         
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.RoRPray, OpportunityType.GoodToKnow);         
+        }
+
         public bool TryAssignReligion(Religion religion)
         {
             assignedReligion = religion;

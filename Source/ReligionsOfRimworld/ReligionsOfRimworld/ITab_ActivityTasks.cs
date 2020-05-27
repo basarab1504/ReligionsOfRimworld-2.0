@@ -24,6 +24,7 @@ namespace ReligionsOfRimworld
         {
             this.size = ITab_ActivityTasks.WinSize;
             this.labelKey = "TabTasks";
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.RoRActivities, OpportunityType.GoodToKnow);
         }
 
         protected Building_ReligiousBuildingFacility SelFacility => (Building_ReligiousBuildingFacility)this.SelThing;

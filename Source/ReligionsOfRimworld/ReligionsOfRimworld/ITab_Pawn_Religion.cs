@@ -16,6 +16,9 @@ namespace ReligionsOfRimworld
         protected override void FillTab()
         {
             ReligionCardUtility.DrawReligionCard(new Rect(0.0f, 0.0f, this.size.x, this.size.y), PawnToShowInfoAbout);
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.PawnReligionTab, OpportunityType.GoodToKnow);
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.RoRReligion, OpportunityType.GoodToKnow);
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.RoRPiety, OpportunityType.GoodToKnow);
         }
 
         public override bool IsVisible

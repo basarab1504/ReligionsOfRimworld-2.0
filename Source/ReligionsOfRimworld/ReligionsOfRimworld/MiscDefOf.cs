@@ -19,5 +19,13 @@ namespace ReligionsOfRimworld
         public static JobDef UntiePawn;
         //public static JobDef SpectateReligionActivity;
         public static DutyDef ReligionActivityStageDuty;
+        public static ConceptDef MainHolyBuilding;
+        public static ConceptDef FacilityHolyBuilding;
+        public static ConceptDef RoRReligion;
+        public static ConceptDef RoRPiety;
+        public static ConceptDef HolyBuildingBinding;
+        public static ConceptDef PawnReligionTab;
+        public static ConceptDef RoRActivities;
+        public static ConceptDef RoRPray;
     }
 }

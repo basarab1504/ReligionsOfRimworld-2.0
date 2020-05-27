@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ConceptDef>
+    <defName>RoRReligion</defName>
+    <label>Religion</label>
+    <priority>99</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>How religion affects pawn relations\n\nReligion can affect pawns in a few ways, creating cohesion among fellow religious pawns or creating a divide among pawns considered to be heathen. Consequently, pawns might have negative relations with pawns of the opposing religion.\n\nPiety focus on religions\n\nPiety is essentially how devout a pawn is to their religion, the more pious a pawn is to their religion, the happier they will be. Religions focus on improving their followers piety through different services, such as, worships and sacrifices.\n\nYou can check every aspect of each religion in the Religions tab by clicking on 'i' icon</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>RoRPiety</defName>
+    <label>Piety</label>
+    <priority>100</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>How piety works\n\nPiety works as an offset value from 0-100%, the offset for the duration of the buff applied (worships, sacrifices, etc) are represented by the [White] arrow below the bar. If the arrow is less than your current piety percentage, the piety value will be subject to attrition and decay towards the arrow, the opposite occurs if the arrow is beyond the piety percentage.\n\nHow piety will affect pawns\n\nPiety will affect a pawn’s mood in severe ways if left unattended. Piety currently has 5 stages represented as bad, neutral and good. Allowing the piety percentage to drop too much will increasingly adversely affect your pawn’s mood and might cause a mental break, the opposite occurs if the percentage is increasing above the neutral range.\n\nWays to gain piety\n\nPiety gain is encompassed entirely within the religion the pawn is following, some religions can implement piety gain from defeating enemies, worships, sacrifices, eating certain meals, using certain weapons and wearing certain clothes. You can find out what your religions like/dislike via the religion tab situated on the taskbar at the bottom of the screen by default, not to be confused with the pawn’s religion tab.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>MainHolyBuilding</defName>
+    <label>Main holy building</label>
+    <priority>101</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>Main buildings are designated as your religion’s holy center, on this building, you will be able to assign a compatible religion. Main buildings currently include; Altar with a book, Totem and the Idol. You can find out what your religion accepts as a main building via the religion tab situated on the taskbar at the bottom of the screen by default, not to be confused with the pawn’s religion tab.</helpText>
+  </ConceptDef>	
+
+  <ConceptDef>
+    <defName>FacilityHolyBuilding</defName>
+    <label>Facility holy building</label>
+    <priority>102</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>A facility building is essentially an auxiliary building that your pawns will use to do religious activities from. Facility buildings currently include; Lectern, Sacrifice altar and the Worship spot. You can find out what your religion accepts as a facility building via the religion tab situated on the taskbar at the bottom of the screen by default, not to be confused with the pawn’s religion tab.</helpText>
+  </ConceptDef>	
+
+  <ConceptDef>
+    <defName>HolyBuildingBinding</defName>
+    <label>Binding the holy buildings</label>
+    <priority>103</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>To bind your buildings together, select on either the main or the facility building, then select “Assign building”, then finally select on your facility or main building respectively. If done correctly, upon selecting “Assign building” again, you will notice a green connection.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>PawnReligionTab</defName>
+    <label>Religion tab</label>
+    <priority>104</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>The religions tab within your pawn’s menus essentially overviews their religious allegiance, their piety value and offset, the need for them to pray (for applicable religions), restriction settings on religious tasks and how compatible they are with other religions.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>RoRActivities</defName>
+    <label>Religion activities</label>
+    <priority>105</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>What is a worship\n\nA worship is a religious activity that not only increases the piety of the preacher, but also of all who attend the worship. A worship can be ‘billed’ at a religious building when linked to the appropriate religion. Please note that not all religions allow worship.\n\nHours of worship\n\nWorships can be ‘billed’ from 8h to 20h.\n\nThe Preacher\n\nThe preacher is the pawn designated to call the worship and lead the sermon.\n\nSacrifices\n\nSacrifices are a religious activity, such as a worship which increases piety for the sacrificer and the attendees.\n\nSacrifice material\n\nSacrifice material is designated by the applicable religions. You can find out what your religion accepts as material via the religion tab situated on the taskbar at the bottom of the screen by default, not to be confused with the pawn’s religion tab or within the sacrifice ‘bill’ itself.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>RoRPray</defName>
+    <label>Pray</label>
+    <priority>106</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpText>What is praying?\n\nPraying is a passive way pawns will choose to increase piety. Praying can be done anytime by the religious pawn.\n\nWhen will pawns pray?\n\nPawns will start praying when there is a holy building present in the colony.</helpText>
+  </ConceptDef>
+</Defs>

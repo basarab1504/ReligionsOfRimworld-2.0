@@ -25,6 +25,12 @@ namespace ReligionsOfRimworld
         public bool CurrentlyUsableForBills() => this.InteractionCell.IsValid;
         public bool UsableForBillsAfterFueling() => this.CurrentlyUsableForBills();
 
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.FacilityHolyBuilding, OpportunityType.GoodToKnow);
+        }
+
         public override Religion AssignedReligion
         {
             get

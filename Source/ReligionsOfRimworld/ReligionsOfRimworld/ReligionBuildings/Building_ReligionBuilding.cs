@@ -27,6 +27,12 @@ namespace ReligionsOfRimworld
 
         protected abstract void UnassignBuilding(Building_ReligionBuilding building);
 
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.HolyBuildingBinding, OpportunityType.GoodToKnow);
+        }
+
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
             UnassignAllBuildingsAndNotify();
