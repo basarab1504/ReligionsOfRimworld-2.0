@@ -29,6 +29,7 @@ namespace ReligionsOfRimworld
         {
             base.SpawnSetup(map, respawningAfterLoad);
             LessonAutoActivator.TeachOpportunity(MiscDefOf.FacilityHolyBuilding, OpportunityType.GoodToKnow);
+            LessonAutoActivator.TeachOpportunity(MiscDefOf.RoRActivities, OpportunityType.GoodToKnow);
         }
 
         public override Religion AssignedReligion

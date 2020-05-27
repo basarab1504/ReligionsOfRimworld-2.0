@@ -9,9 +9,6 @@
       <li>
         <compClass>CompQuality</compClass>
       </li>
-      <li Class="CompProperties_RoomIdentifier">
-        <roomStat>Impressiveness</roomStat>        
-      </li>
     </comps> 
     <!--<researchPrerequisites>
       <li>ReligionStuff</li>

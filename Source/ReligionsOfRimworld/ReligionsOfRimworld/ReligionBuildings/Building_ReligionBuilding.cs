@@ -11,6 +11,9 @@ namespace ReligionsOfRimworld
 {
     public abstract class Building_ReligionBuilding : Building
     {
+        public Building_ReligionBuilding()
+        { }
+
         public abstract Religion AssignedReligion { get; }
 
         public virtual void Notify_BuildingAssigningChanged() { }
@@ -26,12 +29,6 @@ namespace ReligionsOfRimworld
         protected abstract void AssignBuilding(Building_ReligionBuilding building);
 
         protected abstract void UnassignBuilding(Building_ReligionBuilding building);
-
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-            LessonAutoActivator.TeachOpportunity(MiscDefOf.HolyBuildingBinding, OpportunityType.GoodToKnow);
-        }
 
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
@@ -111,6 +108,7 @@ namespace ReligionsOfRimworld
                     action = delegate
                     {
                         ReligiousBuildingAssignerUtility.SelectChild(this);
+                        LessonAutoActivator.TeachOpportunity(MiscDefOf.HolyBuildingBinding, OpportunityType.GoodToKnow);
                     },
                     hotKey = KeyBindingDefOf.Misc4
                 };
