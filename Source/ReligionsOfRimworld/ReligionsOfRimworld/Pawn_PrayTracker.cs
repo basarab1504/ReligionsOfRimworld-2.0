@@ -14,10 +14,10 @@ namespace ReligionsOfRimworld
         public Pawn_PrayTracker(Pawn pawn, Religion religion)
         {
             this.pawn = pawn;
-
-            if (religion.GetSettings<ReligionSettings_Prayings>(SettingsTagDefOf.PrayingsTag) != null)
+            if (Scribe.mode == LoadSaveMode.Inactive)
             {
-                this.pray = new Need_Pray(pawn)
+                if (religion.GetSettings<ReligionSettings_Prayings>(SettingsTagDefOf.PrayingsTag) != null)
+                    this.pray = new Need_Pray(pawn)
                 {
                     def = religion.GetSettings<ReligionSettings_Prayings>(SettingsTagDefOf.PrayingsTag).Need
                 };

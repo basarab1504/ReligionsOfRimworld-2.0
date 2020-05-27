@@ -1,5 +1,4 @@
-﻿using RimWorld.Planet;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +18,14 @@ namespace ReligionsOfRimworld
 
         public override void GenerateFresh(string seed)
         {
-            foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                if (!ReligionsBuffer.religions.Any(x => x.Def == def))
-                    ReligionsBuffer.religions.Add(new Religion(def));
+            ReligionManager.GetReligionManager().Initialize();
         }
 
-        public override void GenerateFromScribe(string seed)
-        {
-            foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-                if (!ReligionsBuffer.religions.Any(x => x.Def == def))
-                    ReligionsBuffer.religions.Add(new Religion(def));
-        }
+        //public override void GenerateFromScribe(string seed)
+        //{
+        //    base.GenerateFromScribe(seed);
+        //    Log.Message("SC");
+        //    ReligionManager.GetReligionManager().ExposeData();
+        //}
     }
 }

@@ -4,8 +4,6 @@ using Verse;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using System;
-using RimWorld.Planet;
 
 namespace ReligionsOfRimworld
 {
@@ -38,11 +36,6 @@ namespace ReligionsOfRimworld
             float y = 0.0f;
             DrawOverall(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
             y += 30f;
-            if(Prefs.DevMode)
-            {
-                DrawSelectReligion(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
-                y += 30f;
-            }
             DrawRestrictions(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
             y += 30f;
             DrawCompabilities(new Rect(0.0f, y, rect.width, rect.height), pawn, ref y);
@@ -79,7 +72,7 @@ namespace ReligionsOfRimworld
 
                 Rect prayNeedRect = new Rect(rect.x, rect2.y + 40, 225f, 70);
 
-                if (Prefs.DevMode)
+                if(Prefs.DevMode)
                     if (CompReligion.PrayTracker.PrayNeed != null)
                         CompReligion.PrayTracker.PrayNeed.DrawOnGUI(prayNeedRect);
 
@@ -156,29 +149,6 @@ namespace ReligionsOfRimworld
             bool mayPray = pawn.GetReligionComponent().ReligionRestrictions.MayPray;
             Widgets.CheckboxLabeled(rect4, "ReligionInfo_DoPrayings".Translate(), ref mayPray);
             pawn.GetReligionComponent().ReligionRestrictions.MayPray = mayPray;
-
-            curY += y;
-            GUI.EndClip();
-        }
-
-        public static void DrawSelectReligion(Rect rect, Pawn pawn, ref float curY)
-        {
-            GUI.BeginGroup(rect);
-            float y = 0.0f;
-            Widgets.ListSeparator(ref y, rect.width, "ReligionInfo_Religion".Translate());
-
-            Rect rect2 = new Rect(rect.x, y, rect.width, 24f);
-            y += 24f;
-
-            if (Widgets.ButtonText(rect2, "ReligionInfo_Religion".Translate(), true, false, true))
-            {
-                List<FloatMenuOption> options = new List<FloatMenuOption>();
-                foreach(var religion in ReligionExtensions.GetReligionManager().AllReligions)
-                {
-                    options.Add(new FloatMenuOption(religion.Label, (Action)(() => pawn.GetReligionComponent().TryChangeReligion(religion)), MenuOptionPriority.Default, (Action)null, (Thing)null, 0.0f, (Func<Rect, bool>)null, (WorldObject)null));
-                }
-                Find.WindowStack.Add((Window)new FloatMenu(options));
-            }
 
             curY += y;
             GUI.EndClip();

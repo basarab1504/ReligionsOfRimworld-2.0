@@ -7,49 +7,60 @@ using Verse;
 
 namespace ReligionsOfRimworld
 {
-    public class ReligionManager : WorldComponent
+    public class ReligionManager : IExposable
     {
+        private static ReligionManager instance;
         private List<Religion> allReligions;
 
-        public ReligionManager(World world) : base(world)
-        { }
+        public ReligionManager()
+        {
+            allReligions = new List<Religion>();
+        }
 
-        public override void FinalizeInit()
+        public static ReligionManager GetReligionManager()
+        {
+            if (instance == null)
+            {
+                instance = new ReligionManager();
+            }
+            return instance;
+        }
+
+        public void Initialize()
         {
             if (allReligions == null)
-                allReligions = ReligionsBuffer.religions;
+                allReligions = new List<Religion>();
+
+            if (allReligions.Count == 0)
+                CreateReligions();
             else
             {
-                foreach (Religion rel in ReligionsBuffer.religions)
-                    if (!allReligions.Any(x => x.Def == rel.Def))
-                        allReligions.Add(rel);
+                CreateReligions();
+                RecacheList();
             }
-
-            //CreateReligions();
-            RecacheReligions();
         }
 
         public IEnumerable<Religion> AllReligions => allReligions;
 
-        //public void Add(Religion religion)
-        //{
-        //    allReligions.Add(religion);
-        //    RecacheReligions();
-        //}
+        public void Add(Religion religion)
+        {
+            allReligions.Add(religion);
+            RecacheReligions();
+        }
 
-        //public void Remove(Religion religion)
-        //{
-        //    if (allReligions.Contains(religion))
-        //        allReligions.Remove(religion);
-        //    RecacheReligions();
-        //}
+        public void Remove(Religion religion)
+        {
+            if (allReligions.Contains(religion))
+                allReligions.Remove(religion);
+            RecacheReligions();
+        }
 
-        //private void CreateReligions()
-        //{
-        //    foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
-        //        if (!allReligions.Any(x => x.Def == def))
-        //            allReligions.Add(new Religion(def));
-        //}
+        private void CreateReligions()
+        {
+            foreach (ReligionDef def in DefDatabase<ReligionDef>.AllDefs)
+                if (!allReligions.Any(x => x.Def == def))
+                    allReligions.Add(new Religion(def));
+        }
 
         private void RecacheList()
         {
@@ -67,9 +78,10 @@ namespace ReligionsOfRimworld
                 pawn.GetReligionComponent().Refresh();
         }
 
-        public override void ExposeData()
+        public void ExposeData()
         {
             Scribe_Collections.Look<Religion>(ref this.allReligions, "allReligions", LookMode.Deep);
+            Initialize();
         }
     }
 }

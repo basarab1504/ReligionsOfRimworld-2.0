@@ -35,7 +35,7 @@ namespace ReligionsOfRimworld
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            Religion religion = ReligionExtensions.GetReligionManager().AllReligions.RandomElement();          
+            Religion religion = ReligionManager.GetReligionManager().AllReligions.RandomElement();          
             if (religion.GetSettings<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag) != null)
             {
                 ReligionSettings_Incidents settings = religion.GetSettings<ReligionSettings_Incidents>(SettingsTagDefOf.IncidentsTag);

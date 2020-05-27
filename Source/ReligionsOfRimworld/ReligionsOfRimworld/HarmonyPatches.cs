@@ -12,6 +12,7 @@ namespace ReligionsOfRimworld
     [StaticConstructorOnStartup]
     internal static class HarmonyPatches
     {
+<<<<<<< HEAD
         //[HarmonyPatch(typeof(World), "ExposeComponents")]
         //private static class Patch_ExposeComponents
         //{
@@ -20,6 +21,18 @@ namespace ReligionsOfRimworld
         //        ReligionExtensions.GetReligionManager().ExposeData();
         //    }
         //}
+=======
+        private static HarmonyInstance harmony = HarmonyInstance.Create("ReligionMod");
+
+        [HarmonyPatch(typeof(World), "ExposeComponents")]
+        private static class Patch_ExposeComponents
+        {
+            private static void Prefix(World __instance)
+            {
+                ReligionManager.GetReligionManager().ExposeData();
+            }
+        }
+>>>>>>> parent of 6f8fdd1... FillComponent bug propably fixed
 
         [HarmonyPatch(typeof(Thing), "Ingested")]
         private static class Patch_Ingested

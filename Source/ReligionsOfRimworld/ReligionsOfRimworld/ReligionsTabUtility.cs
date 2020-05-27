@@ -19,7 +19,7 @@ namespace ReligionsOfRimworld
             Rect rect = new Rect(0.0f, 0.0f, position.width - 16f, scrollViewHeight);
             Widgets.BeginScrollView(outRect, ref scrollPosition, rect, true);
             float num = 0.0f;
-            foreach (Religion religion in ReligionExtensions.GetReligionManager().AllReligions)
+            foreach (Religion religion in ReligionManager.GetReligionManager().AllReligions)
             {
                 GUI.color = new Color(1f, 1f, 1f, 0.2f);
                 Widgets.DrawLineHorizontal(0.0f, num, rect.width);

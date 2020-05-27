@@ -353,7 +353,6 @@
     <Compile Include="ReligionProperty_JobDef.cs" />
     <Compile Include="ReligionProperty_ReligionDef.cs" />
     <Compile Include="ReligionProperty_ThingCategoryDef.cs" />
-    <Compile Include="ReligionsBuffer.cs" />
     <Compile Include="ReligionСriteria\JoiningCriteria_Race.cs" />
     <Compile Include="ReligionСriteria\JoiningCriteria_RaceGroupName.cs" />
     <Compile Include="ReligiousBuildingAssignerUtility.cs" />

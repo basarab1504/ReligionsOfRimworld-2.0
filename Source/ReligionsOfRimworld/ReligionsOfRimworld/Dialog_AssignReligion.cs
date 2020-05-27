@@ -36,7 +36,7 @@ namespace ReligionsOfRimworld
             outRect.yMin += 20f;
             outRect.yMax -= 40f;
             outRect.width -= 16f;
-            Rect viewRect = new Rect(0.0f, 0.0f, outRect.width - 16f, (float)(ReligionExtensions.GetReligionManager().AllReligions.Count() * 35.0 + 100.0));
+            Rect viewRect = new Rect(0.0f, 0.0f, outRect.width - 16f, (float)(ReligionManager.GetReligionManager().AllReligions.Count() * 35.0 + 100.0));
             Widgets.BeginScrollView(outRect, ref this.scrollPosition, viewRect, true);
             try
             {
@@ -61,7 +61,7 @@ namespace ReligionsOfRimworld
                 }
                 if (flag)
                     y += 15f;
-                foreach (Religion assigningCandidate in ReligionExtensions.GetReligionManager().AllReligions)
+                foreach (Religion assigningCandidate in ReligionManager.GetReligionManager().AllReligions)
                 {
                     if (assigningCandidate != assignable.AssignedReligion 
                         && assigningCandidate.GetSettings<ReligionSettings_AllowedBuildings>(SettingsTagDefOf.AllowedBuildingsTag) != null && assigningCandidate.GetSettings<ReligionSettings_AllowedBuildings>(SettingsTagDefOf.AllowedBuildingsTag).AllowedBuildings.Any(x => x == assignable.def))

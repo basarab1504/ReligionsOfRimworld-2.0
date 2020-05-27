@@ -24,18 +24,9 @@ namespace ReligionsOfRimworld
         public void RecalculateCompabilities()
         {
             compabilities.Clear();
-
-            IEnumerable<Religion> religions = ReligionExtensions.GetReligionManager().AllReligions;
-
-            if (religions == null)
-                religions = ReligionsBuffer.religions;
-
-            if (religions != null && religions.Count() > 0)
+            foreach (Religion religion in ReligionManager.GetReligionManager().AllReligions)
             {
-                foreach (Religion religion in religions)
-                {
-                    compabilities.Add(religion, CalculateCompabilityForReligion(religion.GetSettings<ReligionSettings_JoiningCriteria>(SettingsTagDefOf.JoiningCriteriaTag)));
-                }
+                compabilities.Add(religion, CalculateCompabilityForReligion(religion.GetSettings<ReligionSettings_JoiningCriteria>(SettingsTagDefOf.JoiningCriteriaTag)));
             }
         }
 

@@ -15,12 +15,10 @@ namespace ReligionsOfRimworld
         public Religion()
         {}
 
-        public int ID => loadID;
-
         public Religion(ReligionDef def)
         {
             this.def = def;
-            loadID = ReligionsBuffer.GetNextID();
+            loadID = Find.UniqueIDsManager.GetNextThingID();
 
             foreach (var settingsDef in def.Settings)
                 settings.Add(settingsDef.Settings.Tag, settingsDef.Settings);
