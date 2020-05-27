@@ -13,3 +13,5 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ReligionOfRimworld2.
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ReligionOfRimworld2.0\1.1\Assemblies\ReligionsOfRimworld.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ReligionOfRimworld2.0\1.1\Assemblies\ReligionsOfRimworld.pdb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ReligionOfRimworld2.0\Source\ReligionsOfRimworld\ReligionsOfRimworld\obj\Debug\ReligionsOfRimworld.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ReligionOfRimworld2.0\1.0\Assemblies\ReligionsOfRimworld.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ReligionOfRimworld2.0\1.0\Assemblies\ReligionsOfRimworld.pdb
