@@ -4,85 +4,12 @@
     <defName>RoR_PietyWorshipSmall</defName>
     <label>worship</label>
     <description>small piety increasing</description>
-    <durationDays>1</durationDays>
-    <stages>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>1</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>3</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>5</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>7</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>10</pietyOffset>
-      </li>
-    </stages>
-  </ReligionsOfRimworld.PietyDef>
-
-  <ReligionsOfRimworld.PietyDef>
-    <defName>RoR_PietyWorshipAverage</defName>
-    <label>worship</label>
-    <description>average piety increasing</description>
-    <durationDays>1</durationDays>
-    <stages>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>3</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>5</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>7</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>10</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>15</pietyOffset>
-      </li>
-    </stages>
-  </ReligionsOfRimworld.PietyDef>
-
-  <ReligionsOfRimworld.PietyDef>
-    <defName>RoR_PietyWorshipGreat</defName>
-    <label>worship</label>
-    <description>large piety increasing</description>
-    <durationDays>1</durationDays>
+    <durationDays>1.5</durationDays>
     <stages>
       <li>
         <label>did a {0}</label>
         <description>feels good</description>
         <pietyOffset>5</pietyOffset>
-      </li>
-      <li>
-        <label>did a {0}</label>
-        <description>feels good</description>
-        <pietyOffset>7</pietyOffset>
       </li>
       <li>
         <label>did a {0}</label>
@@ -98,6 +25,79 @@
         <label>did a {0}</label>
         <description>feels good</description>
         <pietyOffset>20</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>25</pietyOffset>
+      </li>
+    </stages>
+  </ReligionsOfRimworld.PietyDef>
+
+  <ReligionsOfRimworld.PietyDef>
+    <defName>RoR_PietyWorshipAverage</defName>
+    <label>worship</label>
+    <description>average piety increasing</description>
+    <durationDays>1.5</durationDays>
+    <stages>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>10</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>15</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>20</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>25</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>30</pietyOffset>
+      </li>
+    </stages>
+  </ReligionsOfRimworld.PietyDef>
+
+  <ReligionsOfRimworld.PietyDef>
+    <defName>RoR_PietyWorshipGreat</defName>
+    <label>worship</label>
+    <description>large piety increasing</description>
+    <durationDays>1.5</durationDays>
+    <stages>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>13</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>16</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>25</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>30</pietyOffset>
+      </li>
+      <li>
+        <label>did a {0}</label>
+        <description>feels good</description>
+        <pietyOffset>35</pietyOffset>
       </li>
     </stages>
   </ReligionsOfRimworld.PietyDef>
