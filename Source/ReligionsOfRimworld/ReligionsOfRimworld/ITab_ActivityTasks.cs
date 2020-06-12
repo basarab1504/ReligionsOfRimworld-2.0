@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace ReligionsOfRimworld
 {
@@ -181,17 +182,59 @@ namespace ReligionsOfRimworld
 
         private void DrawDay(Rect rect, int dayNumber)
         {
+            ScheduledDay day = TaskManager.ScheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber);
+
             Widgets.DrawBox(rect);
 
-            Widgets.Label(rect.ContractedBy(6), dayNumber.ToString());
-            ScheduledDay day = TaskManager.ScheduledDays.FirstOrDefault(x => x.DayNumber == dayNumber);
+            Rect firstLine = rect.ContractedBy(6);
+            firstLine.height = 20;
+            Widgets.Label(firstLine, dayNumber.ToString());
+
+            Rect copy = new Rect(firstLine);
+
+            copy.width = 20;
+            copy.x += copy.width;
+            if (Widgets.ButtonImageFitted(copy, GraphicsCache.Copy, Color.white))
+            {
+                ActivityTaskUtility.Clipboard = day;
+                SoundDefOf.Tick_High.PlayOneShotOnCamera((Map)null);
+            }
+            TooltipHandler.TipRegionByKey(copy, "CopyBillTip");
+
+            Rect paste = new Rect(copy);
+            paste.x += paste.width;
+            if (ActivityTaskUtility.Clipboard == null)
+            {
+                GUI.color = Color.gray;
+                Widgets.DrawTextureFitted(paste, (Texture)GraphicsCache.Paste, 1f);
+                GUI.color = Color.white;
+                TooltipHandler.TipRegionByKey(paste, "PasteBillTip");
+            }
+            else
+            {
+                if (Widgets.ButtonImageFitted(paste, GraphicsCache.Paste, Color.white))
+                {
+                    ScheduledDay clip = ActivityTaskUtility.Clipboard;
+                    foreach (var task in clip.Tasks)
+                    {
+                        day.Add(task);
+                    }
+                    SoundDefOf.Tick_Low.PlayOneShotOnCamera((Map)null);
+                }
+                TooltipHandler.TipRegionByKey(paste, "PasteBillTip");
+            }
+
 
             if (day != null)
                 DrawDayInterFace(new Rect(rect.x + 6, rect.y + 30f, rect.width, rect.height * .75f), day);
 
-            if (Mouse.IsOver(rect))
+            Rect touchable = new Rect(rect);
+            touchable.y += 30;
+            touchable.height -= 30;
+            if (Mouse.IsOver(touchable))
             {
-                Widgets.DrawBox(rect, 3);
+                //Widgets.DrawBox(rect, 3);
+                Widgets.DrawBox(touchable, 3);
                 if (Input.GetMouseButtonDown(0))
                 {
                     if (day == null)

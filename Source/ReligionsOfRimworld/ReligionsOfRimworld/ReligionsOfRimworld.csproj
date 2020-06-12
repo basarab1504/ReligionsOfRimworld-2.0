@@ -306,6 +306,7 @@
     <Compile Include="ActivityTask.cs" />
     <Compile Include="ActivityTaskDef.cs" />
     <Compile Include="ActivityTaskSchedule.cs" />
+    <Compile Include="ActivityTaskUtility.cs" />
     <Compile Include="ActivityUtility.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
