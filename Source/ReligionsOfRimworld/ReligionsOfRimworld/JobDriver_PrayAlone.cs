@@ -7,7 +7,7 @@ using Verse.AI;
 
 namespace ReligionsOfRimworld
 {
-	public class JobDriver_RelaxAlone : JobDriver
+	public class JobDriver_PrayAlone : JobDriver
 	{
 		private Rot4 faceDir = Rot4.Invalid;
 
@@ -79,13 +79,14 @@ namespace ReligionsOfRimworld
 			relax.defaultDuration = this.job.def.joyDuration;
 			relax.AddPreTickAction(delegate
 			{
-			if (this.faceDir.IsValid)
-				{
-				this.pawn.rotationTracker.FaceCell(this.pawn.Position + this.faceDir.FacingCell);
-			}
-			this.pawn.GainComfortFromCellIfPossible();
-			JoyUtility.JoyTickCheckEnd(this.pawn, JoyTickFullJoyAction.EndJob, 1f, null);
-		});
+				if (this.faceDir.IsValid)
+					{
+					this.pawn.rotationTracker.FaceCell(this.pawn.Position + this.faceDir.FacingCell);
+				}
+				this.pawn.GainComfortFromCellIfPossible();
+				JoyUtility.JoyTickCheckEnd(this.pawn, JoyTickFullJoyAction.EndJob, 1f, null);
+				PrayUtility.TickCheckEnd(pawn);
+			});
 			yield return relax;
 
 			this.AddFinishAction(() =>
