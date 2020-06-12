@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ReligionsOfRimworld.PietyDef>
+    <defName>TemplePiety</defName>
+    <workerClass>ReligionsOfRimworld.PietyWorker_TempleImpressiveness</workerClass>
+    <stages>
+      <li IsNull="True" /> <!-- awful -->
+      <li IsNull="True" /> <!-- dull -->
+      <li IsNull="True" /> <!-- mediocre -->
+      <li>
+        <label>decent temple</label>
+        <description>This temple is pretty decent.</description>
+        <pietyOffset>3</pietyOffset>
+      </li>
+      <li>
+        <label>slightly impressive temple</label>
+        <description>This temple seems to be a nice place.</description>
+        <pietyOffset>9</pietyOffset>
+      </li>
+      <li>
+        <label>impressive temple</label>
+        <description>This temple is impressive. I can't believe they are keeping me in a room like this.</description>
+        <pietyOffset>12</pietyOffset>
+      </li>
+      <li>
+        <label>very impressive temple</label>
+        <description>This temple is very impressive. I can't believe they are keeping me in a room like this. I love it!</description>
+        <pietyOffset>15</pietyOffset>
+      </li>
+      <li>
+        <label>extremely impressive temple</label>
+        <description>This temple is extremely impressive. I can't believe they are keeping me in a room like this. I love it!</description>
+        <pietyOffset>18</pietyOffset>
+      </li>
+      <li>
+        <label>unbelievably impressive temple</label>
+        <description>This temple is unbelievably impressive. This is the best place ever!</description>
+        <pietyOffset>21</pietyOffset>
+      </li>
+      <li>
+        <label>wondrously impressive temple</label>
+        <description>This temple is the best place one can ever imagine. I can stay here forever.</description>
+        <pietyOffset>24</pietyOffset>
+      </li>
+    </stages>
+  </ReligionsOfRimworld.PietyDef>
+
+</Defs>

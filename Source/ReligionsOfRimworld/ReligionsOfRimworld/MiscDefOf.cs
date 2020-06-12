@@ -27,5 +27,6 @@ namespace ReligionsOfRimworld
         public static ConceptDef PawnReligionTab;
         public static ConceptDef RoRActivities;
         public static ConceptDef RoRPray;
+        public static RoomRoleDef Temple;
     }
 }
