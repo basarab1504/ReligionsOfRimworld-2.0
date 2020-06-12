@@ -69,9 +69,11 @@
     <drawerType>RealtimeOnly</drawerType>
     <fillPercent>1</fillPercent>
     <statBases>
-      <MaxHitPoints>80</MaxHitPoints>
-      <WorkToBuild>100</WorkToBuild>
-      <Flammability>0</Flammability>
+		<MaxHitPoints>80</MaxHitPoints>
+		<WorkToBuild>100</WorkToBuild>
+		<Flammability>0</Flammability>
+		<Beauty>5</Beauty>
+		<Mass>20</Mass>
     </statBases>
     <selectable>true</selectable>
   <stuffCategories>
@@ -112,6 +114,10 @@
       </li>
     </comps>
     <designationCategory>ReligionBuildings</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
     <designationHotKey>Misc10</designationHotKey>
   </ThingDef>
 </Defs>

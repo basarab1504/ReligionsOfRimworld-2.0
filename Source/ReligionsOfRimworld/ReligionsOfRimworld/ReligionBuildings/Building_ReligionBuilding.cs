@@ -36,6 +36,12 @@ namespace ReligionsOfRimworld
             base.Destroy(mode);
         }
 
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            UnassignAllBuildingsAndNotify();
+            base.DeSpawn(mode);
+        }
+
         public void UnassignAllBuildingsAndNotify()
         {
             foreach (Building_ReligionBuilding building in AssignedBuildings.ToList())

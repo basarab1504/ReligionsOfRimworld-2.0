@@ -52,6 +52,10 @@
     <defName>Lectern</defName>
     <label>Lectern</label>
     <description>Lectern to read from liturgical books during the divine services.</description>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Religion/Lectern</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -80,6 +84,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Mass>12</Mass>
       <Flammability>1.0</Flammability>
+      <Beauty>5</Beauty>
     </statBases>
     <size>(1,1)</size>
     <passability>PassThroughOnly</passability>

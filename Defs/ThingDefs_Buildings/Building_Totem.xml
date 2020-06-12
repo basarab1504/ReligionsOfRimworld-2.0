@@ -20,6 +20,7 @@
       <Mass>18</Mass>
       <Flammability>1.0</Flammability>
       <JoyGainFactor>1.2</JoyGainFactor>
+      <Beauty>8</Beauty>
     </statBases>    
     <stuffCategories>
       <li>Metallic</li>
@@ -57,6 +58,7 @@
       <Mass>18</Mass>
       <Flammability>1.0</Flammability>
       <JoyGainFactor>1.2</JoyGainFactor>
+      <Beauty>8</Beauty>
     </statBases>    
     <stuffCategories>
       <li>Metallic</li>
@@ -77,7 +79,11 @@
   <ThingDef ParentName="BaseHolyBuildingMain">
     <defName>AltarWithBook</defName>
     <label>Altar with a book</label>
-    <description>An altar is a structure upon which offerings such as sacrifices are made for religious purposes.</description>   
+    <description>An altar is a structure upon which offerings such as sacrifices are made for religious purposes.</description> 
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>  
     <rotatable>false</rotatable>
     <graphicData>
       <texPath>Things/Religion/AltarWithBook</texPath>
@@ -91,9 +97,10 @@
     <statBases>
       <WorkToBuild>1400</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
-      <Mass>18</Mass>
+      <Mass>12</Mass>
       <Flammability>1.0</Flammability>
       <JoyGainFactor>1.2</JoyGainFactor>
+      <Beauty>8</Beauty>
     </statBases>    
     <stuffCategories>
       <li>Metallic</li>
