@@ -79,7 +79,8 @@ namespace ReligionsOfRimworld
             if (!suspended)
             {
                 int currentHour = GenLocalDate.HourOfDay(Find.CurrentMap);
-                if(Math.Abs(startHour - currentHour) <= 1)
+                int currentDay = GenLocalDate.DayOfSeason(Find.CurrentMap);
+                if(Math.Abs(startHour - currentHour) <= 1 && currentDay == dayOfTask.DayNumber-1)
                 {
                     if (lastCompletedTick == 0)
                         return true;
