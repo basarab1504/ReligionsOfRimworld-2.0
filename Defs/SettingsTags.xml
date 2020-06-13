@@ -83,5 +83,11 @@
 		<label>Prayings settings</label>
 		<description>Prayer is an invocation or act that seeks to activate a rapport with an object of worship through deliberate communication.</description>
 	</ReligionsOfRimworld.SettingsTagDef>	
+
+	<ReligionsOfRimworld.SettingsTagDef>
+		<defName>TemperatureTag</defName>
+		<label>Temperature settings</label>
+		<description>Depending on the temperature level, your characters may feel a surge of faith, or vice versa, its absence.</description>
+	</ReligionsOfRimworld.SettingsTagDef>	
 	
 </Defs>

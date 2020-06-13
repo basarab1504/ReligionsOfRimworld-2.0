@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThoughtDef>
+		<defName>RoR_ColdTemperatureThoughtBad</defName>
+		<label>temperature</label>
+		<description>decrease Thought</description>
+		<workerClass>ReligionsOfRimworld.ThoughtWorker_ColdTemperature</workerClass>
+		<stages>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-4</baseMoodEffect>
+			</li>   
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-6</baseMoodEffect>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>RoR_ColdTemperatureThoughtGood</defName>
+		<label>temperature</label>
+		<description>increase Thought</description>
+		<workerClass>ReligionsOfRimworld.ThoughtWorker_ColdTemperature</workerClass>
+		<stages>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>   
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>6</baseMoodEffect>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>8</baseMoodEffect>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>RoR_HotTemperatureThoughtBad</defName>
+		<label>temperature</label>
+		<description>decrease Thought</description>
+		<workerClass>ReligionsOfRimworld.ThoughtWorker_HotTemperature</workerClass>
+		<stages>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-4</baseMoodEffect>
+			</li>   
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-6</baseMoodEffect>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>RoR_HotTemperatureThoughtGood</defName>
+		<label>temperature</label>
+		<description>increase Thought</description>
+		<workerClass>ReligionsOfRimworld.ThoughtWorker_HotTemperature</workerClass>
+		<stages>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>   
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>6</baseMoodEffect>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>8</baseMoodEffect>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<baseMoodEffect>8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

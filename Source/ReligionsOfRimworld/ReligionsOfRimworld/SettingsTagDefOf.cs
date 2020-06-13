@@ -19,5 +19,6 @@ namespace ReligionsOfRimworld
         public static SettingsTagDef AllowedBuildingsTag;
         public static SettingsTagDef ActivityTag;
         public static SettingsTagDef PrayingsTag;
+        public static SettingsTagDef TemperatureTag;
     }
 }

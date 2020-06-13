@@ -310,12 +310,17 @@
     <Compile Include="ActivityUtility.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="JoyGiver_PrayInPrivateRoom.cs" />
     <Compile Include="DefaultPietyWorkers\PietyWorker_Apparel.cs" />
     <Compile Include="DefaultPietyWorkers\PietyWorker_ApparelStuff.cs" />
+    <Compile Include="DefaultPietyWorkers\PietyWorker_ColdTemperature.cs" />
     <Compile Include="DefaultPietyWorkers\PietyWorker_TempleImpressiveness.cs" />
+    <Compile Include="DefaultPietyWorkers\PietyWorker_WarmTemperature.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ApparelStuff.cs" />
+    <Compile Include="DefaultThoughtWorkers\ThoughtWorker_HotTemperature.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionApparel.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_ReligionGroupOpinion.cs" />
+    <Compile Include="DefaultThoughtWorkers\ThoughtWorker_Temperature.cs" />
     <Compile Include="DefaultThoughtWorkers\ThoughtWorker_TempleImpressiveness.cs" />
     <Compile Include="Dialog_ActivityTaskConfig.cs" />
     <Compile Include="Dialog_NewActivityConfig.cs" />

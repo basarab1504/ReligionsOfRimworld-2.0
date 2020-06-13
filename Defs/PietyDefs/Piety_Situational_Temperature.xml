@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ReligionsOfRimworld.PietyDef>
+		<defName>RoR_ColdTemperaturePietyBad</defName>
+		<label>temperature</label>
+		<description>decrease piety</description>
+		<workerClass>ReligionsOfRimworld.PietyWorker_ColdTemperature</workerClass>
+		<stages>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-2</pietyOffset>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-4</pietyOffset>
+			</li>   
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-6</pietyOffset>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-8</pietyOffset>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-8</pietyOffset>
+			</li>
+		</stages>
+	</ReligionsOfRimworld.PietyDef>
+
+	<ReligionsOfRimworld.PietyDef>
+		<defName>RoR_ColdTemperaturePietyGood</defName>
+		<label>temperature</label>
+		<description>increase piety</description>
+		<workerClass>ReligionsOfRimworld.PietyWorker_ColdTemperature</workerClass>
+		<stages>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>2</pietyOffset>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>4</pietyOffset>
+			</li>   
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>6</pietyOffset>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>8</pietyOffset>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>8</pietyOffset>
+			</li>
+		</stages>
+	</ReligionsOfRimworld.PietyDef>
+
+	<ReligionsOfRimworld.PietyDef>
+		<defName>RoR_HotTemperaturePietyBad</defName>
+		<label>temperature</label>
+		<description>decrease piety</description>
+		<workerClass>ReligionsOfRimworld.PietyWorker_HotTemperature</workerClass>
+		<stages>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-2</pietyOffset>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-4</pietyOffset>
+			</li>   
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-6</pietyOffset>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-8</pietyOffset>
+			</li>
+			<li>
+				<label>bad temperature</label>
+				<description>sad</description>
+				<pietyOffset>-8</pietyOffset>
+			</li>
+		</stages>
+	</ReligionsOfRimworld.PietyDef>
+
+	<ReligionsOfRimworld.PietyDef>
+		<defName>RoR_HotTemperaturePietyGood</defName>
+		<label>temperature</label>
+		<description>increase piety</description>
+		<workerClass>ReligionsOfRimworld.PietyWorker_HotTemperature</workerClass>
+		<stages>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>2</pietyOffset>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>4</pietyOffset>
+			</li>   
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>6</pietyOffset>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>8</pietyOffset>
+			</li>
+			<li>
+				<label>good temperature</label>
+				<description>good</description>
+				<pietyOffset>8</pietyOffset>
+			</li>
+		</stages>
+	</ReligionsOfRimworld.PietyDef>
+</Defs>

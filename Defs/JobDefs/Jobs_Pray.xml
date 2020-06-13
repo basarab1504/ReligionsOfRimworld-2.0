@@ -9,16 +9,6 @@
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
-  <JoyGiverDef>
-    <defName>PrayAlone</defName>
-    <giverClass>JoyGiver_InPrivateRoom</giverClass>
-    <baseChance>1</baseChance>
-    <pctPawnsEverDo>0.5</pctPawnsEverDo>
-    <jobDef>PrayAlone</jobDef>
-    <joyKind>Meditative</joyKind>
-    <canDoWhileInBed>true</canDoWhileInBed>
-  </JoyGiverDef>
-
   <JobDef>
     <defName>PrayAlone</defName>
     <driverClass>ReligionsOfRimworld.JobDriver_PrayAlone</driverClass>

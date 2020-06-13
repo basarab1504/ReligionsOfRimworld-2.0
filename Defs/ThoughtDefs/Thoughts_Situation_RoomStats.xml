@@ -2,7 +2,7 @@
 <Defs>
 
   <ThoughtDef>
-    <defName>Temple</defName>
+    <defName>RoR_TempleThought</defName>
     <workerClass>ReligionsOfRimworld.ThoughtWorker_TempleImpressiveness</workerClass>
     <stages>
       <li IsNull="True" /> <!-- awful -->

@@ -38,7 +38,7 @@ namespace ReligionsOfRimworld
             }
             if (num == 0)
                 return ThoughtState.Inactive;
-            return ThoughtState.ActiveAtStage((num - 1) + (comp.PietyTracker.PietyNeed.CurCategoryInt * 5), reason);
+            return ThoughtState.ActiveAtStage(num - 1, reason);
         }
     }
 }

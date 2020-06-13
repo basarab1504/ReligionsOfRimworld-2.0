@@ -2,7 +2,7 @@
 <Defs>
 
   <ReligionsOfRimworld.PietyDef>
-    <defName>TemplePiety</defName>
+    <defName>RoR_TemplePiety</defName>
     <workerClass>ReligionsOfRimworld.PietyWorker_TempleImpressiveness</workerClass>
     <stages>
       <li IsNull="True" /> <!-- awful -->

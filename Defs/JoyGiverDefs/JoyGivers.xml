@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<JoyGiverDef>
+		<defName>PrayAlone</defName>
+		<giverClass>ReligionsOfRimworld.JoyGiver_PrayInPrivateRoom</giverClass>
+		<baseChance>1</baseChance>
+		<pctPawnsEverDo>0.5</pctPawnsEverDo>
+		<jobDef>PrayAlone</jobDef>
+		<joyKind>Meditative</joyKind>
+		<canDoWhileInBed>true</canDoWhileInBed>
+	</JoyGiverDef>
+
+</Defs>
