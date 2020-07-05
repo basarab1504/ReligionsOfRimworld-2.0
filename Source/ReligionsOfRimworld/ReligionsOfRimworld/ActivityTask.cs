@@ -32,7 +32,6 @@ namespace ReligionsOfRimworld
                 this.loadID = Find.UniqueIDsManager.GetNextThingID();
                 startHour = 18;
                 this.property = property;
-                this.loadID = Find.UniqueIDsManager.GetNextBillID();
                 humanlike = new IngredientPawn();
                 animal = new IngredientPawn();
                 List<ThingDef> defs = new List<ThingDef>();
@@ -40,6 +39,17 @@ namespace ReligionsOfRimworld
                     defs.Add(tcd.Thing);
                 filter = new SimpleFilter(defs);
             }
+        }
+
+        public ActivityTask(ActivityTask task)
+        {
+            this.dayOfTask = task.dayOfTask;
+            this.startHour = task.startHour;
+            this.property = task.property;
+            this.loadID = Find.UniqueIDsManager.GetNextBillID();
+            this.humanlike = task.humanlike;
+            this.animal = task.humanlike;
+            this.filter = task.filter;
         }
 
         public int StartHour

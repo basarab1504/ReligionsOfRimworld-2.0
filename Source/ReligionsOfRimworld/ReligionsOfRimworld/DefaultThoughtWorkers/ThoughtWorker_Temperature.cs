@@ -12,7 +12,6 @@ namespace ReligionsOfRimworld
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
-            Log.Message(p.ToString() + " " + p.AmbientTemperature);
             CompReligion comp = p.GetReligionComponent();
 
             if (comp == null)

@@ -24,6 +24,17 @@ namespace ReligionsOfRimworld
             }
         }
 
+        public ScheduledDay(ScheduledDay day)
+        {
+            this.schedule = day.schedule;
+            this.dayNumber = day.dayNumber;
+            this.tasks = new List<ActivityTask>();
+            foreach(var task in day.tasks)
+            {
+                this.tasks.Add(new ActivityTask(task));
+            }
+        }
+
         public int DayNumber => dayNumber;
         public IEnumerable<ActivityTask> Tasks => tasks;
         public ActivityTaskSchedule ParentSchedule => schedule;
