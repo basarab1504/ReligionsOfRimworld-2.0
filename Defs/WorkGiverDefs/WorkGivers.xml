@@ -5,7 +5,7 @@
     <defName>DoReligionActivities</defName>
     <label>do religion activities</label>
     <giverClass>ReligionsOfRimworld.WorkGiver_DoActivityTask</giverClass>
-    <workType>Hauling</workType>
+    <workType>Worship</workType>
     <priorityInType>40</priorityInType>
     <verb>worship</verb>
     <gerund>worshipping at</gerund>

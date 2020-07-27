@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Defs",
+    "\\Defs\\WorkGiverDefs",
+    "\\Defs\\WorkTypeDefs",
+    "\\Defs\\WorldGeneration",
     "\\Source",
-    "\\Source\\ReligionsOfRimworld",
-    "\\Source\\ReligionsOfRimworld\\ReligionsOfRimworld"
+    "\\Source\\ReligionsOfRimworld"
   ],
-  "SelectedNode": "\\Source\\ReligionsOfRimworld\\ReligionsOfRimworld\\LordJob_ReligionActivity.cs",
+  "SelectedNode": "\\Defs\\WorkGiverDefs\\WorkGivers.xml",
   "PreviewInSolutionExplorer": false
 }
