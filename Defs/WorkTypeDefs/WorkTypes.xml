@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<WorkTypeDef>
+		<defName>Worship</defName>
+		<labelShort>Worship</labelShort>
+		<pawnLabel>Worshiper</pawnLabel>
+		<gerundLabel>worshiping</gerundLabel>
+		<description>Perform religious activities.</description>
+		<verb>Worship at</verb>
+		<naturalPriority>1110</naturalPriority>
+	</WorkTypeDef>
+  
+</Defs>
