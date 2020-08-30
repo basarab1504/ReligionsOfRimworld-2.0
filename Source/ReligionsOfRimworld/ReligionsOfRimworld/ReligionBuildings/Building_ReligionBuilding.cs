@@ -113,8 +113,13 @@ namespace ReligionsOfRimworld
                     defaultDesc = "ReligiousBuilgingAssigner_AssignBuildingsDesc".Translate(),
                     action = delegate
                     {
-                        ReligiousBuildingAssignerUtility.SelectChild(this);
-                        LessonAutoActivator.TeachOpportunity(MiscDefOf.HolyBuildingBinding, OpportunityType.GoodToKnow);
+                        if(AvaliableToAssign)
+                        {
+                            ReligiousBuildingAssignerUtility.SelectChild(this);
+                            LessonAutoActivator.TeachOpportunity(MiscDefOf.HolyBuildingBinding, OpportunityType.GoodToKnow);
+                        }
+                        else
+                            Messages.Message("ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign".Translate(), MessageTypeDefOf.NeutralEvent);
                     },
                     hotKey = KeyBindingDefOf.Misc4
                 };

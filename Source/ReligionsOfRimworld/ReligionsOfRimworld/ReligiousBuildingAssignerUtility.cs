@@ -59,8 +59,13 @@ namespace ReligionsOfRimworld
             {
                 foreach (Building_ReligionBuilding building in Find.CurrentMap.listerBuildings.AllBuildingsColonistOfClass<Building_ReligionBuilding>())
                 {
-                    if (parent.MayAssignBuilding(building) && building.MayAssignBuilding(parent))
-                        Widgets.DrawTextureFitted(new Rect(building.Position.ToUIPosition() - new Vector2(10, 10), new Vector2(20, 20)), GraphicsCache.CheckboxOnTex, 1);
+                    if(building != parent)
+                    {
+                        if (parent.MayAssignBuilding(building) && building.MayAssignBuilding(parent))
+                            Widgets.DrawTextureFitted(new Rect(building.Position.ToUIPosition() - new Vector2(10, 10), new Vector2(20, 20)), GraphicsCache.CheckboxOnTex, 1);
+                        else
+                            Widgets.DrawTextureFitted(new Rect(building.Position.ToUIPosition() - new Vector2(10, 10), new Vector2(20, 20)), GraphicsCache.CheckboxOffTex, 1);
+                    }
                 }
                 foreach (Building_ReligionBuilding assigned in parent.AssignedBuildings)
                     Widgets.DrawLine(parent.Position.ToUIPosition(), assigned.Position.ToUIPosition(), Color.green, 2f);
