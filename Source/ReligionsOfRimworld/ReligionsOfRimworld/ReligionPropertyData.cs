@@ -22,22 +22,27 @@ namespace ReligionsOfRimworld
             StringBuilder stringBuilder = new StringBuilder();
 
             if (thought != null)
-                stringBuilder.Append(GetDefInfo("ReligionInfo_IndividualThought".Translate(), thought));
+            {
+                stringBuilder.Append("\t" + "ReligionInfo_IndividualThought".Translate() + ": ");
+                stringBuilder.Append($" {thought.LabelCap} ");
+                stringBuilder.Append($"({thought.stages.First().baseMoodEffect}...{thought.stages.Last().baseMoodEffect})");
+                stringBuilder.AppendLine();
+            }
             if (opinionThought != null)
-                stringBuilder.Append(GetDefInfo("ReligionInfo_SocialThought".Translate(), opinionThought));
+            {
+                stringBuilder.Append("\t" + "ReligionInfo_SocialThought".Translate() + ": ");
+                stringBuilder.Append($" {opinionThought.LabelCap} ");
+                stringBuilder.Append($"({opinionThought.stages.First().baseOpinionOffset}...{opinionThought.stages.Last().baseOpinionOffset})");
+                stringBuilder.AppendLine();
+
+            }
             if (piety != null)
-                stringBuilder.Append(GetDefInfo("ReligionInfo_IndividualPiety".Translate(), piety));
-
-            return stringBuilder.ToString();
-        }
-
-        private string GetDefInfo(string defType, Def def)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(defType + ":");
-            stringBuilder.AppendLine(def.LabelCap);
-            stringBuilder.AppendLine(def.description);
-            stringBuilder.AppendLine();
+            {
+                stringBuilder.Append("\t" + "ReligionInfo_IndividualPiety".Translate() + ": ");
+                stringBuilder.Append($" {piety.LabelCap} ");
+                stringBuilder.Append($"({piety.Stages.First().PietyOffset}...{piety.Stages.Last().PietyOffset})");
+                stringBuilder.AppendLine();
+            }
 
             return stringBuilder.ToString();
         }

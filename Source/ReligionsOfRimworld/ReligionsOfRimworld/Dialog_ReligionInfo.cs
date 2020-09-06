@@ -20,7 +20,7 @@ namespace ReligionsOfRimworld
         {
             get
             {
-                return new Vector2(950f, 760f);
+                return new Vector2(1150f, 760f);
             }
         }
 
@@ -95,7 +95,19 @@ namespace ReligionsOfRimworld
 
             Rect rect1 = new Rect(0.0f, curY, rect.width, Verse.Text.CalcHeight(entry.Value, rect.width));
             Widgets.Label(rect1, entry.Label);
-            Widgets.Label(new Rect(0.0f + 240f, curY, rect.width, rect1.height), entry.Value);
+            if (entry.SubjectOffset != null)
+            {
+                GUI.color = entry.SubjectOffset.Color;
+                Widgets.Label(new Rect(0.0f + 120f, curY, rect.width, rect1.height), entry.SubjectOffset.ToString());
+                GUI.color = Color.white;
+            }
+            if (entry.WitnessOffset != null)
+            {
+                GUI.color = entry.WitnessOffset.Color;
+                Widgets.Label(new Rect(0.0f + 220f, curY, rect.width, rect1.height), entry.WitnessOffset.ToString());
+                GUI.color = Color.white;
+            }
+            Widgets.Label(new Rect(0.0f + 300f, curY, rect.width, rect1.height), entry.Value);
             curY += 24f;
             if (Mouse.IsOver(rect1))
             {
