@@ -2,6 +2,7 @@
 <Defs>
   <JobDef>
     <defName>PrayJob</defName>
+    <label>Pray</label>
     <driverClass>ReligionsOfRimworld.JobDriver_Pray</driverClass>
     <reportString>praying</reportString>
     <suspendable>false</suspendable>

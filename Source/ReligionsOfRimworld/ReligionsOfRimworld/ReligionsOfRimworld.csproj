@@ -310,6 +310,7 @@
     <Compile Include="ActivityUtility.cs" />
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
+    <Compile Include="Dialog_ReligionInfoMain.cs" />
     <Compile Include="JoyGiver_PrayInPrivateRoom.cs" />
     <Compile Include="DefaultPietyWorkers\PietyWorker_Apparel.cs" />
     <Compile Include="DefaultPietyWorkers\PietyWorker_ApparelStuff.cs" />

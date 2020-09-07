@@ -32,6 +32,16 @@ namespace ReligionsOfRimworld
         public ReligionGroupTagDef GroupTag => def.GroupTag;
         public IEnumerable<ReligionSettings> AllSettings => settings.Values;
 
+        public T GetSettings<T>() where T : ReligionSettings
+        {
+            T settings = default(T);
+            foreach(T s in AllSettings)
+            {
+                settings = s;
+            }
+            return settings;
+        }
+
         public T GetSettings<T>(SettingsTagDef tag) where T : ReligionSettings
         {
             if (settings.ContainsKey(tag))

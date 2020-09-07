@@ -35,7 +35,7 @@ namespace ReligionsOfRimworld
         public ReligionInfoEntry GetReligionInfoEntry()
         {
             if (GetObject() != null)
-                return new ReligionInfoEntry("ReligionInfo_Object".Translate(), ObjectLabel, GetDescription(), GetSubjectOffsets(), GetWtinessOffsets());
+                return new ReligionInfoEntry(ObjectLabel, "", GetDescription(), GetSubjectOffsets(), GetWtinessOffsets());
 
             return null;
         }

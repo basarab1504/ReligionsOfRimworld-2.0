@@ -98,16 +98,16 @@ namespace ReligionsOfRimworld
             if (entry.SubjectOffset != null)
             {
                 GUI.color = entry.SubjectOffset.Color;
-                Widgets.Label(new Rect(0.0f + 120f, curY, rect.width, rect1.height), entry.SubjectOffset.ToString());
+                Widgets.Label(new Rect(0.0f + 200f, curY, rect.width, rect1.height), entry.SubjectOffset.ToString());
                 GUI.color = Color.white;
             }
             if (entry.WitnessOffset != null)
             {
                 GUI.color = entry.WitnessOffset.Color;
-                Widgets.Label(new Rect(0.0f + 220f, curY, rect.width, rect1.height), entry.WitnessOffset.ToString());
+                Widgets.Label(new Rect(0.0f + 300f, curY, rect.width, rect1.height), entry.WitnessOffset.ToString());
                 GUI.color = Color.white;
             }
-            Widgets.Label(new Rect(0.0f + 300f, curY, rect.width, rect1.height), entry.Value);
+            Widgets.Label(new Rect(0.0f + 350f, curY, rect.width, rect1.height), entry.Value);
             curY += 24f;
             if (Mouse.IsOver(rect1))
             {

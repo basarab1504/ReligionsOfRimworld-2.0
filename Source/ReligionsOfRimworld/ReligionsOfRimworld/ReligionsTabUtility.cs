@@ -60,7 +60,7 @@ namespace ReligionsOfRimworld
         {
             if (!InfoCardButtonWorker(x, y))
                 return false;
-            Find.WindowStack.Add((Window)new Dialog_ReligionInfo(religion));
+            Find.WindowStack.Add((Window)new Dialog_ReligionInfoMain(religion));
             return true;
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Verse;
 
 namespace ReligionsOfRimworld
 {
@@ -19,7 +20,7 @@ namespace ReligionsOfRimworld
 
         public override string ToString()
         {
-            return $"{min}...{max}";
+            return $"{min} {"to".Translate()} {max}";
         }
         public Color Color => min > 0 ? Color.green : Color.red;
     }
