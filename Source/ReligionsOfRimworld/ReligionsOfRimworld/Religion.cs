@@ -50,6 +50,14 @@ namespace ReligionsOfRimworld
                 return null;
         }
 
+        public ReligionSettings GetSettings(SettingsTagDef tag)
+        {
+            if (settings.ContainsKey(tag))
+                return settings[tag];
+            else
+                return null;
+        }
+
         public IEnumerable<ReligionInfoCategory> GetInfo()
         {
             ReligionInfoCategory category = new ReligionInfoCategory("ReligionInfo_Overall".Translate(), def.description);
