@@ -15,14 +15,14 @@ namespace ReligionsOfRimworld
         public NeedDef PietyNeed => pietyNeed;
         public ThoughtDef NeedThought => needThought;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            if(pietyNeed != null)
-            {
-                yield return new ReligionInfoEntry("ReligionInfo_PietyNeed".Translate(), pietyNeed.LabelCap, pietyNeed.description);
-                yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), pietyNeed.seekerFallPerHour.ToString());
-            }
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    if(pietyNeed != null)
+        //    {
+        //        yield return new ReligionInfoEntry("ReligionInfo_PietyNeed".Translate(), pietyNeed.LabelCap, pietyNeed.description);
+        //        yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), pietyNeed.seekerFallPerHour.ToString());
+        //    }
+        //}
 
         public override void ExposeData()
         {

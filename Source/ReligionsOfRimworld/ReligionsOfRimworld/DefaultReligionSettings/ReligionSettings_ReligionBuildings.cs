@@ -18,11 +18,11 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<ThingDef> AllowedBuildings => allowedBuildings;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            foreach (ThingDef building in allowedBuildings)
-                yield return new ReligionInfoEntry("ReligionInfo_Building".Translate(), building.LabelCap, building.description);
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    foreach (ThingDef building in allowedBuildings)
+        //        yield return new ReligionInfoEntry("ReligionInfo_Building".Translate(), building.LabelCap, building.description);
+        //}
 
         public override void ExposeData()
         {

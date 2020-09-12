@@ -15,13 +15,13 @@ namespace ReligionsOfRimworld
         public NeedDef Need => prayNeed;
         public ReligionProperty Property => property;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            yield return new ReligionInfoEntry("ReligionInfo_PrayNeed".Translate(), prayNeed.LabelCap, prayNeed.description);
-            yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), prayNeed.seekerFallPerHour.ToString());
-            if(property != null)
-                yield return property.GetReligionInfoEntry();
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    yield return new ReligionInfoEntry("ReligionInfo_PrayNeed".Translate(), prayNeed.LabelCap, prayNeed.description);
+        //    yield return new ReligionInfoEntry("ReligionInfo_SeekerFallPerHour".Translate(), prayNeed.seekerFallPerHour.ToString());
+        //    if(property != null)
+        //        yield return property.GetReligionInfoEntry();
+        //}
 
         //private string GetDescription()
         //{

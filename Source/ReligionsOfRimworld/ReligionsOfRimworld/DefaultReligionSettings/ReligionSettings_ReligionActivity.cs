@@ -18,11 +18,11 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<ReligionProperty> Properties => properties;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            foreach (ReligionProperty property in properties)
-                yield return property.GetReligionInfoEntry();
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    foreach (ReligionProperty property in properties)
+        //        yield return property.GetReligionInfoEntry();
+        //}
 
         public override void ExposeData()
         {

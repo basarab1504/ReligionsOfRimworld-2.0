@@ -19,11 +19,11 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<IncidentDef> Incidents => incidents;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            foreach (IncidentDef incident in incidents)
-                yield return new ReligionInfoEntry("ReligionInfo_Incident".Translate(), incident.LabelCap, incident.description);
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    foreach (IncidentDef incident in incidents)
+        //        yield return new ReligionInfoEntry("ReligionInfo_Incident".Translate(), incident.LabelCap, incident.description);
+        //}
 
         public override void ExposeData()
         {

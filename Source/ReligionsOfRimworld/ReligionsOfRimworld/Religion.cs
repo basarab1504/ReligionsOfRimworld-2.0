@@ -58,15 +58,15 @@ namespace ReligionsOfRimworld
                 return null;
         }
 
-        public IEnumerable<ReligionInfoCategory> GetInfo()
-        {
-            ReligionInfoCategory category = new ReligionInfoCategory("ReligionInfo_Overall".Translate(), def.description);
-            category.Add(new ReligionInfoEntry("ReligionInfo_Religion".Translate(), def.LabelCap, def.description));
-            yield return category;
+        //public IEnumerable<ReligionInfoCategory> GetInfo()
+        //{
+        //    ReligionInfoCategory category = new ReligionInfoCategory("ReligionInfo_Overall".Translate(), def.description);
+        //    category.Add(new ReligionInfoEntry("ReligionInfo_Religion".Translate(), def.LabelCap, def.description));
+        //    yield return category;
 
-            foreach (var setting in def.Settings)
-                yield return setting.Settings.GetInfoCategory();
-        }
+        //    foreach (var setting in def.Settings)
+        //        yield return setting.Settings.GetInfoCategory();
+        //}
 
         public string GetUniqueLoadID()
         {

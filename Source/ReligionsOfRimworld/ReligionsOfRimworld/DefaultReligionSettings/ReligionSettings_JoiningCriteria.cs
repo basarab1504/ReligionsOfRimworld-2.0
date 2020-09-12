@@ -18,11 +18,11 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<JoiningCriteria> Criteria => criteria;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {      
-            foreach(JoiningCriteria joiningCriteria in criteria)
-                yield return new ReligionInfoEntry("ReligionInfo_Criteria".Translate(), CriteriaTitle(joiningCriteria), "ReligionInfo_CriteriaImportance".Translate() + ": " + joiningCriteria.Importance);
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{      
+        //    foreach(JoiningCriteria joiningCriteria in criteria)
+        //        yield return new ReligionInfoEntry("ReligionInfo_Criteria".Translate(), CriteriaTitle(joiningCriteria), "ReligionInfo_CriteriaImportance".Translate() + ": " + joiningCriteria.Importance);
+        //}
 
         private string CriteriaTitle(JoiningCriteria criteria)
         {

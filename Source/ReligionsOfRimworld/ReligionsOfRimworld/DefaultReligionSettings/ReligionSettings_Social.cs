@@ -35,14 +35,14 @@ namespace ReligionsOfRimworld
             return defaultProperty;
         }
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            if (defaultProperty != null)
-                yield return defaultProperty.GetReligionInfoEntry();
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    if (defaultProperty != null)
+        //        yield return defaultProperty.GetReligionInfoEntry();
 
-            foreach (ReligionProperty property in properties)
-                    yield return property.GetReligionInfoEntry();
-        }
+        //    foreach (ReligionProperty property in properties)
+        //            yield return property.GetReligionInfoEntry();
+        //}
 
         public override void ExposeData()
         {

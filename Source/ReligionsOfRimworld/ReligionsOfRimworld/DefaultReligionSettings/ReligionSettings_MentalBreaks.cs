@@ -18,11 +18,11 @@ namespace ReligionsOfRimworld
 
         public IEnumerable<MentalBreakDef> MentalBreaks => mentalBreaks;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            foreach (MentalBreakDef mentalBreak in mentalBreaks)
-                yield return new ReligionInfoEntry("ReligionInfo_MentalBreak".Translate(), mentalBreak.mentalState.LabelCap, mentalBreak.mentalState.description);
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    foreach (MentalBreakDef mentalBreak in mentalBreaks)
+        //        yield return new ReligionInfoEntry("ReligionInfo_MentalBreak".Translate(), mentalBreak.mentalState.LabelCap, mentalBreak.mentalState.description);
+        //}
 
         public override void ExposeData()
         {

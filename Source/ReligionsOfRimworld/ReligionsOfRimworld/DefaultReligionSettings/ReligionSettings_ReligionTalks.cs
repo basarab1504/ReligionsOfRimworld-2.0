@@ -16,15 +16,15 @@ namespace ReligionsOfRimworld
         public SimpleCurveDef MoodFactorCurve => moodFactorCurve;
         public SimpleCurveDef OpinionFactorCurve => opinionFactorCurve;
 
-        public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
-        {
-            if (interaction != null)
-                yield return new ReligionInfoEntry("ReligionInfo_BaseChanceOfConversation".Translate(), baseChanceOfConversation.ToString());
-            if (moodFactorCurve != null)
-                yield return new ReligionInfoEntry("ReligionInfo_MoodFactorCurve".Translate(), "", moodFactorCurve.description);
-            if (opinionFactorCurve != null)
-                yield return new ReligionInfoEntry("ReligionInfo_OpinionFactorCurve".Translate(), "", opinionFactorCurve.description);
-        }
+        //public override IEnumerable<ReligionInfoEntry> GetInfoEntries()
+        //{
+        //    if (interaction != null)
+        //        yield return new ReligionInfoEntry("ReligionInfo_BaseChanceOfConversation".Translate(), baseChanceOfConversation.ToString());
+        //    if (moodFactorCurve != null)
+        //        yield return new ReligionInfoEntry("ReligionInfo_MoodFactorCurve".Translate(), "", moodFactorCurve.description);
+        //    if (opinionFactorCurve != null)
+        //        yield return new ReligionInfoEntry("ReligionInfo_OpinionFactorCurve".Translate(), "", opinionFactorCurve.description);
+        //}
 
         public override void ExposeData()
         {
