@@ -12,9 +12,9 @@ namespace ReligionsOfRimworld
     class Dialog_ReligionInfoMain : Window
     {
         Religion religion;
-        float currentY = 0;
-        float padding = 50;
-        private static float listHeight;
+        float height = 30;
+        float doubleHeight = 60;
+        float offset = 10;
         private static Vector2 scrollPosition;
         private Dialog_InfoCard.InfoCardTab tab;
 
@@ -46,7 +46,7 @@ namespace ReligionsOfRimworld
             this.soundClose = SoundDefOf.InfoCard_Close;
         }
 
-        private void Template(Rect inner, string header, int rows, int columns, IEnumerable<Action<Rect>> actions)
+        private void Template(Rect inner, string header, int rows, int columns, IEnumerable<Action<Rect>> actions, float height = 0)
         {
             Rect labelRect = new Rect(inner);
             labelRect.height = Verse.Text.CalcHeight(header, inner.width);
@@ -54,12 +54,13 @@ namespace ReligionsOfRimworld
 
             Rect toAction = inner.ContractedBy(20);
 
-            Template(inner.ContractedBy(20), rows, columns, actions);
+            Template(inner.ContractedBy(20), rows, columns, actions, height);
         }
 
-        private void Template(Rect inner, int rows, int columns, IEnumerable<Action<Rect>> actions)
+        private void Template(Rect inner, int rows, int columns, IEnumerable<Action<Rect>> actions, float height = 0)
         {
-            Vector2 size = new Vector2(inner.width / columns, inner.height / rows);
+            height = height == 0 ? inner.height / rows : height;
+            Vector2 size = new Vector2(inner.width / columns, height);
             float curX = inner.x;
             float curY = inner.y;
 
@@ -70,19 +71,27 @@ namespace ReligionsOfRimworld
                     actions.ElementAt(columns * i + j)(new Rect(new Vector2(curX, curY), size));
                     curX += size.x;
                 }
-                curY += size.y;
+                curY += size.y + offset;
                 curX = inner.x;
             }
         }
 
-        private string GetRange(PietyDef def)
+        private string GetRange(PietyDef def, out Color color)
         {
+            color = def.Stages.First().PietyOffset >= 0 ? Color.green : Color.red;
             return $"{def.Stages.First().PietyOffset} to {def.Stages.Last().PietyOffset}";
         }
 
-        private string GetRange(ThoughtDef def)
+        private string GetRange(ThoughtDef def, out Color color)
         {
+            color = def.stages.First().baseMoodEffect >= 0 ? Color.green : Color.red;
             return $"{def.stages.First().baseMoodEffect} to {def.stages.Last().baseMoodEffect}";
+        }
+
+        private string GetOpinionRange(ThoughtDef def, out Color color)
+        {
+            color = def.stages.First().baseOpinionOffset >= 0 ? Color.green : Color.red;
+            return $"{def.stages.First().baseOpinionOffset} to {def.stages.Last().baseOpinionOffset}";
         }
 
         public override void DoWindowContents(Rect inRect)
@@ -128,8 +137,8 @@ namespace ReligionsOfRimworld
 
                 Template(doctrines, "Doctrines", 2, 3, Doctrines());
                 Template(buildings, "Buildings", 1, Buildings().Count(), Buildings());
-                Template(criteriaRect, "Criteria", Criteria().Count(), 1, Criteria());
-                Template(opinionRect, "Opinion", Opinion().Count(), 1, Opinion());
+                Template(criteriaRect, "Criteria", Criteria().Count(), 1, Criteria(), height);
+                Template(opinionRect, "Opinion", Opinion().Count(), 1, Opinion(), height);
             }
             else if (tab == Dialog_InfoCard.InfoCardTab.Records)
             {
@@ -179,7 +188,7 @@ namespace ReligionsOfRimworld
                                 GUI.color = Color.white;
                             },
                             u => Widgets.Label(u, criteria.Reason)
-                        });
+                        }, height);
                     };
                 }
             }
@@ -201,12 +210,7 @@ namespace ReligionsOfRimworld
                         var op = oSettings.DefaultPropety.Witness;
                         Template(x, 1, 3, new Action<Rect>[3]
                         {
-                            u =>
-                            {
-                                GUI.color = op == null ? Color.white : op.OpinionThought.stages[0].baseOpinionOffset > 0 ? Color.green : Color.red;
-                                Widgets.Label(u, op == null ? "0" : $"{op.OpinionThought.stages[0].baseOpinionOffset} to {op.OpinionThought.stages.Last().baseOpinionOffset}");
-                                GUI.color = Color.white;
-                            },
+                            u => ColoredOpinionRange(u, op?.OpinionThought),
                             u =>
                             {
                                 GUI.color = Color.gray;
@@ -214,7 +218,7 @@ namespace ReligionsOfRimworld
                                 GUI.color = Color.white;
                             },
                             u => Widgets.Label(u, "Everyone")
-                        });
+                        }, height);
                     };
                 }
                 foreach (var opinion in oSettings.Properties)
@@ -224,12 +228,7 @@ namespace ReligionsOfRimworld
                         var op = opinion.Witness;
                         Template(x, 1, 3, new Action<Rect>[3]
                         {
-                            u =>
-                            {
-                                GUI.color = op == null ? Color.white : op.OpinionThought.stages[0].baseOpinionOffset > 0 ? Color.green : Color.red;
-                                Widgets.Label(u, op == null ? "0" : $"{op.OpinionThought.stages[0].baseOpinionOffset} to {op.OpinionThought.stages.Last().baseOpinionOffset}");
-                                GUI.color = Color.white;
-                            },
+                            u => ColoredOpinionRange(u, op?.OpinionThought),
                             u =>
                             {
                                 GUI.color = Color.gray;
@@ -237,7 +236,7 @@ namespace ReligionsOfRimworld
                                 GUI.color = Color.white;
                             },
                             u => Widgets.Label(u, opinion.GetObject().LabelCap)
-                        });
+                        }, height);
                     };
                 }
             }
@@ -286,11 +285,11 @@ namespace ReligionsOfRimworld
                                 u => Widgets.Label(u, "subjectThought"),
                                 u => Widgets.Label(u, "witnessPiety"),
                                 u => Widgets.Label(u, "witnessThought"),
-                    });
+                    }, height);
                     Rect outR = new Rect(z.x, z.y + 50, z.width, z.height);
                     Rect viewR = new Rect(z.x, z.y + 50, z.width - 16, z.height - 50);
                     Widgets.BeginScrollView(outR, ref scrollPosition, viewR, true);
-                    Template(viewR, SocialSettings().Concat(ActivitySettings()).Count(), 1, SocialSettings().Concat(ActivitySettings()));
+                    Template(viewR, SocialSettings().Concat(ActivitySettings()).Count(), 1, SocialSettings().Concat(ActivitySettings()), height);
                     Widgets.EndScrollView();
                 };
             }
@@ -309,11 +308,11 @@ namespace ReligionsOfRimworld
                                 u => Widgets.Label(u, "Default"),
                                 u => Widgets.Label(u, s.Tag.LabelCap),
                                 u => Widgets.Label(u, s.DefaultPropety.PawnCategory.ToString()),
-                                u => Widgets.Label(u, s.DefaultPropety.Subject?.Piety != null ? GetRange(s.DefaultPropety.Subject.Piety) : "-"),
-                                u => Widgets.Label(u, s.DefaultPropety.Subject?.Thought != null ? GetRange(s.DefaultPropety.Subject.Thought) : "-"),
-                                u => Widgets.Label(u, s.DefaultPropety.Witness?.Piety != null ? GetRange(s.DefaultPropety.Witness.Piety) : "-"),
-                                u => Widgets.Label(u, s.DefaultPropety.Witness?.Thought != null ? GetRange(s.DefaultPropety.Witness.Thought) : "-"),
-                        });
+                                u => ColoredRange(u, s.DefaultPropety.Subject?.Piety),
+                                u => ColoredRange(u, s.DefaultPropety.Subject?.Thought),
+                                u => ColoredRange(u, s.DefaultPropety.Witness?.Piety),
+                                u => ColoredRange(u, s.DefaultPropety.Witness?.Thought),
+                        }, doubleHeight);
                     };
                 }
                 foreach (var p in s.Properties)
@@ -325,11 +324,11 @@ namespace ReligionsOfRimworld
                                 u => Widgets.Label(u, p.GetObject().LabelCap),
                                 u => Widgets.Label(u, s.Tag.LabelCap),
                                 u => Widgets.Label(u, p.PawnCategory.ToString()),
-                                u => Widgets.Label(u, p.Subject?.Piety != null ? GetRange(p.Subject.Piety) : "-"),
-                                u => Widgets.Label(u, p.Subject?.Thought != null ? GetRange(p.Subject.Thought) : "-"),
-                                u => Widgets.Label(u, p.Witness?.Piety != null ? GetRange(p.Witness.Piety) : "-"),
-                                u => Widgets.Label(u, p.Witness?.Thought != null ? GetRange(p.Witness.Thought) : "-"),
-                        });
+                                u => ColoredRange(u, p.Subject?.Piety),
+                                u => ColoredRange(u, p.Subject?.Thought),
+                                u => ColoredRange(u, p.Witness?.Piety),
+                                u => ColoredRange(u, p.Witness?.Thought),
+                        }, doubleHeight);
                     };
                 }
             }
@@ -349,14 +348,53 @@ namespace ReligionsOfRimworld
                                 u => Widgets.Label(u, p.GetObject().LabelCap),
                                 u => Widgets.Label(u, aSettings.Tag.LabelCap),
                                 u => Widgets.Label(u, p.PawnCategory.ToString()),
-                                u => Widgets.Label(u, p.Subject?.Piety != null ? GetRange(p.Subject.Piety) : "-"),
-                                u => Widgets.Label(u, p.Subject?.Thought != null ? GetRange(p.Subject.Thought) : "-"),
-                                u => Widgets.Label(u, p.Witness?.Piety != null ? GetRange(p.Witness.Piety) : "-"),
-                                u => Widgets.Label(u, p.Witness?.Thought != null ? GetRange(p.Witness.Thought) : "-"),
-                        });
+                                u => ColoredRange(u, p.Subject?.Piety),
+                                u => ColoredRange(u, p.Subject?.Thought),
+                                u => ColoredRange(u, p.Witness?.Piety),
+                                u => ColoredRange(u, p.Witness?.Thought),
+                        }, doubleHeight);
                     };
                 }
             }
+        }
+
+        private void ColoredRange(Rect r, PietyDef def)
+        {
+            if (def != null)
+            {
+                string l = GetRange(def, out Color color);
+                GUI.color = color;
+                Widgets.Label(r, l);
+                GUI.color = Color.white;
+            }
+            else
+                Widgets.Label(r, "-");
+        }
+
+        private void ColoredRange(Rect r, ThoughtDef def)
+        {
+            if (def != null)
+            {
+                string l = GetRange(def, out Color color);
+                GUI.color = color;
+                Widgets.Label(r, l);
+                GUI.color = Color.white;
+            }
+            else
+                Widgets.Label(r, "-");
+        }
+
+        private void ColoredOpinionRange(Rect r, ThoughtDef def)
+        {
+            if (def != null)
+            {
+                string l = GetOpinionRange(def, out Color color);
+                GUI.color = color;
+                Widgets.Label(r, l);
+                GUI.color = Color.white;
+            }
+            else
+                Widgets.Label(r, "-");
         }
     }
 }
