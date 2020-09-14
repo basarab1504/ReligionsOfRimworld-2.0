@@ -12,6 +12,7 @@ namespace ReligionsOfRimworld
         public static void DoWindowContents(Rect fillRect, ref Vector2 scrollPosition, ref float scrollViewHeight)
         {
             Rect position = new Rect(0.0f, 0.0f, fillRect.width, fillRect.height);
+            Widgets.Label(position.ContractedBy(20), "ReligionInfo_ClickI".Translate());
             GUI.BeginGroup(position);
             Verse.Text.Font = GameFont.Small;
             GUI.color = Color.white;

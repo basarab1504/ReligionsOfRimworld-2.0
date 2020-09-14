@@ -311,6 +311,7 @@
     <Compile Include="CompReligion.cs" />
     <Compile Include="CompProperties_ReligionComp.cs" />
     <Compile Include="Dialog_ReligionInfoMain.cs" />
+    <Compile Include="ImportanceHelper.cs" />
     <Compile Include="JoyGiver_PrayInPrivateRoom.cs" />
     <Compile Include="DefaultPietyWorkers\PietyWorker_Apparel.cs" />
     <Compile Include="DefaultPietyWorkers\PietyWorker_ApparelStuff.cs" />
@@ -343,6 +344,7 @@
     <Compile Include="LordToil_ActivityStage.cs" />
     <Compile Include="MiscDefOf.cs" />
     <Compile Include="Need_Pray.cs" />
+    <Compile Include="PawnCategoryHelper.cs" />
     <Compile Include="Pawn_PrayTracker.cs" />
     <Compile Include="Pawn_ReligionRestrictions.cs" />
     <Compile Include="PrayUtility.cs" />

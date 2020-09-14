@@ -49,8 +49,10 @@ namespace ReligionsOfRimworld
         private void Template(Rect inner, string header, int rows, int columns, IEnumerable<Action<Rect>> actions, float height = 0)
         {
             Rect labelRect = new Rect(inner);
-            labelRect.height = Verse.Text.CalcHeight(header, inner.width);
+            labelRect.height = 40;
+            Text.Font = GameFont.Medium;
             Widgets.Label(labelRect, header);
+            Text.Font = GameFont.Small;
 
             Template(inner.ContractedBy(30), rows, columns, actions, height);
         }
@@ -191,7 +193,7 @@ namespace ReligionsOfRimworld
                             u =>
                             {
                                 GUI.color = Color.gray;
-                                Widgets.Label(u, criteria.Importance.ToString());
+                                Widgets.Label(u, criteria.Importance.Label());
                                 GUI.color = Color.white;
                                 TooltipHandler.TipRegion(u, (TipSignal)"CriteriaImportance".Translate());
                                 if (Mouse.IsOver(u))
@@ -224,7 +226,7 @@ namespace ReligionsOfRimworld
                             u =>
                             {
                                 GUI.color = Color.gray;
-                                Widgets.Label(u, oSettings.DefaultPropety.PawnCategory.ToString());
+                                Widgets.Label(u, oSettings.DefaultPropety.PawnCategory.Label());
                                 GUI.color = Color.white;
                                 TooltipHandler.TipRegion(u, (TipSignal)"Religion_PawnCategory".Translate());
                                 if (Mouse.IsOver(u))
@@ -245,7 +247,7 @@ namespace ReligionsOfRimworld
                             u =>
                             {
                                 GUI.color = Color.gray;
-                                Widgets.Label(u, opinion.PawnCategory.ToString());
+                                Widgets.Label(u, opinion.PawnCategory.Label());
                                 GUI.color = Color.white;
                                 TooltipHandler.TipRegion(u, (TipSignal)"Religion_PawnCategory".Translate());
                                 if (Mouse.IsOver(u))
@@ -378,7 +380,7 @@ namespace ReligionsOfRimworld
                                 u =>
                                 {
                                     GUI.color = Color.gray;
-                                    Widgets.Label(u, s.DefaultPropety.PawnCategory.ToString());
+                                    Widgets.Label(u, s.DefaultPropety.PawnCategory.Label());
                                     GUI.color = Color.white;
                                     TooltipHandler.TipRegion(u, (TipSignal)"Religion_PawnCategory".Translate());
                                     if (Mouse.IsOver(u))
@@ -407,7 +409,7 @@ namespace ReligionsOfRimworld
                                 u =>
                                 {
                                     GUI.color = Color.gray;
-                                    Widgets.Label(u, p.PawnCategory.ToString());
+                                    Widgets.Label(u, p.PawnCategory.Label());
                                     GUI.color = Color.white;
                                     TooltipHandler.TipRegion(u, (TipSignal)"Religion_PawnCategory".Translate());
                                     if (Mouse.IsOver(u))
@@ -444,7 +446,7 @@ namespace ReligionsOfRimworld
                                 u =>
                                 {
                                     GUI.color = Color.gray;
-                                    Widgets.Label(u, p.PawnCategory.ToString());
+                                    Widgets.Label(u, p.PawnCategory.Label());
                                     GUI.color = Color.white;
                                     TooltipHandler.TipRegion(u, (TipSignal)"Religion_PawnCategory".Translate());
                                     if (Mouse.IsOver(u))

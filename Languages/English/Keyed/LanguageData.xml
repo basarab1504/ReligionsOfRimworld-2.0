@@ -101,4 +101,15 @@
     <Religion_WitnessThought>Thought as witness</Religion_WitnessThought>
     <Religion_WitnessThoughtDesc>The amount of mood that your character will receive if he is the witness of the action</Religion_WitnessThoughtDesc>
     <Religion_Everyone>Everyone</Religion_Everyone>
+    <ReligionInfo_ClickI>Click on "i" button to get full info</ReligionInfo_ClickI>
+    <PawnCategoryEveryone>Everyone</PawnCategoryEveryone>
+    <PawnCategoryHostile>Hostile</PawnCategoryHostile>
+    <PawnCategoryPeaceful>Peaceful</PawnCategoryPeaceful>
+    <PawnCategorySameFaction>Same faction</PawnCategorySameFaction>
+    <PawnCategorySameReligion>Same religion</PawnCategorySameReligion>
+    <PawnCategorySameReligionGroup>Same religion group</PawnCategorySameReligionGroup>
+    <CriteriaImportanceLow>Low</CriteriaImportanceLow>
+    <CriteriaImportanceRegular>Regular</CriteriaImportanceRegular>
+    <CriteriaImportanceImportant>Important</CriteriaImportanceImportant>
+    <CriteriaImportanceCritical>Critical</CriteriaImportanceCritical>
 </LanguageData>

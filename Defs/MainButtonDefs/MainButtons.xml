@@ -9,6 +9,8 @@
     <order>90</order>
     <defaultHotKey>F12</defaultHotKey>
     <validWithoutMap>true</validWithoutMap>
+    <minimized>True</minimized>
+    <iconPath>Things/Symbols/ReligionMenuUI</iconPath>
   </MainButtonDef>
 
 </Defs>
