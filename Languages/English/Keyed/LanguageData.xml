@@ -1,74 +1,104 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-<ReligionInfo_Religion>Religion</ReligionInfo_Religion>
-<ReligionInfo_Description>Description</ReligionInfo_Description>
-<ReligionInfo_Criteria>Criteria</ReligionInfo_Criteria>
-<ReligionInfo_SeekerFallPerHour>Fall per hour</ReligionInfo_SeekerFallPerHour>
-<ReligionInfo_PrayJob>Pray job</ReligionInfo_PrayJob>
-<ReligionInfo_PrayNeed>Pray need</ReligionInfo_PrayNeed>
-<ReligionInfo_Building>Building</ReligionInfo_Building>
-<ReligionInfo_GroupTag>Group tag</ReligionInfo_GroupTag>
-<ReligionInfo_Object>Object</ReligionInfo_Object>
-<ReligionInfo_IndividualThought>Individual thought</ReligionInfo_IndividualThought>
-<ReligionInfo_SocialThought>Social thought</ReligionInfo_SocialThought>
-<ReligionInfo_IndividualPiety>Individual piety</ReligionInfo_IndividualPiety>
-<ReligionInfo_PietySituational>Piety situational</ReligionInfo_PietySituational>
-<ReligionInfo_DurationDays>Duration days</ReligionInfo_DurationDays>
-<ReligionInfo_Stages>Stages</ReligionInfo_Stages>
-<ReligionInfo_Stage>Stage</ReligionInfo_Stage>
-<ReligionInfo_PietyOffset>Piety effect</ReligionInfo_PietyOffset>
-<ReligionInfo_BaseMoodEffect>Mood effect</ReligionInfo_BaseMoodEffect>
-<ReligionInfo_BaseOpinionOffset>Opinion effect</ReligionInfo_BaseOpinionOffset>
-<ReligionInfo_BaseChanceOfConversation>Base chance of conversation</ReligionInfo_BaseChanceOfConversation>
-<ReligionInfo_MoodFactorCurve>Mood factor curve</ReligionInfo_MoodFactorCurve>
-<ReligionInfo_OpinionFactorCurve>Opinion factor curve</ReligionInfo_OpinionFactorCurve>
-<ReligionInfo_ActivityStartHour>Start hour</ReligionInfo_ActivityStartHour>
-<ReligionInfo_ActivityPawnRestriction>Pawn restriction</ReligionInfo_ActivityPawnRestriction>
-<ReligionInfo_PietyNeed>Piety</ReligionInfo_PietyNeed>
-<ReligionInfo_Unavaliable>Unavaliable</ReligionInfo_Unavaliable>
-<ReligionInfo_WrongReligion>Wrong religion: {0}</ReligionInfo_WrongReligion>
-<ReligionInfo_ActivityPawnHumanlike>Activity pawn</ReligionInfo_ActivityPawnHumanlike>
-<ReligionInfo_IsPrisonerOfColony>Is prisoner of colony</ReligionInfo_IsPrisonerOfColony>
-<ReligionInfo_ActivityPawnAnimal>Activity animal</ReligionInfo_ActivityPawnAnimal>
-<ReligionInfo_IsTamed>Is tamed</ReligionInfo_IsTamed>
-<ReligionInfo_Day>Day {0}</ReligionInfo_Day>
-<ReligionInfo_AddTask>Add task</ReligionInfo_AddTask>
-<ReligionInfo_NowBelieveIn>Now believe in</ReligionInfo_NowBelieveIn>
-<ReligionInfo_IsNowReligious>Is now religious</ReligionInfo_IsNowReligious>
-<ReligionInfo_CriteriaImportance>Criteria importance</ReligionInfo_CriteriaImportance>
-<ReligionInfo_BuildingIsNotAvaliable>Building is not avaliable</ReligionInfo_BuildingIsNotAvaliable>
-<ReligionInfo_NoPawnsOfReligion>No pawns of {0}</ReligionInfo_NoPawnsOfReligion>
-<ReligionInfo_Activity>Activity</ReligionInfo_Activity>
-<ReligionInfo_NoAssignedReligion>No assigned religion</ReligionInfo_NoAssignedReligion>
-<ReligiousBuilgingAssigner_SelectABuilding>Select a building</ReligiousBuilgingAssigner_SelectABuilding>
-<ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign>Building is not complete to assign</ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign>
-<ReligiousBuilgingAssigner_BuildingWasUnassigned>Building was unassigned</ReligiousBuilgingAssigner_BuildingWasUnassigned>
-<ReligiousBuilgingAssigner_AssigningIsNotAllowed>Assigning is not allowed</ReligiousBuilgingAssigner_AssigningIsNotAllowed>
-<ReligiousBuilgingAssigner_AssignBuildings>Assign building</ReligiousBuilgingAssigner_AssignBuildings>
-<ReligiousBuilgingAssigner_AssignBuildingsDesc>description</ReligiousBuilgingAssigner_AssignBuildingsDesc>
-<ReligionInfo_AssignReligion>Assign religion</ReligionInfo_AssignReligion>
-<ReligionInfo_AssignReligionDesc>desc</ReligionInfo_AssignReligionDesc>
-<ReligionInfo_PietyOverall>Piety overall</ReligionInfo_PietyOverall>
-<ReligionInfo_Overall>Overall</ReligionInfo_Overall>
-<ReligionInfo_Restrictions>Restrictions</ReligionInfo_Restrictions>
-<ReligionInfo_RestrictAttend>Attend</ReligionInfo_RestrictAttend>
-<ReligionInfo_DoReligionActivities>Activites</ReligionInfo_DoReligionActivities>
-<ReligionInfo_DoPrayings>Prayings</ReligionInfo_DoPrayings>
-<ReligionInfo_Compabilities>Compabilities</ReligionInfo_Compabilities>
-<ReligionInfo_Incident>Incident</ReligionInfo_Incident>
-<ReligionInfo_MentalBreak>Mental break</ReligionInfo_MentalBreak>
-<ReligionTab>Religion tab</ReligionTab>
-<ReligionTutorTag>Religion</ReligionTutorTag>
-<ReligionInfo_AndXTasksMore>And {0} tasks more</ReligionInfo_AndXTasksMore>
-<ReligionInfo_AsSubject>As subject</ReligionInfo_AsSubject>
-<ReligionInfo_AsWitness>As witness</ReligionInfo_AsWitness>
-<ReligionInfo_OrganizerProperty>Organizer property</ReligionInfo_OrganizerProperty>
-<ReligionInfo_CongregationProperty>Congregation property</ReligionInfo_CongregationProperty>
-<ReligionInfo_PawnCategory>The category of characters to which these properties will belong: {0}</ReligionInfo_PawnCategory>
-<ReligionInfo_PawnIngredientWarning>Pawns will not take any other pawn before you choose it</ReligionInfo_PawnIngredientWarning>
-<ReligionInfo_DefaultPreacher>Default preacher</ReligionInfo_DefaultPreacher>
-<ReligionInfo_DefaultProperty>Default property</ReligionInfo_DefaultProperty>
-<ReligionInfo_DefaultPropertyDesc>Default property description</ReligionInfo_DefaultPropertyDesc>
-<TabTasks>Tasks</TabTasks>
-<TabReligion>Religion</TabReligion>
+    <ReligionInfo_Religion>Religion</ReligionInfo_Religion>
+    <ReligionInfo_Description>Description</ReligionInfo_Description>
+    <ReligionInfo_Criteria>Criteria</ReligionInfo_Criteria>
+    <ReligionInfo_SeekerFallPerHour>Fall per hour</ReligionInfo_SeekerFallPerHour>
+    <ReligionInfo_PrayJob>Pray job</ReligionInfo_PrayJob>
+    <ReligionInfo_PrayNeed>Pray need</ReligionInfo_PrayNeed>
+    <ReligionInfo_Building>Building</ReligionInfo_Building>
+    <ReligionInfo_GroupTag>Group tag</ReligionInfo_GroupTag>
+    <ReligionInfo_Object>Object</ReligionInfo_Object>
+    <ReligionInfo_IndividualThought>Individual thought</ReligionInfo_IndividualThought>
+    <ReligionInfo_SocialThought>Social thought</ReligionInfo_SocialThought>
+    <ReligionInfo_IndividualPiety>Individual piety</ReligionInfo_IndividualPiety>
+    <ReligionInfo_PietySituational>Piety situational</ReligionInfo_PietySituational>
+    <ReligionInfo_DurationDays>Duration days</ReligionInfo_DurationDays>
+    <ReligionInfo_Stages>Stages</ReligionInfo_Stages>
+    <ReligionInfo_Stage>Stage</ReligionInfo_Stage>
+    <ReligionInfo_PietyOffset>Piety effect</ReligionInfo_PietyOffset>
+    <ReligionInfo_BaseMoodEffect>Mood effect</ReligionInfo_BaseMoodEffect>
+    <ReligionInfo_BaseOpinionOffset>Opinion effect</ReligionInfo_BaseOpinionOffset>
+    <ReligionInfo_BaseChanceOfConversation>Base chance of conversation</ReligionInfo_BaseChanceOfConversation>
+    <ReligionInfo_MoodFactorCurve>Mood factor curve</ReligionInfo_MoodFactorCurve>
+    <ReligionInfo_OpinionFactorCurve>Opinion factor curve</ReligionInfo_OpinionFactorCurve>
+    <ReligionInfo_ActivityStartHour>Start hour</ReligionInfo_ActivityStartHour>
+    <ReligionInfo_ActivityPawnRestriction>Pawn restriction</ReligionInfo_ActivityPawnRestriction>
+    <ReligionInfo_PietyNeed>Piety</ReligionInfo_PietyNeed>
+    <ReligionInfo_Unavaliable>Unavaliable</ReligionInfo_Unavaliable>
+    <ReligionInfo_WrongReligion>Wrong religion: {0}</ReligionInfo_WrongReligion>
+    <ReligionInfo_ActivityPawnHumanlike>Activity pawn</ReligionInfo_ActivityPawnHumanlike>
+    <ReligionInfo_IsPrisonerOfColony>Is prisoner of colony</ReligionInfo_IsPrisonerOfColony>
+    <ReligionInfo_ActivityPawnAnimal>Activity animal</ReligionInfo_ActivityPawnAnimal>
+    <ReligionInfo_IsTamed>Is tamed</ReligionInfo_IsTamed>
+    <ReligionInfo_Day>Day {0}</ReligionInfo_Day>
+    <ReligionInfo_AddTask>Add task</ReligionInfo_AddTask>
+    <ReligionInfo_NowBelieveIn>Now believe in</ReligionInfo_NowBelieveIn>
+    <ReligionInfo_IsNowReligious>Is now religious</ReligionInfo_IsNowReligious>
+    <ReligionInfo_CriteriaImportance>Criteria importance</ReligionInfo_CriteriaImportance>
+    <ReligionInfo_BuildingIsNotAvaliable>Building is not avaliable</ReligionInfo_BuildingIsNotAvaliable>
+    <ReligionInfo_NoPawnsOfReligion>No pawns of {0}</ReligionInfo_NoPawnsOfReligion>
+    <ReligionInfo_Activity>Activity</ReligionInfo_Activity>
+    <ReligionInfo_NoAssignedReligion>No assigned religion</ReligionInfo_NoAssignedReligion>
+    <ReligiousBuilgingAssigner_SelectABuilding>Select a building</ReligiousBuilgingAssigner_SelectABuilding>
+    <ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign>Building is not complete to assign</ReligiousBuilgingAssigner_BuildingIsNotCompleteToAssign>
+    <ReligiousBuilgingAssigner_BuildingWasUnassigned>Building was unassigned</ReligiousBuilgingAssigner_BuildingWasUnassigned>
+    <ReligiousBuilgingAssigner_AssigningIsNotAllowed>Assigning is not allowed</ReligiousBuilgingAssigner_AssigningIsNotAllowed>
+    <ReligiousBuilgingAssigner_AssignBuildings>Assign building</ReligiousBuilgingAssigner_AssignBuildings>
+    <ReligiousBuilgingAssigner_AssignBuildingsDesc>description</ReligiousBuilgingAssigner_AssignBuildingsDesc>
+    <ReligionInfo_AssignReligion>Assign religion</ReligionInfo_AssignReligion>
+    <ReligionInfo_AssignReligionDesc>desc</ReligionInfo_AssignReligionDesc>
+    <ReligionInfo_PietyOverall>Piety overall</ReligionInfo_PietyOverall>
+    <ReligionInfo_Overall>Overall</ReligionInfo_Overall>
+    <ReligionInfo_Restrictions>Restrictions</ReligionInfo_Restrictions>
+    <ReligionInfo_RestrictAttend>Attend</ReligionInfo_RestrictAttend>
+    <ReligionInfo_DoReligionActivities>Activites</ReligionInfo_DoReligionActivities>
+    <ReligionInfo_DoPrayings>Prayings</ReligionInfo_DoPrayings>
+    <ReligionInfo_Compabilities>Compabilities</ReligionInfo_Compabilities>
+    <ReligionInfo_Incident>Incident</ReligionInfo_Incident>
+    <ReligionInfo_MentalBreak>Mental break</ReligionInfo_MentalBreak>
+    <ReligionTab>Religion tab</ReligionTab>
+    <ReligionTutorTag>Religion</ReligionTutorTag>
+    <ReligionInfo_AndXTasksMore>And {0} tasks more</ReligionInfo_AndXTasksMore>
+    <ReligionInfo_AsSubject>As subject</ReligionInfo_AsSubject>
+    <ReligionInfo_AsWitness>As witness</ReligionInfo_AsWitness>
+    <ReligionInfo_OrganizerProperty>Organizer property</ReligionInfo_OrganizerProperty>
+    <ReligionInfo_CongregationProperty>Congregation property</ReligionInfo_CongregationProperty>
+    <ReligionInfo_PawnIngredientWarning>Pawns will not take any other pawn before you choose it</ReligionInfo_PawnIngredientWarning>
+    <ReligionInfo_DefaultPreacher>Default preacher</ReligionInfo_DefaultPreacher>
+    <ReligionInfo_DefaultProperty>Default property</ReligionInfo_DefaultProperty>
+    <ReligionInfo_DefaultPropertyDesc>Default property description</ReligionInfo_DefaultPropertyDesc>
+    <TabTasks>Tasks</TabTasks>
+    <TabReligion>Religion</TabReligion>
+    <Religion_To>to</Religion_To>
+    <Religion_Main>Main</Religion_Main>
+    <Religion_SocialSettings>Social</Religion_SocialSettings>
+    <Religion_Doctrines>Doctrines</Religion_Doctrines>
+    <Religion_Buildings>Buildings</Religion_Buildings>
+    <Religion_Opinion>Opinions</Religion_Opinion>
+    <Religion_Criteria>Criteria</Religion_Criteria>
+    <Religion_NoSuchSettings>No such settings</Religion_NoSuchSettings>
+    <ShouldHave>Describes should your pawn have this trait</ShouldHave>
+    <CriteriaImportance>The higher the importance, the more the presence/absence of this trait will affect your pawn</CriteriaImportance>
+    <Religion_PawnCategory>The category of pawns, when interacting with which this setting will be active.</Religion_PawnCategory>
+    <Religion_HavePiety>Does have piety</Religion_HavePiety>
+    <Religion_ConvertTalks>Can convert through talks</Religion_ConvertTalks>
+    <Religion_ConvertIncidents>Can convert through incidents</Religion_ConvertIncidents>
+    <Religion_ConvertMentalBreaks>Can convert through metnal breaks</Religion_ConvertMentalBreaks>
+    <Religion_CanPray>Can pray</Religion_CanPray>
+    <Religion_HaveActivities>Does have worships</Religion_HaveActivities>
+    <Religion_Cause>Cause</Religion_Cause>
+    <Religion_CauseDesc></Religion_CauseDesc>
+    <Religion_Settings>Settings</Religion_Settings>
+    <Religion_SettingsDesc></Religion_SettingsDesc>
+    <Religion_Category>Pawn category</Religion_Category>
+    <Religion_SubjectThought>Thought as subject</Religion_SubjectThought>
+    <Religion_SubjectThoughtDesc>The amount of mood that your character will receive if he is the subject of the action</Religion_SubjectThoughtDesc>
+    <Religion_SubjectPiety>Piety as subject</Religion_SubjectPiety>
+    <Religion_SubjectPietyDesc>The amount of piety that your character will receive if he is the subject of the action</Religion_SubjectPietyDesc>
+    <Religion_WitnessPiety>Piety as witness</Religion_WitnessPiety>
+    <Religion_WitnessPietyDesc>The amount of piety that your character will receive if he is the witness of the action</Religion_WitnessPietyDesc>
+    <Religion_WitnessThought>Thought as witness</Religion_WitnessThought>
+    <Religion_WitnessThoughtDesc>The amount of mood that your character will receive if he is the witness of the action</Religion_WitnessThoughtDesc>
+    <Religion_Everyone>Everyone</Religion_Everyone>
 </LanguageData>
