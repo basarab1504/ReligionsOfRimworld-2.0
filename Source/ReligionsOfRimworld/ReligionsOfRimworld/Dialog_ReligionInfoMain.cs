@@ -52,9 +52,7 @@ namespace ReligionsOfRimworld
             labelRect.height = Verse.Text.CalcHeight(header, inner.width);
             Widgets.Label(labelRect, header);
 
-            Rect toAction = inner.ContractedBy(20);
-
-            Template(inner.ContractedBy(20), rows, columns, actions, height);
+            Template(inner.ContractedBy(30), rows, columns, actions, height);
         }
 
         private void Template(Rect inner, int rows, int columns, IEnumerable<Action<Rect>> actions, float height = 0)
@@ -79,19 +77,19 @@ namespace ReligionsOfRimworld
         private string GetRange(PietyDef def, out Color color)
         {
             color = def.Stages.First().PietyOffset >= 0 ? Color.green : Color.red;
-            return $"{def.Stages.First().PietyOffset} to {def.Stages.Last().PietyOffset}";
+            return $"{def.Stages.First().PietyOffset} {"to".Translate()} {def.Stages.Last().PietyOffset}";
         }
 
         private string GetRange(ThoughtDef def, out Color color)
         {
             color = def.stages.First().baseMoodEffect >= 0 ? Color.green : Color.red;
-            return $"{def.stages.First().baseMoodEffect} to {def.stages.Last().baseMoodEffect}";
+            return $"{def.stages.First().baseMoodEffect} {"to".Translate()} {def.stages.Last().baseMoodEffect}";
         }
 
         private string GetOpinionRange(ThoughtDef def, out Color color)
         {
             color = def.stages.First().baseOpinionOffset >= 0 ? Color.green : Color.red;
-            return $"{def.stages.First().baseOpinionOffset} to {def.stages.Last().baseOpinionOffset}";
+            return $"{def.stages.First().baseOpinionOffset} {"to".Translate()} {def.stages.Last().baseOpinionOffset}";
         }
 
         public override void DoWindowContents(Rect inRect)
@@ -135,14 +133,14 @@ namespace ReligionsOfRimworld
 
                 Template(description, religion.Label, 1, 1, new Action<Rect>[1] { x => Widgets.Label(x, religion.Description) });
 
-                Template(doctrines, "Doctrines", 2, 3, Doctrines());
-                Template(buildings, "Buildings", 1, Buildings().Count(), Buildings());
-                Template(criteriaRect, "Criteria", Criteria().Count(), 1, Criteria(), height);
-                Template(opinionRect, "Opinion", Opinion().Count(), 1, Opinion(), height);
+                Template(doctrines, "Religion_Doctrines".Translate(), 2, 3, Doctrines());
+                Template(buildings, "Religion_Buildings".Translate(), 1, Buildings().Count(), Buildings());
+                Template(criteriaRect, "Religion_Criteria".Translate(), Criteria().Count(), 1, Criteria(), height);
+                Template(opinionRect, "Religion_Opinion".Translate(), Opinion().Count(), 1, Opinion(), height);
             }
             else if (tab == Dialog_InfoCard.InfoCardTab.Records)
             {
-                Template(inner, "Social", 1, 1, SocialSettingsHeader());
+                Template(inner, "Religion_Social".Translate(), 1, 1, SocialSettingsHeader());
             }
         }
 
@@ -160,6 +158,9 @@ namespace ReligionsOfRimworld
                     yield return x =>
                     {
                         Widgets.DrawTextureFitted(x, building.uiIcon, 1);
+                        TooltipHandler.TipRegion(x, (TipSignal)building.LabelCap);
+                        if (Mouse.IsOver(x))
+                            Widgets.DrawHighlight(x);
                     };
                 }
             }
@@ -180,12 +181,21 @@ namespace ReligionsOfRimworld
                     {
                         Template(x, 1, 3, new Action<Rect>[3]
                         {
-                            u => Widgets.DrawTextureFitted(u, criteria.ShouldHave ? GraphicsCache.CheckboxOnTex : GraphicsCache.CheckboxOffTex, 1),
+                            u =>
+                            {
+                                Widgets.DrawTextureFitted(u, criteria.ShouldHave ? GraphicsCache.CheckboxOnTex : GraphicsCache.CheckboxOffTex, 1);
+                                TooltipHandler.TipRegion(u, (TipSignal)"ShouldHave".Translate());
+                                if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
+                            },
                             u =>
                             {
                                 GUI.color = Color.gray;
                                 Widgets.Label(u, criteria.Importance.ToString());
                                 GUI.color = Color.white;
+                                TooltipHandler.TipRegion(u, (TipSignal)"CriteriaImportance".Translate());
+                                if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
                             },
                             u => Widgets.Label(u, criteria.Reason)
                         }, height);
@@ -216,9 +226,12 @@ namespace ReligionsOfRimworld
                                 GUI.color = Color.gray;
                                 Widgets.Label(u, oSettings.DefaultPropety.PawnCategory.ToString());
                                 GUI.color = Color.white;
+                                TooltipHandler.TipRegion(u, (TipSignal)"PawnCategory".Translate());
+                                if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
                             },
                             u => Widgets.Label(u, "Everyone")
-                        }, height);
+                    }, height);
                     };
                 }
                 foreach (var opinion in oSettings.Properties)
@@ -234,6 +247,9 @@ namespace ReligionsOfRimworld
                                 GUI.color = Color.gray;
                                 Widgets.Label(u, opinion.PawnCategory.ToString());
                                 GUI.color = Color.white;
+                                TooltipHandler.TipRegion(u, (TipSignal)"PawnCategory".Translate());
+                                if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
                             },
                             u => Widgets.Label(u, opinion.GetObject().LabelCap)
                         }, height);
@@ -244,23 +260,26 @@ namespace ReligionsOfRimworld
 
         private IEnumerable<Action<Rect>> Doctrines()
         {
-            List<Tuple<string, bool>> settings = new List<Tuple<string, bool>>();
-            settings.Add(new Tuple<string, bool>("Have piety", religion.GetSettings(SettingsTagDefOf.NeedTag) != null));
-            settings.Add(new Tuple<string, bool>("Can converts through talks", religion.GetSettings(SettingsTagDefOf.TalksTag) != null));
-            settings.Add(new Tuple<string, bool>("Can converts through incidents", religion.GetSettings(SettingsTagDefOf.IncidentsTag) != null));
-            settings.Add(new Tuple<string, bool>("Can converts through breakdowns", religion.GetSettings(SettingsTagDefOf.MentalBreaksTag) != null));
-            settings.Add(new Tuple<string, bool>("Can pray", religion.GetSettings(SettingsTagDefOf.PrayingsTag) != null));
-            settings.Add(new Tuple<string, bool>("Have actitvites", religion.GetSettings(SettingsTagDefOf.ActivityTag) != null));
+            List<Tuple<string, ReligionSettings>> settings = new List<Tuple<string, ReligionSettings>>();
+            settings.Add(new Tuple<string, ReligionSettings>("Religion_HavePiety".Translate(), religion.GetSettings(SettingsTagDefOf.NeedTag)));
+            settings.Add(new Tuple<string, ReligionSettings>("Religion_ConvertTalks".Translate(), religion.GetSettings(SettingsTagDefOf.TalksTag)));
+            settings.Add(new Tuple<string, ReligionSettings>("Religion_ConvertIncidents".Translate(), religion.GetSettings(SettingsTagDefOf.IncidentsTag)));
+            settings.Add(new Tuple<string, ReligionSettings>("Religion_ConvertMentalBreaks".Translate(), religion.GetSettings(SettingsTagDefOf.MentalBreaksTag)));
+            settings.Add(new Tuple<string, ReligionSettings>("Religion_CanPray".Translate(), religion.GetSettings(SettingsTagDefOf.PrayingsTag)));
+            settings.Add(new Tuple<string, ReligionSettings>("Religion_HaveActivities".Translate(), religion.GetSettings(SettingsTagDefOf.ActivityTag)));
 
             foreach (var s in settings)
             {
                 yield return x =>
                 {
-                    Vector2 size = x.size / 2;
+                    Vector2 size = new Vector2(x.size.x, x.size.y / 2);
                     Widgets.Label(new Rect(x.x, x.y, size.x, size.y), s.Item1);
-                    GUI.color = s.Item2 ? Color.green : Color.red;
-                    Widgets.Label(new Rect(x.x, x.y + size.y, size.x, size.y), s.Item2.ToString());
+                    GUI.color = s.Item2 != null ? Color.green : Color.red;
+                    Widgets.Label(new Rect(x.x, x.y + size.y, size.x, size.y), (s.Item2 != null).ToString());
                     GUI.color = Color.white;
+                    TooltipHandler.TipRegion(x, s.Item2?.Description);
+                    if (Mouse.IsOver(x))
+                        Widgets.DrawHighlight(x);
                 };
             }
         }
@@ -278,13 +297,55 @@ namespace ReligionsOfRimworld
                 {
                     Template(z, 1, 7, new Action<Rect>[7]
                     {
-                                u => Widgets.Label(u, "cause"),
-                                u => Widgets.Label(u, "settings"),
-                                u => Widgets.Label(u, "category"),
-                                u => Widgets.Label(u, "subjectPiety"),
-                                u => Widgets.Label(u, "subjectThought"),
-                                u => Widgets.Label(u, "witnessPiety"),
-                                u => Widgets.Label(u, "witnessThought"),
+                                u =>
+                                {
+                                    Widgets.Label(u, "Religion_Cause".Translate());
+                                    TooltipHandler.TipRegion(u, "Religion_CauseDesc".Translate());
+                                    if (Mouse.IsOver(u))
+                                        Widgets.DrawHighlight(u);
+                                },
+                                u =>
+                                {
+                                    Widgets.Label(u, "Religion_Settings".Translate());
+                                    TooltipHandler.TipRegion(u, "Religion_SettingsDesc".Translate());
+                                    if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
+                                },
+                                u =>
+                                {
+                                    Widgets.Label(u, "Religion_Category".Translate());
+                                    TooltipHandler.TipRegion(u, "Religion_CategoryDesc".Translate());
+                                    if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
+                                },
+                                u =>
+                                {
+                                    Widgets.Label(u, "Religion_SubjectPiety".Translate());
+                                    TooltipHandler.TipRegion(u, "Religion_SubjectPietyDesc".Translate());
+                                    if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
+                                },
+                                u =>
+                                {
+                                    Widgets.Label(u, "Religion_SubjectThought".Translate());
+                                    TooltipHandler.TipRegion(u, "Religion_SubjectThoughtDesc".Translate());
+                                    if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
+                                },
+                                u =>
+                                {
+                                    Widgets.Label(u, "Religion_WitnessPiety".Translate());
+                                    TooltipHandler.TipRegion(u, "Religion_WitnessPietyDesc".Translate());
+                                    if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
+                                },
+                                u =>
+                                {
+                                    Widgets.Label(u, "Religion_WitnessThought".Translate());
+                                    TooltipHandler.TipRegion(u, "Religion_WitnessThoughtDesc".Translate());
+                                    if (Mouse.IsOver(u))
+                                    Widgets.DrawHighlight(u);
+                                },
                     }, height);
                     Rect outR = new Rect(z.x, z.y + 50, z.width, z.height);
                     Rect viewR = new Rect(z.x, z.y + 50, z.width - 16, z.height - 50);
@@ -305,7 +366,7 @@ namespace ReligionsOfRimworld
                     {
                         Template(z, 1, 7, new Action<Rect>[7]
                         {
-                                u => Widgets.Label(u, "Default"),
+                                u => Widgets.Label(u, "Default".Translate()),
                                 u => Widgets.Label(u, s.Tag.LabelCap),
                                 u => Widgets.Label(u, s.DefaultPropety.PawnCategory.ToString()),
                                 u => ColoredRange(u, s.DefaultPropety.Subject?.Piety),
